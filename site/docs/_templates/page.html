@@ -1,34 +1,54 @@
 {%- extends "layout.html" %}
 
 {% block content %}
-<div class="container-fluid documentations main-content">
+<div class="container-fluid documentations main-content" role="main">
     <div class="row">
-        <div class="col-md-2 product-version-selector">
-            <div class="info-bar">
+        <div class="col-md-2">
+            <div class="doc-nav-wrapper">
+                <div class="info-bar">
+                    <select class="form-control" id="productDocumentationSelector"
+                        name="product-documentation-selector">
+                        <option value="commerce">
+                            {% trans %}Commerce{% endtrans %}
+                        </option>
+                        <option value="dxp-cloud">
+                            {% trans %}DXP Cloud{% endtrans %}
+                        </option>
+                    </select>
+                </div>
 
-            </div>
+                <div class="doc-nav">
+                    <a class="back-link btn btn-monospaced btn-link" href="javascript:;" id="backLink">
+                        <svg class="lexicon-icon lexicon-icon-angle-left" role="presentation" viewBox="0 0 512 512">
+                            <use xlink:href="#angle-left" />
+                        </svg>
+                        {% trans %}Go Back{% endtrans %}
+                    </a>
 
-            <div class="doc-nav">
-                {% block sidebar1 %}
-                {{ toctree() }}
-
-                {% endblock %}
+                    {% block sidebar1 %}
+                    {{ toctree(titles_only=True) }}
+                    {% endblock %}
+                </div>
             </div>
         </div>
 
         <div class="col-md-10 doc-body">
             <div class="col-md-12 general-info info-bar">
-                {% include "breadcrumb.html" %}
+                <div class="breadcrumb-wrapper col-md-7 offset-md-1">
+                    {% include "breadcrumb.html" %}
+                </div>
 
-                <div class="actions">
-                    <svg>
-                        <use xlink:href="#github"></use>
-                    </svg>
+                <div class="actions col-md-2 offset-md-1">
+                    <a href="https://github.com/liferay/liferay-learn">
+                        <svg>
+                            <use xlink:href="#github-logo"></use>
+                        </svg>
+                    </a>
                 </div>
             </div>
 
             <div class="col-md-12 doc-content row">
-                <div class="col-md-6 article-body offset-md-1">
+                <div class="col-md-7 article-body offset-md-1">
                     {% block document %}
                     {{ body }}
                     {% endblock %}
@@ -43,6 +63,8 @@
 </div>
 
 <script>
+    // Table of contents reading indicator
+
     const headings = document.querySelectorAll('.article-body h2');
 
     let activeIndex;
@@ -53,7 +75,7 @@
 
         headings.forEach(
             heading => {
-                const id = heading.children[0].hash.replace('#', '');
+                const id = heading.querySelector('a').hash.replace('#', '');
 
                 if (articleTOC) {
                     articleTOC.innerHTML += `
@@ -80,10 +102,12 @@
             }
         });
 
-        toggleActiveClass(targets[activeIndex].id);
+        if (targets[activeIndex]) {
+            toggleActiveClass(targets[activeIndex].id);
+        }
     };
 
-    // rootMargin of 157px is header height + info bar height + 24px gutter offset 
+    // rootMargin of 157px is header height + info bar height + 24px gutter offset
 
     const observer = new IntersectionObserver(callback, { rootMargin: '-157px', threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] });
 
@@ -108,7 +132,7 @@
     }
 
     targets.forEach(target => {
-        const node = document.getElementById(target.id);
+        const node = target.id ? document.getElementById(target.id) : null;
 
         if (node) {
             observer.observe(node);
@@ -116,5 +140,75 @@
             node.style.cssText = "margin-top: -157px; padding-top: 157px;"
         }
     });
+
+    // Documentation dropdwon
+
+    const breadcrumbAncestor = document.querySelector('.breadcrumb-parent');
+    const breadcrumbCurrentArticle = document.getElementById('breadcrumbCurrentArticle');
+
+    const productDocumentationSelector = document.getElementById('productDocumentationSelector');
+
+    if (breadcrumbCurrentArticle && productDocumentationSelector) {
+
+        // Preselect documentation dropdown to be the current article's product
+
+        const currentDocProduct = breadcrumbAncestor ? breadcrumbAncestor : breadcrumbCurrentArticle;
+
+        const currentDocProductValue = currentDocProduct.innerText.replace(/\s/g, '-').toLowerCase();
+
+        productDocumentationSelector.value = currentDocProductValue;
+
+        // Route user to the selected documentation landing page
+
+        productDocumentationSelector.addEventListener('click', event => {
+            if (event.target.value !== currentDocProductValue) {
+                window.location.pathname = currentDocProductValue === 'commerce' ? '/dxp-cloud-latest/index.html' : '/commerce-2.x/index.html';
+            }
+        });
+    }
+
+    // Left nav interaction
+
+    const activeNavL1 = document.querySelector('.toctree-l1.current');
+    const nonActiveNavL1 = document.querySelectorAll('.toctree-l1:not(.current)');
+
+    const backLink = document.getElementById('backLink');
+
+    let backURL = null;
+
+    if (activeNavL1 && backLink) {
+
+        // Zoom in on the current section
+
+        nonActiveNavL1.forEach(node => node.classList.add('d-none'));
+
+        // Set back URL
+
+        backURL = breadcrumbAncestor ? breadcrumbAncestor.href : '';
+
+        const activeNavL2List = activeNavL1.querySelectorAll('li.toctree-l2');
+        let level2Active = false;
+
+        activeNavL2List.forEach(node => {
+            if (node.classList.contains('current')) {
+                level2Active = true;
+            }
+        });
+
+        if (level2Active) {
+
+            // Set back URL
+
+            const breadcrumbParents = document.querySelectorAll('.breadcrumb-parent');
+
+            backURL = breadcrumbParents[breadcrumbParents.length - 1].href;
+        }
+
+        backLink.href = backURL;
+    } else {
+        if (backLink) {
+            backLink.classList.add('d-none');
+        }
+    }
 </script>
 {% endblock %}

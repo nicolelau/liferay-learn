@@ -57,7 +57,52 @@
 
                 <div class="sub-heading">{% trans %}Practical resources for learning Liferay{% endtrans %}</div>
 
-                {% include "searchbox.html" %}
+                <div class="homepage-search searchbox" id="searchbox" role="search">
+                    <div class="product-toggle-wrapper">
+                        <button aria-haspopup="true" class="btn btn-secondary product-toggle" id="selectedProduct"
+                            onclick="javascript:;" type="button">
+                            <span id="selectedProductText">{% trans %}Commerce{% endtrans %}</span>
+
+                            <svg class="lexicon-icon lexicon-icon-caret-bottom" focusable="false" role="presentation">
+                                <use xlink:href="#caret-bottom" />
+                            </svg>
+                        </button>
+                        <ul class="dropdown-menu" id="productDropdown">
+                            <li data-producturl="/commerce-2.x/{{ pathto('search') }}">{% trans %}Commerce{% endtrans %}</li>
+                            <li data-producturl="/dxp-cloud-latest/{{ pathto('search') }}">{% trans %}DXP Cloud{% endtrans %}</li>
+                        </ul>
+                    </div>
+
+                    {% include "searchbox.html" %}
+                </div>
+
+                <script>
+                    const productToggleWrapper = document.querySelector('.product-toggle-wrapper');
+                    const searchForm = document.querySelector('.search-form');
+
+                    searchForm.action = '/commerce-2.x/' + `{{ pathto('search') }}`;
+
+                    const toggleProductDropdown = show => productDropdown.classList.toggle('show', show);
+
+                    // Listen for outside clicks and hide the dropdown.
+
+                    document.addEventListener('click', event => {
+                        if (!productToggleWrapper.contains(event.target)) {
+                            toggleProductDropdown(false);
+                        }
+                    });
+
+                    productToggleWrapper.addEventListener('click', event => {
+                        if (event.target.nodeName === 'LI') {
+                            toggleProductDropdown(false);
+
+                            document.getElementById('selectedProductText').innerText = event.target.innerText;
+                            searchForm.action = event.target.dataset.producturl;
+                        } else {
+                            toggleProductDropdown();
+                        }
+                    });
+                </script>
             </div>
         </section>
 
@@ -67,15 +112,11 @@
 
                 <div class="col-md-12 row">
                     <div class="col-lg-6">
-                        {{ productCard(href="/", iconId="#dxp-cloud-logo", title="DXP Cloud")}}
+                        {{ productCard(href="/commerce-2.x/index.html", iconId="#commerce-logo", title="Commerce") }}
                     </div>
 
                     <div class="col-lg-6">
-                        {{ productCard(href="/", iconId="#commerce-logo", title="Commerce") }}
-                    </div>
-
-                    <div class="col-lg-4">
-                        {{ productCard(iconId="#dxp-logo", title="DXP") }}
+                        {{ productCard(href="/dxp-cloud-latest/index.html", iconId="#dxp-cloud-logo", title="DXP Cloud")}}
                     </div>
 
                     <div class="col-lg-4">
@@ -83,7 +124,11 @@
                     </div>
 
                     <div class="col-lg-4">
-                        {{ productCard(iconId="#other-products", title="Other") }}
+                        {{ productCard(iconId="#dxp-logo", title="DXP") }}
+                    </div>
+
+                    <div class="col-lg-4">
+                        {{ productCard(iconId="#other-products-icon", title="Other") }}
                     </div>
 
                     <div class="col-lg-12 notification-footnote">
@@ -103,15 +148,15 @@
                     </li>
 
                     <li class="col-lg-3 col-md-6">
-                        {{ ctaCard(href="https://university.liferay.com", iconId="#training", title="Training")}}
+                        {{ ctaCard(href="https://university.liferay.com", iconId="#training-icon", title="Training")}}
                     </li>
 
                     <li class="col-lg-3 col-md-6">
-                        {{ ctaCard(href="https://liferay.dev", iconId="#community", title="Community")}}
+                        {{ ctaCard(href="https://liferay.dev", iconId="#community-icon", title="Community")}}
                     </li>
 
                     <li class="col-lg-3 col-md-6">
-                        {{ ctaCard(href="https://help.liferay.com", iconId="#help-center", title="Help Center")}}
+                        {{ ctaCard(href="https://help.liferay.com/hc", iconId="#help-center-icon", title="Help Center")}}
                     </li>
                 </ul>
             </div>

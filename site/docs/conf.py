@@ -1,3 +1,6 @@
+import os
+from sphinx.builders.html import StandaloneHTMLBuilder
+
 #
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 #
@@ -24,3 +27,52 @@ release = "1.0"
 source_suffix = [".md", ".rst"]
 templates_path = ["_templates"]
 version = "1.0"
+
+class RelativePathParentsHTMLBuilder(StandaloneHTMLBuilder):
+	def get_doc_context(self, docname, body, metatags):
+		doc_context = super().get_doc_context(docname, body, metatags)
+
+		doc_context['parents'] = self._get_parents(self.env.titles, docname)
+
+		return doc_context
+
+	def _get_parent(self, docname):
+		if docname == 'README':
+			return None
+
+		basename = os.path.basename(docname)
+
+		if basename == 'README':
+			dirname = os.path.dirname(os.path.dirname(docname))
+
+			if dirname == '/':
+				return basename
+			else:
+				return os.path.dirname(os.path.dirname(docname)) + '/README'
+		else:
+			return os.path.dirname(docname) + '/README'
+
+	def _get_parents(self, titles, docname):
+		parents = []
+
+		last_parent = docname
+
+		while last_parent is not None:
+			next_parent = self._get_parent(last_parent)
+
+			if next_parent is not None and next_parent in titles:
+				parents.append(
+					{
+						'link': self.get_relative_uri(docname, next_parent),
+						'title': self.render_partial(titles[next_parent])['title']
+					}
+				)
+
+			last_parent = next_parent
+
+		parents.reverse()
+
+		return parents
+
+def setup(app):
+	app.add_builder(RelativePathParentsHTMLBuilder, True)

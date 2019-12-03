@@ -20,20 +20,14 @@ In this section, we will get an example order validator up and running on your i
     docker run -it -p 8080:8080 liferay/commerce:2.0.5
     ```
 
-1. Download and unzip [Acme Commerce Order Validator]().
+1. Download and unzip [Acme Commerce Order Validator](./liferay-n9b2.zip).
 
     ```bash
-    curl liferay-n9b2.zip
+    curl https://learn.liferay.com/commerce-2.x/developer-guide/tutorial/liferay-n9b2.zip -O
     ```
 
     ```bash
     unzip liferay-n9b2.zip
-    ```
-
-1. Go to `liferay-n9b2`.
-
-    ```bash
-    cd liferay-n9b2
     ```
 
 1. Build and deploy the example.
@@ -42,7 +36,7 @@ In this section, we will get an example order validator up and running on your i
     ./gradlew deploy -Ddeploy.docker.container.id=$(docker ps -lq)
     ```
 
-    > **Note:** This command is the same as copying the deployed jars to /opt/liferay/osgi/modules on the Docker container.
+    >**Note:** This command is the same as copying the deployed jars to /opt/liferay/osgi/modules on the Docker container.
 
 1. Confirm the deployment in the Docker container console.
 
@@ -50,7 +44,7 @@ In this section, we will get an example order validator up and running on your i
     STARTED com.acme.n9b2.impl_1.0.0
     ```
 
-1. Verify that the example order validator was added by viewing the failure message. Open your browser to `https://localhost:8080` and navigate to a catalog with at least one item priced over $100. If no such product exists yet, add it yourself; see [Creating a Simple Product](../../../user-guide/catalog/creating-and-managing-products/product-types/creating-a-simple-product) for more information.
+1. Verify that the example order validator was added by viewing the failure message. Open your browser to `https://localhost:8080` and navigate to a catalog with at least one item priced over $100. If no such product exists yet, add it yourself; see [Creating a Simple Product](../../managing-a-catalog/creating-a-simple-product.md) for more information.
 
     From the catalog, find the item with this price, then click "Add to Cart". Increase the quantity to 11 or more, then click the arrow to continue. The error message that appears shows that the custom order validator successfully rejected adding the item.
 
@@ -179,7 +173,7 @@ public CommerceOrderValidatorResult validate(
 
 #### Add the Language Keys to `Language.properties`
 
-Add the language keys and their values to a [Language.properties](./implementing-a-custom-order-validator/liferay-n9b2.zip/n9b2-impl/src/main/resources/content/Language.properties) file within our module:
+Add the language keys and their values to a [Language.properties](https://github.com/liferay/liferay-learn/blob/master/docs/commerce/2.x/en/developer-guide/tutorial/implementing-a-custom-order-validator/liferay-n9b2.zip/n9b2-impl/src/main/resources/content/Language.properties) file within our module:
 
 ```
 expensive-items-have-a-maximum-quantity-of-10=Expensive items have a maximum quantity of 10.
@@ -194,5 +188,5 @@ Congratulations! You now know the basics for implementing the `CommerceOrderVali
 
 ## Additional Information
 
-* [Creating a Simple Product](../../user-guide/catalog/creating-a-simple-product.md)
+* [Creating a Simple Product](../../managing-a-catalog/creating-a-simple-product.md)
 * [Localizing Your Application](https://help.liferay.com/hc/en-us/articles/360018168251-Localizing-Your-Application)

@@ -1,8 +1,14 @@
 # Maintenance Versions
 
-Periodically, Liferay will release updates (maintenance versions) to Liferay Commerce for both open source and enterprise subscribers. These updates contain bug fixes and resolves any security issues. Updating to a new maintenance version is very similar to upgrading to a new major version of Liferay Commerce.
+Periodically, Liferay will release updates (maintenance versions) to Liferay Commerce for both open source and enterprise subscribers. In particular, Maintenance Versions refer to the change in the third digit of the version number. Each maintenance version includes the latest bug fixes and provides an improved level of security and reliability. Customizations are generally safe, but reviewing the customizations are highly recommended before implementation. No new features are included.
 
-To update to a new maintenance version:
+Updating to a new maintenance version is very similar to upgrading to a new major or minor version of Liferay Commerce.
+
+## Roadmap
+
+1. [Download and Deploy](#download-and-deploy)
+1. [Clear Stale Data and Restart the Server](#clear-stale-data-and-restart-the-server)
+1. [Additional Information](#additional-information)
 
 ## Download and Deploy
 
@@ -44,6 +50,7 @@ To update to a new maintenance version:
     2019-08-13 18:26:26.346 INFO  [main][BaseDB:812] Dropping stale indexes
     2019-08-13 18:26:26.400 INFO  [main][BaseDB:84] Adding indexes
     ```
+
     ```
     2019-08-13 18:28:19.439 INFO  [main][VerifyProcess:65] Verifying com.liferay.commerce.product.internal.verify.CommerceCatalogServiceVerifyProcess
     2019-08-13 18:28:19.443 INFO  [main][LoggingTimer:83] Starting com.liferay.commerce.product.internal.verify.CommerceCatalogServiceVerifyProcess#verifyMasterCommerceCatalog
@@ -58,7 +65,8 @@ The Liferay Commerce instance has been updated. There is no need to reindex and 
 
 ## Additional Information
 
-Liferay Commerce is built on Liferay DXP 7.1. Occasionally, it is necessary to update the core Liferay DXP platform, are a requirement to updating to the latest maintenance version. Fixes to Liferay Commerce are independent from Liferay.
+Liferay Commerce is built on Liferay Digital Experience Platform. Occasionally, it is necessary to update the core Liferay DXP platform, are a requirement to updating to the latest major, minor, or maintenance version. Fixes to Liferay Commerce are independent from Liferay.
 
 * [Liferay Commerce Fix Delivery Method](../../get-help/commerce-enterprise-support/liferay-commerce-fix-delivery-method.md)
 * [Upgrading from Liferay Commerce 1.1.x](./upgrading-from-liferay-commerce-1.1.x.md)
+* [End of Life](https://www.liferay.com/subscription-services/end-of-life/commerce)
