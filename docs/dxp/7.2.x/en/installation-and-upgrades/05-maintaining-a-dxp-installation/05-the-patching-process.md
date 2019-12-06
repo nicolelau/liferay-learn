@@ -7,7 +7,7 @@ DXP bundles include the Patching Tool preconfigured. Here are the steps for patc
 1.  Download the patch to the `[Liferay Home]/patching-tool/patches` folder---don't unzip the patch. 
 
     Patch locations:
-    
+
     - [Customer Portal](https://customer.liferay.com/downloads): Fix packs and service packs 
     - [Help Center](https://help.liferay.com/hc) tickets: Hotfixes
 
@@ -17,7 +17,7 @@ DXP bundles include the Patching Tool preconfigured. Here are the steps for patc
 
     - On Windows operating systems, files in use are locked by the OS, and can't be patched.
     - On Unix-style systems, you can usually replace files that are running, but the old ones reside in memory. 
-    
+
 1.  Install the patch by running the `patching-tool install` command: 
 
     ```bash

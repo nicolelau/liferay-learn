@@ -2,6 +2,8 @@
 
 If you [installed DXP manually](https://help.liferay.com/hc/en-us/articles/360029031451-Obtaining-Liferay-DXP#downloading-the-liferay-war-and-dependency-jars) as a WAR file on a supported application server, you must apply patches to the WAR file and supporting files and re-deploy them. Here are the steps for patching your DXP WAR:
 
+1.  [Back up your DXP system](./02-backing-up.md) in case you want to revert to it. 
+
 1.  Download the necessary artifacts from the [Customer Portal:](https://customer.liferay.com/downloads)
 
     - DXP WAR file (`liferay-dxp-[version].war`)
@@ -66,8 +68,6 @@ If you [installed DXP manually](https://help.liferay.com/hc/en-us/articles/36002
     ```
 
 1.  If you're installing a Service Pack, check for [micro or minor schema/data changes](https://help.liferay.com/hc/en-us/articles/360030959231-Meaningful-Schema-Versioning) in the service pack release notes. Use the [upgrade tool](https://help.liferay.com/hc/en-us/articles/360028711612-Introduction-to-Upgrading-to-Liferay-DXP-7-2) to apply minor changes (required) and any micro changes you want. 
-
-**Important:** Before deploying the artifacts, make sure to prepare your DXP installation based on the suggested [patching process](./05-the-patching-process.md). 
 
 ## Conclusion 
 
