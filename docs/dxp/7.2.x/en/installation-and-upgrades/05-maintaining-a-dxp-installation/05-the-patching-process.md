@@ -50,7 +50,7 @@ DXP bundles include the Patching Tool preconfigured. Here are the steps for patc
 
 1.  Check for [micro or minor schema/data changes](https://help.liferay.com/hc/en-us/articles/360030959231-Meaningful-Schema-Versioning) in the service pack release notes. (Service packs only)
 
-     Use the [upgrade tool](https://help.liferay.com/hc/en-us/articles/360028711612-Introduction-to-Upgrading-to-Liferay-DXP-7-2) to apply minor changes (required) and any micro changes you want. 
+    Use the [upgrade tool](https://help.liferay.com/hc/en-us/articles/360028711612-Introduction-to-Upgrading-to-Liferay-DXP-7-2) to apply minor changes (required) and any micro changes you want. 
 
 1.  Clear the OSGi state information by deleting all the files in the `[Liferay Home]/osgi/state` folder. 
 

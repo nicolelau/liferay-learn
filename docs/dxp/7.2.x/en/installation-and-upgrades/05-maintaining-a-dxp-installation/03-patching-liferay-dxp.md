@@ -17,3 +17,5 @@ While we strive for perfection with every DXP release, the reality of the human 
 - [Working with Patches](./09-working-with-patches.md): Demonstrates how to manage patches, starting with listing your DXP version, installed patches, and patches available locally. It goes on to cover uninstalling patches, patch cleanup, and handling collisions between patches and deployed plugins. 
 
 - [Keeping Up With Fix Packs and Service Packs](./11-keeping-up-with-fix-packs.md): Stay updated with the latest patches, products, and information for maintaining DXP installations. 
+
+- [Updating DXP CE](./12-updating-dxp-ce.md): Get fixes by using the latest DXP CE GA release with your current database.  

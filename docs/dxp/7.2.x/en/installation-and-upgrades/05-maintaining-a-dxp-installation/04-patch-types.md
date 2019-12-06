@@ -66,3 +66,5 @@ Now that you know the patch types Liferay provides for delivering fixes, you can
 - [Installing the Patching Tool](./07-installing-the-patching-tool.md)
 
 - [Keeping Up With Fix Packs and Service Packs](./11-keeping-up-with-fix-packs.md)
+
+- [Updating DXP CE](./12-updating-dxp-ce.md)
