@@ -10,6 +10,6 @@ Storing copies of your DXP files, databases, and customization source code allow
 
 Maintaining your DXP instance involves [patching](./03-patching-liferay-dxp.md) it, deploying [configuration changes](https://help.liferay.com/hc/en-us/articles/360029131651-Understanding-System-Configuration-Files), [updating apps](https://help.liferay.com/hc/en-us/articles/360029134911-Managing-and-Configuring-Apps), and updating third-party software (e.g., the application server, JVM, and more). Any updates that affect your production instance require careful planning. The [DXP cluster update instructions](../10-maintaining-clusters/01-maintaining-clustered-installations.md) describe ways to handle these updates.
 
-Patching your system regularly (if you're a DXP subscriber) or [upgrading your CE instance](./upgrading-to-liferay-dxp-7-2.md) to a new GA gives you the latest bug fixes. The [patching articles](./03-patching-liferay-dxp.md) explain the different DXP patch types and how to install them using the Patching Tool. 
+Patching your system regularly (Subscription Required) or [upgrading your CE instance](./upgrading-to-liferay-dxp-7-2.md) to a new GA gives you the latest bug fixes. The [patching articles](./03-patching-liferay-dxp.md) explain the different DXP patch types and how to install them using the Patching Tool. 
 
 Read on to learn how to keep your system running well. 
