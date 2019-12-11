@@ -18,33 +18,33 @@ If you ran the upgrade tool and it opened Gogo shell automatically, you're alrea
 
 Here are the commands:
 
-`exit` or `quit:` Exits the Gogo shell
+`exit` or `quit`: Exits the Gogo shell
 
-`upgrade:help:` Displays upgrade commands
+`upgrade:help`: Displays upgrade commands
 
-`upgrade:check:` Lists upgrades pending execution because they failed in the past or the module hasn't reached its final version
+`upgrade:check`: Lists upgrades pending execution because they failed in the past or the module hasn't reached its final version
 
-`upgrade:execute [module_name]:` Executes upgrades for that module
+`upgrade:execute [module_name]`: Executes upgrades for that module
 
-`upgrade:executeAll:` Executes all pending module upgrade processes
+`upgrade:executeAll`: Executes all pending module upgrade processes
 
-`upgrade:list:` Lists all registered upgrades
+`upgrade:list`: Lists all registered upgrades
 
-`upgrade:list [module_name]:` Lists the module's required upgrade steps
+`upgrade:list [module_name]`: Lists the module's required upgrade steps
 
-`upgrade:list | grep Registered:` Lists registered upgrades and their versions
+`upgrade:list | grep Registered`: Lists registered upgrades and their versions
 
-`verify:help:` Displays verify commands
+`verify:help`: Displays verify commands
 
-`verify:check [module_name]:` Lists the latest execution result for the module's verify process
+`verify:check [module_name]`: Lists the latest execution result for the module's verify process
 
-`verify:checkAll:` Lists the latest execution results for all verify processes
+`verify:checkAll`: Lists the latest execution results for all verify processes
 
-`verify:execute [module_name]:` Executes the module's verifier
+`verify:execute [module_name]`: Executes the module's verifier
 
-`verify:executeAll:` Executes all verifiers
+`verify:executeAll`: Executes all verifiers
 
-`verify:list:` Lists all registered verifiers
+`verify:list`: Lists all registered verifiers
 
 Next, find out each module's availability for upgrade.
 
