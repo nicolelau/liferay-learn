@@ -24,9 +24,13 @@ Here are the commands:
 
 `upgrade:check`: Lists upgrades pending execution because they failed in the past or the module hasn't reached its final version
 
-`upgrade:execute [module_name]`: Executes upgrades for that module
+`upgrade:execute [module_symbolic_name]`: Executes upgrades for that module
 
 `upgrade:executeAll`: Executes all pending module upgrade processes
+
+`upgrade:updateIndexes [module_symbolic_name|bundle ID]`: Updates the module's database indexes
+
+`upgrade:updateIndexesAll`: Updates every module's database indexes
 
 `upgrade:list`: Lists all registered upgrades
 
@@ -36,11 +40,11 @@ Here are the commands:
 
 `verify:help`: Displays verify commands
 
-`verify:check [module_name]`: Lists the latest execution result for the module's verify process
+`verify:check [module_symbolic_name]`: Lists the latest execution result for the module's verify process
 
 `verify:checkAll`: Lists the latest execution results for all verify processes
 
-`verify:execute [module_name]`: Executes the module's verifier
+`verify:execute [module_symbolic_name]`: Executes the module's verifier
 
 `verify:executeAll`: Executes all verifiers
 
