@@ -4,7 +4,9 @@ Before beginning deployment in Liferay DXP Cloud, developers planning to create 
 
 In order to set up a local environment for development with DXP Cloud, the following are required:
 
-* **[JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or later**: required for running Liferay DXP locally
+* **[JDK 1.8 or JDK 11*](http://www.oracle.com/technetwork/java/javase/downloads/index.html)**: required for running Liferay DXP locally
+
+  > JDK 9 and JDK 10 are unsupported. Please see the latest [Compatibility Matrix](https://web.liferay.com/documents/14/21598941/Liferay+DXP+7.2+Compatibility+Matrix/b6e0f064-db31-49b4-8317-a29d1d76abf7?) for more information.
 
 * **[Gradle 4+](http://www.gradle.org/downloads)**: used to run any of various build commands for Liferay DXP and DXP Cloud
 
@@ -17,6 +19,5 @@ In order to set up a local environment for development with DXP Cloud, the follo
 ## Additional Information
 
 * [Configuring Github Repo](../getting-started/configuring-your-github-repository.md)
-* Configuring Services for the First Time
-* [Overview of the DXP Cloud Deployment Workflow](../getting-started/overview-of-the-dxp-cloud-deployment-workflow.md)
-* [Logging Into Your Liferay DXP Instance](../getting-started/logging-into-your-liferay-dxp-instance.md)
+* [Overview of the DXP Cloud Deployment Workflow](../build-and-deploy/overview-of-the-dxp-cloud-deployment-workflow.md)
+* [Logging Into Your Liferay DXP Instance](../getting-started/logging-into-your-dxp-cloud-services.md)

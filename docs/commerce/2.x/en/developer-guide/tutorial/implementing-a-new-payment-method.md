@@ -22,20 +22,14 @@ In this section, we will get an example payment method up and running on your in
     docker run -it -p 8080:8080 liferay/commerce:2.0.5
     ```
 
-1. Download and unzip [Acme Commerce Payment Method]().
+1. Download and unzip [Acme Commerce Payment Method](./liferay-b1c3.zip).
 
     ```bash
-    curl liferay-b1c3.zip
+    curl https://learn.liferay.com/commerce-2.x/developer-guide/tutorial/liferay-b1c3.zip -O
     ```
 
     ```bash
     unzip liferay-b1c3.zip
-    ```
-
-1. Go to `liferay-b1c3`.
-
-    ```bash
-    cd liferay-b1c3
     ```
 
 1. Build and deploy the example.
@@ -87,7 +81,7 @@ Implement the following methods:
 	public String getDescription(Locale locale);
 ```
 
-> This populates the "Description" column in the _Payment Methods_ administration page. See the implementation in [B1C3CommercePaymentMethod.java](./implementing-a-new-payment-method/liferay-b1c3.zip/b1c3-impl/src/main/java/com/acme/b1c3/internal/commerce/payment/method/B1C3CommercePaymentMethod.java) for a reference in retrieving the description with a language key.
+> This populates the "Description" column in the _Payment Methods_ administration page. See the implementation in [B1C3CommercePaymentMethod.java](https://github.com/liferay/liferay-learn/blob/master/docs/commerce/2.x/en/developer-guide/tutorial/implementing-a-new-payment-method/liferay-b1c3.zip/b1c3-impl/src/main/java/com/acme/b1c3/internal/commerce/payment/method/B1C3CommercePaymentMethod.java) for a reference in retrieving the description with a language key.
 
 ```java
 	public String getKey();
@@ -186,7 +180,7 @@ Our example does not override any of these optional methods.
 
 #### Add the Language Keys to `Language.properties`
 
-Add the language keys and their values to a [Language.properties](./implementing-a-new-payment-method/liferay-b1c3.zip/b1c3-impl/src/main/resources/content/Language.properties) file within our module:
+Add the language keys and their values to a [Language.properties](https://github.com/liferay/liferay-learn/blob/master/docs/commerce/2.x/en/developer-guide/tutorial/implementing-a-new-payment-method/liferay-b1c3.zip/b1c3-impl/src/main/resources/content/Language.properties) file within our module:
 
 ```
 example=Example
