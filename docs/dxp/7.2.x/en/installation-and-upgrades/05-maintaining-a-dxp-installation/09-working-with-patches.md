@@ -80,21 +80,17 @@ patching-tool profile_name install -force
 
 ## Uninstalling Patches 
 
-Patches are installed and removed from DXP based on the patches in the `patches` folder. 
-
-Here's how to uninstall (remove) a patch:
-
-1.  Remove the patch from your `patches` folder. 
-
-2.  Run the `patching-tool install` command. 
-
-To remove ALL patches, run this command:
+The `revert` command removes ALL patches from the DXP installation, bringing it back to the original installed version (e.g., GA1).
 
 ```bash
 patching-tool revert
 ```
 
-Now you know how to remove and revert patches. 
+To bring your installation up to a desired patch level, install the applicable fix packs.
+
+> **Tip:** It's helpful to store your patches in a convenient location in case you want to restore a patch level after reverting. You can always download fix packs again from the [Customer Portal](https://customer.liferay.com/downloads).
+
+Now you know how to uninstall patches. 
 
 ## Patch Cleanup 
 
