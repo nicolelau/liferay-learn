@@ -1,11 +1,11 @@
-<ul aria-label="breadcrumbs navigation" class="breadcrumbs" role="navigation">
+<ul aria-label="breadcrumb navigation" class="breadcrumb" role="navigation">
     <li>
-        <a href="https://www.learn.liferay.com" title="homepage">Liferay Learn</a>
+        <a href="/index.html" title="homepage">Liferay Learn</a>
     </li>
-    {%- for docs in parents %}
+    {%- for doc in parents %}
         <li>
-            <a href="{{ doc.link|e }}">{{ doc.title }}</a>
+            <a class="breadcrumb-parent" href="{{ doc.link|e }}">{{ doc.title }}</a>
         </li>
     {%- endfor %}
-    <li>{{ title }}</li>
+    <li id="breadcrumbCurrentArticle">{{ title }}</li>
 </ul>

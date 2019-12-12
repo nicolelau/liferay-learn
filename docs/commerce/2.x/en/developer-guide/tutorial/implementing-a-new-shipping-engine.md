@@ -24,20 +24,14 @@ In this section, we will get an example shipping engine up and running on your i
     docker run -it -p 8080:8080 liferay/commerce:2.0.5
     ```
 
-1. Download and unzip [Acme Commerce Shipping Engine]()
+1. Download and unzip [Acme Commerce Shipping Engine](./liferay-j6x8.zip)
 
     ```bash
-    curl liferay-j6x8.zip
+    curl https://learn.liferay.com/commerce-2.x/developer-guide/tutorial/liferay-j6x8.zip -O
     ```
 
     ```bash
     unzip liferay-j6x8.zip
-    ```
-
-1. Go to `liferay-j6x8`.
-
-    ```bash
-    cd liferay-j6x8
     ```
 
 1. Build and deploy the example.
@@ -89,7 +83,7 @@ Implement the following methods:
 public String getCommerceShippingOptionLabel(String name, Locale locale);
 ```
 
-> This method returns a text label used for shipping options. See the implementation in [J6X8CommerceShippingEngine.java](./implementing-a-new-shipping-engine/liferay-j6x8.zip/j6x8-impl/src/main/java/com/acme/j6x8/internal/commerce/model/J6X8CommerceShippingEngine.java) for a reference in retrieving the description with a language key.
+> This method returns a text label used for shipping options. See the implementation in [J6X8CommerceShippingEngine.java](https://github.com/liferay/liferay-learn/blob/master/docs/commerce/2.x/en/developer-guide/tutorial/implementing-a-new-shipping-engine/liferay-j6x8.zip/j6x8-impl/src/main/java/com/acme/j6x8/internal/commerce/model/J6X8CommerceShippingEngine.java) for a reference in retrieving the description with a language key.
 >
 > See [Localizing Your Application](https://help.liferay.com/hc/en-us/articles/360018168251-Localizing-Your-Application) for more information.
 
@@ -245,7 +239,7 @@ public List<CommerceShippingOption> getCommerceShippingOptions(
 
 #### Add the Language Keys to `Language.properties`
 
-Add the language keys and their values to a [Language.properties](./implementing-a-new-shipping-engine/liferay-j6x8.zip/j6x8-impl/src/main/resources/content/Language.properties) file within our module:
+Add the language keys and their values to a [Language.properties](https://github.com/liferay/liferay-learn/blob/master/docs/commerce/2.x/en/developer-guide/tutorial/implementing-a-new-shipping-engine/liferay-j6x8.zip/j6x8-impl/src/main/resources/content/Language.properties) file within our module:
 
 ```
 discounted-rate=Discounted Rate
@@ -260,5 +254,5 @@ Congratulations! You now know the basics for implementing the `CommerceShippingE
 
 ## Additional Information
 
-* [Applying Shipping Method Restrictions](../../user-guide/sales/applying-shipping-method-restrictions.md)
+* [Applying Shipping Method Restrictions](../../orders-and-fulfillment/applying-shipping-method-restrictions.md)
 * [Localizing Your Application](https://help.liferay.com/hc/en-us/articles/360018168251-Localizing-Your-Application)
