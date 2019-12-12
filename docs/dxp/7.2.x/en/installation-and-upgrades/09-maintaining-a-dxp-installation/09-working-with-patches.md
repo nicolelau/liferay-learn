@@ -143,7 +143,7 @@ You now know how to store patch files so that your DXP installation doesn't take
 
 ## Additional Information
 
-- [Comparing Patch Levels](../08-reference/06-comparing-patch-levels.md) 
+- [Comparing Patch Levels](../14-reference/07-comparing-patch-levels.md) 
 
 - [Keeping Up With Fix Packs and Service Packs](./11-keeping-up-with-fix-packs.md)
 

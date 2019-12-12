@@ -64,7 +64,7 @@ Congratulations! Your DXP instance is patched and running.
 
 ## Additional Information 
 
-- [Comparing Patch Levels](../08-reference/06-comparing-patch-levels.md) 
+- [Comparing Patch Levels](../14-reference/07-comparing-patch-levels.md) 
 
 - [Patching a DXP WAR:](./06-patching-a-dxp-war.md) 
 

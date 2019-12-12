@@ -62,12 +62,12 @@ global.lib.path=../tomcat-9.0.17/lib/ext/
 liferay.home=../
 ```
 
-The properties above (described fully in [Patching Tool Configuration Properties](../08-reference/07-patching-tool-configuration-properties.md)) specify these things:
+The properties above (described fully in [Patching Tool Configuration Properties](../14-reference/08-patching-tool-configuration-properties.md)) specify these things:
 
 - Patching mode (binary or source)
 - Path to your DXP WAR file
 - Global library path (this is where the DXP Dependency JARs reside)
-- Location of [Liferay Home](../08-reference/01-liferay-home.md)
+- Location of [Liferay Home](../14-reference/01-liferay-home.md)
 
 The auto-discovery command bases the OSGi module framework paths on the Liferay Home. If, however, you changed the OSGi module framework paths to something different than those under the default folder `[Liferay Home]/osgi`, you must manually specify the following properties: 
 
@@ -89,7 +89,7 @@ You can create profiles for multiple runtimes by running auto-discovery or creat
 patching-tool [name of profile] auto-discovery [path/to/Liferay Home]
 ```
 
-This runs the same discovery process and writes the profile information to a file called `[name of profile].properties`. Alternatively, you can create and edit profile property files in your `patching-tool/` folder. See [Patching Tool configuration properties](../08-reference/07-patching-tool-configuration-properties.md) for a complete list of properties. 
+This runs the same discovery process and writes the profile information to a file called `[name of profile].properties`. Alternatively, you can create and edit profile property files in your `patching-tool/` folder. See [Patching Tool configuration properties](../14-reference/08-patching-tool-configuration-properties.md) for a complete list of properties. 
 
 Once you've created a profile, you can use it in your Patching Tool commands. For example, this command installs a patch using a profile file called `test-server.properties`:
 
@@ -99,7 +99,7 @@ patching-tool test-server install
 
 ## Troubleshooting 
 
-If you specify the wrong DXP location to auto-discovery or DXP is not in the parent folder, the Patching Tool can't find the [Liferay Home](../08-reference/01-liferay-home.md) and reports an error like this: 
+If you specify the wrong DXP location to auto-discovery or DXP is not in the parent folder, the Patching Tool can't find the [Liferay Home](../14-reference/01-liferay-home.md) and reports an error like this: 
 
 ```
 The .liferay-home has not been detected in the given directory tree.
@@ -124,7 +124,7 @@ Congratulations! The Patching Tool is ready to install patches.
 
 ## Additional Information 
 
-- [Comparing Patch Levels](../08-reference/06-comparing-patch-levels.md) 
+- [Comparing Patch Levels](../14-reference/07-comparing-patch-levels.md) 
 
 - [The Patching Process](./05-the-patching-process.md)
 

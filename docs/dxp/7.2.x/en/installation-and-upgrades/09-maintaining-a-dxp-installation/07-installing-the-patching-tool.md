@@ -6,7 +6,7 @@ DXP bundles come with the Patching Tool pre-installed (`[Liferay Home]/patching-
 
 1.  Download the Patching Tool from the [Customer Portal](https://customer.liferay.com/downloads?p_p_id=com_liferay_osb_customer_downloads_display_web_DownloadsDisplayPortlet&_com_liferay_osb_customer_downloads_display_web_DownloadsDisplayPortlet_productAssetCategoryId=118191019&_com_liferay_osb_customer_downloads_display_web_DownloadsDisplayPortlet_fileTypeAssetCategoryId=118191066).
 
-2.  Unzip the Patching Tool to your [Liferay Home](../08-reference/01-liferay-home.md) folder (recommended) or to another folder. 
+2.  Unzip the Patching Tool to your [Liferay Home](../14-reference/01-liferay-home.md) folder (recommended) or to another folder. 
 
 The Patching Tool folder `patching-tool` includes the Unix shell script `patching-tool.sh` and Windows batch script `patching-tool.bat`. The Windows command `patching-tool` is used in the examples.
 
@@ -34,6 +34,6 @@ The Patching Tool is ready to configure with your DXP installation.
 
 - [Configuring the Patching Tool](./08-configuring-the-patching-tool.md)
 
-- [Comparing Patch Levels](../08-reference/06-comparing-patch-levels.md) 
+- [Comparing Patch Levels](../14-reference/07-comparing-patch-levels.md) 
 
 - [Keeping Up With Fix Packs and Service Packs](./11-keeping-up-with-fix-packs.md)

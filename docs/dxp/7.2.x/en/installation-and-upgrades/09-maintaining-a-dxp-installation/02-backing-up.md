@@ -16,7 +16,7 @@ If you have extended DXP or have written any plugins, they should be stored in a
 
 ## Backing up DXP's File System
 
-It's best to back up your entire application server and [Liferay Home folder](../08-reference/01-liferay-home.md) contents.
+It's best to back up your entire application server and [Liferay Home folder](../14-reference/01-liferay-home.md) contents.
 
 The application server has the DXP descriptors, deployments, and dependencies you might have customized. If you've customized DXP's `web.xml` file, for example, you'll want to back it up because a DXP patch's `web.xml` always overwrites the existing one. Backing up your entire application server is suggested. 
 
