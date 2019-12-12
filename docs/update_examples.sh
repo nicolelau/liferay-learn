@@ -1,8 +1,12 @@
 #!/bin/bash
 
-copyDir='./commerce/developer-guide/tutorial/_template'
-
-for dir in `find ./commerce/developer-guide/tutorial/ -maxdepth 2 -type d -regex '.*liferay\-....\.zip'`
+for dir_name in `find commerce/2.x/en/developer-guide/tutorial -maxdepth 2 -name *.zip -type d`
 do
-	cp -rf ${copyDir}/. ${dir}
+	cp -fr commerce/2.x/en/developer-guide/tutorial/_template/* ${dir_name}
+
+	#pushd ${dir_name}
+
+	#./gradlew classes formatSource
+
+	#popd
 done
