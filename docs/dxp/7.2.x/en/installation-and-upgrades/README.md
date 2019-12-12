@@ -79,8 +79,9 @@
 
 ### Maintaining Clustered Installations
 
-* Rolling Restarts
-* Blue-Green Deployments
+* [Introduction to Maintaining Clustered Installations](./10-maintaining-clusters/01-maintaining-clustered-installations.md)
+* [Rolling Restarts](./10-maintaining-clusters/02-rolling-restarts.md)
+* [Blue-Green Deployments](./10-maintaining-clusters/03-blue-green-deployments.md)
 
 ## Liferay Connected Services
 
