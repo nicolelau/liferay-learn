@@ -137,6 +137,10 @@ The following folders should be present within the `[LIFERAY_HOME]/liferay/osgi`
 1. `configs`
 1. `core`
 1. `marketplace`
+1. `modules`
+1. `portal`
+1. `state`
+1. `static`
 1. `war`
 
 ### Ensuring That the DXP Portlet.jar is Loaded First
