@@ -47,6 +47,4 @@ proxy.https.password=password
 #proxy.socks.password=password
 ```
 
-<!-- The linked article below might need to be ported to the learn repo -->
-
-[Configuring the Patching Tool](/docs/7-2/deploy/-/knowledge_base/d/configuring-the-patching-tool) demonstrates using the configuration properties.
+[Configuring the Patching Tool](../09-maintaining-a-dxp-installation/08-configuring-the-patching-tool.md) demonstrates using the configuration properties.
