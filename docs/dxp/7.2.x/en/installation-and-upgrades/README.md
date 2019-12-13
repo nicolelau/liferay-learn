@@ -115,7 +115,7 @@
 
 * [Liferay Home](./14-reference/01-liferay-home.md)
 * Configuration Files
-* Portal Properties
+* [Portal Properties](./14-reference/03-portal-properties.md)
 * [System Properties](./14-reference/04-system-properties.md)
 * [JVM Configurations](./14-reference/05-jvm-configurations.md)
 * [Database Templates](./14-reference/05-database-templates.md)
