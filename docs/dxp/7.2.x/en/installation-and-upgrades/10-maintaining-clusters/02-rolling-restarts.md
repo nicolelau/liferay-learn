@@ -26,6 +26,8 @@ Here are the rolling restart steps:
 
 Maintenance scenarios vary in how they behave in rolling restarts. For example, UI changes in a plugin update are only visible on the updated nodes. Users on nodes that haven't been updated don't see the UI changes. Maintenance scenarios might have specific cases that cannot be performed in rolling restarts---the scenario descriptions mention these cases. 
 
+## Maintenance Scenarios
+
 The maintenance scenarios eligible for rolling restart are described below. 
 
 ## New Modules and Plugins
