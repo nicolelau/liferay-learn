@@ -13,7 +13,7 @@ A performant, resilient, and secure Liferay DXP installation has several differe
 
 ### Java
 
-Liferay Digital Experience Platform requires **JAVA JDK 8 or 11** in order to run. Visit [java.com](https://www.java.com/) to learn more. See [JVM Configurations](../09-reference/05-jvm-configurations.md) for specific information on how to configure the JVM for a Liferay DXP installation.
+Liferay Digital Experience Platform requires **JAVA JDK 8 or 11** in order to run. Visit [java.com](https://www.java.com/) to learn more. See [JVM Configurations](../14-reference/05-jvm-configurations.md) for specific information on how to configure the JVM for a Liferay DXP installation.
 
 ### Hosting
 
@@ -33,7 +33,7 @@ Using the Liferay Tomcat bundle is the simplest and fastest way to get started w
     cd liferay-ce-portal-7.2.1-ga2/
   ```
 
-> **Note:** The `liferay-ce-portal-7.2.1-ga2/` directory represents the [*Liferay Home*](https://help.liferay.com/hc/en-us/articles/360028712272-Liferay-Home) directory.
+> **Note:** The `liferay-ce-portal-7.2.1-ga2/` directory represents the [*Liferay Home*](../14-reference/01-liferay-home.md) directory.
 
 See [Obtaining Liferay](./03-obtaining-liferay.md) for more information about Liferay Downloads.
 
@@ -41,13 +41,13 @@ Once your application server is ready, see [Connecting a Database](#connecting-a
 
 ### Manually Deploying to an Application Server
 
-Liferay DXP can be manually deployed to [Tomcat](placeholder-link), [WildFly](placeholder-link), [JBoss EAP](placeholder-link), [WebLogic](placeholder-link), or [WebSphere](./01-installing-liferay-on-an-application-server/05-installing-liferay-on-websphere.md) application servers.
+Liferay DXP can be manually deployed to [Tomcat](./01-installing-liferay-on-an-application-server/01-installing-liferay-on-tomcat.md), [WildFly](placeholder-link), [JBoss EAP](placeholder-link), [WebLogic](placeholder-link), or [WebSphere](./01-installing-liferay-on-an-application-server/05-installing-liferay-on-websphere.md) application servers.
 
 Manual deployments require the use of the Liferay DXP `.war` file and other dependencies. To learn more about these files and other available Liferay DXP downloads see [Obtaining Liferay](./03-obtaining-liferay.md).
 
 ## Connecting a Database
 
-Liferay DXP has some defaults configured out of the box to enable faster demonstration - this includes using HSQL as a database. Connecting Liferay DXP to a database is required step for using Liferay DXP beyond basic exploration. See [Connecting a Database](./04-connecting-a-database.md) for more information.
+Liferay DXP has some defaults configured out of the box to enable faster demonstration - this includes using HSQL as a database. Connecting Liferay DXP to a database is a required step for using Liferay DXP beyond basic exploration. See [Connecting a Database](./04-connecting-a-database.md) for more information.
 
 ## Running Liferay DXP for the First Time
 

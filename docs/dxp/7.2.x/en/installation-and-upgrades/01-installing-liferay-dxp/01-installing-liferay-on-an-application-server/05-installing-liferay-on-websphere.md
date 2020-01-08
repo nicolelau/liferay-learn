@@ -18,7 +18,7 @@ The following files are required to install Liferay on the WebSphere application
 
 See [Obtaining Liferay](../03-obtaining-liferay.md) to learn more about available Liferay DXP downloads.
 
-The [`LIFERAY_HOME` directory](https://help.liferay.com/hc/en-us/articles/360028712272-Liferay-Home) is where Liferay DXP stores and manages files and folders required to function. On WebSphere, the `LIFERAY_HOME` directory is typically `[Install Location]/WebSphere/AppServer/profiles/[your-profile]/liferay`.
+The [`LIFERAY_HOME` directory](../../14-reference/01-liferay-home.md) is where Liferay DXP stores and manages files and folders required to function. On WebSphere, the `LIFERAY_HOME` directory is typically `[Install Location]/WebSphere/AppServer/profiles/[your-profile]/liferay`.
 
 ## Preparing WebSphere for DXP
 
@@ -137,6 +137,10 @@ The following folders should be present within the `[LIFERAY_HOME]/liferay/osgi`
 1. `configs`
 1. `core`
 1. `marketplace`
+1. `modules`
+1. `portal`
+1. `state`
+1. `static`
 1. `war`
 
 ### Ensuring That the DXP Portlet.jar is Loaded First
@@ -194,7 +198,7 @@ If using WebSphere to manage the database connections, follow the instructions b
     jdbc:mysql://localhost/lportal?useUnicode=true&characterEncoding=UTF-8&useFastDateParsing=false
     ```
 
-    > **Tip:** For more example URLs, see the `jdbc.default.url` values in [Database Templates](https://help.liferay.com/hc/articles/360028712332-Database-Templates).
+    > **Tip:** For more example URLs, see the `jdbc.default.url` values in [Database Templates](../../14-reference/05-database-templates.md).
 
     Click *OK* and save to master configuration.
 
@@ -254,7 +258,7 @@ If UTF-8 has not been enabled by adding the `-Dfile.encoding=UTF-8` property in 
 
 Once the changes have been saved, DXP can parse special characters if there is localized content.
 
-## Deploy DXP
+## Deploying the DXP `.war` File
 
 1. In WebSphere's administrative console, click *Applications* &rarr; *New Application* &rarr; *New Enterprise Application*.
 1. Browse to the DXP `.war` file, select it, and click *Next*.
@@ -289,7 +293,7 @@ Note that the DXP `.war` comes pre-packaged with the `ibm-web-ext.xmi` file; thi
 ## Start DXP
 
 1. Start the application server.
-1. If administrators are using DXP's [setup wizard](https://help.liferay.com/hc/articles/360028711012-Installing-Liferay-DXP#using-the-setup-wizard), skip to the next step. However, if administrators are using WebSphere's data source and mail session, create a file called `portal-ext.properties` in the Liferay Home folder. Place the following configuration in the file:
+1. If administrators are using DXP's [setup wizard](../05-using-the-setup-wizard.md), skip to the next step. However, if administrators are using WebSphere's data source and mail session, create a file called `portal-ext.properties` in the Liferay Home folder. Place the following configuration in the file:
 
     ```properties
     jdbc.default.jndi.name=jdbc/LiferayPool
