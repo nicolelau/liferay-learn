@@ -4,11 +4,23 @@ The rolling restart cluster maintenance process involves shutting down and updat
 
 Here are the rolling restart steps:
 
-1.  Shut down one cluster node (JVM instance). 
+1.  Shut down one cluster node (JVM instance).
+
+    On Tomcat, for example, navigate to `$CATALINA_HOME/bin` and execute this command:
+
+    ```bash
+    ./shutdown.sh
+    ```
 
 2.  Update/modify the deployment for that node (see the maintenance scenarios that follow). 
 
-3.  Start the node. 
+3.  Start the node.
+
+    On Tomcat, for example, execute this command to start the node and tail its log:
+
+    ```bash
+    ./catalina.sh run
+    ```
 
 4.  Repeat these steps for all other cluster nodes. 
 
