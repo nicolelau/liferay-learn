@@ -1,18 +1,10 @@
 # Tuning for the Data Upgrade
 
 Performing an upgrade impacts the database differently from daily running in production. Because of this, you should tune your database for the upgrade process before you run it, and then re-apply your production settings after the upgrade completes.
-<!-- there's a lot of information for each step in this intro that maybe can be moved to be part of the headers below? -->
-* Disable indexing for the data upgrade, then re-enable it after the upgrade is complete. Search indices are not needed for the upgrade itself, so re-indexing will only slow the upgrade down. In extreme cases, this may cause performance issues that dramatically increase the upgrade time.
 
-* Tune your database for executing updates. Data upgrades execute many more update statements (`INSERT`, `UPDATE`, and `DELETE`) and less `SELECT` statements than production instances.
+> **Note:** The tips given in this article worked well in test runs on specific versions of each database. Optimal tuning depends on your own data, infrastructure conditions, and database vendor. Analyze your data, tune for upgrade, and time your test upgrades to determine the best database and Java process configuration for your Liferay DXP data upgrade.
 
-* Data upgrades should be done in safe environments completely separate from production servers and should use database backup copies. If upgrade errors occur or you make mistakes, they don't impact production, and you can always restart using your database backup copy.
-
-* Disable transaction logging during the data upgrade, and re-enable it after the upgrade completes. Transaction logging is not helpful during the upgrade, and only slows down the upgrade.
-
-> **Note:** The tips given here worked well in test runs on specific versions of each database. Optimal tuning depends on your own data, infrastructure conditions, and database vendor. Analyze your data, tune for upgrade, and time your test upgrades to determine the best database and Java process configuration for your Liferay DXP data upgrade.
-
-> **Important:** Test your database configuration to determine tuning that's best for your system, and consult your DBA as appropriate. **Never** use data upgrade configurations in production. Always restore your production database settings before starting your Liferay DXP server for production use with the database.
+> **Important:** Test your database configuration in a separate, safe environment to determine tuning that's best for your system, and consult your DBA as appropriate. **Never** use data upgrade configurations in production. Always restore your production database settings before starting your Liferay DXP server for production use with the database.
 
 **Contents:**
 
@@ -25,30 +17,13 @@ Performing an upgrade impacts the database differently from daily running in pro
 
 Before starting the upgrade process in your new installation, you must disable indexing to prevent upgrade process performance issues that arise when the indexer attempts to re-index content.
 
-To disable indexing, create a file called `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` in your `[Liferay Home]/osgi/configs` folder and add the following content: 
+To disable indexing, create a file called `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` in your `[Liferay Home]/osgi/configs` folder and add the following content:
 
 ```properties
 indexReadOnly="true"
 ```
 
 After you complete the upgrade, re-enable indexing by removing the `.config` file or setting `indexReadOnly="false"`.
-
-## Tuning the Database Upgrade Java Process
-<!-- move this section to configuring the upgrade tool? -->
-
-Make sure to provide adequate memory for the database upgrade tool's Java process. Make sure to also set the file encoding to UTF-8 and the time zone to GMT. Here are the Java process settings:
-
-Using a test scenario with a 3.2 GB database and a 15 GB Document Library, the following Java process settings were optimal:
-
-* Xmx 8 GB RAM
-* File encoding UTF-8
-* User time zone GMT
-
-Here is the `db_upgrade.sh` command corresponding to these settings:
-
-```bash
-db_upgrade.sh -j "-Xmx8000m -Dfile.encoding=UTF-8 -Duser.timezone=GMT"
-```
 
 ## Tuning the Database Transaction Engine for Executing Updates
 
@@ -94,4 +69,6 @@ The default configuration works well. It configures [asynchronous I/O to disk](h
 
 Turn off [synchronous commits](https://www.postgresql.org/docs/10/wal-async-commit.html) and set the [write ahead log writer delay](https://www.postgresql.org/docs/10/wal-async-commit.html) to `1000` milliseconds.
 
-<!-- next steps, additional information, related information -->
+## Additional Information
+
+* [Preparing a New Application Server for Liferay DXP](./06-preparing-a-new-application-server-for-liferay-dxp)

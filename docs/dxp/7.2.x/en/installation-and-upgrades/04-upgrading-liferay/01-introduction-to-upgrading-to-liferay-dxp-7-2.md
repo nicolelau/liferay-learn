@@ -2,11 +2,11 @@
 
 Upgrading to Liferay DXP 7.2 involves updating your data, files, plugins, and custom code, as well as optimizing and testing the upgrade to ensure it goes as quickly and smoothly as possible for your final production data upgrade. Each step's complexity scales up with the amount of data and number of customizations in your installation. The main steps shown below can potentially be done in parallel.
 
-> **Note:** Dev Studio's [Upgrade Planner](https://help.liferay.com/hc/en-us/articles/360029147451-Liferay-Upgrade-Planner) walks through the upgrade process and automates parts of it. The Planner uses a terse [step listing](../08-reference/06-liferay-upgrade-planner-steps.md) you can follow or refer to throughout the upgrade process.
+> **Note:** Dev Studio's [Upgrade Planner](https://help.liferay.com/hc/en-us/articles/360029147451-Liferay-Upgrade-Planner) walks through the upgrade process and automates parts of it. The Planner uses a terse [step listing](../14-reference/06-liferay-upgrade-planner-steps.md) you can follow or refer to throughout the upgrade process.
 
 ## Adapting to Feature Changes
 
-New DXP versions can deprecate features, remove features, or [move features into maintenance mode](./99-features-in-maintenance-mode.md). The [DXP 7.2 deprecation handling instructions](./98-handling-deprecations-in-liferay-dxp-7-2.md) explain the ramifications so you can adapt to the changes.
+New DXP versions can deprecate features, remove features, or [move features into maintenance mode](./99-features-in-maintenance-mode.md). The [DXP 7.2 deprecations article](./98-deprecations-in-liferay-dxp-7-2.md) explains the ramifications so you can adapt to the changes.
 
 ## Upgrading Custom Code and Plugins
 
