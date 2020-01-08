@@ -30,37 +30,37 @@ Maintenance scenarios vary in how they behave in rolling restarts. For example, 
 
 The maintenance scenarios eligible for rolling restart are described below. 
 
-## New Modules and Plugins
+### Adding New Modules and Plugins
 
 For a new plugin or module (one that does not already exist in the cluster) to be eligible for rolling restart it must not modify data, or delete or rename database columns in a way that breaks compatibility with existing plugins or modules. 
 
-## Updating Existing Modules and Plugins
+### Updating Existing Modules and Plugins
 
 For a new version of an existing plugin or module to be eligible for rolling restart, it must not modify data or delete or rename database columns in a way that breaks compatibility with the existing version of the plugin or module. 
 
-## Applying Fix Packs (Enterprise subscribers only)
+### Applying Fix Packs (Enterprise subscribers only)
 
 The Customer Portal identifies [fix packs](../09-maintaining-a-liferay-dxp-installation/01-installing-patches.md) that are not revertible, and therefore ineligible for rolling restart. All other fix packs are eligible. 
 
-## Reverting Fix Packs (Enterprise subscribers only)
+### Reverting Fix Packs (Enterprise subscribers only)
 
 Revertible fix packs can be removed in rolling restarts. 
 
-## Portal Properties controlled by portal-ext.properties
+### Changing Portal Properties Controlled by portal-ext.properties
  
 [Portal Properties](../14-reference/03-portal-properties.md) 
 file changes can be applied in rolling restarts. 
 
-## System Settings controlled by Configuration Admin Files
+### Changing System Settings Controlled by Configuration Admin Files
 
 [System configuration](../14-reference/04-system-properties.md)
 files can be applied in rolling restarts. 
 
-## Application Server or JVM setting modifications
+### Modifying Application Server or JVM Settings
 
 Modifications to application server and JVM settings can be done in rolling restarts. 
 
-## Java Version Updates
+### Updating Java Versions
 
 Minor version updates of Java can be applied in rolling restarts. Major version updates are not supported in rolling restarts, and should instead be done when all cluster nodes are shut down. 
 
