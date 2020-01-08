@@ -12,7 +12,7 @@ Data and schema changes require these steps:
 
 3.  Maintain both columns until the old column is no longer used by any cluster nodes. 
 
-4.  Delete the column in the next release. 
+4.  Delete the old column in the next release. 
 
 For more information, refer to these blue-green deployment articles: 
 
