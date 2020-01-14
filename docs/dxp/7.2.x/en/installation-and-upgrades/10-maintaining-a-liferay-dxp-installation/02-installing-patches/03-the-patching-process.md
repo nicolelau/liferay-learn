@@ -2,7 +2,7 @@
 
 DXP bundles include the Patching Tool preconfigured. Here are the steps for patching a DXP installation (specifically a DXP bundle). 
 
-1.  [Back up your DXP system](./02-backing-up.md) in case you want to revert to it. 
+1.  [Back up your DXP system](../02-backing-up.md) in case you want to revert to it. 
 
 1.  Download the patch to the `[Liferay Home]/patching-tool/patches` folder---don't unzip the patch. 
 
@@ -64,14 +64,14 @@ Congratulations! Your DXP instance is patched and running.
 
 ## Additional Information 
 
-- [Comparing Patch Levels](../14-reference/07-comparing-patch-levels.md) 
+- [Comparing Patch Levels](../../14-reference/07-comparing-patch-levels.md) 
 
-- [Patching a DXP WAR:](./06-patching-a-dxp-war.md) 
+- [Patching a DXP WAR:](./04-patching-a-dxp-war.md) 
 
-- [Installing the Patching Tool](./07-installing-the-patching-tool.md)
+- [Installing the Patching Tool](./05-installing-the-patching-tool.md)
 
-- [Configuring the Patching Tool](./08-configuring-the-patching-tool.md)
+- [Configuring the Patching Tool](./06-configuring-the-patching-tool.md)
 
-- [Working With Patches](./09-working-with-patches.md)
+- [Working With Patches](./07-working-with-patches.md)
 
-- [Keeping Up With Fix Packs and Service Packs](./11-keeping-up-with-fix-packs.md)
+- [Keeping Up With Fix Packs and Service Packs](./08-keeping-up-with-fix-packs.md)

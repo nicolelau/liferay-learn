@@ -17,8 +17,8 @@ Lastly, the Help Center is a launching point for account support, support FAQs a
 
 ## Additional Information
 
-- [Installing the Patching Tool](./03-installing-patches.md)
+- [Installing the Patching Tool](./01-installing-patches.md)
 
-- [The Patching Process](./05-the-patching-process.md)
+- [The Patching Process](./03-the-patching-process.md)
 
-- [Patching a DXP WAR](./06-patching-a-dxp-war.md)
+- [Patching a DXP WAR](./04-patching-a-dxp-war.md)

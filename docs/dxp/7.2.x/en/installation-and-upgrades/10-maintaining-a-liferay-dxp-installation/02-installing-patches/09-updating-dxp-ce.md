@@ -2,7 +2,7 @@
 
 Fixes for DXP CE are delivered as new DXP CE GA releases. For example, DXP CE 7.2 GA2 fixes bugs that exist in DXP CE 7.2 GA1. There is no Patching Tool for DXP CE. Here are the steps for updating to your DXP CE installation to a new GA release:
 
-1.  [Back up your DXP system](./02-backing-up.md) in case you want to revert to it. 
+1.  [Back up your DXP system](../02-backing-up.md) in case you want to revert to it. 
 
 1.  Install the new DXP CE GA release on a new server. 
 

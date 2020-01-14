@@ -2,7 +2,7 @@
 
 If you [installed DXP manually](https://help.liferay.com/hc/en-us/articles/360029031451-Obtaining-Liferay-DXP#downloading-the-liferay-war-and-dependency-jars) as a WAR file on a supported application server, you must apply patches to the WAR file and supporting files and re-deploy them. Here are the steps for patching your DXP WAR:
 
-1.  [Back up your DXP system](./02-backing-up.md) in case you want to revert to it. 
+1.  [Back up your DXP system](../02-backing-up.md) in case you want to revert to it. 
 
 1.  Download the necessary artifacts from the [Customer Portal:](https://customer.liferay.com/downloads)
 
@@ -19,7 +19,7 @@ If you [installed DXP manually](https://help.liferay.com/hc/en-us/articles/36002
         - `patching-tool/` &larr; Unzipped Patching Tool
         - `liferay-dxp-[version].war/` &larr; DXP WAR File
 
-1.  [Configure the Patching Tool](./08-configuring-the-patching-tool.md) using `auto-discovery` or by editing a configuration profile (e.g.,  `patching-tool/default.properties`). The configuration should look like this:
+1.  [Configure the Patching Tool](./06-configuring-the-patching-tool.md) using `auto-discovery` or by editing a configuration profile (e.g.,  `patching-tool/default.properties`). The configuration should look like this:
 
     ```properties
     patching.mode=binary
@@ -75,12 +75,12 @@ Great! You have successfully patched the artifacts, and they are ready to be dep
 
 ## Additional Information
 
-- [The Patching Process](./05-the-patching-process.md)
+- [The Patching Process](./03-the-patching-process.md)
 
-- [Installing the Patching Tool](./07-installing-the-patching-tool.md)
+- [Installing the Patching Tool](./05-installing-the-patching-tool.md)
 
-- [Configuring the Patching Tool](./08-configuring-the-patching-tool.md)
+- [Configuring the Patching Tool](./06-configuring-the-patching-tool.md)
 
-- [Working With Patches](./09-working-with-patches.md)
+- [Working With Patches](./07-working-with-patches.md)
 
-- [Keeping Up With Fix Packs and Service Packs](./11-keeping-up-with-fix-packs.md)
+- [Keeping Up With Fix Packs and Service Packs](./08-keeping-up-with-fix-packs.md)

@@ -55,16 +55,16 @@ The following table describes the testing applied to each patch type.
 
 ## Conclusion 
 
-Now that you know the patch types Liferay provides for delivering fixes, you can [stay updated on relevant patches](./keeping-up-with-fix-packs.md) and [install](./05-the-patching-process.md) them. 
+Now that you know the patch types Liferay provides for delivering fixes, you can [stay updated on relevant patches](./08-keeping-up-with-fix-packs.md) and [install](./03-the-patching-process.md) them. 
 
 ## Additional Information 
 
-- [The Patching Process](./05-the-patching-process.md)
+- [The Patching Process](./03-the-patching-process.md)
 
-- [Patching a DXP WAR:](./06-patching-a-dxp-war.md)
+- [Patching a DXP WAR:](./04-patching-a-dxp-war.md)
 
-- [Installing the Patching Tool](./07-installing-the-patching-tool.md)
+- [Installing the Patching Tool](./05-installing-the-patching-tool.md)
 
-- [Keeping Up With Fix Packs and Service Packs](./11-keeping-up-with-fix-packs.md)
+- [Keeping Up With Fix Packs and Service Packs](./08-keeping-up-with-fix-packs.md)
 
-- [Updating DXP CE](./12-updating-dxp-ce.md)
+- [Updating DXP CE](./09-updating-dxp-ce.md)

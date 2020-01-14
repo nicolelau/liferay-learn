@@ -143,10 +143,10 @@ You now know how to store patch files so that your DXP installation doesn't take
 
 ## Additional Information
 
-- [Comparing Patch Levels](../14-reference/07-comparing-patch-levels.md) 
+- [Comparing Patch Levels](../../14-reference/07-comparing-patch-levels.md) 
 
-- [Keeping Up With Fix Packs and Service Packs](./11-keeping-up-with-fix-packs.md)
+- [Keeping Up With Fix Packs and Service Packs](./08-keeping-up-with-fix-packs.md)
 
-- [The Patching Process](./05-the-patching-process.md)
+- [The Patching Process](./03-the-patching-process.md)
 
-- [Patching a DXP WAR](./06-patching-a-dxp-war.md)
+- [Patching a DXP WAR](./04-patching-a-dxp-war.md)

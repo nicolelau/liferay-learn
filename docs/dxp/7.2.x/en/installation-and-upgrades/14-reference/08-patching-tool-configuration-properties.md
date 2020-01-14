@@ -47,4 +47,4 @@ proxy.https.password=password
 #proxy.socks.password=password
 ```
 
-[Configuring the Patching Tool](../09-maintaining-a-dxp-installation/08-configuring-the-patching-tool.md) demonstrates using the configuration properties.
+[Configuring the Patching Tool](../10-maintaining-a-liferay-dxp-installation/02-installing-patches/05-installing-the-patching-tool.md) demonstrates using the configuration properties.
