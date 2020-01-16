@@ -1,5 +1,9 @@
 # Content Authoring and Management
 
+* Introduction to Assets
+* Introduction to Export/Import
+* Introduction to Recycle Bin
+
 ## Web Content
 
 * User Guide
@@ -35,6 +39,8 @@
   * File Check in and Check out
   * Copying and Moving Files and Folders
   * Getting Files and Folders
+* APIs
+  * Javadoc
 
 ## Blogs
 
@@ -95,9 +101,3 @@
   * Resolving Recycling Conflicts
 * APIs
   * Javadoc
-
-## Concepts
-
-* Assets
-* Export/Import
-* Recycle Bin

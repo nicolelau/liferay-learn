@@ -28,28 +28,39 @@ Installing Liferay on an Application Server
 Setting Up Liferay DXP
 ----------------------
 
-* Configuration Overview
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/setting-up-liferay-dxp`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/connecting-to-a-mail-server`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/mail-server-configuration-reference`
 * Installing a Search Engine
-* Configuring Your Document Repository
-* Connecting to a Mail Server
 * Selecting Your Locale and Encoding
-
-Performance and Scalability
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 * Using a Content Delivery Network
 * Tuning your JVM
 * Setting Up Remote Staging
 
-Configuring Clustering for High Availability
-############################################
+Using Elasticsearch
+~~~~~~~~~~~~~~~~~~~
 
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/01-performance-and-scalability/01-configuring-clustering/01-introduction-to-clustering-liferay-dxp.md`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/01-performance-and-scalability/01-configuring-clustering/02-database-configuration-for-cluster-nodes.md`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/01-performance-and-scalability/01-configuring-clustering/03-documents-and-media-configuration-with-clustering.md`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/01-performance-and-scalability/01-configuring-clustering/04-clustering-search.md`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/01-performance-and-scalability/01-configuring-clustering/05-cluster-link-overview.md`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/01-performance-and-scalability/01-configuring-clustering/06-deploying-to-all-nodes.md`
+Using Solr
+~~~~~~~~~~
+
+Configuring the Document Library Repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-the-document-library-repository/document-repository-overview`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-the-document-library-repository/using-amazon-s3-store`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-the-document-library-repository/using-the-advanced-file-system-store`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-the-document-library-repository/using-the-dbstore`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-the-document-library-repository/using-the-file-system-store`
+
+Configuring Clustering for High Availability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/01-introduction-to-clustering-liferay-dxp`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/02-database-configuration-for-cluster-nodes`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/03-documents-and-media-configuration-with-clustering`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/04-clustering-search`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/05-cluster-link-overview`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/06-configuring-unicast-over-tcp`
 
 Securing Liferay
 ----------------
@@ -143,7 +154,7 @@ Reference
 
 -  :doc:`/installation-and-upgrades/14-reference/01-liferay-home`
 * Configuration Files
--  :doc:`/installation-and-upgrades/14-reference/03-portal-properties.md`
+-  :doc:`/installation-and-upgrades/14-reference/03-portal-properties`
 -  :doc:`/installation-and-upgrades/14-reference/04-system-properties`
 -  :doc:`/installation-and-upgrades/14-reference/05-jvm-configurations`
 -  :doc:`/installation-and-upgrades/14-reference/05-database-templates`

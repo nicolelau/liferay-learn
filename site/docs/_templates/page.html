@@ -1,5 +1,36 @@
 {%- extends "layout.html" %}
 
+{% macro githubEdit() -%}
+    {%- if parents|length > 1 %}
+        {% set product = parents[0].title.lower() %}
+
+        {# hardcode version values for now #}
+        {% if product == "commerce" %}
+            {% set version = "2.x" %}
+        {% elif product == "dxp" %}
+            {% set version = "7.2.x" %}
+        {% else %}
+            {% set version = "latest" %}
+        {% endif %}
+
+        {% set parentPath %}
+            {%- for item in parents -%}
+                {{ item.title.lower().replace(' ', '-') }}/
+            {%- endfor -%}
+        {% endset %}
+
+        {% set folderPath = parentPath.replace(product + "/", '', 1) %}
+
+        {% set fileName = title.lower().replace(' ', '-') %}
+
+        <a href='https://github.com/liferay/liferay-learn/edit/master/docs/{{ product }}/{{ version }}/{{ language }}/{{ folderPath }}{{ fileName }}.md'>
+            <svg>
+                <use xlink:href="#edit"></use>
+            </svg>
+        </a>
+    {%- endif %}
+{%- endmacro %}
+
 {% block content %}
 <div class="container-fluid documentations main-content" role="main">
     <div class="row">
@@ -8,11 +39,14 @@
                 <div class="info-bar">
                     <select class="form-control" id="productDocumentationSelector"
                         name="product-documentation-selector">
-                        <option value="commerce">
-                            {% trans %}Commerce{% endtrans %}
+                        <option value="dxp">
+                            {% trans %}DXP{% endtrans %}
                         </option>
                         <option value="dxp-cloud">
                             {% trans %}DXP Cloud{% endtrans %}
+                        </option>
+                        <option value="commerce">
+                            {% trans %}Commerce{% endtrans %}
                         </option>
                     </select>
                 </div>
@@ -39,11 +73,7 @@
                 </div>
 
                 <div class="actions col-md-2 offset-md-1">
-                    <a href="https://github.com/liferay/liferay-learn">
-                        <svg>
-                            <use xlink:href="#github-logo"></use>
-                        </svg>
-                    </a>
+                    {{ githubEdit() }}
                 </div>
             </div>
 
@@ -141,7 +171,7 @@
         }
     });
 
-    // Documentation dropdwon
+    // Documentation dropdown
 
     const breadcrumbAncestor = document.querySelector('.breadcrumb-parent');
     const breadcrumbCurrentArticle = document.getElementById('breadcrumbCurrentArticle');
@@ -161,8 +191,16 @@
         // Route user to the selected documentation landing page
 
         productDocumentationSelector.addEventListener('click', event => {
-            if (event.target.value !== currentDocProductValue) {
-                window.location.pathname = currentDocProductValue === 'commerce' ? '/dxp-cloud-latest/index.html' : '/commerce-2.x/index.html';
+            const target = event.target.value;
+
+            if (target !== currentDocProductValue) {
+                if (target === 'commerce') {
+                    window.location.pathname = '/commerce-2.x/index.html';
+                } else if (target === 'dxp-cloud') {
+                    window.location.pathname = '/dxp-cloud-latest/index.html';
+                } else {
+                    window.location.pathname = '/dxp-7.2.x/index.html';
+                }
             }
         });
     }
@@ -170,15 +208,14 @@
     // Left nav interaction
 
     const activeNavL1 = document.querySelector('.toctree-l1.current');
-    const nonActiveNavL1 = document.querySelectorAll('.toctree-l1:not(.current)');
-
     const backLink = document.getElementById('backLink');
 
     let backURL = null;
 
     if (activeNavL1 && backLink) {
-
         // Zoom in on the current section
+
+        const nonActiveNavL1 = document.querySelectorAll('.toctree-l1:not(.current)');
 
         nonActiveNavL1.forEach(node => node.classList.add('d-none'));
 
@@ -186,22 +223,47 @@
 
         backURL = breadcrumbAncestor ? breadcrumbAncestor.href : '';
 
+        let activeNavL2 = null;
         const activeNavL2List = activeNavL1.querySelectorAll('li.toctree-l2');
-        let level2Active = false;
 
         activeNavL2List.forEach(node => {
             if (node.classList.contains('current')) {
-                level2Active = true;
+                activeNavL2 = node;
             }
         });
 
-        if (level2Active) {
+        if (activeNavL2) {
 
             // Set back URL
 
             const breadcrumbParents = document.querySelectorAll('.breadcrumb-parent');
 
             backURL = breadcrumbParents[breadcrumbParents.length - 1].href;
+
+            let activeNavL3 = null;
+            const activeNavL3List = activeNavL2.querySelectorAll('li.toctree-l3');
+
+            if (activeNavL3List.length) {
+                activeNavL3List.forEach(node => {
+                    if (node.classList.contains('current')) {
+                        activeNavL3 = node;
+                    }
+                });
+
+                // Zoom in on the current selection 
+
+                activeNavL1.querySelector('a').classList.add('d-none');
+
+                const nonActiveNavL2 = activeNavL1.querySelectorAll('.toctree-l2:not(.current)');
+
+                nonActiveNavL2.forEach(node => node.classList.add('d-none'));
+
+                activeNavL2.classList.add('top-level');
+
+                // Set back URL
+
+                backURL = breadcrumbParents[breadcrumbParents.length - 2].href;
+            }
         }
 
         backLink.href = backURL;
