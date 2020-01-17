@@ -1,4 +1,4 @@
-# Obtaining Liferay DXP
+# Downloading Liferay DXP
 
 Getting Liferay DXP is the first fundamental step for [installing Liferay DXP](./01-installation-overview.md). The following sections describe: 
 
