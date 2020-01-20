@@ -46,7 +46,7 @@ Liferay DXP uses a database user's credentials to connect to the database either
 
 The simplest, easiest way to maintain a Liferay DXP database is through a database user that has full database permissions up to and including permissions to Create and Drop tables. Such a user enables Liferay DXP to maintain its database automatically during upgrades and enables seamless functionality of Liferay DXP plugins that interact with the database.
 
-If your organization has more stringent security policies that require limiting database Liferay DXP database user permissions once the database is initialized, see [High Security Database User Practices](./high-security-database-user-practices).
+If your organization has more stringent security policies that require limiting database Liferay DXP database user permissions once the database is initialized, see [High Security Database User Practices](../02-setting-up-liferay-dxp/high-security-database-user-practices.md).
 
 ### Configure the Query Result Sort Order (Optional)
 
