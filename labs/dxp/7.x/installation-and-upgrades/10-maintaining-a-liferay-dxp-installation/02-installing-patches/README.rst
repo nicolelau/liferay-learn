@@ -1,5 +1,5 @@
-Maintaining Clusters
-====================
+Installing Patches
+==================
 
 -  :doc:`/installation-and-upgrades/10-maintaining-a-liferay-dxp-installation/02-installing-patches/01-installing-patches`
 -  :doc:`/installation-and-upgrades/10-maintaining-a-liferay-dxp-installation/02-installing-patches/02-patch-types`
