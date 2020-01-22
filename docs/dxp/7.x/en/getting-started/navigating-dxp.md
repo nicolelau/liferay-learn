@@ -52,6 +52,6 @@ The following common site building and management activities can be done in the 
 * [Configuring and Optimizing Site Behavior and Functionality](../site-building/07-optimizing-sites/README.md)
 * And more...
 
-## What's Next
+## Next Steps
 
 Continue our Getting Started walkthrough and learn about [Creating Your First Site](./creating-your-first-site.md).
