@@ -1,30 +1,24 @@
 Installation and Upgrades
 =========================
 
-Installing Liferay DXP
-----------------------
+-  :doc:`/installation-and-upgrades/hosting-liferay-dxp`
 
--  :doc:`/installation-and-upgrades/01-installing-liferay-dxp/01-getting-started-with-liferay-dxp`
--  :doc:`/installation-and-upgrades/01-installing-liferay-dxp/02-installation-overview`
--  :doc:`/installation-and-upgrades/01-installing-liferay-dxp/03-downloading-liferay-dxp`
--  :doc:`/installation-and-upgrades/01-installing-liferay-dxp/04-connecting-a-database`
--  :doc:`/installation-and-upgrades/01-installing-liferay-dxp/05-running-liferay-dxp-for-the-first-time`
--  :doc:`/installation-and-upgrades/01-installing-liferay-dxp/06-using-the-setup-wizard`
-* [Using Liferay on DXP Cloud](../../../../dxp-cloud/latest/en/using-the-liferay-dxp-service/introduction-to-the-liferay-dxp-service.md)
--  :doc:`/installation-and-upgrades/01-installing-liferay-dxp/08-activating-liferay-dxp`
--  :doc:`/installation-and-upgrades/01-installing-liferay-dxp/09-trial-plugin-installation`
--  :doc:`/installation-and-upgrades/01-installing-liferay-dxp/10-setting-up-marketplace`
-* Using the Liferay Marketplace
-* Installing Apps Manually
+Installing Liferay DXP on Premises
+----------------------------------
+
+-  :doc:`/installation-and-upgrades/installing-liferay-dxp-on-premises/installing-a-liferay-dxp-tomcat-bundle`
+-  :doc:`/installation-and-upgrades/installing-liferay-dxp-on-premises/configuring-a-database`
+-  :doc:`/installation-and-upgrades/installing-liferay-dxp-on-premises/running-liferay-dxp-for-the-first-time`
+-  :doc:`/installation-and-upgrades/installing-liferay-dxp-on-premises/activating-liferay-dxp`
 
 Installing Liferay on an Application Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------
 
--  :doc:`/installation-and-upgrades/01-installing-liferay-dxp/01-installing-liferay-on-an-application-server/01-installing-liferay-on-tomcat`
+-  :doc:`/installation-and-upgrades/installing-liferay-on-an-application-server/01-installing-liferay-on-tomcat`
 * Installing Liferay on WildFly
 * Installing Liferay on JBoss
 * Installing Liferay on WebLogic
--  :doc:`/installation-and-upgrades/01-installing-liferay-dxp/01-installing-liferay-on-an-application-server/05-installing-liferay-on-websphere`
+-  :doc:`/installation-and-upgrades/installing-liferay-on-an-application-server/05-installing-liferay-on-websphere`
 
 Setting Up Liferay DXP
 ----------------------
@@ -34,6 +28,10 @@ Setting Up Liferay DXP
 -  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/mail-server-configuration-reference`
 * Installing a Search Engine
 * Selecting Your Locale and Encoding
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/trial-plugin-installation`
+-  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/setting-up-marketplace`
+* Using the Liferay Marketplace
+* Installing Apps Manually
 * Using a Content Delivery Network
 * Tuning your JVM
 * Setting Up Remote Staging

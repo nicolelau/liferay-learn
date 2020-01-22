@@ -16,7 +16,7 @@ The following files are required to install Liferay on the WebSphere application
 * Dependencies ZIP file
 * OSGi Dependencies ZIP file
 
-See [Obtaining Liferay](../03-obtaining-liferay.md) to learn more about available Liferay DXP downloads.
+See [Downloading Liferay DXP](../03-downloading-liferay-dxp.md) to learn more about available Liferay DXP downloads.
 
 The [`LIFERAY_HOME` directory](../../14-reference/01-liferay-home.md) is where Liferay DXP stores and manages files and folders required to function. On WebSphere, the `LIFERAY_HOME` directory is typically `[Install Location]/WebSphere/AppServer/profiles/[your-profile]/liferay`.
 
@@ -293,7 +293,7 @@ Note that the DXP `.war` comes pre-packaged with the `ibm-web-ext.xmi` file; thi
 ## Start DXP
 
 1. Start the application server.
-1. If administrators are using DXP's [setup wizard](../05-using-the-setup-wizard.md), skip to the next step. However, if administrators are using WebSphere's data source and mail session, create a file called `portal-ext.properties` in the Liferay Home folder. Place the following configuration in the file:
+1. If administrators are using DXP's [setup wizard](../06-using-the-setup-wizard.md), skip to the next step. However, if administrators are using WebSphere's data source and mail session, create a file called `portal-ext.properties` in the Liferay Home folder. Place the following configuration in the file:
 
     ```properties
     jdbc.default.jndi.name=jdbc/LiferayPool
@@ -321,6 +321,6 @@ After deploying DXP, there may be excessive warnings and log messages, such as t
 * [Installation Overview](../02-installation-overview.md)
 * Configuration Overview
 * Installing and Configuring a Search Engine
-* Securing Liferay DXP
-* Configuring Clustering for High Availability
+* [Securing Liferay DXP](../05-securing-liferay/01-securing-liferay.md)
+* [Configuring Clustering for High Availability](../02-setting-up-liferay-dxp/01-performance-and-scalability/01-configuring-clustering/01-introduction-to-clustering-liferay-dxp.md)
 * Maintaining Liferay DXP
