@@ -44,5 +44,5 @@ To learn how to activate Liferay DXP using LCS see [this article](https://help.l
 ## Next Steps 
 
 * [Securing Liferay DXP](../05-securing-liferay/01-securing-liferay.md)
-* [Configuring Clustering for High Availability](../02-setting-up-liferay-dxp/01-performance-and-scalability/01-configuring-clustering/01-introduction-to-clustering-liferay-dxp.md)
+* [Configuring Clustering for High Availability](./01-performance-and-scalability/01-configuring-clustering/01-introduction-to-clustering-liferay-dxp.md)
 * Maintaining Liferay DXP
