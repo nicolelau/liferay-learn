@@ -1,24 +1,12 @@
 # Configuring the Data Upgrade Tool
 
-The data upgrade tool provides the easiest way to upgrade the core and installed modules. You can use text files or the tool's command line interface to configure your upgrade. The upgrade tool can upgrade everything (the core and all the modules) together or separately.
+The data upgrade tool provides the easiest way to upgrade the core and installed modules. You can use text files or the tool's command line interface to configure your upgrade. The upgrade tool upgrades the core and all installed modules.
 
 Liferay DXP bundles include the upgrade tool. If you installed Liferay DXP manually, you can download the upgrade tool separately:
 
 * _Liferay DXP 7.2_: Go to the [*Downloads* page](https://customer.liferay.com/group/customer/downloads) and select the _DXP 7.2_ product and the _Product/Service Packs_ file type. In the listing that appears, click _Download_ for the _Liferay DXP Upgrade Client_.
 
 * _Liferay Portal CE 7.2_: Go to the [_Downloads_ page](https://www.liferay.com/downloads-community) and select _Download_ for _Liferay Portal Tools for 7.2_.
-
-Before starting the data upgrade process, configure the upgrade tool for the core upgrade and specify whether the upgrade tool should upgrade non-core module data automatically.
-
-## Configuring Module Data Upgrades
-
-You can allow the upgrade tool to upgrade all installed modules automatically or to open a Gogo shell (after core upgrade completes) for you to execute module upgrades manually. 
-
-If the upgrade tool's `autoUpgrade` property is set to `true` (the default setting), upgrade processes for all installed modules are run after the core upgrade completes. 
-
-You can also prevent the upgrade tool from automatically running the module upgrades and run them individually afterward. Set `autoUpgrade="false"` in a file named `com.liferay.portal.upgrade.internal.configuration.ReleaseManagerConfiguration.config` and copy the file into the `[LIFERAY_HOME]/osgi/configs` folder for the upgrade tool to instead open Gogo shell after the core upgrade. In the Gogo shell, you can [manually administer module upgrades](./09-upgrading-modules-using-gogo-shell.md).
-
-> **Note:** Configuring the core upgrade at run-time with the upgrade tool does not provide an option to disable automatically running module upgrades. To prevent module upgrades from running automatically you must disable it (using the configuration above) *before* running the upgrade tool.
 
 ## Using the Command Line to Configure the Upgrade Tool
 
@@ -45,7 +33,9 @@ Please enter your database host (localhost):
 (etc.)
 ```
 
-> **Note:** Omitted values are using the defaults displayed in the parentheses.
+```note::
+   Omitted values use the defaults displayed in the parentheses.
+```
 
 ## Manually Configuring the Upgrade Tool
 
@@ -53,7 +43,7 @@ You can also pre-configure the upgrade tool to set more values than the tool gen
 
 * `app-server.properties`: Specifies the server location and libraries.
 * `portal-upgrade-database.properties`: Configures the database connection.
-* `portal-upgrade-ext.properties`: Sets the rest of the portal properties that the upgrade requires. To replicate your current DXP server, you can copy your current portal properties (except your database properties) into this file. Before using your current properties, make sure to [update them for DXP 7.2](./06-preparing-a-new-application-server-for-liferay-dxp.md#migrate-your-portal-properties).
+* `portal-upgrade-ext.properties`: Sets the rest of the portal properties that the upgrade requires. To replicate your current DXP server, you can copy your current portal properties (except your database properties) into this file. Before using your current properties, make sure to [update them for the current DXP version](./06-preparing-a-new-application-server-for-liferay-dxp.md#migrate-your-portal-properties).
 
 ### Configuring app-server.properties
 
