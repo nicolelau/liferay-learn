@@ -8,8 +8,6 @@ Start the upgrade tool using the `db_upgrade.sh` script in the `[LIFERAY_HOME]/t
 1. Execute the core upgrade processes
 1. Execute the core verifiers
 
-If you configured the upgrade tool to upgrade non-core modules, the tool opens a Gogo shell and starts upgrading them after the core upgrade processes are complete. The Gogo shell lets you upgrade modules, check module upgrade status, verify upgrades, and restart module upgrades. See [Upgrading Modules Using Gogo Shell](./09-upgrading-modules-using-gogo-shell.md) for more information.
-
 ## Upgrade Tool Usage
 
 This command prints the upgrade tool usage:

@@ -1,6 +1,8 @@
 # Upgrading Modules Using Gogo Shell
 
-Liferay's Gogo shell upgrades and verifies individual modules. It uses a fine-grained approach to upgrading core and non-core modules individually. If you haven't already upgraded your non-core modules using the upgrade tool (or if there are modules you need to revisit upgrading), you can upgrade them using Gogo Shell.
+Liferay's Gogo shell upgrades and verifies individual modules. It uses a fine-grained approach to upgrading core and non-core modules individually whenever you want.
+
+For example, a module may have a new [data schema micro version](https://help.liferay.com/hc/en-us/articles/360030959231-Meaningful-Schema-Versioning). Upgrading the module data to the new schema is optional. If and when you want to upgrade to the new data schema, you can use the upgrade commands in Gogo Shell.
 
 Here are the module upgrade topics:
 
@@ -10,11 +12,9 @@ Here are the module upgrade topics:
 * [Checking Upgrade Status](#checking-upgrade-status)
 * [Executing Verify Processes](#executing-verify-processes)
 
-> **Note**: You must [configure the core upgrade](./07-configuring-the-data-upgrade-tool.md#configuring-non-core-module-data-upgrades) before running the upgrade tool to upgrade modules separately from the core. Otherwise, the modules will be upgraded with it by default.
-
 ## Command Usage
 
-If you ran the upgrade tool and it opened Gogo shell automatically, you're already connected. Otherwise, you can execute commands using the [Gogo Shell portlet](https://help.liferay.com/hc/en-us/articles/360029070351-Using-the-Felix-Gogo-Shell).
+Use the [Gogo Shell portlet](https://help.liferay.com/hc/en-us/articles/360029070351-Using-the-Felix-Gogo-Shell) to execute module upgrade commands.
 
 Here are the commands:
 
