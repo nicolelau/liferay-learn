@@ -1,10 +1,10 @@
 # Upgrading Modules Using Gogo Shell
 
-Liferay's Gogo shell upgrades and verifies individual modules. It uses a fine-grained approach to upgrading modules (core and non-core) individually whenever you want.
+Liferay's Gogo shell upgrades and verifies individual modules (core and non-core). It uses a fine-grained approach to upgrading modules individually whenever you want.
 
 For example, a module may have a new [data schema micro version](https://help.liferay.com/hc/en-us/articles/360030959231-Meaningful-Schema-Versioning). Upgrading the module data to the new schema is optional. If you deploy the new module version, it activates but its data won't be upgraded. When you want to upgrade the module to the new data schema, you can use the upgrade commands in Gogo Shell.
 
-If you deploy a module that has a new [minor/major data schema version](https://help.liferay.com/hc/en-us/articles/360030959231-Meaningful-Schema-Versioning), however, the module deactivates. Activating the new module version requires upgrading the module's data to its new data schema.
+If you deploy a module that has a new [data schema minor/major version](https://help.liferay.com/hc/en-us/articles/360030959231-Meaningful-Schema-Versioning), however, the module deactivates. Activating the new module version requires upgrading the module's data to the new data schema.
 
 Here are the module upgrade topics:
 
