@@ -5,6 +5,7 @@ Upgrading Liferay
    :maxdepth: 2
 
    04-upgrading-liferay/01-introduction-to-upgrading-to-liferay-dxp-7-2.md
+   04-upgrading-liferay/a-simple-dxp-upgrade.md
    04-upgrading-liferay/02-upgrading-the-database.md
    04-upgrading-liferay/03-pruning-the-database.md
    04-upgrading-liferay/04-example-removing-intermediate-journal-article-versions.md
