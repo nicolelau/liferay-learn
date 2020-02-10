@@ -36,7 +36,7 @@ property-related updates:
 
 * If you're on Liferay Portal 6.1, [adapt your properties to the new defaults that Liferay Portal 6.2 introduced](https://help.liferay.com/hc/en-us/articles/360017903232-Upgrading-Liferay#review-the-liferay-62-properties-defaults).
 
-* If you have a sharded environment, [configure your upgrade to generate a non-sharded environment](./97-upgrading-a-sharded-environment.md).
+* If you have a sharded environment, [configure your upgrade to generate a non-sharded environment](./upgrading-a-sharded-environment.md).
 
 * Liferay's image sprite framework is deprecated as of 7.2 and is disabled by default. The framework requires scanning plugins for image sprites. If you don't use the framework, there's no need for it to scan for images sprites. If you use the framework yourself, enable it by overriding the default `sprite.enabled` portal property (new in 7.2) value with the following setting in your [`portal-ext.properties`](https://help.liferay.com/hc/en-us/articles/360028712292-Portal-Properties) file:
 
@@ -150,4 +150,4 @@ If you're using NTLM to authenticate Microsoft Windows™ accounts with Liferay 
 ## Additional Information
 
 * [Blade CLI](https://help.liferay.com/hc/en-us/articles/360029147071-Blade-CLI)
-* [Configuring the Data Upgrade Tool](./07-configuring-the-data-upgrade-tool)
+* [Configuring the Data Upgrade Tool](./configuring-the-data-upgrade-tool)

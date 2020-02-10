@@ -6,7 +6,7 @@ Upgrading to Liferay DXP 7.2 involves updating your data, files, plugins, and cu
 
 ## Adapting to Feature Changes
 
-New DXP versions can deprecate features, remove features, or [move features into maintenance mode](./99-features-in-maintenance-mode.md). The [DXP 7.2 deprecations article](./98-deprecations-in-liferay-dxp-7-2.md) explains the ramifications so you can adapt to the changes.
+New DXP versions can deprecate features, remove features, or [move features into maintenance mode](./features-in-maintenance-mode.md). The [DXP 7.2 deprecations article](./deprecations-in-liferay-dxp-7-2.md) explains the ramifications so you can adapt to the changes.
 
 ## Upgrading Custom Code and Plugins
 
@@ -18,11 +18,11 @@ You must also upgrade your installation's Marketplace apps (Kaleo, Calendar, Not
 
 ## Upgrading Your Database
 
-Upgrading the database is the biggest milestone in the upgrade process to DXP 7.2. See [Upgrading the Database](./02-upgrading-the-database.md) for an overview of the main steps in performing the data upgrade.
+Upgrading the database is the biggest milestone in the upgrade process to DXP 7.2. See [Upgrading the Database](./upgrading-the-database.md) for an overview of the main steps in performing the data upgrade.
 
 ## Preparing a New Liferay DXP Server
 
-[New DXP server setup](./06-preparing-a-new-application-server-for-liferay-dxp.md) involves installing DXP 7.2, migrating and updating your portal properties and OSGi properties, and installing any necessary patches.
+[New DXP server setup](./preparing-a-new-application-server.md) involves installing DXP 7.2, migrating and updating your portal properties and OSGi properties, and installing any necessary patches.
 
 ## Installing the Search Engine
 

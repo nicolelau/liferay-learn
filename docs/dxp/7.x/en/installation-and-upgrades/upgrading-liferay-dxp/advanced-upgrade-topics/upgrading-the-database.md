@@ -35,9 +35,9 @@ Doing trial runs of the upgrade process and testing an upgraded copy of your pro
 
 Unnecessary data and improperly tuned databases slow down the upgrade process. Large data sets that have not been optimized may severely impact performing during a data upgrade. Take these measures to optimize your data upgrades:
 
-* [Prune unneeded data.](./03-pruning-the-database.md)
+* [Prune unneeded data.](./pruning-the-database.md)
 
-* [Tune the database for upgrades.](./05-tuning-for-the-data-upgrade.md)
+* [Tune the database for upgrades.](./tuning-for-the-data-upgrade.md)
 
 If Staging is enabled in production and you have staged changes, you should publish them to Live before the data upgrade. If you skip this step, publishing staged changes requires a full publish.
 
@@ -45,8 +45,8 @@ Lastly for your pre-production upgrade, completely [back up](../09-maintaining-a
 
 ## Performing the Data Upgrade
 
-Data upgrade is the biggest upgrade process milestone. [Configure the upgrade tool on your new DXP server](./07-configuring-the-data-upgrade-tool.md) and then [use it to execute the data upgrade](08-using-the-upgrade-tool.md).
+Data upgrade is the biggest upgrade process milestone. [Configure the upgrade tool on your new DXP server](./configuring-the-data-upgrade-tool.md) and then [use it to execute the data upgrade](using-the-upgrade-tool.md).
 
 ## Executing Post-Upgrade Tasks
 
-After completing the data upgrade, you must optimize your database and DXP server for production. The [post-upgrade tasks](./10-executing-post-upgrade-tasks.md) include re-tuning database settings and running search indexes.
+After completing the data upgrade, you must optimize your database and DXP server for production. The [post-upgrade tasks](./executing-post-upgrade-tasks.md) include re-tuning database settings and running search indexes.

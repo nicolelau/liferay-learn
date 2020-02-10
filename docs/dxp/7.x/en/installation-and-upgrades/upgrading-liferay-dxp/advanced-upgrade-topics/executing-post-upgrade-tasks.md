@@ -2,9 +2,9 @@
 
 ## Review Database Configurations
 
-Prior to upgrading your Liferay database, you tuned it for upgrade (see [Tuning for the Data Upgrade](./05-tuning-for-the-data-upgrade.md)). Now that the upgrade is complete, restore the production database tuning you used previously.
+Prior to upgrading your Liferay database, you tuned it for upgrade (see [Tuning for the Data Upgrade](./tuning-for-the-data-upgrade.md)). Now that the upgrade is complete, restore the production database tuning you used previously.
 
-> **Note:** If you migrated from a sharded environment during your data upgrade, then you must make more adjustments to your configurations to complete the transition to virtual instances. See the [Upgrade and Update Properties](./97-upgrading-a-sharded-environment.md#Upgrade-and-Update-Properties) section for more information.
+> **Note:** If you migrated from a sharded environment during your data upgrade, then you must make more adjustments to your configurations to complete the transition to virtual instances. See the [Upgrade and Update Properties](./upgrading-a-sharded-environment.md#Upgrade-and-Update-Properties) section for more information.
 
 ## Set Up a Search Engine and Re-index Search Indexes
 
