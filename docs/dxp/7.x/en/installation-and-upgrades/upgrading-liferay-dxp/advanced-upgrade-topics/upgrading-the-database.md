@@ -1,6 +1,6 @@
 # Upgrading the Database
 
-Upgrading the database is the most significant part of the process in upgrading to DXP 7.2. It involves several steps outlined below.
+Upgrading the database is the most significant part of the DXP upgrade process. It involves several steps outlined below.
 
 Here are the general database upgrade topics:
 
@@ -16,10 +16,9 @@ Look up your current Liferay DXP/Portal version in this table to determine your 
 
 | Upgrade Path                            | Description |
 | --------------------------------------- | ----------- |
-| Liferay Portal 5.x and 6.0.x &rarr; Liferay Portal 6.2 &rarr; Liferay DXP 7.2 | Support life ended for Liferay Portal 5.0, 5.1, 5.2, and 6.0 |
-| Liferay Portal 6.1.x &rarr; DXP/Portal 7.1 &rarr; DXP 7.2 | Support life ended for Liferay Portal 6.1 |
-| Liferay Portal 6.2+ &rarr; DXP 7.2      |             |
-| Liferay DXP/Portal 7.0+ &rarr; DXP 7.2  |             |
+| Liferay Portal 5.x and 6.0.x &rarr; Liferay Portal 6.2 &rarr; Liferay DXP 7.3 | Support life ended for Liferay Portal 5.0, 5.1, 5.2, and 6.0 |
+| Liferay Portal 6.1.x &rarr; DXP/Portal 7.1 &rarr; DXP 7.3 | Support life ended for Liferay Portal 6.1 |
+| Liferay DXP/Portal 6.2+ &rarr; DXP 7.3      |             |
 
 If your path includes upgrading to Liferay Portal 6.2, follow the [Liferay Portal 6.2 upgrade instructions](https://help.liferay.com/hc/en-us/articles/360017903232-Upgrading-Liferay) first.
 
@@ -29,7 +28,9 @@ If your path includes upgrading to Liferay DXP/Portal 7.1, continue following th
 
 Doing trial runs of the upgrade process and testing an upgraded copy of your production DXP instance is essential for identifying and resolving issues that would otherwise affect your production server. Upgrade trial runs, and even the pre-production upgrade, should be done using backed up copies of the production database and document library repository.
 
-> **Important:** The tasks discussed in the [Preparing for the Data Upgrade](#preparing-for-the-data-upgrade) and [Performing the Data Upgrade](#performing-the-data-upgrade) sections, should be done as a trial run first on a test server using a copy of your production server backups.
+```important::
+   The tasks discussed in the [Preparing for the Data Upgrade](#preparing-for-the-data-upgrade) and [Performing the Data Upgrade](#performing-the-data-upgrade) sections, should be done as a trial run first on a test server using a copy of your production server backups.
+```
 
 ## Preparing for the Data Upgrade
 
@@ -41,7 +42,7 @@ Unnecessary data and improperly tuned databases slow down the upgrade process. L
 
 If Staging is enabled in production and you have staged changes, you should publish them to Live before the data upgrade. If you skip this step, publishing staged changes requires a full publish.
 
-Lastly for your pre-production upgrade, completely [back up](../10-maintaining-a-liferay-dxp-installation/02-backing-up.md) your current Liferay DXP/Portal installation, pruned database, and document repository.
+Lastly for your pre-production upgrade, completely [back up](../10-maintaining-a-liferay-dxp-installation/backing-up.md) your current Liferay DXP/Portal installation, pruned database, and document repository.
 
 ## Performing the Data Upgrade
 

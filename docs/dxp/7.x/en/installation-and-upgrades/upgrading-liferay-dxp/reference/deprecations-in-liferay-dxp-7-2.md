@@ -4,7 +4,9 @@ Liferay DXP will sometimes stop developing or archive features with new versions
 
 Features in Liferay DXP that have been deprecated may still be present either in the core product, or as a [Marketplace download](https://web.liferay.com/marketplace). Deprecated features may be archived in a future release. Archived apps are no longer maintained or released with new versions of Liferay DXP.
 
-> **Note:** All applications deprecated by Liferay are no longer in active development. You should therefore plan to stop using these applications.
+```note::
+   All applications deprecated by Liferay are no longer in active development. You should therefore plan to stop using these applications.
+```
 
 Features deprecated in earlier versions of Liferay DXP may also need to be considered, if you are upgrading from an earlier version than 7.1. See the following deprecations for any versions between your version pre-upgrade and 7.2:
 
@@ -64,7 +66,7 @@ The deprecations in DXP 7.2 are as follows:
 
 | Feature |  Availability |
 | --- | ------------------ |
-| Live Users | Enabled through the [`live.users.enabled`](https://docs.liferay.com/dxp/portal/7.2-latest/propertiesdoc/portal.properties.html) [portal property](https://help.liferay.com/hc/en-us/articles/360028712292-Portal-Properties). |
+| Live Users | Enabled through the [`live.users.enabled`](https://docs.liferay.com/dxp/portal/7.2-latest/propertiesdoc/portal.properties.html) [portal property](../../14-reference/03-portal-properties.md). |
 
 ## Applications in Maintenance Mode
 

@@ -2,7 +2,9 @@
 
 Since Liferay DXP 7.0, Liferay removed its own physical partitioning implementation (also known as sharding) in favor of the capabilities provided natively by database vendors. Upgrading a sharded installation to DXP 7.0 or higher requires migrating it to as many non-sharded Liferay DXP installations (servers) as you have shards. These steps guide you through configuring the new Liferay DXP servers to use your formerly sharded data.
 
-> **Note:** Liferay continues to support its logical partitioning capabilities (also known as [virtual instances](https://help.liferay.com/hc/en-us/articles/360028818692-Setting-Up-a-Virtual-Instance)).
+```note::
+   Liferay continues to support its logical partitioning capabilities (also known as [virtual instances](https://help.liferay.com/hc/en-us/articles/360028818692-Setting-Up-a-Virtual-Instance)).
+```
 
 ## Add Configurations Before the Data Upgrade
 
@@ -87,4 +89,4 @@ After the data upgrade has been completed, make the following configuration chan
     jdbc.default.password=
     ```
 
-Once you have completed all of these steps, you have migrated off of a sharded environment to virtual instances on separate Liferay DXP servers together with your upgrade to DXP 7.2.
+Once you have completed all of these steps, you have migrated off of a sharded environment to virtual instances on separate Liferay DXP servers together with your DXP upgrade.
