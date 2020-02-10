@@ -95,30 +95,35 @@ Using an SSO with Liferay DXP
 Upgrading Liferay DXP
 ----------------------
 
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/01-introduction-to-upgrading-to-liferay-dxp-7-2`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/upgrading-the-database`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/pruning-the-database`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/example-removing-intermediate-journal-article-versions`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/tuning-for-the-data-upgrade`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/preparing-a-new-application-server`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/configuring-the-data-upgrade-tool`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/using-the-upgrade-tool`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/upgrading-modules-using-gogo-shell`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/executing-post-upgrade-tasks`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/introduction-to-upgrading-liferay-dxp`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/a-simple-dxp-upgrade`
 
-Unique Upgrade Scenarios
-~~~~~~~~~~~~~~~~~~~~~~~~
-
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/upgrading-a-sharded-environment`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/deprecations-in-liferay-dxp-7-2`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/features-in-maintenance-mode`
+Advanced Upgrade Topics
+~~~~~~~~~~~~~~~~~~~~~~~
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/upgrading-the-database`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/pruning-the-database`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/example-removing-intermediate-journal-article-versions`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/tuning-for-the-data-upgrade`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/preparing-a-new-application-server`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/configuring-the-data-upgrade-tool`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/using-the-upgrade-tool`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/vadvanced-ugrade-topics/upgrading-modules-using-gogo-shell`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/executing-post-upgrade-tasks`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/upgrading-a-sharded-environment`
 * Migrating from Audience Targeting to Segmentation and Personalization
+
+Reference
+~~~~~~~~~
+
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/reference/deprecations-in-liferay-dxp-7-3`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/reference/deprecations-in-liferay-dxp-7-2`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/reference/features-in-maintenance-mode`
 
 Maintaining a Liferay DXP Installation
 --------------------------------------
 
+-  :doc:`/installation-and-upgrades/10-maintaining-a-liferay-dxp-installation/backing-up`
 * Installing Patches
-* Backing Up
 
 Maintaining Clusters
 ~~~~~~~~~~~~~~~~~~~~
