@@ -78,5 +78,5 @@ Only execute the upgrade process on a server with ideal memory, CPU, and databas
 
 ## Additional Information
 
-* [Executing Post-Upgrade Tasks](./executing-post-upgrade-tasks.md)
+* [Post-Upgrade Tasks](./post-upgrade-tasks.md)
 * [Upgrading Modules Using Gogo Shell](./upgrading-modules-using-gogo-shell.md)

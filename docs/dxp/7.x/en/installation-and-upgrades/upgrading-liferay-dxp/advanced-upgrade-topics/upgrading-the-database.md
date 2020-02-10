@@ -8,7 +8,7 @@ Here are the general database upgrade topics:
 1. [Using Backup Data for Upgrade Testing](#using-backup-data-for-upgrade-testing)
 1. [Preparing for the Data Upgrade](#preparing-for-the-data-upgrade)
 1. [Performing the Data Upgrade](#performing-the-data-upgrade)
-1. [Executing Post-Upgrade Tasks](#executing-post-upgrade-tasks)
+1. [Executing Post-Upgrade Tasks](#post-upgrade-tasks)
 
 ## Determining Your Upgrade Path
 
@@ -49,4 +49,4 @@ Data upgrade is the biggest upgrade process milestone. [Configure the upgrade to
 
 ## Executing Post-Upgrade Tasks
 
-After completing the data upgrade, you must optimize your database and DXP server for production. The [post-upgrade tasks](./executing-post-upgrade-tasks.md) include re-tuning database settings and running search indexes.
+After completing the data upgrade, you must optimize your database and DXP server for production. The [post-upgrade tasks](./post-upgrade-tasks.md) include re-tuning database settings and running search indexes.
