@@ -3,7 +3,7 @@
 If your DXP instance isn't in production and you can afford downtime, these steps may suit you. They demonstrate upgrading a simple, non-clustered DXP 7.x installation.
 
 ```warning::
-   These steps are not intended for upgrading a DXP installation that is in production or is production grade (e.g, uses a cluster or multiple servers). See [Advanced Upgrade Topics](TODO) for such cases.
+   These steps are not intended for upgrading a DXP installation that is in production or is production grade (e.g, uses a cluster or multiple servers). See [Advanced Upgrade Topics](./advanced-upgrade-topics/introduction-to-advanced-upgrade-topics.md) for such cases.
 ```
 
 Here are the steps:
@@ -79,6 +79,6 @@ You have completed the upgrade and started your newly upgraded DXP server!
 ## Next Steps
 
 * [Custom Code Upgrade](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2)
-* [Advance Upgrade Topics](TODO)
+* [Advance Upgrade Topics](./advanced-upgrade-topics/introduction-to-advanced-upgrade-topics.md)
 * [Updating a Cluster](../10-Maintaining-a-liferay-dxp-installation/10-maintaining-clusters/01-maintaining-clustered-installations.md)
 * [Upgrading a Sharded Environment](./advanced-upgrade-topics/upgrading-a-sharded-environment.md)
