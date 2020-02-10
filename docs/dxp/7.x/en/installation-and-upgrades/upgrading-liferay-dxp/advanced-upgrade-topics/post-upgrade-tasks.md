@@ -4,7 +4,9 @@
 
 Prior to upgrading your Liferay database, you tuned it for upgrade (see [Tuning for the Data Upgrade](./tuning-for-the-data-upgrade.md)). Now that the upgrade is complete, restore the production database tuning you used previously.
 
-> **Note:** If you migrated from a sharded environment during your data upgrade, then you must make more adjustments to your configurations to complete the transition to virtual instances. See the [Upgrade and Update Properties](./upgrading-a-sharded-environment.md#Upgrade-and-Update-Properties) section for more information.
+```note::
+   If you migrated from a sharded environment during your data upgrade, then you must make more adjustments to your configurations to complete the transition to virtual instances. See the [Upgrade and Update Properties](./upgrading-a-sharded-environment.md#Upgrade-and-Update-Properties) section for more information.
+```
 
 ## Set Up a Search Engine and Re-index Search Indexes
 
@@ -14,11 +16,15 @@ Re-enable search indexing by removing the following property from `com.liferay.p
 indexReadOnly=true
 ```
 
-> **Note:** The `indexReadOnly ` value defaults to `false`, which tells Liferay to update the search indices.
+```note::
+   The `indexReadOnly ` value defaults to `false`, which tells Liferay to update the search indices.
+```
 
-> **Important:** If you have not already done so, you must also [install and configure a standalone Elasticsearch](https://help.liferay.com/hc/en-us/articles/360028711132-Installing-Elasticsearch) or [Solr](placeholder) instance to run in production. By default, Liferay DXP ships with an embedded configuration for Elasticsearch for demo purposes. This configuration is not supported in production.
+```important::
+   If you have not already done so, you must also [install and configure a standalone Elasticsearch](https://help.liferay.com/hc/en-us/articles/360028711132-Installing-Elasticsearch) or [Solr](placeholder) instance to run in production. By default, Liferay DXP ships with an embedded configuration for Elasticsearch for demo purposes. This configuration is not supported in production.
+```
 
-Once indexing is enabled and your search engine is configured, re-index Liferay DXP's search indices. In DXP 7.2, you can do this in the UI after starting up Liferay DXP by navigating to _Control Panel_ → _Configuration_ → _Search_ and then clicking _Reindex all search indexes_.
+Once indexing is enabled and your search engine is configured, re-index Liferay DXP's search indices. Since DXP 7.2, you can do this in the UI after starting up Liferay DXP by navigating to _Control Panel_ → _Configuration_ → _Search_ and then clicking _Reindex all search indexes_.
 
 ![Reindex from the Search configuration page in the Control Panel.](./post-upgrade-tasks/images/01.png)
 
@@ -34,6 +40,6 @@ Prior to DXP 7.1, all users could view Web Content articles by default. Now view
 
 ## Check Web Content Images
 
-The upgrade to DXP 7.2 moves Web Content images to the Document Library and then deletes their former table, `JournalArticleImage`. To ensure this process went smoothly, check your Web Content articles and verify that their images still show correctly.
+Upgrading to DXP 7.2 moves Web Content images to the Document Library and then deletes their former table, `JournalArticleImage`. To ensure this process went smoothly, check your Web Content articles and verify that their images still show correctly.
 
-Once you've completed all necessary post-upgrade tasks, your upgrade to Liferay DXP 7.2 is complete. Congratulations!
+Once you've completed all necessary post-upgrade tasks, your Liferay DXP upgrade is complete. Congratulations!

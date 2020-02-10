@@ -6,7 +6,7 @@ Here are the installation upgrade steps:
 
 1. {.root}[If You're Upgrading to Liferay Portal 6.2, Follow the Liferay Portal 6.2 Upgrade Instructions First](https://help.liferay.com/hc/en-us/articles/360017903232-Upgrading-Liferay){.title}
 
-2. [If You're Upgrading a Sharded Environment, Follow the Instructions for Upgrading It](../upgrading-a-sharded-environment.md){.title}
+2. [If You're Upgrading a Sharded Environment, Follow the Instructions for Upgrading It](../advanced-upgrade-topics/upgrading-a-sharded-environment.md){.title}
 
     Upgrading a sharded installation (installation prior to DXP 7.2) requires migrating it to as many non-sharded Liferay installations (servers) as you have shards.{.summary}
 
@@ -54,7 +54,7 @@ Here are the installation upgrade steps:
 
     4. [Migrate Your OSGi Configurations \(7.0+\)](../advanced-upgrade-topics/preparing-a-new-application-server.md#migrate-your-osgi-configurations-70){.title}
 
-        Copy your OSGi configuration files (i.e., `.config` files) to your new server's `[Liferay_Home]/osgi/configs` folder.{.summary}
+        Copy your OSGi configuration files (i.e., `.config` files) to your new server's `[LIFERAY_HOME]/osgi/configs` folder.{.summary}
 
     5. [Update Your Portal Properties](../advanced-upgrade-topics/preparing-a-new-application-server.md#update-your-portal-properties){.title}
 
@@ -104,19 +104,19 @@ Here are the installation upgrade steps:
 
             If the issues were with upgrades to Liferay 7.0 or lower, get a clean start by restoring the pruned database backup.{.summary}
 
-        3. [Upgrade Your Resolved Issues](../advanced-upgrade-topics/08-using-the-upgrade-tool.md){.title}
+        3. [Upgrade Your Resolved Issues](../advanced-upgrade-topics/using-the-upgrade-tool.md){.title}
 
             If there were issues upgrading to the new DXP version, resolve them and restart the data upgrade tool; continue if there were no issues.{.summary}
 
-    4. [Upgrade the Liferay Modules](../advanced-upgrade-topics/09-upgrading-modules-using-gogo-shell.md){.title}
+    4. [Upgrade the Liferay Modules](../advanced-upgrade-topics/upgrading-modules-using-gogo-shell.md){.title}
 
         Learn how to use Gogo Shell to upgrade the Liferay modules, if you didn't upgrade them automatically with the core.{.summary}
 
-        1. [Upgrade Modules that are Ready for Upgrade](../advanced-upgrade-topics/09-upgrading-modules-using-gogo-shell.md#command-usage){.title}
+        1. [Upgrade Modules that are Ready for Upgrade](../advanced-upgrade-topics/upgrading-modules-using-gogo-shell.md#command-usage){.title}
 
             Discover which modules are ready for upgrade and upgrade them.{.summary}
 
-        2. [Check Module Upgrade Status and Resolve Any Module Upgrade Issues](../advanced-upgrade-topics/09-upgrading-modules-using-gogo-shell.md#checking-upgrade-status){.title}
+        2. [Check Module Upgrade Status and Resolve Any Module Upgrade Issues](../advanced-upgrade-topics/upgrading-modules-using-gogo-shell.md#checking-upgrade-status){.title}
 
         3. Checkpoint: You've upgraded your DXP test installation (its files and data) for production. You're ready to prepare for upgrading your Liferay production installation.
 
@@ -124,23 +124,23 @@ Here are the installation upgrade steps:
 
     Here you'll prune the latest backup in the same way you pruned the database for testing the DXP upgrade process. {.summary}
 
-    1. [Prune a Production Database Backup](../advanced-upgrade-topics/03-pruning-the-database.md){.title}
+    1. [Prune a Production Database Backup](../advanced-upgrade-topics/pruning-the-database.md){.title}
 
     2. Back up the Pruned Database so You Can Revert to it if Needed{.title}
 
-    3. [Test Liferay with its Pruned Database Copy](../advanced-upgrade-topics/03-pruning-the-database.md#test-with-a-copy-of-the-pruned-database){.title}
+    3. [Test Liferay with its Pruned Database Copy](../advanced-upgrade-topics/pruning-the-database.md#test-with-a-copy-of-the-pruned-database){.title}
 
         Make sure Liferay continues to work successfully. If it's broken, start over with a fresh database backup and prune it more carefully.{.summary}
 
     4. Checkpoint: You've successfully pruned your data. It's time to prepare for installation upgrade.{title}
 
-9. [Prepare the Production Installation for Upgrade](../advanced-upgrade-topics/02-upgrading-the-database.md){.title}
+9. [Prepare the Production Installation for Upgrade](../advanced-upgrade-topics/upgrading-the-database.md){.title}
 
     Preparing for the production installation upgrade involves upgrading your Marketplace apps, publishing staged changes, and synchronizing a complete data and configuration backup.{.summary}
 
     1. [Upgrade Your Marketplace Apps](../introduction-to-upgrading-liferay-dxp-.md#upgrading-custom-code-and-plugins){.title}
 
-    2. [Publish All Staged Changes](../advanced-upgrade-topics/02-upgrading-the-database.md#preparing-for-the-data-upgrade){.title}
+    2. [Publish All Staged Changes](../advanced-upgrade-topics/upgrading-the-database.md#preparing-for-the-data-upgrade){.title}
 
     3. [Synchronize a Complete Liferay Backup](../../10-maintaining-a-liferay-dxp-installation/backing-up.md){.title}
 
@@ -154,7 +154,7 @@ Here are the installation upgrade steps:
 
     1. [Request an Upgrade Patch From Liferay Support \(Liferay entreprise subscribers only\)](../advanced-upgrade-topics/preparing-a-new-application-server.md#install-the-latest-upgrade-patch-or-fix-pack){.title}
 
-    2. [Install the DXP Version You're Upgrading To](../installing-liferay-dxp-on-premises/installing-a-liferay-dxp-tomcat-bundle.md){.title}
+    2. [Install the DXP Version You're Upgrading To](../../installing-liferay-dxp-on-premises/installing-a-liferay-dxp-tomcat-bundle.md){.title}
 
     3. [Install the Latest Upgrade Patch or Fix Pack \(Liferay enterprise subscribers only\)](../advanced-upgrade-topics/preparing-a-new-application-server.md#install-the-latest-upgrade-patch-or-fix-pack){.title}
 
@@ -226,21 +226,21 @@ Here are the installation upgrade steps:
 
         3. Checkpoint: You've upgraded your DXP installation (its files and data) for production. Post-upgrade tasks are all that's left.{.summary}
 
-12. [Execute the Post-Upgrade Tasks](../advanced-upgrade-topics/10-post-upgrade-tasks.md){.title}
+12. [Execute the Post-Upgrade Tasks](../advanced-upgrade-topics/post-upgrade-tasks.md){.title}
 
     Now that your installation is upgraded, clean up remnants of upgrading by restoring your database optimizations, enabling and regenerating your search indexes, and more.{.summary}
 
-    1. [Remove the Database Tuning](../advanced-upgrade-topics/10-post-upgrade-tasks.md#review-database-configurations){.title}
+    1. [Remove the Database Tuning](../advanced-upgrade-topics/post-upgrade-tasks.md#review-database-configurations){.title}
 
-    2. [Re-enable and Re-Index the Search Indexes](../advanced-upgrade-topics/10-post-upgrade-tasks.md#set-up-elasticsearch-and-re-index-search-indexes){.title}
+    2. [Re-enable and Re-Index the Search Indexes](../advanced-upgrade-topics/post-upgrade-tasks.md#set-up-elasticsearch-and-re-index-search-indexes){.title}
 
-    3. [Update Web Content Permissions \(7.0 and lower\)](../advanced-upgrade-topics/10-post-upgrade-tasks.md#enable-web-content-view-permissions){.title}
+    3. [Update Web Content Permissions \(7.0 and lower\)](../advanced-upgrade-topics/post-upgrade-tasks.md#enable-web-content-view-permissions){.title}
 
-    4. [Address Any Deprecated Apps That Still Need Handling](./deprecations-in-liferay-dxp-7-2.md){.title}
+    4. [Address Any Deprecated Apps That Still Need Handling](./deprecations-in-liferay-dxp-7-3.md){.title}
 
 13. Checkpoint: You've completed the installation upgrade and post-upgrade tasks.
 
 ## Related Topics
 
-* [Upgrading to Liferay DXP 7.2](../introduction-to-upgrading-liferay-dxp.md)
-* [Upgrading Your Code to DXP 7.2](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2)
+* [Upgrading Liferay DXP](../introduction-to-upgrading-liferay-dxp.md)
+* [Upgrading Custom Code](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2)

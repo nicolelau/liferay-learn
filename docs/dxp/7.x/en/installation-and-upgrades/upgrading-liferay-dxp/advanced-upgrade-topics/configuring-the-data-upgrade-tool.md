@@ -2,11 +2,11 @@
 
 The data upgrade tool upgrades the core and installed modules. You can use text files or the tool's command line interface to configure your upgrade. 
 
-Liferay DXP bundles (e.g., the DXP Tomcat bundle) include the upgrade tool. If you installed Liferay DXP manually, you can download the upgrade tool separately:
+Liferay DXP bundles (e.g., the DXP Tomcat bundle) include the upgrade tool. If you installed Liferay DXP on an application server, you can download the upgrade tool separately:
 
-* _Liferay DXP 7.2_: Go to the [*Downloads* page](https://customer.liferay.com/group/customer/downloads) and select the _DXP 7.2_ product and the _Product/Service Packs_ file type. In the listing that appears, click _Download_ for the _Liferay DXP Upgrade Client_.
+* _Liferay DXP_ (Subscribers only): Go to the [*Downloads* page](https://customer.liferay.com/group/customer/downloads) and select the DXP version and the _Product/Service Packs_ file type. In the listing that appears, click _Download_ for the _Liferay DXP Upgrade Client_.
 
-* _Liferay Portal CE 7.2_: Go to the [_Downloads_ page](https://www.liferay.com/downloads-community) and select _Download_ for _Liferay Portal Tools for 7.2_.
+* _Liferay DXP CE_: Go to the [_Downloads_ page](https://www.liferay.com/downloads-community) and select _Download_ for _Liferay Portal Tools for 7.x_.
 
 ## Using the Command Line to Configure the Upgrade Tool
 
@@ -16,13 +16,13 @@ The core upgrade requires configuration. The simplest way is to use the upgrade 
 Please enter your application server (tomcat):
 tomcat
 
-Please enter your application server directory (../../tomcat-8.0.32):
+Please enter your application server directory (../../tomcat-9.0.17):
 
-Please enter your extra library directories (../../tomcat-8.0.32/bin):
+Please enter your extra library directories (../../tomcat-9.0.17/bin):
 
-Please enter your global library directory (../../tomcat-8.0.32/lib):
+Please enter your global library directory (../../tomcat-9.0.17/lib):
 
-Please enter your portal directory (../../tomcat-8.0.32/webapps/ROOT):
+Please enter your portal directory (../../tomcat-9.0.17/webapps/ROOT):
 
 [ db2 mariadb mysql oracle postgresql sqlserver sybase ]
 Please enter your database (mysql):
@@ -92,7 +92,7 @@ See the latest [portal properties reference](https://docs.liferay.com/dxp/portal
 
 Specify the following information to configure the upgrade: 
 
-* `liferay.home`: The [LIFERAY_HOME folder](https://help.liferay.com/hc/en-us/articles/360028712272-Liferay-Home).
+* `liferay.home`: The [LIFERAY_HOME folder](../../14-reference/01-liferay-home.md).
 
 * `dl.store.impl`: The implementation for persisting documents to the document library store. This property is only mandatory if you're using a `*FileSystemStore` implementation. If you [updated this property in your `portal-ext.properties`](./preparing-a-new-application-server.md#configure-your-documents-and-media-file-store), copy the new value here. Otherwise, set the property one of these ways:
 
@@ -112,7 +112,7 @@ Here are example upgrade configuration files that you can customize and copy int
 * `app-server.properties`:
 
     ```properties
-    dir=../../tomcat-8.0.32
+    dir=../../tomcat-9.0.17
     global.lib.dir=/lib
     portal.dir=/webapps/ROOT
     server.detector.server.id=tomcat
