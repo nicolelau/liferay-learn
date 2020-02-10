@@ -19,7 +19,9 @@ If this error occurs, roll back to your previous backup of Liferay Portal 6.2 an
 
 Identify unused objects in the UI or by using using `SELECT` queries with your database. Then remove them either via the UI, the API through the [script console](https://help.liferay.com/hc/en-us/articles/360029131871-Running-Scripts-From-the-Script-Console), or a portlet you create.
 
-> **Warning**: You should only use Liferay's UI or API to manipulate data because they account for relationships between objects in Liferay DXP. Never use SQL directly on your database to remove records. Your SQL may miss object relationships, orphaning objects and causing performance problems.
+```warning::
+   You should only use Liferay's UI or API to manipulate data because they account for relationships between objects in Liferay DXP. Never use SQL directly on your database to remove records. Your SQL may miss object relationships, orphaning objects and causing performance problems.
+```
 
 Listed below are some common places to check for unused objects.
 
@@ -104,8 +106,7 @@ Check these object types:
   * `ResourcePermission` objects associated to a Role, Layout, User, portlet instance, etc. that no longer exists.
   * `PortletPreference` objects associated with a portlet or layout that no longer exists. This is common in environments with many embedded portlets. These portlet instances have a different lifecycle and aren't deleted when the portlet is removed from a template.
 
-To see an example of removing intermediate object versions, read [Example: Removing Intermediate Journal Article
-Versions](./example-removing-intermediate-journal-article-versions.md).
+To see an example of removing intermediate object versions, read [Example: Removing Intermediate Journal Article Versions](./example-removing-intermediate-journal-article-versions.md).
 
 Next, test your instance with its pruned database.
 

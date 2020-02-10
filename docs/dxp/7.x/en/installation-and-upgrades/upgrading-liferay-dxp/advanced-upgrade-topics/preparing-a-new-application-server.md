@@ -2,15 +2,20 @@
 
 To upgrade your Liferay DXP database, prepare a new application server for hosting Liferay DXP. You'll use this server to run the data upgrade and then run Liferay DXP.
 
-> **Note:** If you are upgrading from a version prior to DXP 7.0 and using a sharded environment, you must migrate your shards to multiple application servers, because sharding is no longer supported. Prepare one new application server for each shard.
+```note::
+   If you are upgrading from a version prior to DXP 7.0 and using a sharded environment, you must migrate your shards to multiple application servers, because sharding is no longer supported. Prepare one new application server for each shard.
+```
 
-## Install Liferay DXP 7.2
+## Install the New Liferay DXP Version
 
-Install Liferay DXP 7.2 using a bundle or to an application server of choice. See the [Installing a Liferay DXP Tomcat Bundle](../installing-liferay-dxp-on-premises/installing-a-liferay-dxp-tomcat-bundle.md) for more information.
+Install the new Liferay DXP version using a bundle or to an application server of choice. See the [Installing a Liferay DXP Tomcat Bundle](../../installing-liferay-dxp-on-premises/installing-a-liferay-dxp-tomcat-bundle.md) for more information.
 
-> **Warning:** Do not start your application server with your database yet. Wait until after you have completed the data upgrade to DXP 7.2.
+```warning::
+   Do not start your application server with your database yet. Wait until after you have completed the data upgrade.
+```
 
 ## Install the Latest Upgrade Patch or Fix Pack
+
 > Subscription Required
 
 An *upgrade patch* contains the latest fix pack and hot fixes planned for the next service pack. Upgrade patches provide the latest fixes available for your data upgrade.
@@ -27,7 +32,7 @@ Copy any [OSGi configuration files](https://help.liferay.com/hc/en-us/articles/3
 
 Update any portal properties files that you may have configured for DXP 7.2 (e.g., `portal-setup-wizard.properties` and `portal-ext.properties`).
 
-For features that use OSGi Config Admin in DXP 7.2, you must [convert your properties to OSGi configurations](#convert-applicable-properties-to-osgi-configurations). As you do this, you must account for property changes in all versions of Liferay DXP since your current version up to and including 7.2.
+For features that use OSGi Config Admin in the new DXP version, you must [convert your properties to OSGi configurations](#convert-applicable-properties-to-osgi-configurations). As you do this, you must account for property changes in all versions of Liferay DXP since your current version up to and including the new version.
 
 ### Migrating Existing Portal Properties
 
@@ -38,17 +43,21 @@ property-related updates:
 
 * If you have a sharded environment, [configure your upgrade to generate a non-sharded environment](./upgrading-a-sharded-environment.md).
 
-* Liferay's image sprite framework is deprecated as of 7.2 and is disabled by default. The framework requires scanning plugins for image sprites. If you don't use the framework, there's no need for it to scan for images sprites. If you use the framework yourself, enable it by overriding the default `sprite.enabled` portal property (new in 7.2) value with the following setting in your [`portal-ext.properties`](https://help.liferay.com/hc/en-us/articles/360028712292-Portal-Properties) file:
+* Liferay's image sprite framework is deprecated as of 7.2 and is disabled by default. The framework requires scanning plugins for image sprites. If you don't use the framework, there's no need for it to scan for images sprites. If you use the framework yourself, enable it by overriding the default `sprite.enabled` portal property (since 7.2) value with the following setting in your [`portal-ext.properties`](../../14-reference/03-portal-properties.md) file:
 
     ```properties
     sprite.enabled=true
     ```
 
-> **Note:** You can build image sprites using any framework you like and deploy them in your plugins.
+```note::
+   You can build image sprites using any framework you like and deploy them in your plugins.
+```
 
 ### Changes to Default Settings
 
-As with most new versions of Liferay DXP, 7.2 includes changes to the default settings. If you rely on the defaults from your old version, you should review the changes and decide to keep the defaults from your old version or accept the defaults of the new.
+Most new versions of Liferay DXP include changes to the default settings. If you rely on the defaults from your old version, you should review the changes and decide to keep the defaults from your old version or accept the defaults of the new.
+
+<!-- TODO update with changes from 7.2 to 7.3. jhinkey -->
 
 No existing properties have changed between versions 7.1 and 7.2. However, here are some properties that have changed since version 6.2:
 
@@ -99,7 +108,9 @@ For example, use these steps to create a `.config` file specifying a root file l
 
 1. Copy the `.config` file to your `[LIFERAY_HOME]/osgi/configs` folder.
 
-> **Tip:** The Control Panel's _System Settings_ screens (under _Configuration_) are the most accurate way to create `.config` files. Use them to [export a screen's configuration](https://help.liferay.com/hc/en-us/articles/360029131591-System-Settings#exporting-and-importing-configurations) to a `.config` file.
+```tip::
+   The Control Panel's _System Settings_ screens (under _Configuration_) are the most accurate way to create `.config` files. Use them to [export a screen's configuration](https://help.liferay.com/hc/en-us/articles/360029131591-System-Settings#exporting-and-importing-configurations) to a `.config` file.
+```
 
 #### Using Blade CLI to Find Migrated Properties
 
@@ -108,19 +119,19 @@ The [Blade CLI](https://help.liferay.com/hc/en-us/articles/360029147071-Blade-CL
 The `blade upgradeProps` command is used in the following format:
 
 ```cmd
-blade upgradeProps -p {old_liferay_home_path}/portal-ext.properties -d {7.2_liferay_home_path}
+blade upgradeProps -p {old_liferay_home_path}/portal-ext.properties -d {new_liferay_home_path}
 ```
 
 Running this command will provide the names of migrated (or removed) properties, as well as where they were migrated to. The command will provide output like the following:
 
 ```
-2019-03-09 17:05:17.678 ERROR [main][VerifyProperties:161] Portal property "layout.first.pageable[link_to_layout]" is obsolete
-2019-03-09 17:05:17.679 ERROR [main][VerifyProperties:136] Portal property "journal.article.check.interval" was modularized to com.liferay.journal.web as "check.interval"
+ERROR [main][VerifyProperties:161] Portal property "layout.first.pageable[link_to_layout]" is obsolete
+ERROR [main][VerifyProperties:136] Portal property "journal.article.check.interval" was modularized to com.liferay.journal.web as "check.interval"
 ```
 
 ## Update Your Database Driver
 
-Install the recommended database driver and update your database connection driver specified in your `portal-ext.properties`. See the [Database Templates](../14-reference/05-database-templates.md) for more information.
+Install the recommended database driver and update your database connection driver specified in your `portal-ext.properties`. See the [Database Templates](../../14-reference/05-database-templates.md) for more information.
 
 ## Configure Your Documents and Media File Store
 
@@ -150,4 +161,4 @@ If you're using NTLM to authenticate Microsoft Windows™ accounts with Liferay 
 ## Additional Information
 
 * [Blade CLI](https://help.liferay.com/hc/en-us/articles/360029147071-Blade-CLI)
-* [Configuring the Data Upgrade Tool](./configuring-the-data-upgrade-tool)
+* [Configuring the Data Upgrade Tool](./configuring-the-data-upgrade-tool.md)

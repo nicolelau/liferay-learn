@@ -2,9 +2,13 @@
 
 Performing an upgrade impacts the database differently from daily running in production. Because of this, you should tune your database for the upgrade process before you run it, and then re-apply your production settings after the upgrade completes.
 
-> **Note:** The tips given in this article worked well in test runs on specific versions of each database. Optimal tuning depends on your own data, infrastructure conditions, and database vendor. Analyze your data, tune for upgrade, and time your test upgrades to determine the best database and Java process configuration for your Liferay DXP data upgrade.
+```note::
+   The tips given in this article worked well in test runs on specific versions of each database. Optimal tuning depends on your own data, infrastructure conditions, and database vendor. Analyze your data, tune for upgrade, and time your test upgrades to determine the best database and Java process configuration for your Liferay DXP data upgrade.
+```
 
-> **Important:** Test your database configuration in a separate, safe environment to determine tuning that's best for your system, and consult your DBA as appropriate. **Never** use data upgrade configurations in production. Always restore your production database settings before starting your Liferay DXP server for production use with the database.
+```important::
+   Test your database configuration in a separate, safe environment to determine tuning that's best for your system, and consult your DBA as appropriate. **Never** use data upgrade configurations in production. Always restore your production database settings before starting your Liferay DXP server for production use with the database.
+```
 
 **Contents:**
 
@@ -17,7 +21,7 @@ Performing an upgrade impacts the database differently from daily running in pro
 
 Before starting the upgrade process in your new installation, you must disable indexing to prevent upgrade process performance issues that arise when the indexer attempts to re-index content.
 
-To disable indexing, create a file called `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` in your `[Liferay Home]/osgi/configs` folder and add the following content:
+To disable indexing, create a file called `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` in your `[LIFERAY_HOME]/osgi/configs` folder and add the following content:
 
 ```properties
 indexReadOnly="true"
@@ -43,7 +47,9 @@ The data upgrade tuning instructions given here are a starting point for tuning 
 
 * Increase the interval to flush commits to disk.
 
-> **Warning:** Some database properties and configurations are global and affect schemas in the same database.
+```warning::
+   Some database properties and configurations are global and affect schemas in the same database.
+```
 
 ### IBM DB2
 

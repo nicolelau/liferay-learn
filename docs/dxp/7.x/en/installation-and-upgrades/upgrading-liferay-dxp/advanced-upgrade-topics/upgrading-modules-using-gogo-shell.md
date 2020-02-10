@@ -136,7 +136,7 @@ The `dm wtf` command can also help detect errors in portlet definitions and cust
 
 ### Checking the Release_ Table
 
-Browsing the Liferay DXP database's `Release_` table can also help you determine a module's upgrade status. The core's `servletContextName` field value is `portal`. If the core's `schemaVersion` field matches your new Liferay DXP version (e.g., `7.2.1` for Liferay Portal CE GA2) and the `verified` field is `1` (true), the core upgrade completed successfully.
+Browsing the Liferay DXP database's `Release_` table can also help you determine a module's upgrade status. The core's `servletContextName` field value is `portal`. If the core's `schemaVersion` field matches your new Liferay DXP version (e.g., `7.3.0` for Liferay Portal CE GA1) and the `verified` field is `1` (true), the core upgrade completed successfully.
 
 Each module has one `Release_` table record, and the value for its `schemaVersion` field must be `1.0.0` or greater. `1.0.0` is the initial version for Liferay DXP modules, except for those that were previously traditional plugins intended for version 6.2 or earlier.
 
