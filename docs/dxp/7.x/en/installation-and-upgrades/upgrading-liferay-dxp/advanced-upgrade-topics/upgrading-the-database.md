@@ -41,7 +41,7 @@ Unnecessary data and improperly tuned databases slow down the upgrade process. L
 
 If Staging is enabled in production and you have staged changes, you should publish them to Live before the data upgrade. If you skip this step, publishing staged changes requires a full publish.
 
-Lastly for your pre-production upgrade, completely [back up](../09-maintaining-a-liferay-dxp-installation/02-backing-up.md) your current Liferay DXP/Portal installation, pruned database, and document repository.
+Lastly for your pre-production upgrade, completely [back up](../10-maintaining-a-liferay-dxp-installation/02-backing-up.md) your current Liferay DXP/Portal installation, pruned database, and document repository.
 
 ## Performing the Data Upgrade
 

@@ -8,11 +8,11 @@ If your DXP instance isn't in production and you can afford downtime, these step
 
 Here are the steps:
 
-1. Adapt to feature deprecations. Examine the deprecations made in the new DXP version and consider options for adapting to them. See the [latest deprecations](./deprecations-in-liferay-dxp-7-2.md).
+1. Adapt to feature deprecations. Examine the deprecations made in the new DXP version and consider options for adapting to them. See the [latest deprecations](./reference/deprecations-in-liferay-dxp-7-2.md).
 
 1. Upgrade your Marketplace apps for your current DXP installation.
 
-1. Backup your current DXP installation and database. Do this in case something doesn't upgrade the way you want. See [Backing Up](https://help.liferay.com/hc/en-us/articles/360029124271-Backing-up-a-Liferay-DXP-Installation) for details.
+1. Back up your current DXP installation and database. Do this in case something doesn't upgrade the way you want. See [Backing Up](../10-maintaining-a-liferay-dxp-installation/backing-up.md) for details.
 
 1. Install the new DXP version ([DXP Tomcat bundle](../installing-liferay-dxp-on-premises/installing-a-liferay-dxp-tomcat-bundle.md) or the [DXP WAR on a new application server](../installing-liferay-dxp-on-premises/installing-liferay-on-an-application-server/installing-liferay-on-tomcat.md)) in a new location. Don't start the server yet---there's more upgrading to do first.
 
@@ -49,7 +49,7 @@ Here are the steps:
 
 1. Copy your upgraded Marketplace apps and custom code to your new DXP installation's `[LIFERAY_HOME]/deploy` folder (create the folder if it doesn't exist).
 
-1. If you're not using a DXP Tomcat bundle, [install the Upgrade Tool](./configuring-the-data-upgrade-tool.md) to your new installation's `[LIFERAY_HOME]/tools/portal-tools-db-upgrade-client` folder. DXP Tomcat bundles include the tool.
+1. If you're not using a DXP Tomcat bundle, [install the Upgrade Tool](./advanced-upgrade-topics/configuring-the-data-upgrade-tool.md) to your new installation's `[LIFERAY_HOME]/tools/portal-tools-db-upgrade-client` folder. DXP Tomcat bundles include the tool.
 
 1. Run the data upgrade from your `[LIFERAY_HOME]/tools/portal-tools-db-upgrade-client` folder:
 
@@ -68,9 +68,9 @@ Here are the steps:
     ...
     ```
 
-    To use the default value (in parentheses), press enter. Otherwise, enter the configuration you want. See [Configuring the Data Upgrade Tool](./configuring-the-data-upgrade-tool.md) for details.
+    To use the default value (in parentheses), press enter. Otherwise, enter the configuration you want. See [Configuring the Data Upgrade Tool](./advanced-upgrade-topics/configuring-the-data-upgrade-tool.md) for details.
 
-1. If data upgrade issues occur, see [Upgrading Modules Using Gogo Shell](./upgrading-modules-using-gogo-shell.md) to resolve issues per module.
+1. If data upgrade issues occur, see [Upgrading Modules Using Gogo Shell](./advanced-upgrade-topics/upgrading-modules-using-gogo-shell.md) to resolve issues per module.
 
 1. Start your DXP server.
 
@@ -81,4 +81,4 @@ You have completed the upgrade and started your newly upgraded DXP server!
 * [Custom Code Upgrade](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2)
 * [Advance Upgrade Topics](TODO)
 * [Updating a Cluster](../10-Maintaining-a-liferay-dxp-installation/10-maintaining-clusters/01-maintaining-clustered-installations.md)
-* [Upgrading a Sharded Environment](./upgrading-a-sharded-environment.md)
+* [Upgrading a Sharded Environment](./advanced-upgrade-topics/upgrading-a-sharded-environment.md)
