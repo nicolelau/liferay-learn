@@ -2,6 +2,7 @@ Upgrading Liferay
 =================
 
 -  :doc:`/installation-and-upgrades/04-upgrading-liferay/01-introduction-to-upgrading-to-liferay-dxp-7-2`
+-  :doc:`/installation-and-upgrades/04-upgrading-liferay/a-simple-dxp-upgrade`
 -  :doc:`/installation-and-upgrades/04-upgrading-liferay/02-upgrading-the-database`
 -  :doc:`/installation-and-upgrades/04-upgrading-liferay/03-pruning-the-database`
 -  :doc:`/installation-and-upgrades/04-upgrading-liferay/04-example-removing-intermediate-journal-article-versions`
