@@ -100,16 +100,16 @@ Upgrading Liferay DXP
 
 Advanced Upgrade Topics
 ~~~~~~~~~~~~~~~~~~~~~~~
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/upgrading-the-database`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/pruning-the-database`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/example-removing-intermediate-journal-article-versions`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/tuning-for-the-data-upgrade`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/preparing-a-new-application-server`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/configuring-the-data-upgrade-tool`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/using-the-upgrade-tool`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/vadvanced-ugrade-topics/upgrading-modules-using-gogo-shell`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/executing-post-upgrade-tasks`
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-ugrade-topics/upgrading-a-sharded-environment`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-upgrade-topics/upgrading-the-database`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-upgrade-topics/pruning-the-database`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-upgrade-topics/example-removing-intermediate-journal-article-versions`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-upgrade-topics/tuning-for-the-data-upgrade`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-upgrade-topics/preparing-a-new-application-server`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-upgrade-topics/configuring-the-data-upgrade-tool`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-upgrade-topics/using-the-upgrade-tool`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/vadvanced-upgrade-topics/upgrading-modules-using-gogo-shell`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-upgrade-topics/executing-post-upgrade-tasks`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/advanced-upgrade-topics/upgrading-a-sharded-environment`
 * Migrating from Audience Targeting to Segmentation and Personalization
 
 Reference
