@@ -4,7 +4,7 @@ Upgrading to the latest Liferay DXP version involves updating your files, apps, 
 
 For trial purposes on a private, non-clustered DXP instance, you can follow the steps in [Example: A Simple DXP Upgrade](./a-simple-dxp-upgrade.md).
 
-If your DXP instance is in production or is being used collaboratively for testing, development, or user-acceptance, you should test upgrading a backup instance _before_ upgrading your real instance. The [Advanced Upgrade Topics](TODO) detail the process.
+If your DXP instance is in production or is being used collaboratively for testing, development, or user-acceptance, you should test upgrading a backup instance _before_ upgrading your real instance. The [Advanced Upgrade Topics](./advanced-upgrade-topics/introduction-to-advanced-upgrade-topics.md) detail the process.
 
 ```note::
    Dev Studio's [Upgrade Planner](https://help.liferay.com/hc/en-us/articles/360029147451-Liferay-Upgrade-Planner) walks through the upgrade process and automates parts of it. The Planner uses a terse [step listing](../reference/liferay-upgrade-planner-steps.md) you can follow or refer to throughout upgrading production-grade instances.
@@ -36,4 +36,4 @@ Upgrading the database is the biggest milestone in the upgrade process. See [Upg
 
 If you're running a production-grade DXP instance and you do not already have your own Elasticsearch/Solr installation running, you must set one up. By default, DXP ships with an embedded configuration for Elasticsearch. The embedded configuration works great for demo purposes, but is not supported in production. See [Installing Elasticsearch](https://help.liferay.com/hc/en-us/articles/360028711132-Installing-Elasticsearch) or [Installing Solr](https://help.liferay.com/hc/en-us/articles/360032264052-Installing-Solr) for more information.
 
-Once the major preparation tasks are identified, it's time to examine the data upgrade tasks.
+Before tackling a production upgrade, examine [A Simple DXP Upgrade](./a-simple-dxp-upgrade.md) next.
