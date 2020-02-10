@@ -71,4 +71,4 @@ Turn off [synchronous commits](https://www.postgresql.org/docs/10/wal-async-comm
 
 ## Additional Information
 
-* [Preparing a New Application Server for Liferay DXP](./06-preparing-a-new-application-server-for-liferay-dxp)
+* [Preparing a New Application Server](./preparing-a-new-application-server)

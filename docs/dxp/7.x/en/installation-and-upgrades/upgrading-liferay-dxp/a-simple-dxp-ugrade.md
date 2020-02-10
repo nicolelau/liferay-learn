@@ -8,7 +8,7 @@ If your DXP instance isn't in production and you can afford downtime, these step
 
 Here are the steps:
 
-1. Adapt to feature deprecations. Examine the deprecations made in the new DXP version and consider options for adapting to them. See the [latest deprecations](./98-deprecations-in-liferay-dxp-7-2.md).
+1. Adapt to feature deprecations. Examine the deprecations made in the new DXP version and consider options for adapting to them. See the [latest deprecations](./deprecations-in-liferay-dxp-7-2.md).
 
 1. Upgrade your Marketplace apps for your current DXP installation.
 
@@ -49,7 +49,7 @@ Here are the steps:
 
 1. Copy your upgraded Marketplace apps and custom code to your new DXP installation's `[LIFERAY_HOME]/deploy` folder (create the folder if it doesn't exist).
 
-1. If you're not using a DXP Tomcat bundle, [install the Upgrade Tool](./07-configuring-the-data-upgrade-tool.md) to your new installation's `[LIFERAY_HOME]/tools/portal-tools-db-upgrade-client` folder. DXP Tomcat bundles include the tool.
+1. If you're not using a DXP Tomcat bundle, [install the Upgrade Tool](./configuring-the-data-upgrade-tool.md) to your new installation's `[LIFERAY_HOME]/tools/portal-tools-db-upgrade-client` folder. DXP Tomcat bundles include the tool.
 
 1. Run the data upgrade from your `[LIFERAY_HOME]/tools/portal-tools-db-upgrade-client` folder:
 
@@ -68,9 +68,9 @@ Here are the steps:
     ...
     ```
 
-    To use the default value (in parentheses), press enter. Otherwise, enter the configuration you want. See [Configuring the Data Upgrade Tool](./07-configuring-the-data-upgrade-tool.md) for details.
+    To use the default value (in parentheses), press enter. Otherwise, enter the configuration you want. See [Configuring the Data Upgrade Tool](./configuring-the-data-upgrade-tool.md) for details.
 
-1. If data upgrade issues occur, see [Upgrading Modules Using Gogo Shell](./09-upgrading-modules-using-gogo-shell.md) to resolve issues per module.
+1. If data upgrade issues occur, see [Upgrading Modules Using Gogo Shell](./upgrading-modules-using-gogo-shell.md) to resolve issues per module.
 
 1. Start your DXP server.
 
@@ -81,4 +81,4 @@ You have completed the upgrade and started your newly upgraded DXP server!
 * [Custom Code Upgrade](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2)
 * [Advance Upgrade Topics](TODO)
 * [Updating a Cluster](../10-Maintaining-a-liferay-dxp-installation/10-maintaining-clusters/01-maintaining-clustered-installations.md)
-* [Upgrading a Sharded Environment](./97-upgrading-a-sharded-environment.md)
+* [Upgrading a Sharded Environment](./upgrading-a-sharded-environment.md)

@@ -68,4 +68,4 @@ The deprecations in DXP 7.2 are as follows:
 
 ## Applications in Maintenance Mode
 
-Although no action is immediately necessary, you may also want to consider applications that are put into maintenance mode in DXP 7.2. These applications are not being deprecated or archived, but will no longer receive updates other than bug fixes. See [Features in Maintenance Mode](./99-features-in-maintenance-mode.md) for more information.
+Although no action is immediately necessary, you may also want to consider applications that are put into maintenance mode in DXP 7.2. These applications are not being deprecated or archived, but will no longer receive updates other than bug fixes. See [Features in Maintenance Mode](./features-in-maintenance-mode.md) for more information.

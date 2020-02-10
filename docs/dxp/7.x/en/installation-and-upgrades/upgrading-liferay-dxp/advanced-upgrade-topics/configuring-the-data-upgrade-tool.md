@@ -43,7 +43,7 @@ You can also pre-configure the upgrade tool to set more values than the tool gen
 
 * `app-server.properties`: Specifies the server location and libraries.
 * `portal-upgrade-database.properties`: Configures the database connection.
-* `portal-upgrade-ext.properties`: Sets the rest of the portal properties that the upgrade requires. To replicate your current DXP server, you can copy your current portal properties (except your database properties) into this file. Before using your current properties, make sure to [update them for the current DXP version](./06-preparing-a-new-application-server-for-liferay-dxp.md#migrate-your-portal-properties).
+* `portal-upgrade-ext.properties`: Sets the rest of the portal properties that the upgrade requires. To replicate your current DXP server, you can copy your current portal properties (except your database properties) into this file. Before using your current properties, make sure to [update them for the current DXP version](./preparing-a-new-application-server.md#migrate-your-portal-properties).
 
 ### Configuring app-server.properties
 
@@ -94,7 +94,7 @@ Specify the following information to configure the upgrade:
 
 * `liferay.home`: The [LIFERAY_HOME folder](https://help.liferay.com/hc/en-us/articles/360028712272-Liferay-Home).
 
-* `dl.store.impl`: The implementation for persisting documents to the document library store. This property is only mandatory if you're using a `*FileSystemStore` implementation. If you [updated this property in your `portal-ext.properties`](./06-preparing-a-new-application-server-for-liferay-dxp.md#configure-your-documents-and-media-file-store), copy the new value here. Otherwise, set the property one of these ways:
+* `dl.store.impl`: The implementation for persisting documents to the document library store. This property is only mandatory if you're using a `*FileSystemStore` implementation. If you [updated this property in your `portal-ext.properties`](./preparing-a-new-application-server.md#configure-your-documents-and-media-file-store), copy the new value here. Otherwise, set the property one of these ways:
 
 ```properties
 dl.store.impl=com.liferay.portal.store.file.system.FileSystemStore
@@ -138,5 +138,5 @@ Here are example upgrade configuration files that you can customize and copy int
 
 ## Additional Information
 
-* [Preparing a New Application Server for Liferay DXP](./06-preparing-a-new-application-server-for-liferay-dxp.md)
-* [Using the Upgrade Tool](./08-using-the-upgrade-tool.md)
+* [Preparing a New Application Server](./preparing-a-new-application-server.md)
+* [Using the Upgrade Tool](./using-the-upgrade-tool.md)
