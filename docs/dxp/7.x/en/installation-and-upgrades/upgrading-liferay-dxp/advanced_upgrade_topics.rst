@@ -12,5 +12,5 @@ Advanced Upgrade Topics
    advanced-upgrade-topics/configuring-the-data-upgrade-tool./md
    advanced-upgrade-topics/using-the-upgrade-tool./md
    advanced-upgrade-topics/upgrading-modules-using-gogo-shell./md
-   advanced-upgrade-topics/executing-post-upgrade-tasks./md
+   advanced-upgrade-topics/post-upgrade-tasks./md
    advanced-upgrade-topics/upgrading-a-sharded-environment./md

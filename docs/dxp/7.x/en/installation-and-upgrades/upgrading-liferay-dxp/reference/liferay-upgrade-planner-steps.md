@@ -226,15 +226,15 @@ Here are the installation upgrade steps:
 
         3. Checkpoint: You've upgraded your DXP installation (its files and data) for production. Post-upgrade tasks are all that's left.{.summary}
 
-12. [Execute the Post-Upgrade Tasks](../advanced-upgrade-topics/10-executing-post-upgrade-tasks.md){.title}
+12. [Execute the Post-Upgrade Tasks](../advanced-upgrade-topics/10-post-upgrade-tasks.md){.title}
 
     Now that your installation is upgraded, clean up remnants of upgrading by restoring your database optimizations, enabling and regenerating your search indexes, and more.{.summary}
 
-    1. [Remove the Database Tuning](../advanced-upgrade-topics/10-executing-post-upgrade-tasks.md#review-database-configurations){.title}
+    1. [Remove the Database Tuning](../advanced-upgrade-topics/10-post-upgrade-tasks.md#review-database-configurations){.title}
 
-    2. [Re-enable and Re-Index the Search Indexes](../advanced-upgrade-topics/10-executing-post-upgrade-tasks.md#set-up-elasticsearch-and-re-index-search-indexes){.title}
+    2. [Re-enable and Re-Index the Search Indexes](../advanced-upgrade-topics/10-post-upgrade-tasks.md#set-up-elasticsearch-and-re-index-search-indexes){.title}
 
-    3. [Update Web Content Permissions \(7.0 and lower\)](../advanced-upgrade-topics/10-executing-post-upgrade-tasks.md#enable-web-content-view-permissions){.title}
+    3. [Update Web Content Permissions \(7.0 and lower\)](../advanced-upgrade-topics/10-post-upgrade-tasks.md#enable-web-content-view-permissions){.title}
 
     4. [Address Any Deprecated Apps That Still Need Handling](./deprecations-in-liferay-dxp-7-2.md){.title}
 
