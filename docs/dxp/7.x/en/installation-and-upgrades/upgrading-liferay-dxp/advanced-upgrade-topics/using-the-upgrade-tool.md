@@ -72,7 +72,7 @@ Only execute the upgrade process on a server with ideal memory, CPU, and databas
 
 * If you're executing the upgrade using `ssh` and connection is lost, connect again and check the upgrade logs since the process will continue running.
 * If execution stopped during an upgrade process for DXP 7.1 or higher, restart the upgrade tool to continue the upgrade from that point. You can also use Gogo shell to [check module upgrade status](./upgrading-modules-using-gogo-shell.md#checking-upgrade-status).
-* If execution stopped during a core upgrade process for DXP 7.0 or lower, you must [restore the data from a backup](https://help.liferay.com/hc/en-us/articles/360029124271-Backing-up-a-Liferay-DXP-Installation) and start the upgrade again.
+* If execution stopped during a core upgrade process for DXP 7.0 or lower, you must [restore the data from a backup](../../10-maintaining-a-liferay-dxp-installation/backing-up.md) and start the upgrade again.
 
 **Warning:** To prevent the tool's expanded command from growing too large for Windows, execute the upgrade tool script from the `[LIFERAY_HOME]/tools/portal-tools-db-upgrade-client` folder.
 
