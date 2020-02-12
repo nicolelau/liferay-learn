@@ -21,7 +21,7 @@ Configure the database:
     create database lportal character set utf8;
     ```
 
-1. Set up a database user with full database permissions. If your organization requires the DXP database user to have limited database access, see [High Security Database User Practices](../14-reference/database-configurations.md#high-security-database-user-practices).
+1. Set up a database user with full database permissions. If your organization requires the DXP database user to have limited database access, see [High Security Database User Practices](../14-reference/high-security-database-user-practices.md).
 
 1. Install a JDBC Connector. The DXP bundle includes several open source JDBC connectors in the `/lib/ext` folder. Connectors for proprietary database, like Oracle or DB2 (see the table below), must be downloaded from the vendor.
 
@@ -33,8 +33,6 @@ Configure the database:
 | DB2 | `db2jcc4.jar` | [IBM](https://www.ibm.com/) |  The `dbc2jcc` connector has been deprecated after 3.72. |
 
 Congratulations! You configured a database for Liferay DXP.
-
-> **Note:** For database configuration details, see the [Database Configuration Reference](../14-reference/database-configurations.md)
 
 ## Next Steps
 
