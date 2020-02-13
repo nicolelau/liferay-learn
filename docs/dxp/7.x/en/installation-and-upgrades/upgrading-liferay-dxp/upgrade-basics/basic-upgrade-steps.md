@@ -10,7 +10,7 @@ Perform a basic upgrade by following these steps:
 
 1. Download and unzip the latest [Liferay DXP Bundle (Tomcat)](link) or [Docker Image](link)
 
-1. Configure the latest version bundle to [connect to your database](connecting-to-a-database-article) and specify `upgrade.database.auto.run=true` in portal-ext.properties. The MySQL connection template and `upgrade.database.auto.run` property are listed below as an example:
+1. Configure the latest version bundle to [connect to your database](../../installing-liferay-dxp-on-premises/configuring-a-database.md) and specify `upgrade.database.auto.run=true` in portal-ext.properties. The MySQL connection template and `upgrade.database.auto.run` property are listed below as an example:
 
     ```properties
     jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
@@ -21,7 +21,7 @@ Perform a basic upgrade by following these steps:
     upgrade.database.auto.run=true
     ```
 
-1. [Migrate any desired configurations and properties](link) from your previous version installation to your new installation. This can include any particular portal.property or OSGi configurations that you had in our previous installation.
+1. [Migrate any desired configurations and properties](../configuration-and-infrastructure/migrating-configurations-and-properties.md) from your previous version installation to your new installation. This can include any particular portal.property or OSGi configurations that you had in our previous installation.
 
     ```tip::
        Check the `Reference section <../reference/README.md>`_ for information on deprecations and property and configuration default changes.
