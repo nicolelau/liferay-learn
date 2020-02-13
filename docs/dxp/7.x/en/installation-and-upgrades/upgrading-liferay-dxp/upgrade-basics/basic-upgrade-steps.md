@@ -3,14 +3,14 @@
 The fastest way to upgrade to the latest version of Liferay DXP can be done by using a bundle of the latest version of Liferay DXP. This method is best for **development scenarios**. For an overview on upgrades and information on upgrading larger and more complex environments see [Introduction to Upgrading Liferay DXP](./introduction-to-upgrading-liferay-dxp.md).
 
 ```warning::
-   _Always_ back up your data and only perform the upgrade on a copy of your backed up data.
+   *Always* back up your data and only perform the upgrade on a copy of your backed up data.
 ```
 
 Perform a basic upgrade by following these steps:
 
 1. Download and unzip the latest [Liferay DXP Bundle (Tomcat)](link) or [Docker Image](link)
 
-1. Configure the latest version bundle to [connect to your database](connecting-to-a-database-article) and specify the upgrade property in portal-ext.properties. The MySQL connection template and property are listed below as an example:
+1. Configure the latest version bundle to [connect to your database](connecting-to-a-database-article) and specify `upgrade.database.auto.run=true` in portal-ext.properties. The MySQL connection template and `upgrade.database.auto.run` property are listed below as an example:
 
     ```properties
     jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
@@ -40,6 +40,10 @@ Perform a basic upgrade by following these steps:
     ```
 
 1. Validate your upgraded data and configurations.
+
+    ![The Liferay DXP landing screen.](./basic-upgrade-steps/images/01.png)
+
+Your upgrade to the latest version of Liferay DXP is now complete.
 
 <!-- If your DXP instance isn't in production and you can afford downtime, these steps may suit you. They demonstrate upgrading a simple, non-clustered DXP 7.x installation.
 
@@ -117,9 +121,9 @@ Here are the steps:
 
 You have completed the upgrade and started your newly upgraded DXP server! -->
 
-## Next Steps
+## Additional Information
 
-* [Custom Code Upgrade](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2)
-* [Advance Upgrade Topics](./advanced-upgrade-topics/introduction-to-advanced-upgrade-topics.md)
+* [Upgrade Stability and Performance](./upgrade-stability-and-performance/upgrade-stability-and-performance-overview.md)
+* [Migrating and Updating Configurations](../configuration-and-infrastructure/README.md)
 * [Updating a Cluster](../10-Maintaining-a-liferay-dxp-installation/10-maintaining-clusters/01-maintaining-clustered-installations.md)
-* [Upgrading a Sharded Environment](./advanced-upgrade-topics/upgrading-a-sharded-environment.md)
+* [Custom Code Upgrade](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2)
