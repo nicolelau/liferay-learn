@@ -1,6 +1,47 @@
-# A Simple DXP Upgrade
+# Basic Upgrade Steps
 
-If your DXP instance isn't in production and you can afford downtime, these steps may suit you. They demonstrate upgrading a simple, non-clustered DXP 7.x installation.
+The fastest way to upgrade to the latest version of Liferay DXP can be done by using a bundle of the latest version of Liferay DXP. This method is best for **development scenarios**. For an overview on upgrades and information on upgrading larger and more complex environments see [Introduction to Upgrading Liferay DXP](./introduction-to-upgrading-liferay-dxp.md).
+
+```warning::
+   _Always_ back up your data and only perform the upgrade on a copy of your backed up data.
+```
+
+Perform a basic upgrade by following these steps:
+
+1. Download and unzip the latest [Liferay DXP Bundle (Tomcat)](link) or [Docker Image](link)
+
+1. Configure the latest version bundle to [connect to your database](connecting-to-a-database-article) and specify the upgrade property in portal-ext.properties. The MySQL connection template and property are listed below as an example:
+
+    ```properties
+    jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
+    jdbc.default.url=jdbc:mysql://localhost/my-database?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&serverTimezone=GMT&useFastDateParsing=false&useUnicode=true
+    jdbc.default.username=my-username
+    jdbc.default.password=my-password
+
+    upgrade.database.auto.run=true
+    ```
+
+1. [Migrate any desired configurations and properties](link) from your previous version installation to your new installation. This can include any particular portal.property or OSGi configurations that you had in our previous installation.
+
+    ```tip::
+       Check the `Reference section <../reference/README.md>`_ for information on deprecations and property and configuration default changes.
+    ```
+
+1. Start your new installation using the startup script (or Docker image). Tomcat bundle startup example:
+
+    ```bash
+    ./liferay-dxp-version/tomcat-version/bin/startup.sh
+    ```
+
+    Example upgrade log:
+
+    ```bash
+    Example tail end of upgrade log indicating success.
+    ```
+
+1. Validate your upgraded data and configurations.
+
+<!-- If your DXP instance isn't in production and you can afford downtime, these steps may suit you. They demonstrate upgrading a simple, non-clustered DXP 7.x installation.
 
 ```warning::
    These steps are not intended for upgrading a DXP installation that is in production or is production grade (e.g, uses a cluster or multiple servers). See [Advanced Upgrade Topics](./advanced-upgrade-topics/introduction-to-advanced-upgrade-topics.md) for such cases.
@@ -74,7 +115,7 @@ Here are the steps:
 
 1. Start your DXP server.
 
-You have completed the upgrade and started your newly upgraded DXP server!
+You have completed the upgrade and started your newly upgraded DXP server! -->
 
 ## Next Steps
 

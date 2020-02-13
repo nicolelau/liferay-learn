@@ -62,6 +62,10 @@ The deprecations in DXP 7.2 are as follows:
 | OpenAM / OpenSSO | Bundled | Migrate to [SAML based authentication](https://help.liferay.com/hc/en-us/articles/360028711032-Introduction-to-Authenticating-Using-SAML). |
 | OpenID | Marketplace | Replaced by [OpenID Connect](https://help.liferay.com/hc/en-us/articles/360028711312-Authenticating-with-OpenID-Connect). |
 
+### Switching from NTLM to Kerberos
+
+If you're using NTLM to authenticate Microsoft Windows™ accounts with Liferay DXP, switch to using [Kerberos](https://help.liferay.com/hc/en-us/articles/360029031831-Authenticating-with-Kerberos). Security vulnerabilities persist with NTLM. NTLM has been deprecated and removed from the bundle, but you can still [build and deploy the module](https://github.com/liferay/liferay-portal/tree/7.2.x/modules/apps/portal-security-sso-ntlm).
+
 ## User and System Management
 
 | Feature |  Availability |

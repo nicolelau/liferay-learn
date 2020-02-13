@@ -53,7 +53,7 @@ The data upgrade tuning instructions given here are a starting point for tuning 
 
 ### IBM DB2
 
-Please consult [IBM's official DB2 documentation](https://www.ibm.com/support/pages/db2-database-product-documentation-4). 
+Please consult [IBM's official DB2 documentation](https://www.ibm.com/support/pages/db2-database-product-documentation-4).
 
 ### MariaDB
 
