@@ -1,6 +1,8 @@
-# Post-Upgrade Checklist
+# Post-Upgrade Considerations
 
-## re-enable Indexing
+## Re-enable Production Settings
+
+### Search Indexing
 
 Before starting the upgrade process in your new installation, you must disable indexing to prevent upgrade process performance issues that arise when the indexer attempts to re-index content.
 
@@ -12,7 +14,7 @@ indexReadOnly="true"
 
 After you complete the upgrade, re-enable indexing by removing the `.config` file or setting `indexReadOnly="false"`.
 
-## Review Database Configurations
+### Database Configurations
 
 Prior to upgrading your Liferay database, you tuned it for upgrade (see [Tuning for the Data Upgrade](./tuning-for-the-data-upgrade.md)). Now that the upgrade is complete, restore the production database tuning you used previously.
 
@@ -26,7 +28,7 @@ Prior to DXP 7.1, all users could view Web Content articles by default. Now view
 
 **Option 1:** Open view permissions for all web content articles by navigating to _Control Panel_ → _Configuration_ → _System Settings_ → _Web Content_ → _Virtual Instance Scope_ → _Web Content_ and de-selecting _Article view permissions check enabled_.
 
-![Disable the permissions check for viewing web content by scrolling down in the Web Content menu in the System Settings.](./post-upgrade-tasks/images/02.png)
+![Disable the permissions check for viewing web content by scrolling down in the Web Content menu in the System Settings.](./post-upgrade-checklist/images/02.png)
 
 **Option 2:** If not many Web Content articles exist, then edit view permissions per Web Content article per role.
 

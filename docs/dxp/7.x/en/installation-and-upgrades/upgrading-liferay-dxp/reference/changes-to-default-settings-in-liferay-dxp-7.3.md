@@ -1,4 +1,4 @@
-# Changes to Default Settings
+# Changes to Default Settings in Liferay DXP 7.3
 
 Most new versions of Liferay DXP include changes to the default settings. If you rely on the defaults from your old version, you should review the changes and decide to keep the defaults from your old version or accept the defaults of the new.
 

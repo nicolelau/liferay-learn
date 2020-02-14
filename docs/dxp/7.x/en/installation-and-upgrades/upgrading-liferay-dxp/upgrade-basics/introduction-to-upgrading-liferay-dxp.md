@@ -1,46 +1,23 @@
-# Introduction to Upgrading Liferay DXP
+# Upgrade Overview
 
-Upgrading to the latest Liferay DXP version involves updating your files, apps, custom code, and data. Upgrade time scales with the amount of data and custom code. Liferay's upgrade optimization guidelines, code upgrade tooling in Dev studio, and a data upgrade tool facilitate upgrading as quickly and smoothly as possible.
+The complexity and scale of a DXP installation has correlates directly to the planning and effort that may be required to perform a full upgrade. Installations that make minimal use of custom code and have smaller data sets can likely perform the [Basic Upgrade Steps](./basic-upgrade-steps.md) with success. Larger, more complex, or enterprise level installations may require additional planning to efficiently and safely execute. This article provides an overview of the guidelines and considerations that should be taken into account when performing an upgrade.
 
-For trial purposes on a private, non-clustered DXP instance, you can follow the steps in [Example: A Simple DXP Upgrade](./a-simple-dxp-upgrade.md).
+These guidelines and considerations fall into three major categories:
 
-If your DXP instance is in production or is being used collaboratively for testing, development, or user-acceptance, you should test upgrading a backup instance _before_ upgrading your real instance. The [Advanced Upgrade Topics](./advanced-upgrade-topics/introduction-to-advanced-upgrade-topics.md) detail the process.
+* [Preparation and Planning](#preparation-and-planning)
+* [Stability and Performance Tuning](#stability-and-performance-tuning)
+* [Executing the Upgrade](#executing-the-upgrade)
+* [Migrating Configurations and Settings](#migrating-configurations-and-settings)
 
-```note::
-   Dev Studio's [Upgrade Planner](https://help.liferay.com/hc/en-us/articles/360029147451-Liferay-Upgrade-Planner) walks through the upgrade process and automates parts of it. The Planner uses a terse [step listing](../reference/liferay-upgrade-planner-steps.md) you can follow or refer to throughout upgrading production-grade instances.
+```warning::
+   **Always** back up and perform upgrade testing on copies of backed up data.
 ```
 
-Here's an overview of the upgrade steps.
+## Preparation and Planning
 
-## Adapting to Feature Changes
+Preparation and planning may be less consequential for smaller more casual installations but is *mandatory* for larger enterprise grade installations.
 
-New DXP versions can deprecate features, remove features, or [move features into maintenance mode](./reference/features-in-maintenance-mode.md). The [DXP deprecations article](./reference/deprecations-in-liferay-dxp-7-2.md) explains the ramifications so you can adapt to the changes.
-
-## Upgrading Custom Code and Plugins
-
-Custom code upgrade involves adapting any themes and apps you've developed to the new DXP version. This can be as simple as updating dependencies, or it may involve major code changes. [Upgrading Code](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2) (a separate guide) demonstrates the process. The code upgrade can be done in parallel with the data upgrade.
-
-### Upgrading Marketplace Apps
-
-You must also upgrade your installation's Marketplace apps (Kaleo, Calendar, Notifications, etc.) to their latest version for your current Liferay DXP installation. Troubleshoot any issues with these apps on your current DXP installation before upgrading to the new DXP version.
-
-## Upgrading Your Database
-
-Upgrading the database is the biggest milestone in the upgrade process. See [Upgrading the Database](./advanced-upgrade-topics/upgrading-the-database.md) for a data upgrade overview.
-
-## Preparing a New Liferay DXP Server
-
-[New DXP server setup](./advanced-upgrade-topics/preparing-a-new-application-server.md) involves installing the new DXP version, migrating and updating your portal properties and OSGi properties, and installing any necessary patches.
-
-## Installing the Search Engine
-
-If you're running a production-grade DXP instance and you do not already have your own Elasticsearch/Solr installation running, you must set one up. By default, DXP ships with an embedded configuration for Elasticsearch. The embedded configuration works great for demo purposes, but is not supported in production. See [Installing Elasticsearch](https://help.liferay.com/hc/en-us/articles/360028711132-Installing-Elasticsearch) or [Installing Solr](https://help.liferay.com/hc/en-us/articles/360032264052-Installing-Solr) for more information.
-
-Before tackling a production upgrade, examine [A Simple DXP Upgrade](./a-simple-dxp-upgrade.md) next.
-
-===
-
-## Determining Your Upgrade Path
+### Review Available Upgrade Paths
 
 Look up your current Liferay DXP/Portal version in this table to determine your installation upgrade path.
 
@@ -52,65 +29,57 @@ Look up your current Liferay DXP/Portal version in this table to determine your 
 
 If your path includes upgrading to Liferay Portal 6.2, follow the [Liferay Portal 6.2 upgrade instructions](https://help.liferay.com/hc/en-us/articles/360017903232-Upgrading-Liferay) first.
 
-If your path includes upgrading to Liferay DXP/Portal 7.1, continue following these upgrade instructions.
+### Review Deprecations and Changes to Default Settings
 
-## Using Backup Data for Upgrade Testing
+Things change in latest version, see these the reference section (or these articles:) for the most recent deprecations / changes to default settings.
 
-Doing trial runs of the upgrade process and testing an upgraded copy of your production DXP instance is essential for identifying and resolving issues that would otherwise affect your production server. Upgrade trial runs, and even the pre-production upgrade, should be done using backed up copies of the production database and document library repository.
+### Review and Update Apps and Custom Code
 
-```important::
-   The tasks discussed in the [Preparing for the Data Upgrade](#preparing-for-the-data-upgrade) and [Performing the Data Upgrade](#performing-the-data-upgrade) sections, should be done as a trial run first on a test server using a copy of your production server backups.
-```
+Marketplace apps need to be updated to the latest for the version you're currently on, before upgrading - this reduces chances of any upgrade issues. Custom code should be reviewed against deprecations / changes and updated for compatibility to the latest version before upgrading. See these articles for more information.
 
-## Preparing for the Data Upgrade
-
-Unnecessary data and improperly tuned databases slow down the upgrade process. Large data sets that have not been optimized may severely impact performing during a data upgrade. Take these measures to optimize your data upgrades:
-
-* [Prune unneeded data.](./pruning-the-database.md)
-
-* [Tune the database for upgrades.](./tuning-for-the-data-upgrade.md)
-
-If Staging is enabled in production and you have staged changes, you should publish them to Live before the data upgrade. If you skip this step, publishing staged changes requires a full publish.
-
-Lastly for your pre-production upgrade, completely [back up](../10-maintaining-a-liferay-dxp-installation/backing-up.md) your current Liferay DXP/Portal installation, pruned database, and document repository.
-
-## Performing the Data Upgrade
-
-Data upgrade is the biggest upgrade process milestone. [Configure the upgrade tool on your new DXP server](./configuring-the-data-upgrade-tool.md) and then [use it to execute the data upgrade](using-the-upgrade-tool.md).
-
-## Executing Post-Upgrade Tasks
-
-After completing the data upgrade, you must optimize your database and DXP server for production. The [post-upgrade tasks](./post-upgrade-tasks.md) include re-tuning database settings and running search indexes.
-
-===
-
-# Preparing a New Application Server for Liferay DXP
-
-To upgrade your Liferay DXP database, prepare a new application server for hosting Liferay DXP. You'll use this server to run the data upgrade and then run Liferay DXP.
+### Request an Upgrade Patch (Subscription)
 
 ```note::
-   If you are upgrading from a version prior to DXP 7.0 and using a sharded environment, you must migrate your shards to multiple application servers, because sharding is no longer supported. Prepare one new application server for each shard.
+   Subscription
 ```
 
-## Install the New Liferay DXP Version
+Users with a Liferay DXP subscription should update to the latest fix pack and/or request an upgrade patch in preparation for performing an upgrade. File a ticket here to start this process: [Help Center](link)
 
-Install the new Liferay DXP version using a bundle or to an application server of choice. See the [Installing a Liferay DXP Tomcat Bundle](../../installing-liferay-dxp-on-premises/installing-a-liferay-dxp-tomcat-bundle.md) for more information.
+## Stability and Performance Tuning
 
-```warning::
-   Do not start your application server with your database yet. Wait until after you have completed the data upgrade.
+For users with larger data sets upgrades can take a prohibitively long time, if mitigating steps are not taken in advance of executing the upgrade.
+
+### Tune Database Performance
+
+Users should consider adjusting the configurations for their database to optimize for upgrade efficiency before performing an upgrade. See this link on recommendations on how to do this. Users should also review their data and reduce its overall size by trimming data from the database that is unnecessary to perform the upgrade. See this link on some guidelines and tips to pruning a database of unnecessary data.
+
+```tip::
+   Don't forget to re-enable your typical production database configurations after your upgrade is complete.
 ```
 
-### Install the Latest Upgrade Patch or Fix Pack
+### Tune the Search Engine
 
-> Subscription Required
+The search engine typically indexes regularly while Liferay DXP is running. However, this indexing can have a detrimental impact to upgrade performance if it is left on. Indexing should be disabled before performing an upgrade, and re-enabled once an upgrade is complete. See [this article](link) on how to do this.
 
-An *upgrade patch* contains the latest fix pack and hot fixes planned for the next service pack. Upgrade patches provide the latest fixes available for your data upgrade.
+## Executing the Upgrade
 
-Get the latest fixes for Liferay DXP by requesting an upgrade patch. Request the patch in advance to ensure you will have it ready when you need it.
+There are three primary methods to available to execute an upgrade. [Using a Liferay DXP Docker image](./basic-upgrade-steps.md#using-the-latest-docker-image), [Using a DXP Bundle](./basic-upgrade-steps.md#using-the-latest-bundle), and [Using the Liferay Upgrade Tool](./using-the-liferay-upgrade-tool.md). For larger installations and production environments we strongly recommend using the Liferay Upgrade Tool.
 
-Install the upgrade patch (if you requested it from Liferay Support) or the [latest Fix Pack](https://help.liferay.com/hc/en-us/articles/360028810452-Patching-Liferay-DXP).
+## Migrating Configurations and Settings
 
-## Additional Information
+Once an upgrade is complete, you can begin migrating and updating any configurations over from your previous installation. These articles walk through common migration and update tasks that can be done post upgrade:
 
-* [Blade CLI](https://help.liferay.com/hc/en-us/articles/360029147071-Blade-CLI)
-* [Configuring the Data Upgrade Tool](./configuring-the-data-upgrade-tool.md)
+* [Migrating Configurations and Properties](../configuration-and-infrastructure/migrating-configurations-and-properties.md)
+* [Updating the Database Driver](../configuration-and-infrastructure/updating-the-database-driver.md)
+* [Updating the File Store](../configuration-and-infrastructure/updating-the-file-store.md)
+
+If you are upgrading from an older version (7.1 and below) you may also need to [install Elasticsearch](../configuration-and-infrastructure/dxp-and-elasticsearch.md) to handle search indexing.
+
+## Conclusion
+
+Finally, review [Post-Upgrade Considerations](./post-upgrade-considerations.md) to ensure configurations and content are correct for your upgraded Liferay DXP installation. Your upgrade is now complete.
+
+## Related Information
+
+* [Basic Upgrade Steps](./basic-upgrade-steps.md)
+* [Using the Upgrade Tool](./using-the-upgrade-tool.md)
