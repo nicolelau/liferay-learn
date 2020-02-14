@@ -4,6 +4,8 @@ Maintaining a Liferay DXP Installation
 .. toctree::
    :maxdepth: 2
 
+   maintaining-a-liferay-dxp-installation/introduction-to-maintaining-a-liferay-dxp-installation.md
+
    maintaining-a-liferay-dxp-installation/01-maintaining-clusters/01-maintaining-clustered-installations.md
    maintaining-a-liferay-dxp-installation/01-maintaining-clusters/02-rolling-restarts.md
    maintaining-a-liferay-dxp-installation/01-maintaining-clusters/03-blue-green-deployments.md
