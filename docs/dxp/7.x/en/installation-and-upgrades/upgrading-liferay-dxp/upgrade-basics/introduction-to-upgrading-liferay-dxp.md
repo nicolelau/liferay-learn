@@ -2,7 +2,7 @@
 
 The complexity and scale of a DXP installation correlates directly to the planning and effort that may be required to perform a full upgrade. Installations that make minimal use of custom code and have smaller data sets can likely perform the [Basic Upgrade Steps](./basic-upgrade-steps.md) with success. Larger, more complex, or enterprise level installations may require additional planning to safely and efficiently execute. The following guidelines and considerations should be taken into account when performing an upgrade.
 
-These guidelines and considerations fall into three major categories:
+These guidelines and considerations fall into the following major categories:
 
 * [Preparation and Planning](#preparation-and-planning)
 * [Stability and Performance Tuning](#stability-and-performance-tuning)
