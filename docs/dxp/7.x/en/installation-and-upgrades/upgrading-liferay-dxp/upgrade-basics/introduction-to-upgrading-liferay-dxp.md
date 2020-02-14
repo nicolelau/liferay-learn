@@ -1,6 +1,6 @@
 # Upgrade Overview
 
-The complexity and scale of a DXP installation has correlates directly to the planning and effort that may be required to perform a full upgrade. Installations that make minimal use of custom code and have smaller data sets can likely perform the [Basic Upgrade Steps](./basic-upgrade-steps.md) with success. Larger, more complex, or enterprise level installations may require additional planning to efficiently and safely execute. This article provides an overview of the guidelines and considerations that should be taken into account when performing an upgrade.
+The complexity and scale of a DXP installation correlates directly to the planning and effort that may be required to perform a full upgrade. Installations that make minimal use of custom code and have smaller data sets can likely perform the [Basic Upgrade Steps](./basic-upgrade-steps.md) with success. Larger, more complex, or enterprise level installations may require additional planning to safely and efficiently execute. The following guidelines and considerations should be taken into account when performing an upgrade.
 
 These guidelines and considerations fall into three major categories:
 
@@ -39,9 +39,7 @@ Marketplace apps need to be updated to the latest for the version you're current
 
 ### Request an Upgrade Patch (Subscription)
 
-```note::
-   Subscription
-```
+> Subscription
 
 Users with a Liferay DXP subscription should update to the latest fix pack and/or request an upgrade patch in preparation for performing an upgrade. File a ticket here to start this process: [Help Center](link)
 
@@ -52,10 +50,6 @@ For users with larger data sets upgrades can take a prohibitively long time, if 
 ### Tune Database Performance
 
 Users should consider adjusting the configurations for their database to optimize for upgrade efficiency before performing an upgrade. See this link on recommendations on how to do this. Users should also review their data and reduce its overall size by trimming data from the database that is unnecessary to perform the upgrade. See this link on some guidelines and tips to pruning a database of unnecessary data.
-
-```tip::
-   Don't forget to re-enable your typical production database configurations after your upgrade is complete.
-```
 
 ### Tune the Search Engine
 

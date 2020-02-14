@@ -9,7 +9,7 @@ For an overview on upgrades and information on upgrading larger and more complex
 ```
 
 ```important::
-   For production and enterprise level deployments of Liferay use the Upgrade Tool to perform upgrades. For more information see `Using the Upgrade Tool <./using-the-upgrade-tool.md>`_.
+   For production and enterprise level deployments of Liferay use the Upgrade Tool to perform upgrades. For more information see `Using the Liferay Upgrade Tool <./using-the-liferay-upgrade-tool.md>`_.
 ```
 
 ## Using the Latest Docker Image

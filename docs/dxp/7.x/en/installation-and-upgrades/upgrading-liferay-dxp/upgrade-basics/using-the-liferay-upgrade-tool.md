@@ -17,7 +17,7 @@ Additional information on running and configuring the tool is available in the [
 ## Running the Upgrade Tool
 
 ```warning::
-   Review the guidelines discussed in from the `Upgrade Overview <./upgrade-overview.md>`_before proceeding.
+   Review the guidelines discussed in from the `Upgrade Overview <./upgrade-overview.md>`_ before proceeding.
 ```
 
 Here's how you run an upgrade using the tool:
