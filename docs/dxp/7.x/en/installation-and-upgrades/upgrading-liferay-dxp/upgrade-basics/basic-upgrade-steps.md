@@ -5,7 +5,7 @@ There are three primary methods available to upgrade from a previous version of 
 For an overview on upgrades and information on upgrading larger and more complex environments see [Introduction to Upgrading Liferay DXP](./introduction-to-upgrading-liferay-dxp.md).
 
 ```warning::
-   Regardless of upgrade method, **always** back up your data and only perform the upgrade on a copy of your backed up data.
+   Regardless of upgrade method, **always** back up your data and configuration files and perform upgrades on backed up copies.
 ```
 
 ```important::

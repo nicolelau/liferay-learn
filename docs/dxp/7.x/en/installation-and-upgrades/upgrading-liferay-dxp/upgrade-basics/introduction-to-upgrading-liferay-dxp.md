@@ -10,7 +10,7 @@ These guidelines and considerations fall into the following major categories:
 * [Executing the Upgrade](#executing-the-upgrade)
 
 ```warning::
-   **Always** back up and perform upgrade testing on copies of backed up data.
+   **Always** back up your data and configuration files and perform upgrades on backed up copies.
 ```
 
 ## Preparation and Planning
