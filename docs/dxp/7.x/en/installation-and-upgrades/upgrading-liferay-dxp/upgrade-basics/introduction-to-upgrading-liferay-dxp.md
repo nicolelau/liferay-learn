@@ -67,7 +67,7 @@ Once an upgrade is complete, you can begin migrating and updating any configurat
 
 There are three primary methods to available to execute an upgrade. [Using a Liferay DXP Docker image](./basic-upgrade-steps.md#using-the-latest-docker-image), [Using a DXP Bundle](./basic-upgrade-steps.md#using-the-latest-bundle), and [Using the Liferay Upgrade Tool](./using-the-liferay-upgrade-tool.md). For larger installations and production environments we strongly recommend using the Liferay Upgrade Tool.
 
-## Conclusion
+## Post-Upgrade Considerations
 
 Review [Post-Upgrade Considerations](./post-upgrade-considerations.md) to ensure configurations and content are correct for your upgraded Liferay DXP installation.
 
