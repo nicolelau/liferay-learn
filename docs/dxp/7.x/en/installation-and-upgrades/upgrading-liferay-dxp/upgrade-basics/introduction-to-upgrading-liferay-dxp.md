@@ -6,8 +6,8 @@ These guidelines and considerations fall into the following major categories:
 
 * [Preparation and Planning](#preparation-and-planning)
 * [Stability and Performance Tuning](#stability-and-performance-tuning)
-* [Executing the Upgrade](#executing-the-upgrade)
 * [Migrating Configurations and Settings](#migrating-configurations-and-settings)
+* [Executing the Upgrade](#executing-the-upgrade)
 
 ```warning::
    **Always** back up and perform upgrade testing on copies of backed up data.
@@ -55,10 +55,6 @@ Users should consider adjusting the configurations for their database to optimiz
 
 The search engine typically indexes regularly while Liferay DXP is running. However, this indexing can have a detrimental impact to upgrade performance if it is left on. Indexing should be disabled before performing an upgrade, and re-enabled once an upgrade is complete. See [this article](link) on how to do this.
 
-## Executing the Upgrade
-
-There are three primary methods to available to execute an upgrade. [Using a Liferay DXP Docker image](./basic-upgrade-steps.md#using-the-latest-docker-image), [Using a DXP Bundle](./basic-upgrade-steps.md#using-the-latest-bundle), and [Using the Liferay Upgrade Tool](./using-the-liferay-upgrade-tool.md). For larger installations and production environments we strongly recommend using the Liferay Upgrade Tool.
-
 ## Migrating Configurations and Settings
 
 Once an upgrade is complete, you can begin migrating and updating any configurations over from your previous installation. These articles walk through common migration and update tasks that can be done post upgrade:
@@ -67,11 +63,17 @@ Once an upgrade is complete, you can begin migrating and updating any configurat
 * [Updating the Database Driver](../configuration-and-infrastructure/updating-the-database-driver.md)
 * [Updating the File Store](../configuration-and-infrastructure/updating-the-file-store.md)
 
-If you are upgrading from an older version (7.1 and below) you may also need to [install Elasticsearch](../configuration-and-infrastructure/dxp-and-elasticsearch.md) to handle search indexing.
+## Executing the Upgrade
+
+There are three primary methods to available to execute an upgrade. [Using a Liferay DXP Docker image](./basic-upgrade-steps.md#using-the-latest-docker-image), [Using a DXP Bundle](./basic-upgrade-steps.md#using-the-latest-bundle), and [Using the Liferay Upgrade Tool](./using-the-liferay-upgrade-tool.md). For larger installations and production environments we strongly recommend using the Liferay Upgrade Tool.
 
 ## Conclusion
 
-Finally, review [Post-Upgrade Considerations](./post-upgrade-considerations.md) to ensure configurations and content are correct for your upgraded Liferay DXP installation. Your upgrade is now complete.
+Review [Post-Upgrade Considerations](./post-upgrade-considerations.md) to ensure configurations and content are correct for your upgraded Liferay DXP installation.
+
+If you are upgrading from an older version (7.1 and below) you may also need to [install Elasticsearch](../configuration-and-infrastructure/dxp-and-elasticsearch.md) to handle search indexing.
+
+Your upgrade is now complete.
 
 ## Related Information
 
