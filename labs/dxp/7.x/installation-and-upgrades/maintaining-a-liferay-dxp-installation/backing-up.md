@@ -6,7 +6,7 @@ DXP isn't very different from other Java web applications that might be running 
 
 ## Backing up Source Code
 
-If you have extended DXP or have written any plugins, they should be stored in a source code repository such as Git, Subversion, or CVS. You should back up your source code repository on a regular basis to preserve ongoing work. 
+If you have extended DXP or have written any plugins, they should be stored in a source code repository such as Git, BitBucket, Subversion, or CVS. You should back up your source code repository on a regular basis to preserve ongoing work.
 
 ## Backing up the DXP Installation
 
@@ -16,7 +16,7 @@ The application server has the DXP descriptors, deployments, and dependencies yo
 
 The Liferay Home folder is important to back up because it contains the following files (and more):
 
-- **Portal properties:** The Liferay Home folder stores DXP's [portal properties files](../14-reference/03-portal-properties.md), such as `portal-setup-wizard.properties` and `portal-ext.properties`. You should absolutely back them up. 
+- **Portal properties and system properties:** The Liferay Home folder stores DXP [portal properties files](../14-reference/03-portal-properties.md) (e.g., `portal-ext.properties`, `portal-setup-wizard.properties`, etc.) and DXP [system properties files](../14-reference/04-system-properties.md) (e.g., `system-ext.properties`). You should absolutely back them up.
 
 - **`/data` folder:** DXP stores configuration files, search indexes, and cache information in Liferay Home's `/data` folder. If you're using the File System store or the Advanced File System store, the [Documents and Media repository](https://help.liferay.com/hc/en-us/articles/360028810112-Document-Repository-Configuration) is also stored here by default. It's always important to back up your `/data` folder.
 
@@ -24,7 +24,13 @@ The Liferay Home folder is important to back up because it contains the followin
 
 - **`/logs` folder:** Contains DXP's log files. If a problem occurs on DXP, the log files provide information for determining what went wrong. 
 
-The `/data`, `/osgi`, and `/logs` folders are all contained in the Liferay Home folder. Thus, if you're backing up both your application server folder and your Liferay Home folder, you're in good shape. 
+The Liferay Home folder contains all the files and folders mentioned above. Thus, if you're backing up both your application server folder and your Liferay Home folder, you're in good shape.
+
+Using a source control repository such as Git, BitBucket, Subversion, or CVS, is a great way to back up your Liferay Home folder.
+
+```tip::
+   Using a source control repository and an orchestration tool such as [Jenkins](https://jenkins.io/) is recommended for promoting DXP environments through [DevOps](https://en.wikipedia.org/wiki/DevOps) pipelines.
+```
 
 **Important:** If you configured your [Documents and Media repository](https://help.liferay.com/hc/en-us/articles/360028810112-Document-Repository-Configuration) to a location other than the default location, back up that location.
 
