@@ -20,6 +20,10 @@ The Liferay Home folder is important to back up because it contains the followin
 
 - **`/data` folder:** DXP stores configuration files, search indexes, and cache information in Liferay Home's `/data` folder. If you're using the File System store or the Advanced File System store, the [Documents and Media repository](https://help.liferay.com/hc/en-us/articles/360028810112-Document-Repository-Configuration) is also stored here by default. It's always important to back up your `/data` folder.
 
+- **`/license` folder (Subscription):** Holds the activation key for your enterprise subscription.
+
+    > Subscription
+
 - **`/osgi` folder:** The files that comprise DXP's OSGi runtime are stored in Liferay Home's `/osgi` folder. It contains all of the app and module JAR files deployed to DXP. The `/osgi` folder also contains other required JAR files, [configuration files](https://help.liferay.com/hc/en-us/articles/360029131651-Understanding-System-Configuration-Files), and log files. 
 
 - **`/logs` folder:** Contains DXP's log files. If a problem occurs on DXP, the log files provide information for determining what went wrong. 
