@@ -1,71 +1,156 @@
 # Basic Upgrade Steps
 
-There are three primary methods available to upgrade from a previous version of Liferay DXP to the latest version: using the Docker image, using a bundle, and using the Liferay Upgrade tool. The Liferay Upgrade tool is the recommended choice for enterprises and for upgrading critical production environments. For other situations, using the latest Liferay DXP Docker image or bundle can be a suitable and expedient alternative.
+If your data set is small and you're upgrading to DXP 7.3+, these basic upgrade steps may be right for you. They are a more streamlined version of the advanced upgrade steps in that they forgo database tuning, data pruning, and [custom code upgrades](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2), in favor of upgrading the database sooner. The biggest difference about the basic upgrade steps is that the database upgrade is done during server startup via the _Auto Upgrade_ feature. Auto Upgrade is a mode of running DXP that invokes all DXP upgrade processes on DXP startup. When Auto Upgrade completes, the latest version of DXP is fully operational with the upgraded database.
 
-For an overview on upgrades and information on upgrading larger and more complex environments see [Introduction to Upgrading Liferay DXP](./introduction-to-upgrading-liferay-dxp.md).
+Auto Upgrade can be run on any DXP 7.3+ installation, including a Docker image or on-premises installation. You can migrate from an on-premises installation to a Docker image and vice-versa. You can download the Docker Desktop from [here](https://www.docker.com/products/docker-desktop).
 
-```warning::
-   Regardless of upgrade method, **always** back up your data and configuration files and perform upgrades on backed up copies.
-```
+The basic upgrade steps involve:
+
+1. [Preliminary Steps](#preliminary-steps) to run on your current DXP version _before_ upgrading.
+
+2. Upgrading to the latest DXP version [using the latest Docker image](#using-the-latest-docker-image) OR [using the latest on-premises installation](#using-the-latest-on-premises-installation).
 
 ```important::
-   For production and enterprise level deployments of Liferay use the Upgrade Tool to perform upgrades. For more information see `Using the Liferay Upgrade Tool <./using-the-liferay-upgrade-tool.md>`_.
+   For production and enterprise level deployments of Liferay use the Upgrade Tool to perform upgrades. For more information see `Using the Liferay Upgrade Tool <./using-the-liferay-upgrade-tool.md>`.
 ```
+
+```warning::
+   Regardless of upgrade method, **always** back up your data and installation before upgrading. Testing the upgrade process on backup copies is advised.
+```
+
+## Preliminary Steps
+
+Execute these steps on your current DXP version _before_ upgrading:
+
+1. Update all Liferay Marketplace apps to the latest version for your current DXP version. Skipping app updates can be problematic and prevent the apps from enabling on the new DXP version.
+
+1. On 7.x, Preserve your System Settings by exporting and downloading all of them in a ZIP file of `.config` files. Extract the `.config` files to your `[Liferay_Home]/osgi/configs` folder for easy setup on the new DXP server.
+
+1. [Backup your current Liferay DXP installation](../../10-maintaining-a-liferay-dxp-installation/backing-up.md), including your database, document file store, and [Liferay Home](../../14-reference/01-liferay-home.md) folder.
+
+Upgrade using the latest Docker image (next) or skip to [Using an On-Premises Installation](#using-an-on-premises-installation).
 
 ## Using the Latest Docker Image
 
-The fastest way to upgrade to the latest version of Liferay DXP is by using the Liferay DXP Docker image. The following upgrade steps assumes the following:
+The fastest way to upgrade to the latest Liferay version is by using the latest Liferay Docker image ([DXP](https://hub.docker.com/r/liferay/dxp) or [Community Edition](https://hub.docker.com/r/liferay/portal)).
 
-The database is accessible with the following values:
+After completing the [preliminary steps](#preliminary-steps), perform the upgrade using the latest Liferay Docker Image following these steps:
 
-* **JDBC Driver:** `com.mysql.cj.jdbc.Driver`
-* **JDBC URL:** `jdbc:mysql://localhost/my-liferay-database?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&serverTimezone=GMT&useFastDateParsing=false&useUnicode=true`
-* **JDBC User Name:** `my-username`
-* **JDBC Password:** `my-password`
+1. Set up a new Liferay Home folder with the contents of your current Liferay Home. You'll bind your new Liferay Home path to the Docker image in a later step.
 
-The Document Library is accessible with the following values:
+1. In the new Liferay Home, update these items:
 
-* **Document Library Path:** `/home/liferay/document-library`
+    * [Configurations and properties](../configuration-and-infrastructure/migrating-configurations-and-properties.md)
+    * [Database driver](../configuration-and-infrastructure/updating-the-database-driver.md)
+    * [File store](../configuration-and-infrastructure/updating-the-file-store.md)
 
-To perform the upgrade using the latest Docker Image follow these steps:
+1. Disable search indexing during database upgrade by creating a file called `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` in your `[Liferay_Home]/osgi/configs` folder and saving the following setting to it:
 
-1. Shutdown the server running the previous version of Liferay DXP and backup your database and Document Library directory.
-
-1. Download and run the latest image of Liferay DXP using the following command, substituting your environment values as needed: <!-- I don't have these steps working as of yet. @Jim can you help me with this? -->
-
-    ```bash
-      docker run --name my_liferay_container -it -p 8080:8080 liferay/portal:7.3.0-ga1 \
-        --env LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_DRIVER_UPPERCASEC_LASS_UPPERCASEN_AME=com.mysql.cj.jdbc.Driver \
-        --env LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_URL=jdbc:mysql://localhost/my-liferay-database?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&serverTimezone=GMT&useFastDateParsing=false&useUnicode=true \
-        --env LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_USERNAME=my-username \
-        --env LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_PASSWORD=my-password
+    ```properties
+    indexReadOnly="true"
     ```
 
-1. Confirm successful Liferay DXP upgrade and startup by reviewing the logs:
+1. Enable auto upgrade by setting this property in your `portal-ext.properties` file:
 
-    ```bash
-    Example tail end of upgrade log indicating success.
+    ```properties
+    upgrade.database.auto.run=true
     ```
 
-1. Shutdown the Docker image, [migrate any desired configurations and properties](../configuration-and-infrastructure/migrating-configurations-and-properties.md) from your previous version installation to your new docker based installation. Start the docker image when you have completed the migration.
+1. Shut down any DXP instance that is using the database.
 
-    ```tip::
-       Check the `Reference section <../14-reference/README.md>`_ for information on deprecations and property and configuration default changes.
+1. Download the latest versions of your Marketplace apps compatible with the new DXP version and copy them to the new `[Liferay_Home]/deploy` folder.
+
+1. Download and run the latest DXP Docker image mounted to your new Liferay Home using the following command, substituting your environment values as needed:
+
+    ```
+    docker run -it -p 8080:8080\
+     --name my_liferay_container\
+     -v /path/to/new_liferay_home:/mnt/liferay\
+     liferay/portal:7.3.0-ga1
     ```
 
-1. Validate your upgraded data and configurations.
+    The `-v /path/to/new_liferay_home:/mnt/liferay` arguments bind mount the `/path/to/new_liferay_home` folder on the host to `/mnt/liferay` in the container.
 
-    ![The Liferay DXP landing screen.](./basic-upgrade-steps/images/01.png)
+    Liferay DXP and the database upgrade initialize.
 
-Your upgrade to the latest version of Liferay DXP is now complete!
+1. In the console or log, confirm successful database upgrade and DXP startup. Upgrade process messages report starting and completing each upgrade process. 
 
-## Using the Latest Bundle
+    If there are any database upgrade failures or errors, you can troubleshoot them and finish the upgrades using [Gogo Shell commands](../upgrade-stability-and-performance/upgrading-modules-using-gogo-shell.md).
 
-Coming soon! <!-- Similar to the above section but w/ a bundle -->
+    A message like this one indicates DXP startup completion:
 
-## Additional Information
+    ```
+    org.apache.catalina.startup.Catalina.start Server startup in [x] milliseconds
+    ```
 
-* [Upgrade Stability and Performance](./upgrade-stability-and-performance/upgrade-stability-and-performance-overview.md)
-* [Migrating and Updating Configurations](../configuration-and-infrastructure/README.md)
-* [Updating a Cluster](../10-Maintaining-a-liferay-dxp-installation/10-maintaining-clusters/01-maintaining-clustered-installations.md)
-* [Custom Code Upgrade](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2)
+1. Validate your upgraded database and configurations.
+
+    ![Here is the Liferay DXP landing screen.](./basic-upgrade-steps/images/01.png)
+
+1. Re-enable search indexing by setting `indexReadOnly="false"` in your `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file.
+
+1. Disable auto upgrade by setting `upgrade.database.auto.run=true` in your `portal-ext.properties` file. This prevents upgrade reruns on subsequent DXP startups.
+
+Your Liferay DXP database upgrade is now complete!
+
+## Using the Latest DXP On-Premises Installation
+
+After completing the [preliminary steps](#preliminary-steps), perform the upgrade using the latest DXP on-premises installation following these steps:
+
+1. Install the latest [Liferay DXP Tomcat bundle](../../installing-liferay-dxp-on-premises/installing-a-liferay-dxp-tomcat-bundle.md) (or the latest Liferay DXP on an application server).
+
+1. Set up a new Liferay Home folder with the contents of your current Liferay Home.
+
+1. In the new Liferay Home, update these items:
+
+    * [Configurations and properties](../configuration-and-infrastructure/migrating-configurations-and-properties.md)
+    * [Database driver](../configuration-and-infrastructure/updating-the-database-driver.md)
+    * [File store](../configuration-and-infrastructure/updating-the-file-store.md)
+
+1. Disable search indexing during data upgrade by creating a file called `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` in your `[Liferay_Home]/osgi/configs` folder and saving the following setting to it:
+
+    ```properties
+    indexReadOnly="true"
+    ```
+
+1. Enable auto upgrade by setting this property in your `portal-ext.properties` file:
+
+    ```properties
+    upgrade.database.auto.run=true
+    ```
+
+1. Shut down any DXP instance that is using the database.
+
+1. Download the latest versions of your Marketplace apps compatible with the new DXP version and copy them to the new `[Liferay_Home]/deploy` folder.
+
+1. Start the new Liferay DXP application server. Liferay DXP initializes and the database upgrade executes.
+
+1. In the console or log, confirm successful database upgrade and DXP startup. Upgrade process messages report starting and completing each upgrade process.
+
+    If there are any database upgrade failures or errors, you can troubleshoot them and finish the upgrades using [Gogo Shell commands](../upgrade-stability-and-performance/upgrading-modules-using-gogo-shell.md).
+
+    A message like this one indicates DXP startup completion:
+
+    ```
+    org.apache.catalina.startup.Catalina.start Server startup in [x] milliseconds
+    ```
+
+1. Validate your upgraded database and configurations.
+
+    ![Here is the Liferay DXP landing screen.](./basic-upgrade-steps/images/01.png)
+
+1. Re-enable search indexing by setting `indexReadOnly="false"` in your `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file and saving that file.
+
+1. Disable auto upgrade by setting `upgrade.database.auto.run=true` in your `portal-ext.properties` file. This prevents upgrade reruns on subsequent DXP startups.
+
+Your Liferay DXP database upgrade is now complete!
+
+## Conclusion
+
+If the upgraded DXP database and upgraded configuration are all you need, then enjoy using your new version of DXP! If you need more to complete your upgrade, these articles can help you finish:
+
+* [Using the Liferay Database Upgrade Tool](./using-the-liferay-upgrade-tool.md) demonstrates upgrading the database while the DXP server is offline. If auto-upgrade (above) took too long or you'd like to upgrade a larger data set or an enterprise-level DXP environment, [tuning the database, pruning unneeded data](../upgrade-stability-and-performance/improving-database-upgrade-performance), and using database upgrade tool is recommended.
+
+* [Custom Code Upgrade](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2) guides you in adapting custom plugin code you've developed to the new DXP version.
+
+* [Updating a Cluster](../10-Maintaining-a-liferay-dxp-installation/10-maintaining-clusters/01-maintaining-clustered-installations.md) describes how to upgrade DXP in a clustered environment.

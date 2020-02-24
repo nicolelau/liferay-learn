@@ -1,21 +1,20 @@
 # Upgrade Overview
 
-The complexity and scale of a DXP installation correlates directly to the planning and effort that may be required to perform a full upgrade. Installations that make minimal use of custom code and have smaller data sets can likely perform the [Basic Upgrade Steps](./basic-upgrade-steps.md) with success. Larger, more complex, or enterprise level installations may require additional planning to safely and efficiently execute. The following guidelines and considerations should be taken into account when performing an upgrade.
-
-These guidelines and considerations fall into the following major categories:
+The complexity and scale of a DXP installation correlates directly to the planning and effort that may be required to upgrade it. Installations that have few custom apps and small data sets can likely be upgraded successfully using the [Basic Upgrade Steps](./basic-upgrade-steps.md). Large, complex installations and enterprise-level installations typically require additional planning and testing to upgrade safely and efficiently. The Liferay DXP upgrade topics fall into these categories:
 
 * [Preparation and Planning](#preparation-and-planning)
-* [Stability and Performance Tuning](#stability-and-performance-tuning)
+* [Updating Custom Plugins](#update-custom-plugins)
 * [Migrating Configurations and Settings](#migrating-configurations-and-settings)
-* [Executing the Upgrade](#executing-the-upgrade)
+* [Improving Upgrade Performance](#improving-upgrade-performance) (optional)
+* [Executing the Database Upgrade](#executing-the-database-upgrade)
 
 ```warning::
-   **Always** back up your data and configuration files and perform upgrades on backed up copies.
+   **Always** back up your data and installation before upgrading. Testing the upgrade process on backup copies is advised.
 ```
 
 ## Preparation and Planning
 
-Preparation and planning may be less consequential for smaller more casual installations but is *mandatory* for larger enterprise grade installations.
+Preparation and planning may be of little consequence for small, casual installations but are *mandatory* for large enterprise-level installations.
 
 ### Review Available Upgrade Paths
 
@@ -31,51 +30,69 @@ If your path includes upgrading to Liferay Portal 6.2, follow the [Liferay Porta
 
 ### Review Deprecations and Changes to Default Settings
 
-Things change in latest version, see these the reference section (or these articles:) for the most recent deprecations / changes to default settings.
+Things change in new versions. See the reference section or the following articles for the most recent deprecations and changes to features and to settings:
 
-### Review and Update Apps and Custom Code
-
-Marketplace apps need to be updated to the latest for the version you're currently on, before upgrading - this reduces chances of any upgrade issues. Custom code should be reviewed against deprecations / changes and updated for compatibility to the latest version before upgrading. See these articles for more information.
+* [Deprecations](./reference/deprecations-in-liferay-dxp-7-3.md)
+* [Features in Maintenance Mode](./reference/features-in-maintenance-mode.md)
+* [Changes to Default Settings](./reference/changes-to-default-settings-in-liferay-dxp-7-3.md)
 
 ### Request an Upgrade Patch (Subscription)
 
 > Subscription
 
-Users with a Liferay DXP subscription should update to the latest fix pack and/or request an upgrade patch in preparation for performing an upgrade. File a ticket here to start this process: [Help Center](link)
+If you have a Liferay DXP subscription, update to the latest fix pack and/or request an upgrade patch to prepare for the database upgrade. File a ticket in the [Help Center](https://help.liferay.com/hc/requests/new) to start this process.
 
-## Stability and Performance Tuning
+### Update Marketplace Apps
 
-For users with larger data sets upgrades can take a prohibitively long time, if mitigating steps are not taken in advance of executing the upgrade.
+Marketplace apps should be updated to the latest version for the DXP/Portal version you're currently on before upgrading the DXP database. Skipping app updates can be problematic and prevent the apps from enabling on the new DXP version.
 
-### Tune Database Performance
+## Updating Custom Plugins
 
-Users should consider adjusting the configurations for their database to optimize for upgrade efficiency before performing an upgrade. See this link on recommendations on how to do this. Users should also review their data and reduce its overall size by trimming data from the database that is unnecessary to perform the upgrade. See this link on some guidelines and tips to pruning a database of unnecessary data.
-
-### Tune the Search Engine
-
-The search engine typically indexes regularly while Liferay DXP is running. However, this indexing can have a detrimental impact to upgrade performance if it is left on. Indexing should be disabled before performing an upgrade, and re-enabled once an upgrade is complete. See [this article](link) on how to do this.
+Plugins (e.g., themes, apps, and customizations) you've developed need to be adapted to the new DXP version. This can be as simple as updating dependencies or involve updating code to API changes. If you forgo updating your custom plugins, they may become disabled on the new DXP version. [Upgrading Code](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2) (a separate guide) walks through the process and demonstrates using the [Liferay Upgrade Planner](https://help.liferay.com/hc/en-us/articles/360029147451-Liferay-Upgrade-Planner) to adapt code manually and automatically, in some cases.
 
 ## Migrating Configurations and Settings
 
-Once an upgrade is complete, you can begin migrating and updating any configurations over from your previous installation. These articles walk through common migration and update tasks that can be done post upgrade:
+New DXP installations use your configurations and settings in the upgrade and at run time. You must migrate and update them from your previous installation to your new one. These articles walk through the migration and update tasks:
 
 * [Migrating Configurations and Properties](../configuration-and-infrastructure/migrating-configurations-and-properties.md)
 * [Updating the Database Driver](../configuration-and-infrastructure/updating-the-database-driver.md)
 * [Updating the File Store](../configuration-and-infrastructure/updating-the-file-store.md)
 
-## Executing the Upgrade
+## Improving Upgrade Performance
 
-There are three primary methods to available to execute an upgrade. [Using a Liferay DXP Docker image](./basic-upgrade-steps.md#using-the-latest-docker-image), [Using a DXP Bundle](./basic-upgrade-steps.md#using-the-latest-bundle), and [Using the Liferay Upgrade Tool](./using-the-liferay-upgrade-tool.md). For larger installations and production environments we strongly recommend using the Liferay Upgrade Tool.
+Upgrading large data sets can take a prohibitively long time, if you leave unnecessary data intact or forgo performance tuning.
 
-## Post-Upgrade Considerations
+### Prune Data
 
-Review [Post-Upgrade Considerations](./post-upgrade-considerations.md) to ensure configurations and content are correct for your upgraded Liferay DXP installation.
+If your DXP server has instances, sites, pages, or versioned content items (e.g., Web Content articles, Documents and Media files, and more) that are unnecessary, removing them can cut down upgrade time considerably. See [Improving Database Upgrade Performance](./upgrade-stability-and-performance/improving-database-upgrade-performance.md) on ways to prune your database of unnecessary data.
+
+### Tune Database Performance
+
+Adjusting your database for upgrade operations (more data writes than in production) improves database upgrade performance. See [Improving Database Upgrade Performance](./upgrade-stability-and-performance/improving-database-upgrade-performance.md) for details.
+
+### Tune the Search Engine
+
+The search engine typically indexes regularly while Liferay DXP is running. However, this indexing can have a detrimental impact to upgrade performance if it is left on. Indexing should be disabled before performing an upgrade, and re-enabled once an upgrade is complete. See [Search Indexing and Upgrades](./upgrade-stability-and-performance/search-indexing-and-upgrade.md) for more information.
+
+## Executing the Database Upgrade
+
+There are two primary database upgrade methods:
+
+* [Using Auto Upgrade \(Basic Upgrade Steps\)](./basic-upgrade-steps.md): This involves setting a property and launching the new DXP server. The database upgrades execute as DXP starts up. After the upgrades and DXP startup complete successfully, your new DXP server is operating with the upgraded database. 
+
+* [Using the Database Upgrade Tool](./using-the-liferay-upgrade-tool.md): The upgrade tool is a client program for updating a DXP database while it's not being used by a DXP server. If you have a large data set or enterprise level system, it's recommended to tune the database and try pruning a database backup copy and upgrading it using the Database Upgrade Tool. After confirming a successful pruning and upgrade process that finishes quickly enough for you, you execute the same process on the latest backup copy to consider releasing to production.
+
+For larger installations and production environments we recommend using the Liferay Database Upgrade Tool.
+
+## Conclusion
+
+Once you've completed the tasks outlined above, your upgrade is complete. 
+
+Review the [Post-Upgrade Considerations](./post-upgrade-considerations.md) to ensure configurations and content are correct for your upgraded Liferay DXP installation.
 
 If you are upgrading from an older version (7.1 and below) you may also need to [install Elasticsearch](../configuration-and-infrastructure/dxp-and-elasticsearch.md) to handle search indexing.
 
-Your upgrade is now complete.
-
-## Related Information
+To get started, 
 
 * [Basic Upgrade Steps](./basic-upgrade-steps.md)
 * [Using the Upgrade Tool](./using-the-upgrade-tool.md)
