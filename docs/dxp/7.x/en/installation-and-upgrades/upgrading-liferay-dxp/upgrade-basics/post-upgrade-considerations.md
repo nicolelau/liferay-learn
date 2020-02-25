@@ -1,5 +1,10 @@
 # Post-Upgrade Considerations
 
+
+## Install Recommended Applications 
+
+If you upgraded from an older version (7.1 and below) consider [installing Elasticsearch](../configuration-and-infrastructure/dxp-and-elasticsearch.md) to handle search indexing.
+
 ## Re-enable Production Settings
 
 ### Search Indexing
