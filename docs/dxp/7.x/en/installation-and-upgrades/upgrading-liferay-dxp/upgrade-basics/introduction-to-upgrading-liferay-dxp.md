@@ -86,13 +86,13 @@ For larger installations and production environments we recommend using the Life
 
 ## Conclusion
 
-Once you've completed the tasks outlined above, your upgrade is complete. 
-
-Review the [Post-Upgrade Considerations](./post-upgrade-considerations.md) to ensure configurations and content are correct for your upgraded Liferay DXP installation.
+Once you complete the tasks outlined above, your upgrade is complete. But before using DXP, you must re-establish desired runtime settings and undo any upgrade-specific tuning. See the [Post-Upgrade Considerations](./post-upgrade-considerations.md) for more information.
 
 If you are upgrading from an older version (7.1 and below) you may also need to [install Elasticsearch](../configuration-and-infrastructure/dxp-and-elasticsearch.md) to handle search indexing.
 
-To get started, 
+Now that you're familiar with the DXP upgrade components, you can start upgrading your DXP instance. To get started, examine the [Basic Upgrade Steps](./basic-upgrade-steps.md) and consider whether they fit your upgrade. If they don't, follow the topics outlined above and execute the database upgrade using the [Database Upgrade Tool](./using-the-upgrade-tool.md).
 
-* [Basic Upgrade Steps](./basic-upgrade-steps.md)
-* [Using the Upgrade Tool](./using-the-upgrade-tool.md)
+Additionally, refer to these other upgrade scenarios if they relate to your upgrade:
+
+* [Upgrading a Sharded Environment](../other-upgrade-scenarios/upgrading-a-sharded-environment.md)
+* [Updating a Cluster](../10-Maintaining-a-liferay-dxp-installation/10-maintaining-clusters/01-maintaining-clustered-installations.md)
