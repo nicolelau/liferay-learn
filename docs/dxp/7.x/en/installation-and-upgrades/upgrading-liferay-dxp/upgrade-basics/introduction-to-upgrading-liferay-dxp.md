@@ -1,4 +1,4 @@
-# Upgrade Overview
+(../# Upgrade Overview
 
 The complexity and scale of a DXP installation correlates directly to the planning and effort that may be required to upgrade it. Installations that have few custom apps and small data sets can likely be upgraded successfully using the [Basic Upgrade Steps](./basic-upgrade-steps.md). Large, complex installations and enterprise-level installations typically require additional planning and testing to upgrade safely and efficiently. The Liferay DXP upgrade topics fall into these categories:
 
@@ -32,9 +32,9 @@ If your path includes upgrading to Liferay Portal 6.2, follow the [Liferay Porta
 
 Things change in new versions. See the reference section or the following articles for the most recent deprecations and changes to features and to settings:
 
-* [Deprecations](./reference/deprecations-in-liferay-dxp-7-3.md)
-* [Features in Maintenance Mode](./reference/features-in-maintenance-mode.md)
-* [Changes to Default Settings](./reference/changes-to-default-settings-in-liferay-dxp-7-3.md)
+* [Deprecations](../reference/deprecations-in-liferay-dxp-7-3.md)
+* [Features in Maintenance Mode](../reference/features-in-maintenance-mode.md)
+* [Changes to Default Settings](../reference/changes-to-default-settings-in-liferay-dxp-7-3.md)
 
 ### Request an Upgrade Patch (Subscription)
 
@@ -64,15 +64,15 @@ Upgrading large data sets can take a prohibitively long time, if you leave unnec
 
 ### Prune Data
 
-If your DXP server has instances, sites, pages, or versioned content items (e.g., Web Content articles, Documents and Media files, and more) that are unnecessary, removing them can cut down upgrade time considerably. See [Improving Database Upgrade Performance](./upgrade-stability-and-performance/improving-database-upgrade-performance.md) on ways to prune your database of unnecessary data.
+If your DXP server has instances, sites, pages, or versioned content items (e.g., Web Content articles, Documents and Media files, and more) that are unnecessary, removing them can cut down upgrade time considerably. See [Improving Database Upgrade Performance](../upgrade-stability-and-performance/improving-database-upgrade-performance.md) on ways to prune your database of unnecessary data.
 
 ### Tune Database Performance
 
-Adjusting your database for upgrade operations (more data writes than in production) improves database upgrade performance. See [Improving Database Upgrade Performance](./upgrade-stability-and-performance/improving-database-upgrade-performance.md) for details.
+Adjusting your database for upgrade operations (more data writes than in production) improves database upgrade performance. See [Improving Database Upgrade Performance](../upgrade-stability-and-performance/improving-database-upgrade-performance.md) for details.
 
 ### Tune the Search Engine
 
-The search engine typically indexes regularly while Liferay DXP is running. However, this indexing can have a detrimental impact to upgrade performance if it is left on. Indexing should be disabled before performing an upgrade, and re-enabled once an upgrade is complete. See [Search Indexing and Upgrades](./upgrade-stability-and-performance/search-indexing-and-upgrade.md) for more information.
+The search engine typically indexes regularly while Liferay DXP is running. However, this indexing can have a detrimental impact to upgrade performance if it is left on. Indexing should be disabled before performing an upgrade, and re-enabled once an upgrade is complete. See [Search Indexing and Upgrades](../upgrade-stability-and-performance/search-indexing-and-upgrade.md) for more information.
 
 ## Executing the Database Upgrade
 
@@ -80,17 +80,15 @@ There are two primary database upgrade methods:
 
 * [Using Auto Upgrade \(Basic Upgrade Steps\)](./basic-upgrade-steps.md): This involves setting a property and launching the new DXP server. The database upgrades execute as DXP starts up. After the upgrades and DXP startup complete successfully, your new DXP server is operating with the upgraded database. 
 
-* [Using the Database Upgrade Tool](./using-the-liferay-upgrade-tool.md): The upgrade tool is a client program for updating a DXP database while it's not being used by a DXP server. If you have a large data set or enterprise level system, it's recommended to tune the database and try pruning a database backup copy and upgrading it using the Database Upgrade Tool. After confirming a successful pruning and upgrade process that finishes quickly enough for you, you execute the same process on the latest backup copy to consider releasing to production.
+* [Using the Database Upgrade Tool](./using-the-liferay-upgrade-tool.md): This client program updates a DXP database while it's offline, detached from any DXP instance. [Tuning a database for upgrade](../upgrade-stability-and-performance/improving-database-upgrade-performance.md) and using the upgrade tool is recommended for upgrading large data sets. Additionally, the upgrade tool works well in cycles where you're [pruning data](../upgrade-stability-and-performance/improving-database-upgrade-performance.md), upgrading, and testing.
 
 For larger installations and production environments we recommend using the Liferay Database Upgrade Tool.
 
 ## Conclusion
 
-Once you complete the tasks outlined above, your upgrade is complete. But before using DXP, you must re-establish desired runtime settings and undo any upgrade-specific tuning. See the [Post-Upgrade Considerations](./post-upgrade-considerations.md) for more information.
+Once you complete the tasks outlined above, your upgrade is complete. But before using DXP, you must re-establish desired runtime settings and undo any upgrade-specific tuning. Plus there may be applications that weren't available on your previous Liferay version that are recommended for new DXP production instances. See the [Post-Upgrade Considerations](./post-upgrade-considerations.md) for more information.
 
-If you are upgrading from an older version (7.1 and below) you may also need to [install Elasticsearch](../configuration-and-infrastructure/dxp-and-elasticsearch.md) to handle search indexing.
-
-Now that you're familiar with the DXP upgrade components, you can start upgrading your DXP instance. To get started, examine the [Basic Upgrade Steps](./basic-upgrade-steps.md) and consider whether they fit your upgrade. If they don't, follow the topics outlined above and execute the database upgrade using the [Database Upgrade Tool](./using-the-upgrade-tool.md).
+Now that you're familiar with the DXP upgrade components, you can start upgrading your DXP instance. First examine the [Basic Upgrade Steps](./basic-upgrade-steps.md) and consider whether they fit your upgrade. If they don't, follow the topics outlined above and execute the database upgrade using the [Database Upgrade Tool](./using-the-upgrade-tool.md).
 
 Additionally, refer to these other upgrade scenarios if they relate to your upgrade:
 
