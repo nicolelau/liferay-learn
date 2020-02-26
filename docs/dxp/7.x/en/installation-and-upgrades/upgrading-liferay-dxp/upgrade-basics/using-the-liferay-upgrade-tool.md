@@ -4,7 +4,7 @@ The Liferay Database Upgrade Tool (upgrade tool) is a client program for upgradi
 
 * [Tune the database for upgrade operations](../upgrade-stability-and-performance/improving-database-upgrade-performance.md)
 * [Prune unnecessary data](../upgrade-stability-and-performance/improving-database-upgrade-performance.md) (e.g., unneeded versions of Web Content, Documents, and more) to improve upgrade performance
-* Resolve upgrade issue
+* Resolve upgrade issues
 
 The topics mentioned above are especially important for upgrading large, enterprise-level DXP environments safely and as quickly as possible. The [Upgrade Overview](./introduction-to-upgrading-liferay-dxp.md) introduces the topics and links to articles that demonstrate them. After you've accounted for the tasks described in these upgrade topics, you're ready to upgrade the database using the upgrade tool
 
@@ -62,12 +62,10 @@ Here's how you run an upgrade using the tool:
 
 1. On a command line, navigate to `[Liferay Home]/tools/portal-tools-db-upgrade-client`.
 
-1. Execute the upgrade tool, overriding any JVM parameters as needed and optionally sending output to a log file. Here's an example command:
+1. Execute the upgrade tool, overriding any JVM parameters as needed and optionally sending output to a log file. This example command uses the default JVM parameter values and writes to a log file:
 
     ```bash
-    db_upgrade.sh -j "-Dfile.encoding=UTF-8 -Duser.country=ES\
-     -Duser.language=es -Duser.timezone=CET -Xmx8000m"\
-     -l "output.log"
+    db_upgrade.sh -l "output.log"
     ```
 
    If you haven't created the upgrade properties files, the upgrade tool prompts you for configuration values, and shows default values in parentheses. Here's an example interaction:
