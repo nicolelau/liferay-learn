@@ -8,35 +8,35 @@ Since Liferay DXP 7.0, Liferay removed its own physical partitioning implementat
 
 ## Add Configurations Before the Data Upgrade
 
-In addition to other configurations, you will need to set more properties to migrate your shards to virtual instances for your data upgrade. See [Configuring the Data Upgrade Tool](./configuring-the-data-upgrade-tool.md) for more information on other configurations.
+In addition to other configurations, you will need to set more properties to migrate your shards to virtual instances for your data upgrade. See the [Upgrade Tool Reference](../reference/upgrade-tool-reference.md) for more information on other configurations.
 
 Here is how to configure the upgrade to migrate from sharding:
 
 1. Copy all of the shard JDBC connection properties from `portal-ext.properties` to`portal-upgrade-database.properties`. For example, JDBC connections for a default shard and two non-default shards might look like this:
 
     ```properties
-    jdbc.default.driverClassName=com.mysql.jdbc.Driver
+    jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
     jdbc.default.url=jdbc:mysql://database-server/lportal?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false&useUnicode=true
     jdbc.default.username=
     jdbc.default.password=
 
-    jdbc.one.driverClassName=com.mysql.jdbc.Driver
+    jdbc.one.driverClassName=com.mysql.cj.jdbc.Driver
     jdbc.one.url=jdbc:mysql://database-server/lportal_one?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false&useUnicode=true
     jdbc.one.username=
     jdbc.one.password=
 
-    jdbc.two.driverClassName=com.mysql.jdbc.Driver
+    jdbc.two.driverClassName=com.mysql.cj.jdbc.Driver
     jdbc.two.url=jdbc:mysql://database-server/lportal_two?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false&useUnicode=true
     jdbc.two.username=
     jdbc.two.password=
     ```
 
-1. Set the JDBC *default* connection properties in each server's `portal-upgrade-database.properties` to specify the associated shard.
+1. Set the JDBC _default_ connection properties in each server's `portal-upgrade-database.properties` to specify the associated shard.
 
     * Add the original JDBC properties for the respective non-default shard database. For example, shard `one`'s original properties might start with `jdbc.one`:
 
     ```properties
-    jdbc.one.driverClassName=com.mysql.jdbc.Driver
+    jdbc.one.driverClassName=com.mysql.cj.jdbc.Driver
     jdbc.one.url=jdbc:mysql://database-server/lportal_one?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false&useUnicode=true
     jdbc.one.username=
     jdbc.one.password=
@@ -45,7 +45,7 @@ Here is how to configure the upgrade to migrate from sharding:
     * Rename the properties to start with `jdbc.default`. For example:
 
     ```properties
-    jdbc.default.driverClassName=com.mysql.jdbc.Driver
+    jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
     jdbc.default.url=jdbc:mysql://database-server/lportal_one?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false&useUnicode=true
     jdbc.default.username=
     jdbc.default.password=
@@ -53,28 +53,28 @@ Here is how to configure the upgrade to migrate from sharding:
 
 ## Upgrade and Update Properties
 
-When you perform the data upgrade, upgrade the default shard first, and then each of the non-default shards. See [Upgrading the Core Using the Upgrade Tool](./using-the-upgrade-tool.md) for more information on running the data upgrade.
+When you perform the database upgrade, upgrade the default shard first, and then each of the non-default shards. See [Using the Upgrade Tool](../upgrade-basics/using-the-upgrade-tool.md) for more information on running the database upgrade.
 
-After the data upgrade has been completed, make the following configuration changes to your application servers:
+After the database upgrade has been completed, make the following configuration changes to your application servers:
 
-1. In each server's `portal-ext.properties`, use the JDBC *default* properties you specified in the `portal-upgrade-database.properties` (see the *default* properties above).
+1. In each server's `portal-ext.properties`, use the JDBC _default_ properties you specified in the `portal-upgrade-database.properties` (see the _default_ properties above).
 
 1. Remove the non-default shard JDBC properties from the default shard server's `portal-ext.properties` file, leaving only the default shard database `jdbc.default` properties. For example:
 
     Old JDBC properties:
 
     ```properties
-    jdbc.default.driverClassName=com.mysql.jdbc.Driver
+    jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
     jdbc.default.url=jdbc:mysql://database-server/lportal?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false&useUnicode=true
     jdbc.default.username=
     jdbc.default.password=
 
-    jdbc.one.driverClassName=com.mysql.jdbc.Driver
+    jdbc.one.driverClassName=com.mysql.cj.jdbc.Driver
     jdbc.one.url=jdbc:mysql://database-server/lportal_one?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false&useUnicode=true
     jdbc.one.username=
     jdbc.one.password=
 
-    jdbc.two.driverClassName=com.mysql.jdbc.Driver
+    jdbc.two.driverClassName=com.mysql.cj.jdbc.Driver
     jdbc.two.url=jdbc:mysql://database-server/lportal_two?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false&useUnicode=true
     jdbc.two.username=
     jdbc.two.password=
@@ -83,10 +83,12 @@ After the data upgrade has been completed, make the following configuration chan
     New JDBC properties:
 
     ```properties
-    jdbc.default.driverClassName=com.mysql.jdbc.Driver
+    jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
     jdbc.default.url=jdbc:mysql://database-server/lportal?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false&useUnicode=true
     jdbc.default.username=
     jdbc.default.password=
     ```
 
 Once you have completed all of these steps, you have migrated off of a sharded environment to virtual instances on separate Liferay DXP servers together with your DXP upgrade.
+
+See the [Upgrade Overview](../upgrade-basics/introduction-to-upgrading-liferay-dxp.md) for guidance on completing your upgrade.
