@@ -15,28 +15,26 @@ The basic upgrade steps involve:
 ```
 
 ```warning::
-   Regardless of upgrade method, **always** back up your data and installation before upgrading. Testing the upgrade process on backup copies is advised.
+   Regardless of upgrade method, **always** back up your database and installation before upgrading. Testing the upgrade process on backup copies is advised.
 ```
 
 ## Preliminary Steps
 
 Execute these steps on your current DXP version _before_ upgrading:
 
-1. Update all Liferay Marketplace apps to the latest version for your current DXP version. Skipping app updates can be problematic and prevent the apps from enabling on the new DXP version.
+1. Update all [Liferay Marketplace](https://help.liferay.com/hc/en-us/articles/360029134931-Using-the-Liferay-Marketplace) apps to the latest version for your _current_ DXP version. Skipping app updates can be problematic and prevent the apps from enabling on the new DXP version.
 
-1. On 7.x, Preserve your System Settings by exporting and downloading all of them in a ZIP file of `.config` files. Extract the `.config` files to your `[Liferay_Home]/osgi/configs` folder for easy setup on the new DXP server.
+1. On 7.x, preserve your System Settings by [exporting and downloading all of them](https://help.liferay.com/hc/en-us/articles/360029131591-System-Settings#exporting-and-importing-configurations) in a ZIP file of `.config` files. Extract the `.config` files to your `[Liferay_Home]/osgi/configs` folder for easy setup on the new DXP server.
 
 1. [Backup your current Liferay DXP installation](../../10-maintaining-a-liferay-dxp-installation/backing-up.md), including your database, document file store, and [Liferay Home](../../14-reference/01-liferay-home.md) folder.
 
-Upgrade using the latest Docker image (next) or skip to [Using an On-Premises Installation](#using-an-on-premises-installation).
+Upgrade using the latest Liferay Docker image (next) or skip to [Using an On-Premises DXP Installation](#using-an-on-premises-installation).
 
 ## Using the Latest Docker Image
 
-The fastest way to upgrade to the latest Liferay version is by using the latest Liferay Docker image ([DXP](https://hub.docker.com/r/liferay/dxp) or [Community Edition](https://hub.docker.com/r/liferay/portal)).
+The fastest way to upgrade to the latest Liferay version is by using the latest Liferay Docker image ([DXP](https://hub.docker.com/r/liferay/dxp) or [Community Edition](https://hub.docker.com/r/liferay/portal)). Here are the steps:
 
-After completing the [preliminary steps](#preliminary-steps), perform the upgrade using the latest Liferay Docker Image following these steps:
-
-1. Set up a new Liferay Home folder with the contents of your current Liferay Home. You'll bind your new Liferay Home path to the Docker image in a later step.
+1. Set up a new [Liferay Home](../../14-reference/01-liferay-home.md) folder with the contents of your current Liferay Home. You'll bind this new Liferay Home to the Docker image in a later step.
 
 1. In the new Liferay Home, update these items:
 
@@ -50,15 +48,15 @@ After completing the [preliminary steps](#preliminary-steps), perform the upgrad
     indexReadOnly="true"
     ```
 
-1. Enable auto upgrade by setting this property in your `portal-ext.properties` file:
+1. Enable auto upgrade by setting this property in your `[Liferay_Home]/portal-ext.properties` file:
 
     ```properties
     upgrade.database.auto.run=true
     ```
 
-1. Shut down any DXP instance that is using the database.
+1. Download the latest versions of your [Marketplace apps](https://help.liferay.com/hc/en-us/articles/360029134931-Using-the-Liferay-Marketplace) compatible with the _new_ DXP version and copy them to the new `[Liferay_Home]/deploy` folder.
 
-1. Download the latest versions of your Marketplace apps compatible with the new DXP version and copy them to the new `[Liferay_Home]/deploy` folder.
+1. Shut down any DXP instance that is using the database.
 
 1. Download and run the latest DXP Docker image mounted to your new Liferay Home using the following command, substituting your environment values as needed:
 
@@ -83,13 +81,11 @@ After completing the [preliminary steps](#preliminary-steps), perform the upgrad
     org.apache.catalina.startup.Catalina.start Server startup in [x] milliseconds
     ```
 
+1. Re-enable search indexing by setting `indexReadOnly="false"` in your `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file.
+
 1. Validate your upgraded database and configurations.
 
     ![Here is the Liferay DXP landing screen.](./basic-upgrade-steps/images/01.png)
-
-1. Re-enable search indexing by setting `indexReadOnly="false"` in your `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file.
-
-1. Disable auto upgrade by setting `upgrade.database.auto.run=true` in your `portal-ext.properties` file. This prevents upgrade reruns on subsequent DXP startups.
 
 Your Liferay DXP database upgrade is now complete!
 
@@ -113,15 +109,15 @@ After completing the [preliminary steps](#preliminary-steps), perform the upgrad
     indexReadOnly="true"
     ```
 
-1. Enable auto upgrade by setting this property in your `portal-ext.properties` file:
+1. Enable auto upgrade by setting this property in your `[Liferay_Home]/portal-ext.properties` file:
 
     ```properties
     upgrade.database.auto.run=true
     ```
 
-1. Shut down any DXP instance that is using the database.
+1. Download the latest versions of your [Marketplace apps](https://help.liferay.com/hc/en-us/articles/360029134931-Using-the-Liferay-Marketplace) compatible with the _new_ DXP version and copy them to the new `[Liferay_Home]/deploy` folder.
 
-1. Download the latest versions of your Marketplace apps compatible with the new DXP version and copy them to the new `[Liferay_Home]/deploy` folder.
+1. Shut down any DXP instance that is using the database.
 
 1. Start the new Liferay DXP application server. Liferay DXP initializes and the database upgrade executes.
 
@@ -135,13 +131,11 @@ After completing the [preliminary steps](#preliminary-steps), perform the upgrad
     org.apache.catalina.startup.Catalina.start Server startup in [x] milliseconds
     ```
 
+1. Re-enable search indexing by setting `indexReadOnly="false"` in your `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file and saving that file.
+
 1. Validate your upgraded database and configurations.
 
     ![Here is the Liferay DXP landing screen.](./basic-upgrade-steps/images/01.png)
-
-1. Re-enable search indexing by setting `indexReadOnly="false"` in your `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file and saving that file.
-
-1. Disable auto upgrade by setting `upgrade.database.auto.run=true` in your `portal-ext.properties` file. This prevents upgrade reruns on subsequent DXP startups.
 
 Your Liferay DXP database upgrade is now complete!
 
