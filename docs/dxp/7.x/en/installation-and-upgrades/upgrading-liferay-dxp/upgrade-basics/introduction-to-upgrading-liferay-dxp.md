@@ -1,4 +1,4 @@
-(../# Upgrade Overview
+# Upgrade Overview
 
 The complexity and scale of a DXP installation correlates directly to the planning and effort that may be required to upgrade it. Installations that have few custom apps and small data sets can likely be upgraded successfully using the [Basic Upgrade Steps](./basic-upgrade-steps.md). Large, complex installations and enterprise-level installations typically require additional planning and testing to upgrade safely and efficiently. The Liferay DXP upgrade topics fall into these categories:
 
