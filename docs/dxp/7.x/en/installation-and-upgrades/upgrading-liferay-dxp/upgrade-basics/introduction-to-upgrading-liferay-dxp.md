@@ -3,13 +3,13 @@
 The complexity and scale of a DXP installation correlates directly to the planning and effort that may be required to upgrade it. Installations that have few custom apps and small data sets can likely be upgraded successfully using the [Basic Upgrade Steps](./basic-upgrade-steps.md). Large, complex installations and enterprise-level installations typically require additional planning and testing to upgrade safely and efficiently. The Liferay DXP upgrade topics fall into these categories:
 
 * [Preparation and Planning](#preparation-and-planning)
-* [Updating Custom Plugins](#update-custom-plugins)
-* [Migrating Configurations and Settings](#migrating-configurations-and-settings)
-* [Improving Upgrade Performance](#improving-upgrade-performance) (optional)
-* [Executing the Database Upgrade](#executing-the-database-upgrade)
+* [Updating Custom Plugin Code](#update-custom-plugin-code)
+* [Migrating Configurations and Settings](#migrate-configurations-and-settings)
+* [Improving Upgrade Performance](#improve-upgrade-performance) (optional)
+* [Executing the Database Upgrade](#execute-the-database-upgrade)
 
 ```warning::
-   **Always** back up your data and installation before upgrading. Testing the upgrade process on backup copies is advised.
+   **Always** back up your database and installation before upgrading. Testing the upgrade process on backup copies is advised.
 ```
 
 ## Preparation and Planning
@@ -46,11 +46,11 @@ If you have a Liferay DXP subscription, update to the latest fix pack and/or req
 
 Marketplace apps should be updated to the latest version for the DXP/Portal version you're currently on before upgrading the DXP database. Skipping app updates can be problematic and prevent the apps from enabling on the new DXP version.
 
-## Updating Custom Plugins
+## Update Custom Plugin Code
 
 Plugins (e.g., themes, apps, and customizations) you've developed need to be adapted to the new DXP version. This can be as simple as updating dependencies or involve updating code to API changes. If you forgo updating your custom plugins, they may become disabled on the new DXP version. [Upgrading Code](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2) (a separate guide) walks through the process and demonstrates using the [Liferay Upgrade Planner](https://help.liferay.com/hc/en-us/articles/360029147451-Liferay-Upgrade-Planner) to adapt code manually and automatically, in some cases.
 
-## Migrating Configurations and Settings
+## Migrate Configurations and Settings
 
 New DXP installations use your configurations and settings in the upgrade and at run time. You must migrate and update them from your previous installation to your new one. These articles walk through the migration and update tasks:
 
@@ -58,7 +58,7 @@ New DXP installations use your configurations and settings in the upgrade and at
 * [Updating the Database Driver](../configuration-and-infrastructure/updating-the-database-driver.md)
 * [Updating the File Store](../configuration-and-infrastructure/updating-the-file-store.md)
 
-## Improving Upgrade Performance
+## Improve Upgrade Performance
 
 Upgrading large data sets can take a prohibitively long time, if you leave unnecessary data intact or forgo performance tuning.
 
@@ -74,7 +74,7 @@ Adjusting your database for upgrade operations (more data writes than in product
 
 The search engine typically indexes regularly while Liferay DXP is running. However, this indexing can have a detrimental impact to upgrade performance if it is left on. Indexing should be disabled before performing an upgrade, and re-enabled once an upgrade is complete. See [Search Indexing and Upgrades](../upgrade-stability-and-performance/search-indexing-and-upgrade.md) for more information.
 
-## Executing the Database Upgrade
+## Execute the Database Upgrade
 
 There are two primary database upgrade methods:
 
