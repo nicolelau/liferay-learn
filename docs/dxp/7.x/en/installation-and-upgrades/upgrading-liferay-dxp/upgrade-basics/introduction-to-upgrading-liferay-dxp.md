@@ -5,11 +5,12 @@ The complexity and scale of a DXP installation correlates directly to the planni
 * [Preparation and Planning](#preparation-and-planning)
 * [Updating Custom Plugin Code](#update-custom-plugin-code)
 * [Migrating Configurations and Settings](#migrate-configurations-and-settings)
+* [Updating the Database Driver](#update-the-database-driver)
 * [Improving Upgrade Performance](#improve-upgrade-performance)
 * [Executing the Database Upgrade](#execute-the-database-upgrade)
 
 ```warning::
-   **Always** back up your database and installation before upgrading. Testing the upgrade process on backup copies is advised.
+   **Always** [back up](../../10-maintaining-a-liferay-dxp-installation/backing-up.md) your database and installation before upgrading. Testing the upgrade process on backup copies is advised.
 ```
 
 ## Preparation and Planning
@@ -47,8 +48,10 @@ If you have a Liferay DXP subscription, update to the latest fix pack and/or req
 Marketplace apps should be updated to the latest version for the DXP/Portal version you're currently on before upgrading the DXP database. Skipping app updates can be problematic and prevent the apps from enabling on the new DXP version.
 
 ```important::
-   Do this on your current install before upgrading.
+   Do this on your current installation before upgrading.
 ```
+
+After upgrading the DXP database, install the latest app versions for your new DXP instance.
 
 ## Update Custom Plugin Code
 
@@ -59,8 +62,19 @@ Plugins (e.g., themes, apps, and customizations) you've developed need to be ada
 New DXP installations use your configurations and settings in the upgrade and at run time. You must migrate and update them from your previous installation to your new one. These articles walk through the migration and update tasks:
 
 * [Migrating Configurations and Properties](../configuration-and-infrastructure/migrating-configurations-and-properties.md)
-* [Updating the Database Driver](../configuration-and-infrastructure/updating-the-database-driver.md)
 * [Updating the File Store](../configuration-and-infrastructure/updating-the-file-store.md)
+
+## Update the Database Driver
+
+Check your database vendor documentation for the recommended database driver. If a new driver is recommended, replace the existing driver JAR file and update the `jdbc.default.driverClassName` property in your `portal-ext.properties` file with the new driver class name. 
+
+MySQL example:
+
+```properties 
+jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
+```
+
+ See the [Database Templates](../../14-reference/05-database-templates.md) for more driver examples.
 
 ## Improve Upgrade Performance
 
