@@ -1,3 +1,3 @@
-# Search Indexing and Upgrades 
+# Search Indexing and Upgrades
 
 Coming soon!

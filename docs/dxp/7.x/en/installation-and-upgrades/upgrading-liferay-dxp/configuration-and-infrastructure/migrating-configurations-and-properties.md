@@ -1,11 +1,11 @@
-# Migrating Configurations and Properties 
+# Migrating Configurations and Properties
 
-Your current DXP installation specifies properties (e.g., portal properties and system properties) and OSGi configurations (7.0+) that set up your DXP instance to fit your needs. To use these settings in your new DXP installation, you must update and migrate them. Here are some of the settings changes:
+Your current DXP installation specifies properties (e.g., [portal properties](../../14-reference/03-portal-properties.md) and [system properties](../../14-reference/04-system-properties.md)) and OSGi configurations (7.0+) that set up your DXP instance to fit your needs. To use these settings in your new DXP installation, you must update and migrate them. Here are some of the settings changes:
 
-- New default values
-- Property removed
-- Property replaced by a new property
-- Property replaced by OSGi configuration 
+* New default values
+* Property removed
+* Property replaced by a new property
+* Property replaced by OSGi configuration
 
 Updating your settings for your new DXP installation is part of the upgrade.
 

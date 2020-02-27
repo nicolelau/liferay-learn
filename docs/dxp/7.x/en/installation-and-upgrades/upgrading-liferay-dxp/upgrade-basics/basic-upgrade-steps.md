@@ -1,24 +1,30 @@
 # Basic Upgrade Steps
 
+<!-- Update verbiage to make it clear this is the fast path for upgrading for 7.1 (or 7.2)+ -->
+
 If your data set is small and you're upgrading to DXP 7.3+, these basic upgrade steps may be right for you. They are a more streamlined version of the advanced upgrade steps in that they forgo database tuning, data pruning, and [custom code upgrades](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2), in favor of upgrading the database sooner. The biggest difference about the basic upgrade steps is that the database upgrade is done during server startup via the _Auto Upgrade_ feature. Auto Upgrade is a mode of running DXP that invokes all DXP upgrade processes on DXP startup. When Auto Upgrade completes, the latest version of DXP is fully operational with the upgraded database.
 
-Auto Upgrade can be run on any DXP 7.3+ installation, including a Docker image or on-premises installation. You can migrate from an on-premises installation to a Docker image and vice-versa. You can download the Docker Desktop from [here](https://www.docker.com/products/docker-desktop).
+Auto Upgrade can be run on any DXP 7.3+ installation, including a Docker image or on-premises installation. You can migrate from an on-premises installation to a Docker image and vice-versa. You can download the Docker Desktop from [here](https://www.docker.com/products/docker-desktop). Before upgrading make sure that you review the [Introduction to Upgrading](./introduction-to-upgrading-liferay-dxp.md) and have already updated your apps and exported your configurations.
+
+<!--
 
 The basic upgrade steps involve:
 
 1. [Preliminary Steps](#preliminary-steps) to run on your current DXP version _before_ upgrading.
 
-2. Upgrading to the latest DXP version [using the latest Docker image](#using-the-latest-docker-image) OR [using the latest on-premises installation](#using-the-latest-on-premises-installation).
+2. Upgrading to the latest DXP version [using the latest Docker image](#using-the-latest-docker-image) OR [using the latest on-premises installation](#using-the-latest-on-premises-installation). -->
 
 ```important::
-   For production and enterprise level deployments of Liferay use the Upgrade Tool to perform upgrades. For more information see `Using the Liferay Upgrade Tool <./using-the-liferay-upgrade-tool.md>`.
+   For production and enterprise level deployments of Liferay, use the Upgrade Tool to perform upgrades. For more information see `Using the Liferay Upgrade Tool <./using-the-liferay-upgrade-tool.md>`_.
 ```
 
 ```warning::
    Regardless of upgrade method, **always** back up your database and installation before upgrading. Testing the upgrade process on backup copies is advised.
 ```
 
-## Preliminary Steps
+Upgrade using the latest Liferay Docker image or skip to [Using an On-Premises DXP Installation](#using-an-on-premises-installation).
+
+<!-- ## Preliminary Steps
 
 Execute these steps on your current DXP version _before_ upgrading:
 
@@ -28,7 +34,7 @@ Execute these steps on your current DXP version _before_ upgrading:
 
 1. [Backup your current Liferay DXP installation](../../10-maintaining-a-liferay-dxp-installation/backing-up.md), including your database, document file store, and [Liferay Home](../../14-reference/01-liferay-home.md) folder.
 
-Upgrade using the latest Liferay Docker image (next) or skip to [Using an On-Premises DXP Installation](#using-an-on-premises-installation).
+Upgrade using the latest Liferay Docker image (next) or skip to [Using an On-Premises DXP Installation](#using-an-on-premises-installation). -->
 
 ## Using the Latest Docker Image
 
@@ -36,27 +42,44 @@ The fastest way to upgrade to the latest Liferay version is by using the latest 
 
 1. Set up a new [Liferay Home](../../14-reference/01-liferay-home.md) folder with the contents of your current Liferay Home. You'll bind this new Liferay Home to the Docker image in a later step.
 
+    ```bash
+      cp /old-version/liferay/home/ /new-version/liferay/home/
+    ```
+
+    If you're using a DevOps based approach, then branch your `liferay-home` directory.
+
+<!-- May only apply to 6.2 and below? In which case - maybe make special note of these steps in the intro? Or at the top of this article?
+
 1. In the new Liferay Home, update these items:
 
     * [Configurations and properties](../configuration-and-infrastructure/migrating-configurations-and-properties.md)
     * [Database driver](../configuration-and-infrastructure/updating-the-database-driver.md)
     * [File store](../configuration-and-infrastructure/updating-the-file-store.md)
 
-1. Disable search indexing during database upgrade by creating a file called `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` in your `[Liferay_Home]/osgi/configs` folder and saving the following setting to it:
+-->
 
+1. Disable search indexing during database upgrade by creating `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` in your `[Liferay_Home]/osgi/configs` folder:
+
+    ```bash
+      echo {new/liferay/home/path/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config} "indexReadOnly="true""
+    ```
+
+<!-- 
     ```properties
     indexReadOnly="true"
-    ```
+    ``` -->
 
 1. Enable auto upgrade by setting this property in your `[Liferay_Home]/portal-ext.properties` file:
 
-    ```properties
-    upgrade.database.auto.run=true
+    ```bash
+      echo append [Liferay_Home]/portal-ext.properties upgrade.database.auto.run=true
     ```
+
+<!-- Move down? or move to post-upgrade considerations?
 
 1. Download the latest versions of your [Marketplace apps](https://help.liferay.com/hc/en-us/articles/360029134931-Using-the-Liferay-Marketplace) compatible with the _new_ DXP version and copy them to the new `[Liferay_Home]/deploy` folder.
 
-1. Shut down any DXP instance that is using the database.
+-->
 
 1. Download and run the latest DXP Docker image mounted to your new Liferay Home using the following command, substituting your environment values as needed:
 
@@ -71,9 +94,7 @@ The fastest way to upgrade to the latest Liferay version is by using the latest 
 
     Liferay DXP and the database upgrade initialize.
 
-1. In the console or log, confirm successful database upgrade and DXP startup. Upgrade process messages report starting and completing each upgrade process. 
-
-    If there are any database upgrade failures or errors, you can troubleshoot them and finish the upgrades using [Gogo Shell commands](../upgrade-stability-and-performance/upgrading-modules-using-gogo-shell.md).
+1. In the console or log, confirm successful database upgrade and DXP startup. Upgrade process messages report starting and completing each upgrade process.
 
     A message like this one indicates DXP startup completion:
 
@@ -81,15 +102,23 @@ The fastest way to upgrade to the latest Liferay version is by using the latest 
     org.apache.catalina.startup.Catalina.start Server startup in [x] milliseconds
     ```
 
-1. Re-enable search indexing by setting `indexReadOnly="false"` in your `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file.
+    If there are any database upgrade failures or errors, you can troubleshoot them and finish the upgrades using [Gogo Shell commands](../upgrade-stability-and-performance/upgrading-modules-using-gogo-shell.md).
 
-1. Validate your upgraded database and configurations.
+1. Re-enable search indexing by setting `indexReadOnly="false"` or deleting the `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file.
+
+    ```bash
+      rm path/to/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
+    ```
+
+1. Validate your upgraded database and configurations. <!-- probably should update the image to the 7.3 landing page -->
 
     ![Here is the Liferay DXP landing screen.](./basic-upgrade-steps/images/01.png)
 
 Your Liferay DXP database upgrade is now complete!
 
 ## Using the Latest DXP On-Premises Installation
+
+<!-- Update to be reflect the changes we discussed for the docker image path above -->
 
 After completing the [preliminary steps](#preliminary-steps), perform the upgrade using the latest DXP on-premises installation following these steps:
 

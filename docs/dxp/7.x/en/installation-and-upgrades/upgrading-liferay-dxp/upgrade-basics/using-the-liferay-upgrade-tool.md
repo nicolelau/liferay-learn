@@ -1,6 +1,6 @@
 # Using the Database Upgrade Tool
 
-The Liferay Database Upgrade Tool (upgrade tool) is a client program for upgrading DXP databases offline. Modifying a database while it's detached from DXP allows you to do these things:
+The Liferay Database Upgrade Tool is a client program for upgrading DXP databases offline. Modifying a database while it's detached from DXP allows you to do these things:
 
 * [Tune the database for upgrade operations](../upgrade-stability-and-performance/improving-database-upgrade-performance.md)
 * [Prune unnecessary data](../upgrade-stability-and-performance/improving-database-upgrade-performance.md) (e.g., unneeded versions of Web Content, Documents, and more) to improve upgrade performance
@@ -29,7 +29,7 @@ The tool is available to download separately, as described in the table below.
 
 You can a configure the upgrade before invoking the upgrade tool using properties files or at the start of the upgrade tool run using the tool's command line interface (CLI). Both ways produce properties files that specify the database connection, DXP and application server library locations, and required portal properties. To create the properties files ahead of time, follow the [Upgrade Tool Reference](../reference/upgrade-tool-reference.md). Otherwise, configure the upgrade on the fly as you run the upgrade tool next.
 
-## Running the Upgrade Tool
+## Upgrade Tool Usage
 
 The `db_upgrade.sh` script in the `[Liferay Home]/tools/portal-tools-db-upgrade-client` folder invokes the upgrade tool. The `--help` option describes the tool's usage.
 
@@ -54,9 +54,11 @@ db_upgrade.sh -j "-Dfile.encoding=UTF-8 -Duser.country=ES\
  -Duser.language=es -Duser.timezone=CET -Xmx8000m"
 ```
 
+## Running the Upgrade Tool
+
 Here's how you run an upgrade using the tool:
 
-1. Shutdown any DXP server that's using the database. 
+1. Shutdown any DXP server that's using the database.
 
 1. [Set up the latest database driver](../configuration-and-infrastructure/updating-the-database-driver.md) in your new DXP installation.
 

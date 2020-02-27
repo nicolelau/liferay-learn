@@ -8,15 +8,7 @@ Now that your done upgrading your DXP database, you should re-enable your produc
 
 ### Search Indexing
 
-Before starting the upgrade process in your new installation, you must disable indexing to prevent upgrade process performance issues that arise when the indexer attempts to re-index content.
-
-To disable indexing, create a file called `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` in your `[LIFERAY_HOME]/osgi/configs` folder and add the following content:
-
-```properties
-indexReadOnly="true"
-```
-
-After you complete the upgrade, re-enable indexing by removing the `.config` file or setting `indexReadOnly="false"`.
+If you disabled indexing to prevent upgrade process performance issues by configuring the `indexReadOnly="true"` property, then re-enable indexing by removing the `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file or setting `indexReadOnly="false"`.
 
 ```note::
 If you upgraded from an older version (7.1 and below) consider [installing Elasticsearch](https://help.liferay.com/hc/en-us/articles/360029031631-Elasticsearch) to handle search indexing.
@@ -48,7 +40,7 @@ Prior to DXP 7.1, all users could view Web Content articles by default. Now view
 
 Upgrading to DXP 7.2 moves Web Content images to the Document Library and then deletes their former table, `JournalArticleImage`. To ensure this process went smoothly, check your Web Content articles and verify that their images still show correctly.
 
-### Account for Deprecations and Features in Maintenance Mode 
+### Account for Deprecations and Features in Maintenance Mode
 
 If you haven't done so already, review the [deprecations](../reference/deprecations-in-liferay-dxp-7-3.md) and [features in maintenance mode](../reference/features-in-maintenance-mode.md) and plan for handling how they affect your DXP instance.
 

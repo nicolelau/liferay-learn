@@ -1,5 +1,7 @@
 # Updating the File Store
 
+<!-- What is the main objective of this article? Helping users who are on 7.0 and below know that file stores have changed for 7.2+? -->
+
 General document store configuration (e.g., `dl.store.impl=[File Store Impl Class]`) continues to be done using `portal-ext.properties`. But here's what's changed for document storage:
 
 * Store implementation class package names changed from `com.liferay.portlet.documentlibrary.store.*` in Liferay Portal 6.2 to `com.liferay.portal.store.*` in DXP 7.0+. Make sure your `portal-ext.properties` file sets `dl.store.impl` in one of these ways:
