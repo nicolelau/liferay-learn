@@ -1,68 +1,65 @@
 # Upgrading Modules Using Gogo Shell
 
-For the purpose of troubleshooting upgrade issues with particular modules, it may be necessary to test and perform upgrades on a per-module basis, instead of en-masse. Liferay's Gogo shell is used to upgrade and verify individual modules (core and non-core).
+For the purpose of troubleshooting upgrade issues with particular modules, it may be necessary to test and perform upgrades on a per-module basis, instead of en-masse. Liferay has Gogo shell commands for upgrading and verifying individual modules.
 
-For example, a module may have a new [data schema micro version](https://help.liferay.com/hc/en-us/articles/360030959231-Meaningful-Schema-Versioning). Upgrading the module data to the new schema is optional. If you deploy the new module version, it activates but its data won't be upgraded. When you want to upgrade the module to the new data schema, you can use the upgrade commands in Gogo Shell.
+For example, a module may have a new [data schema micro version](https://help.liferay.com/hc/en-us/articles/360030959231-Meaningful-Schema-Versioning). Since it's only a new micro version, upgrading the module data to the new schema is optional. If you deploy the new module version, it activates but its data isn't upgraded. When you want to upgrade the module to the new data schema, you can use the `upgrade` commands in Gogo Shell.
 
-If you deploy a module that has a new [data schema minor/major version](https://help.liferay.com/hc/en-us/articles/360030959231-Meaningful-Schema-Versioning), however, the module deactivates. Activating the new module version requires upgrading the module's data to the new data schema.
+If you deploy a module that has a new [data schema minor/major version](https://help.liferay.com/hc/en-us/articles/360030959231-Meaningful-Schema-Versioning) without upgrading its data, however, the module deactivates. Activating the new module version requires upgrading the module's data to the new data schema.
 
 Here are the module upgrade topics:
 
 * [Gogo Shell Command Usage](#command-usage)
-* [Listing Module Upgrade Processes](#listing-module-ugprade-processes)
+* [Listing Modules Ready for Upgrades](#listing-module-ready-for-upgrade)
+* [Troubleshooting Module Dependencies](#troubleshooting-module-dependencies)
 * [Executing Module Upgrades](#executing-module-upgrades)
 * [Checking Upgrade Status](#checking-upgrade-status)
 * [Executing Verify Processes](#executing-verify-processes)
 
 ## Command Usage
 
-Use the [Gogo Shell portlet](https://help.liferay.com/hc/en-us/articles/360029070351-Using-the-Felix-Gogo-Shell) to execute module upgrade commands.
+Use the [Gogo Shell portlet](https://help.liferay.com/hc/en-us/articles/360029070351-Using-the-Felix-Gogo-Shell) to execute module upgrade and verification commands.
 
 Here are the commands:
 
-`exit` or `quit:` Exits the Gogo shell
-
-`upgrade:help:` Displays upgrade commands
-
-`upgrade:check:` Lists upgrades pending execution because they failed in the past or the module hasn't reached its final version
-
-`upgrade:execute [module_name]:` Executes upgrades for that module
-
-`upgrade:executeAll:` Executes all pending module upgrade processes
-
-`upgrade:list:` Lists all registered upgrades
-
-`upgrade:list [module_name]:` Lists the module's required upgrade steps
-
-`upgrade:list | grep Registered:` Lists registered upgrades and their versions
-
-`verify:help:` Displays verify commands
-
-`verify:check [module_name]:` Lists the latest execution result for the module's verify process
-
-`verify:checkAll:` Lists the latest execution results for all verify processes
-
-`verify:execute [module_name]:` Executes the module's verifier
-
-`verify:executeAll:` Executes all verifiers
-
-`verify:list:` Lists all registered verifiers
+| Command | Description |
+| :------ | :---------- |
+| `exit` or `quit` | Exits the Gogo shell |
+| `upgrade:help` | Displays upgrade commands |
+| `upgrade:check` | Lists upgrades pending execution because they failed in the past or the module hasn't reached its final version |
+| `upgrade:execute [module_name]` | Executes upgrades for that module |
+| `upgrade:executeAll` | Executes all pending module upgrade processes |
+| `upgrade:list` | Lists all registered upgrades |
+| `upgrade:list [module_name]` | Lists the module's required upgrade steps |
+| `upgrade:list | grep Registered` | Lists registered upgrades and their versions |
+| `verify:help` | Displays verify commands |
+| `verify:check [module_name]` | Lists the latest execution result for the module's verify process |
+| `verify:checkAll` | Lists the latest execution results for all verify processes |
+| `verify:execute [module_name]` | Executes the module's verifier |
+| `verify:executeAll` | Executes all verifiers |
+| `verify:list` | Lists all registered verifiers |
 
 Next, find out each module's availability for upgrade.
 
-## Listing Module Upgrade Processes
+## Listing Modules Ready for Upgrade
 
-Before upgrading modules, you should find which modules have unresolved dependencies, find which modules are resolved and available to upgrade, and examine the module upgrade processes. 
+A module is ready for upgrade when its dependencies are satisfied. There are Gogo shell commands that list modules that are ready and commands that lists a module's unresolved dependencies. 
 
-Executing `upgrade:list` in the Gogo shell lists the modules whose upgrade dependencies are satisfied. These modules can be upgraded. 
+The `upgrade:list` Gogo shell command lists the modules whose upgrade dependencies are satisfied. These modules can be upgraded. 
 
-If a module is active but not listed, its dependencies must be upgraded. The Gogo shell command `scr:info [upgrade_step_class_qualified_name]` shows the upgrade step class's unsatisfied dependencies. Here's an example `scr:info`command:
+If a module is active but not listed, its dependencies must be upgraded.
+
+## Troubleshooting Module Dependencies
+
+There are Gogo shell command for finding unresolved dependencies so you can fix them and get modules ready for upgrade. The Gogo shell command `scr:info [upgrade_step_class_qualified_name]` shows the upgrade step class's unsatisfied dependencies. Here's an example `scr:info`command:
 
 ```
 scr:info com.liferay.journal.upgrade.JournalServiceUpgrade
 ```
 
-Invoking `upgrade:list [module_name]` lists all of the module's upgrade processes. For example, executing `upgrade:list com.liferay.bookmarks.service` (for the Bookmarks Service module), lists this:
+A module's upgrade steps (classes) should be resolved in order.  Invoking
+`upgrade:list [module_name]` lists all of the module's upgrade steps. For
+example, executing `upgrade:list com.liferay.bookmarks.service` (for the
+Bookmarks Service module), lists this:
 
 ```
 Registered upgrade processes for com.liferay.bookmarks.service 1.0.0
