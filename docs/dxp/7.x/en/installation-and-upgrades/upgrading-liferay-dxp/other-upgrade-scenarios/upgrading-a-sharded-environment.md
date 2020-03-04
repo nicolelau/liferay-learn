@@ -8,7 +8,7 @@ Since Liferay DXP 7.0, Liferay removed its own physical partitioning implementat
 
 ## Add Configurations Before the Data Upgrade
 
-In addition to other configurations, you will need to set more properties to migrate your shards to virtual instances for your data upgrade. See the [Upgrade Tool Reference](../reference/upgrade-tool-reference.md) for more information on other configurations.
+In addition to other configurations, you will need to set more properties to migrate your shards to virtual instances for your data upgrade. See the [Upgrade Tool Reference](../reference/database-upgrade-tool-reference.md) for more information on other configurations.
 
 Here is how to configure the upgrade to migrate from sharding:
 
@@ -53,7 +53,7 @@ Here is how to configure the upgrade to migrate from sharding:
 
 ## Upgrade and Update Properties
 
-When you perform the database upgrade, upgrade the default shard first, and then each of the non-default shards. See [Using the Upgrade Tool](../upgrade-basics/using-the-upgrade-tool.md) for more information on running the database upgrade.
+When you perform the database upgrade, upgrade the default shard first, and then each of the non-default shards. See [Using the Database Upgrade Tool](../upgrade-basics/using-the-upgrade-tool.md) for more information on running the database upgrade.
 
 After the database upgrade has been completed, make the following configuration changes to your application servers:
 
@@ -91,4 +91,4 @@ After the database upgrade has been completed, make the following configuration 
 
 Once you have completed all of these steps, you have migrated off of a sharded environment to virtual instances on separate Liferay DXP servers together with your DXP upgrade.
 
-See the [Upgrade Overview](../upgrade-basics/introduction-to-upgrading-liferay-dxp.md) for guidance on completing your upgrade.
+See the [Upgrade Overview](../upgrade-basics/upgrade-overview.md) for guidance on completing your upgrade.

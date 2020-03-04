@@ -1,10 +1,10 @@
-# Changes to Default Settings in Liferay DXP 7.3
+# Changes to Default Settings
 
 Most new versions of Liferay DXP include changes to the default settings. If you rely on the defaults from your old version, you should review the changes and decide to keep the defaults from your old version or accept the defaults of the new.
 
 <!-- TODO update with changes from 7.2 to 7.3. jhinkey -->
 
-## Default Settings Changed for 7.2
+## Default Settings Changed in 7.0
 
 No existing properties have changed between versions 7.1 and 7.2. However, here are some properties that have changed since version 6.2:
 

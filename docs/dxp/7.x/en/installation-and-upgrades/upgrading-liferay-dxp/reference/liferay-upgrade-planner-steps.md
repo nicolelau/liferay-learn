@@ -1,6 +1,8 @@
 # Liferay Upgrade Planner Steps
 
-As you dive into [installation upgrade details](../introduction-to-upgrading-liferay-dxp.md), it's helpful to follow a list of steps, or at least note steps you've completed. The [Liferay Upgrade Planner](https://help.liferay.com/hc/en-us/articles/360029147451-Liferay-Upgrade-Planner) uses the steps listed below. They demonstrate an upgrade workflow and link to the upgrade details.
+As you dive into [installation upgrade details](../upgrade-overview.md), it's helpful to follow a list of steps, or at least note steps you've completed. The [Liferay Upgrade Planner](https://help.liferay.com/hc/en-us/articles/360029147451-Liferay-Upgrade-Planner) uses the steps listed below. They demonstrate an upgrade workflow and link to the upgrade details.
+
+<!-- TODO update these when the upgrade docs review is done. jhinkey-->
 
 Here are the installation upgrade steps:
 
@@ -138,7 +140,7 @@ Here are the installation upgrade steps:
 
     Preparing for the production installation upgrade involves upgrading your Marketplace apps, publishing staged changes, and synchronizing a complete data and configuration backup.{.summary}
 
-    1. [Upgrade Your Marketplace Apps](../introduction-to-upgrading-liferay-dxp-.md#upgrading-custom-code-and-plugins){.title}
+    1. [Upgrade Your Marketplace Apps](../upgrade-overview.md#upgrading-custom-code-and-plugins){.title}
 
     2. [Publish All Staged Changes](../advanced-upgrade-topics/upgrading-the-database.md#preparing-for-the-data-upgrade){.title}
 
@@ -242,5 +244,5 @@ Here are the installation upgrade steps:
 
 ## Related Topics
 
-* [Upgrading Liferay DXP](../introduction-to-upgrading-liferay-dxp.md)
+* [Upgrading Liferay DXP](../upgrade-overview.md)
 * [Upgrading Custom Code](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2)

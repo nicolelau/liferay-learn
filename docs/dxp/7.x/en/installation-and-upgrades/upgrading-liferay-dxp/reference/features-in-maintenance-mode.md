@@ -6,6 +6,8 @@ Liferay may cease enhancing certain products or capabilities on a case by case b
    Maintenance mode does not necessarily mean that deprecation is planned for the product or capability.
 ```
 
+## Transitioned to maintenance mode as of DXP 7.2
+
 As of Liferay DXP 7.2, these products and capabilities have transitioned into maintenance mode:
 
 * Liferay Connected Services

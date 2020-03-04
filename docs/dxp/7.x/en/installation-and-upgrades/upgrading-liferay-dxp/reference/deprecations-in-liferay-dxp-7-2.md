@@ -20,8 +20,8 @@ The deprecations in DXP 7.2 are as follows:
 | Feature |  Availability |  Notes |
 | --- | ------------- | ------ |
 | AlloyUI | Bundled | Replaced by [MetalJS](https://metaljs.com/) (temporary) exposed as [ClayUI tag](https://help.liferay.com/hc/en-us/articles/360028832192-Front-End-Taglibs) equivalents. |
-| CMIS Store | Archived | Migrate to another [Document Repository Store option](https://help.liferay.com/hc/en-us/articles/360028810112-Document-Repository-Configuration). Before [upgrading to DXP 7.2](../introduction-to-upgrading-liferay-dxp.md), migrate your document store data using [Data Migration in Server Administration](https://help.liferay.com/hc/en-us/articles/360029131691-Server-Administration). |
-| JCRStore | Archived | Migrate to another [Document Repository Store option](https://help.liferay.com/hc/en-us/articles/360028810112-Document-Repository-Configuration). Before [upgrading to DXP 7.2](../introduction-to-upgrading-liferay-dxp.md), migrate your document store data using [Data Migration in Server Administration](https://help.liferay.com/hc/en-us/articles/360029131691-Server-Administration). |
+| CMIS Store | Archived | Migrate to another [Document Repository Store option](https://help.liferay.com/hc/en-us/articles/360028810112-Document-Repository-Configuration). Before [upgrading to DXP 7.2](../upgrade-overview.md), migrate your document store data using [Data Migration in Server Administration](https://help.liferay.com/hc/en-us/articles/360029131691-Server-Administration). |
+| JCRStore | Archived | Migrate to another [Document Repository Store option](https://help.liferay.com/hc/en-us/articles/360028810112-Document-Repository-Configuration). Before [upgrading to DXP 7.2](../upgrade-overview.md), migrate your document store data using [Data Migration in Server Administration](https://help.liferay.com/hc/en-us/articles/360029131691-Server-Administration). |
 | Legacy Search Portlet | Bundled | Will be archived in a future release. This will be replaced by the [Search widgets](https://help.liferay.com/hc/en-us/articles/360029133791-Introduction-to-Search). |
 | Sprite framework | Bundled | Liferay's image sprite framework is deprecated and is disabled by default via the `sprite.enabled` [portal property](https://help.liferay.com/hc/en-us/articles/360028712292-Portal-Properties). You can still build image sprites using any framework you like and deploy them in your plugins. |
 
@@ -70,7 +70,7 @@ If you're using NTLM to authenticate Microsoft Windows™ accounts with Liferay 
 
 | Feature |  Availability |
 | --- | ------------------ |
-| Live Users | Enabled through the [`live.users.enabled`](https://docs.liferay.com/dxp/portal/7.2-latest/propertiesdoc/portal.properties.html) [portal property](../../14-reference/03-portal-properties.md). |
+| Live Users | Enabled through the [`live.users.enabled`](https://docs.liferay.com/dxp/portal/7.2-latest/propertiesdoc/portal.properties.html) [portal property](../../reference/portal-properties.md). |
 
 ## Applications in Maintenance Mode
 
