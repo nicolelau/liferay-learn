@@ -118,7 +118,7 @@ Here's how you run an upgrade using the tool:
 
 1. Start your server and validate DXP with its upgraded database.
 
-    ![Here is the Liferay DXP landing screen.](./using-the-liferay-upgrade-tool/images/01.png)
+    ![Here is the Liferay DXP landing screen.](./using-the-database-upgrade-tool/images/01.png)
 
 You've upgraded your DXP database using the upgrade tool.
 

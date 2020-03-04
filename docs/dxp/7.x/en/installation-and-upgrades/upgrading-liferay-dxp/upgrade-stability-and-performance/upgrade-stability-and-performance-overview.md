@@ -22,7 +22,7 @@ DXP upgrade processes write to the database more than is typically done in produ
 
 ## Upgrading and Troubleshooting Issues
 
-After you've pruned and tuned your test database, upgrade it [using the database upgrade tool](../upgrade-basics/using-the-liferay-upgrade-tool.md). If you run into problems, such as unresolved dependencies, you can examine the logs and use Gogo shell commands to troubleshoot issues and complete the upgrades. Visit [Upgrading Modules Using Gogo Shell](./upgrading-modules-using-gogo-shell.md) to learn how.
+After you've pruned and tuned your test database, upgrade it [using the database upgrade tool](../upgrade-basics/using-the-database-upgrade-tool.md). If you run into problems, such as unresolved dependencies, you can examine the logs and use Gogo shell commands to troubleshoot issues and complete the upgrades. Visit [Upgrading Modules Using Gogo Shell](./upgrading-modules-using-gogo-shell.md) to learn how.
 
 ## Testing the Upgraded Database
 

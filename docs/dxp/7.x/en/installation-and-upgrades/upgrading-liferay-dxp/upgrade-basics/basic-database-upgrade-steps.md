@@ -9,7 +9,7 @@ The Docker Desktop is available from [here](https://www.docker.com/products/dock
 ```
 
 ```important::
-   For production and enterprise level deployments of Liferay, use the Upgrade Tool to perform upgrades. For more information see `Using the Liferay Upgrade Tool <./using-the-liferay-upgrade-tool.md>`_.
+   For production and enterprise level deployments of Liferay, use the Upgrade Tool to perform upgrades. For more information see `Using the Liferay Upgrade Tool <./using-the-database-upgrade-tool.md>`_.
 ```
 
 ```warning::
@@ -73,7 +73,7 @@ Here are the data upgrade steps:
 
 1. Validate your upgraded database.
 
-    ![Here is the Liferay DXP landing screen.](./basic-upgrade-steps/images/01.png)
+    ![Here is the Liferay DXP landing screen.](./basic-database-upgrade-steps/images/01.png)
 
 Your Liferay DXP database upgrade is now complete!
 
@@ -87,7 +87,7 @@ If the upgraded DXP database is all you need, then enjoy using your new version 
 
 * [Upgrade Overview](./upgrade-overview.md) describes all of the upgrade topics. Maybe there's a topic you still need to address.
 
-* [Using the Liferay Database Upgrade Tool](./using-the-liferay-upgrade-tool.md) demonstrates upgrading the database while the DXP server is offline. If auto-upgrade (above) took too long or you'd like to upgrade a larger data set or an enterprise-level DXP environment, [tuning the database, pruning unneeded data](../upgrade-stability-and-performance/database-tuning-for-upgrades), and using database upgrade tool is recommended.
+* [Using the Liferay Database Upgrade Tool](./using-the-database-upgrade-tool.md) demonstrates upgrading the database while the DXP server is offline. If auto-upgrade (above) took too long or you'd like to upgrade a larger data set or an enterprise-level DXP environment, [tuning the database, pruning unneeded data](../upgrade-stability-and-performance/database-tuning-for-upgrades), and using database upgrade tool is recommended.
 
 * [Custom Code Upgrade](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2) guides you in adapting custom plugin code you've developed to the new DXP version.
 
