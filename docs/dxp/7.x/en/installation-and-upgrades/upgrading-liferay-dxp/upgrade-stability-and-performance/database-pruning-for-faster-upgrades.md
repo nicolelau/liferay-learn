@@ -4,7 +4,13 @@ The more data you have the longer your data upgrade takes. Unneeded site data is
 
 For example, sites may store many unused versions of Web Content articles or Documents and Media files. If you're done revising them and don't need the intermediate revisions, you can safely remove them. This saves space and upgrade time.
 
-### Remove Duplicate Web Content Structure Field Names
+Here are the database pruning topics:
+
+* Removing Duplicate Web Content Structure Field Names
+* Finding and Remove Unused Objects
+* Testing with a Copy of the Pruned Database
+
+## Removing Duplicate Web Content Structure Field Names
 
 If you've used Web Content Management extensively, you might have structures without unique field names. Find and remove duplicate field names before upgrading. If you upgraded to Liferay Portal 6.2 previously and skipped doing this, you'll encounter this error:
 
@@ -15,7 +21,7 @@ com.liferay.portal.verify.VerifyException: com.liferay.dynamic.data.mapping.vali
 
 If this error occurs, roll back to your previous backup of Liferay Portal 6.2 and find and remove the duplicate field names.
 
-### Find and Remove Unused Objects
+## Finding and Removing Unused Objects
 
 Identify unused objects in the UI or by using using `SELECT` queries with your database. Then remove them either via the UI, the API through the [script console](https://help.liferay.com/hc/en-us/articles/360029131871-Running-Scripts-From-the-Script-Console), or a portlet you create.
 
@@ -23,13 +29,13 @@ Identify unused objects in the UI or by using using `SELECT` queries with your d
    You should only use Liferay's UI or API to manipulate data because they account for relationships between objects in Liferay DXP. Never use SQL directly on your database to remove records. Your SQL may miss object relationships, orphaning objects and causing performance problems.
 ```
 
-Listed below are some common places to check for unused objects.
+Next are some common places to check for unused objects.
 
-#### Objects From the Large/Populated Tables
+### Objects From the Large/Populated Tables
 
 Table rows are mapped to objects in Liferay DXP. Large tables with many records might contain many unused objects. The greater the table size and the records per table, the longer upgrading takes.
 
-Finding and removing unused objects associated with such tables reduces upgrade times. Your data import log (from the previous step) can provide valuable table information. Database engines show this information in different ways. For example, your database import log might look like this:
+Finding and removing unused objects associated with such tables reduces upgrade times. Importing data from your Liferay backup can provide valuable table information. Database engines show this information in different ways. For example, your database import log might look like this:
 
 ```
 Processing object type SCHEMA\_EXPORT/TABLE/TABLE\_DATA
@@ -61,16 +67,16 @@ Several items stand out in the example database import:
 
 Search for unused objects associated with the tables that stand out and use Liferay's API (e.g., using the [script console](https://help.liferay.com/hc/en-us/articles/360029131871-Running-Scripts-From-the-Script-Console)) to delete unneeded objects.
 
-#### Common Object Types Worth Checking
+### Common Object Types Worth Checking
 
 Some specific object types should be checked for unused objects. Here are some reasons for checking them:
 
 * Removing them frees related unused objects for removal
-* They're version objects that aren't worth keeping
+* They might be version objects that aren't worth keeping
 
 Check these object types:
 
-* **Sites**: Remove sites you don't need. When you remove a site, this will remove its related objects, including:
+* **Sites**: Remove sites you don't need. When you remove a site, this removes its related objects, including:
   * Layouts
   * Portlet preferences
   * File entries (document library objects)
@@ -110,7 +116,7 @@ To see an example of removing intermediate object versions, read [Example: Remov
 
 Next, test your instance with its pruned database.
 
-### Test with a Copy of the Pruned Database
+## Testing with a Copy of the Pruned Database
 
 Find and resolve any issues related to the objects you removed. This is an important step, in case objects were mistakenly removed, or if this affects other content. You can always restart pruning a new copy of your production database if you can't resolve an issue.
 
