@@ -10,16 +10,34 @@ Now that your done upgrading your DXP database, you should re-enable your produc
 
 If you disabled indexing to prevent upgrade process performance issues by configuring the `indexReadOnly="true"` property, then re-enable indexing by removing the `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file or setting `indexReadOnly="false"`.
 
+```bash
+rm osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
+```
+
 ```note::
-If you upgraded from an older version (7.1 and below) consider [installing Elasticsearch](https://help.liferay.com/hc/en-us/articles/360029031631-Elasticsearch) to handle search indexing.
+If you upgraded from an older version (7.1 and below) consider `installing Elasticsearch <https://help.liferay.com/hc/en-us/articles/360029031631-Elasticsearch>`_ to handle search indexing.
 ```
 
 ### Database Configurations
 
-Prior to upgrading your Liferay database, you tuned it for upgrade (see [Tuning for the Data Upgrade](../upgrade-stability-and-performance/improving-database-upgrade-performance.md)). Now that the upgrade is complete, restore the production database tuning you used previously.
+Prior to upgrading your Liferay database, you may have tuned it for upgrade (see [Database Tuning for Upgrades](../upgrade-stability-and-performance/database-tuning-for-upgrades.md)). Now that the upgrade is complete, restore the production database tuning you used previously.
 
 ```note::
-   If you migrated from a sharded environment during your data upgrade, then you must make more adjustments to your configurations to complete the transition to virtual instances. See the [Upgrade and Update Properties](../other-upgrade-scenarios/upgrading-a-sharded-environment.md#Upgrade-and-Update-Properties) section for more information.
+   If you migrated from a sharded environment during your data upgrade, then you must make more adjustments to your configurations to complete the transition to virtual instances. See the `Upgrade and Update Properties <../other-upgrade-scenarios/upgrading-a-sharded-environment.md#Upgrade-and-Update-Properties>`_ section for more information.
+```
+
+## Installing the Latest Marketplace Apps 
+
+If you were using any Marketplace apps in the previous Liferay version, you should use the version of each app that's compatible with the _new_ DXP version. Download the latest compatible version of each [Marketplace app](../../../system-administration/installing-and-managing-apps/downloading-apps.md) and install it.
+
+```bash
+cp new-app-version.lpkg /new-version/liferay-home/deploy
+```
+
+If your Liferay Home is in source control, commit the new app deployment.
+
+```bash
+commit -a -m "New version of xyz app"
 ```
 
 ## Accounting for Feature Changes
