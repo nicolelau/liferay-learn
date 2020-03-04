@@ -3,14 +3,13 @@
 The complexity and scale of a DXP installation correlates directly to the planning and effort that may be required to upgrade it. Installations that have few custom apps and small data sets can likely be upgraded successfully using the [Basic Upgrade Steps](./basic-upgrade-steps.md). Large, complex installations and enterprise-level installations typically require additional planning and testing to upgrade safely and efficiently. The Liferay DXP upgrade topics fall into these categories:
 
 * [Preparation and Planning](#preparation-and-planning)
-* [Updating Custom Plugin Code](#update-custom-plugin-code)
-* [Migrating Configurations and Settings](#migrate-configurations-and-settings)
-* [Updating the Database Driver](#update-the-database-driver)
-* [Improving Upgrade Performance](#improve-upgrade-performance)
-* [Executing the Database Upgrade](#execute-the-database-upgrade)
+* [Updating Custom Plugin Code](#updating-custom-plugin-code)
+* [Migrating Configurations and Infrastructure](#migrating-and-updating-configurations-and-infrastructure)
+* [Improving Upgrade Performance](#improving-upgrade-performance)
+* [Executing the Database Upgrade](#executing-the-database-upgrade)
 
 ```warning::
-   **Always** [back up](../../10-maintaining-a-liferay-dxp-installation/backing-up.md) your database and installation before upgrading. Testing the upgrade process on backup copies is advised.
+   **Always** `back up <../../10-maintaining-a-liferay-dxp-installation/backing-up.md>`_ your database and installation before upgrading. Testing the upgrade process on backup copies is advised.
 ```
 
 ## Preparation and Planning
@@ -53,52 +52,43 @@ Marketplace apps should be updated to the latest version for the DXP/Portal vers
 
 After upgrading the DXP database, install the latest app versions for your new DXP instance.
 
-## Update Custom Plugin Code
+## Updating Custom Plugin Code
 
-Plugins (e.g., themes, apps, and customizations) you've developed need to be adapted to the new DXP version. This can be as simple as updating dependencies or involve updating code to API changes. If you forgo updating your custom plugins, they may become disabled on the new DXP version. [Upgrading Code](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2) walks through the process and demonstrates using the [Liferay Upgrade Planner](https://help.liferay.com/hc/en-us/articles/360029147451-Liferay-Upgrade-Planner) to adapt code for an upgrade.
+Plugins (e.g., themes, apps, and customizations) you've developed must be adapted to the new DXP version. This can be as simple as updating dependencies or involve updating code to API changes. If you forgo updating your custom plugins, they may become disabled on the new DXP version. [Upgrading Code](https://help.liferay.com/hc/en-us/articles/360029316391-Introduction-to-Upgrading-Code-to-Liferay-DXP-7-2) walks through the process and demonstrates using the [Liferay Upgrade Planner](https://help.liferay.com/hc/en-us/articles/360029147451-Liferay-Upgrade-Planner) to adapt code to the new DXP version.
 
-## Migrate Configurations and Settings
+## Migrating and Updating Configurations and Infrastructure
 
-New DXP installations use your configurations and settings in the upgrade and at run time. You must migrate and update them from your previous installation to your new one. These articles walk through the migration and update tasks:
+New DXP installations use your configurations at run time and during database upgrade. They must be migrated and updated from your previous installation to your new one.
 
-* [Migrating Configurations and Properties](../configuration-and-infrastructure/migrating-configurations-and-properties.md)
-* [Updating the File Store](../configuration-and-infrastructure/updating-the-file-store.md)
-
-## Update the Database Driver
-
-Check your database vendor documentation for the recommended database driver. If a new driver is recommended, replace the existing driver JAR file and update the `jdbc.default.driverClassName` property in your `portal-ext.properties` file with the new driver class name. 
-
-MySQL example:
-
-```properties 
-jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
+```important::
+   If you're upgrading from 6.2 or earlier, update your file store configuration. See the `Updating the File Store <../configuration-and-infrastructure/updating-the-file-store.md>`_ for more information.
 ```
 
- See the [Database Templates](../../14-reference/05-database-templates.md) for more driver examples.
+You can wait until after database upgrade to update your other settings. See these [Migrating Configurations and Properties](../configuration-and-infrastructure/migrating-configurations-and-properties.md) for more information.
 
-## Improve Upgrade Performance
+## Improving Upgrade Performance
 
-Upgrading large data sets can take a prohibitively long time, if you leave unnecessary data intact or forgo performance tuning.
+Upgrading large data sets can take a prohibitively long time, if you leave unnecessary data intact or forgo performance tuning. There are several ways to quicken database upgrades.
 
 ### Prune Data
 
-If your DXP server has instances, sites, pages, or versioned content items (e.g., Web Content articles, Documents and Media files, and more) that are unnecessary, removing them can cut down upgrade time considerably. See [Improving Database Upgrade Performance](../upgrade-stability-and-performance/improving-database-upgrade-performance.md) on ways to prune your database of unnecessary data.
+If your DXP server has instances, sites, pages, or versioned content items (e.g., Web Content articles, Documents and Media files, and more) that are unnecessary, removing them can cut down upgrade time considerably. See [Database Pruning for Faster Upgrades](../upgrade-stability-and-performance/database-pruning-for-faster-upgrades.md) on ways to prune your database of unnecessary data.
 
 ### Tune Database Performance
 
-Adjusting your database for upgrade operations (more data writes than in production) improves database upgrade performance. See [Improving Database Upgrade Performance](../upgrade-stability-and-performance/improving-database-upgrade-performance.md) for details.
+Adjusting your database for upgrade operations (more data writes than in production) improves database upgrade performance. See [Database Tuning for Upgrades](../upgrade-stability-and-performance/database-tuning-for-upgrades.md) for details.
 
 ### Tune the Search Engine
 
-The search engine typically indexes regularly while Liferay DXP is running. However, this indexing can have a detrimental impact to upgrade performance if it is left on. Indexing should be disabled before performing an upgrade, and re-enabled once an upgrade is complete. See [Search Indexing and Upgrades](../upgrade-stability-and-performance/search-indexing-and-upgrade.md) for more information.
+The search engine typically indexes regularly while Liferay DXP is running. However, this indexing can have a detrimental impact to upgrade performance if it is left on when upgrading the database during DXP startup. Even if DXP is offline during database upgrade, upgrade processes that call services that call a search server produce errors if indexing is on. Indexing should be disabled before performing an upgrade, and re-enabled once an upgrade is complete. The database upgrade steps and post upgrade steps demonstrate configuring the indexing.
 
-## Execute the Database Upgrade
+## Executing the Database Upgrade
 
 There are two primary database upgrade methods:
 
-* [Using Auto Upgrade \(Basic Upgrade Steps\)](./basic-upgrade-steps.md): This involves setting a property and launching the new DXP server. The database upgrades execute as DXP starts up. After the upgrades and DXP startup complete successfully, your new DXP server is operating with the upgraded database.
+* [Using Auto Upgrade \(Basic Database Upgrade Steps\)](./basic-upgrade-steps.md): This involves setting an auto upgrade property and launching the new DXP server. The database upgrades executes as DXP starts up. After the upgrades and DXP startup complete successfully, your new DXP server is operating with the upgraded database.
 
-* [Using the Database Upgrade Tool](./using-the-liferay-upgrade-tool.md): This client program updates a DXP database while it's offline, detached from any DXP instance. [Tuning a database for upgrade](../upgrade-stability-and-performance/improving-database-upgrade-performance.md) and using the upgrade tool is recommended for upgrading large data sets. Additionally, the upgrade tool works well in cycles where you're [pruning data](../upgrade-stability-and-performance/improving-database-upgrade-performance.md), upgrading, and testing.
+* [Using the Database Upgrade Tool](./using-the-liferay-upgrade-tool.md): This client program updates a DXP database while it's offline, detached from any DXP instance. [Tuning a database for upgrade](../upgrade-stability-and-performance/database-tuning-for-upgrades.md) and using the upgrade tool is recommended for upgrading large data sets. Additionally, the upgrade tool works well in cycles where you're [pruning data](../upgrade-stability-and-performance/database-pruning-for-faster-upgrades.md), upgrading, and testing.
 
 For larger installations and production environments we recommend using the Liferay Database Upgrade Tool.
 
