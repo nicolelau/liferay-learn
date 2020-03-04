@@ -1,14 +1,15 @@
-# Upgrade Tool Reference
+# Database Upgrade Tool Reference
 
 This article provides an overview of the upgrade tool within your application server.
 
-Start the upgrade tool using the `db_upgrade.sh` script in the `[LIFERAY_HOME]/tools/portal-tools-db-upgrade-client` folder (`db_upgrade.bat` on Windows). Here are the core upgrade stages:
+Start the upgrade tool using the `db_upgrade.sh` script in the `[LIFERAY_HOME]/tools/portal-tools-db-upgrade-client` folder (`db_upgrade.bat` on Windows).
 
-1. Show the upgrade patch level
-1. Execute the core upgrade processes
-1. Execute the core verifiers
+## Overview 
 
-## Upgrade Tool Usage
+* [Upgrade Tool Usage](#database-upgrade-tool-usage)
+* [Configuring the Upgrade Tool](#configuring-the-upgrade-tool)
+
+## Database Upgrade Tool Usage
 
 This command prints the upgrade tool usage:
 
@@ -16,20 +17,20 @@ This command prints the upgrade tool usage:
 db_upgrade.sh --help
 ```
 
-### Default Parameters
+Here are all the upgrade tool command line options:
 
-Here are the tool's default Java parameters:
+**--help** or **-h**: Prints the tool's help message.
 
-```bash
--Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.timezone=GMT -Xmx2048m
-```
+**--jvm-opts** or **-j** + **[arg]**: Sets any JVM options for the upgrade
+process.
 
-The `-j` option overrides the JVM parameters. For example, these options set the
-JVM memory to 10GB, which is a good starting point for this process type:
+**--log-file** or **-l** + **[arg]**: Specifies the tool's log file name---the
+default name is `upgrade.log`.
 
-```bash
-db_upgrade.sh -j "-Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.timezone=GMT -Xmx10240m"
-```
+**--shell** or **-s**: Automatically connects you to the Gogo shell after
+finishing the upgrade process.
+
+### Logging Output
 
 The `-l` option specifies the tool's log file name:
 
@@ -37,9 +38,11 @@ The `-l` option specifies the tool's log file name:
 db_upgrade.sh -l "output.log"
 ```
 
-### Upgrade Tool Memory Allocation
+### Recommended JVM Options
 
-Make sure to provide adequate memory for the database upgrade tool's Java process. Make sure to also set the file encoding to UTF-8 and the time zone to GMT.
+Make sure to set the file encoding to `UTF-8` and the time zone to `GMT`. Since the database upgrade tool operates on your DXP database, you should also configure the upgrade tool with the same JVM options that you use for your DXP application server. If you used country and language JVM options, specify them for the upgrade tool.
+
+While you're at it, allocate the initial memory (`-Xmx value`) for the upgrade tool too. Use 2 GB at a minimum. If your DXP database has over 10 GB of data, increase the initial memory.
 
 Using a test scenario with a 3.2 GB database and a 15 GB Document Library, the following Java process settings were optimal:
 
@@ -55,7 +58,7 @@ db_upgrade.sh -j "-Xmx8000m -Dfile.encoding=UTF-8 -Duser.timezone=GMT"
 
 ## Configuring the Upgrade Tool
 
-The core upgrade requires configuration. The simplest way is to use the upgrade tool to create your configuration files. Here's an example interaction with the upgrade tool's command line interface:
+The core upgrade requires configuration. The simplest way is to use the upgrade tool to create your configuration files on the fly. Here's an example interaction with the upgrade tool's command line interface:
 
 ```
 Please enter your application server (tomcat):
@@ -137,7 +140,7 @@ See the latest [portal properties reference](https://docs.liferay.com/dxp/portal
 
 Specify the following information to configure the upgrade: 
 
-* `liferay.home`: The [LIFERAY_HOME folder](../../14-reference/01-liferay-home.md).
+* `liferay.home`: The [LIFERAY_HOME folder](../../reference/liferay-home.md).
 
 * `dl.store.impl`: The implementation for persisting documents to the document library store. This property is only mandatory if you're using a `*FileSystemStore` implementation. If you [updated this property in your `portal-ext.properties`](./preparing-a-new-application-server.md#configure-your-documents-and-media-file-store), copy the new value here. Otherwise, set the property one of these ways:
 
@@ -180,18 +183,3 @@ Here are example upgrade configuration files that you can customize and copy int
     module.framework.base.dir=/home/user/servers/liferay7/osgi
     dl.store.impl=com.liferay.portal.store.file.system.FileSystemStore
     ```
-
-## Upgrade Tool Runtime Options
-
-Here are all the upgrade tool command line options:
-
-**--help** or **-h**: Prints the tool's help message.
-
-**--jvm-opts** or **-j** + **[arg]**: Sets any JVM options for the upgrade
-process.
-
-**--log-file** or **-l** + **[arg]**: Specifies the tool's log file name---the
-default name is `upgrade.log`.
-
-**--shell** or **-s**: Automatically connects you to the Gogo shell after
-finishing the upgrade process.
