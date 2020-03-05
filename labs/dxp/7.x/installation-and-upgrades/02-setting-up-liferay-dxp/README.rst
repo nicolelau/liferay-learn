@@ -2,9 +2,10 @@ Setting Up Liferay DXP
 ======================
 
 -  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/setting-up-liferay-dxp`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/activating-liferay-dxp`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/reactivating-liferay-dxp`
 -  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/connecting-to-a-mail-server`
 -  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/mail-server-configuration-reference`
-* Installing and Managing Apps
 * Installing a Search Engine
 * Selecting Your Locale and Encoding
 * Using a Content Delivery Network
