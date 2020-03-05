@@ -24,15 +24,14 @@ Installing Liferay on an Application Server
 Setting Up Liferay DXP
 ----------------------
 
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/setting-up-liferay-dxp`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/activating-liferay-dxp`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/reactivating-liferay-dxp`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/connecting-to-a-mail-server`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/mail-server-configuration-reference`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/setting-up-liferay-dxp`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/activating-liferay-dxp`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/connecting-to-a-mail-server`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/mail-server-configuration-reference`
 * Installing a Search Engine
 * Selecting Your Locale and Encoding
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/trial-plugin-installation`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/setting-up-marketplace`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/trial-plugin-installation`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/setting-up-marketplace`
 * Using the Liferay Marketplace
 * Installing Apps Manually
 * Using a Content Delivery Network
@@ -48,21 +47,21 @@ Using Solr
 Configuring the Document Library Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-the-document-library-repository/document-repository-overview`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-the-document-library-repository/using-amazon-s3-store`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-the-document-library-repository/using-the-advanced-file-system-store`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-the-document-library-repository/using-the-dbstore`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-the-document-library-repository/using-the-file-system-store`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/configuring-the-document-library-repository/document-repository-overview`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/configuring-the-document-library-repository/using-amazon-s3-store`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/configuring-the-document-library-repository/using-the-advanced-file-system-store`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/configuring-the-document-library-repository/using-the-dbstore`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/configuring-the-document-library-repository/using-the-file-system-store`
 
 Configuring Clustering for High Availability
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/01-introduction-to-clustering-liferay-dxp`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/02-database-configuration-for-cluster-nodes`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/03-documents-and-media-configuration-with-clustering`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/04-clustering-search`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/05-cluster-link-overview`
--  :doc:`/installation-and-upgrades/02-setting-up-liferay-dxp/configuring-clustering-for-high-availability/06-configuring-unicast-over-tcp`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/configuring-clustering-for-high-availability/01-introduction-to-clustering-liferay-dxp`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/configuring-clustering-for-high-availability/02-database-configuration-for-cluster-nodes`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/configuring-clustering-for-high-availability/03-documents-and-media-configuration-with-clustering`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/configuring-clustering-for-high-availability/04-clustering-search`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/configuring-clustering-for-high-availability/05-cluster-link-overview`
+-  :doc:`/installation-and-upgrades/setting-up-liferay-dxp/configuring-clustering-for-high-availability/06-configuring-unicast-over-tcp`
 
 Securing Liferay
 ----------------
