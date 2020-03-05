@@ -5,6 +5,7 @@ Setting Up Liferay DXP
    :maxdepth: 3
 
    setting-up-liferay-dxp/setting-up-liferay-dxp.md
+   setting-up-liferay-dxp/activating-liferay-dxp.md
    setting-up-liferay-dxp/connecting-to-a-mail-server.md
    setting-up-liferay-dxp/mail-server-configuration-reference.md
    setting-up-liferay-dxp/configuring_the_document_library_repository.rst
