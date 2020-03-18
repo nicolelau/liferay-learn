@@ -49,6 +49,11 @@
 
                     <div class="filter-input-container">
                         <label>
+                            <input class="filter-input" name="productName" type="radio" value="dxp">
+                            <span class="filter-input-label">{% trans %}DXP{% endtrans %}</span>
+                        </label>
+
+                        <label>
                             <input class="filter-input" name="productName" type="radio" value="dxp-cloud">
                             <span class="filter-input-label">{% trans %}DXP Cloud{% endtrans %}</span>
                         </label>
@@ -87,18 +92,29 @@
 </div>
 
 <script>
-    const pathname = window.location.pathname;
+    let pathname = window.location.pathname;
 
-    let currentDocProduct = {
-        product: 'dxp-cloud',
-        pathname: '/dxp-cloud-latest/search.html'
-    };
+    const docProducts = [
+        {
+            name: 'commerce',
+            pathname: '/commerce-2.x/search.html'
+        },
+        {
+            name: 'dxp',
+            pathname: '/dxp-7.x/search.html'
+        },
+        {
+            name: 'dxp-cloud',
+            pathname: '/dxp-cloud-latest/search.html'
+        }
+    ];
+
+    let currentDocProduct = 'dxp'
 
     if (pathname.includes('commerce')) {
-        currentDocProduct = {
-            product: 'commerce',
-            pathname: '/commerce-2.x/search.html'
-        }
+        currentDocProduct = 'commerce';
+    } else if (pathname.includes('dxp-cloud')) {
+        currentDocProduct = 'dxp-cloud'
     }
 
     const productSelect = document.querySelectorAll('[name="productName"]');
@@ -106,15 +122,20 @@
     // Preselect current documentation product to let user know what product the results pertain to
 
     productSelect.forEach(product => {
-        if (product.value === currentDocProduct.product) {
+        if (product.value === currentDocProduct) {
             product.checked = true;
         }
 
         // Toggling product input will take user to the selected product's search page
 
         product.addEventListener('click', event => {
-            if (event.target.value !== currentDocProduct.product) {
-                pathname = currentDocProduct.pathname;
+            const selectedDocProduct = event.currentTarget.value;
+            if (selectedDocProduct !== currentDocProduct) {
+                // reset pathname
+
+                pathname = docProducts.filter(product => product.name == selectedDocProduct)[0].pathname;
+
+                window.location.pathname = pathname;
             }
         });
     });

@@ -3,7 +3,7 @@
 By default, Liferay DXP uses the *Sign In* widget to authenticate users.
 
 ```note::
-   The Sign In widget appears on the default home page at `http[s]://[server-name:port]/web/guest/home`. If the Sign In widget is unavailable on any page, it can be accessed directly via its URL: `http[s]://[server-name:port]/c/portal/login`.
+   The Sign In widget appears on the default home page at ``http[s]://[server-name:port]/web/guest/home``. If the Sign In widget is unavailable on any page, it can be accessed directly via its URL: ``http[s]://[server-name:port]/c/portal/login``.
 ```
 
 ![The default Liferay home page](./authentication-basics/images/01.png)
@@ -11,7 +11,7 @@ By default, Liferay DXP uses the *Sign In* widget to authenticate users.
 You can configure other methods of authenticating users and/or applications:
 
 * [LDAP](../../users-and-permissions/devops/connecting-to-a-user-directory/connecting-to-an-ldap-directory.md)
-* [SAML](./configuring-sso/authenticating-with-saml/01-intro.md)
+* [SAML](./configuring-sso/authenticating-with-saml/saml-authentication-process-overview.md.md)
 * [Kerberos](./configuring-sso/authenticating-with-kerberos.md)
 * [OpenID Connect](./configuring-sso/other-ssos/using-openid-connect.md)
 * [Token-Based solutions](./configuring-sso/token-based-authentication.md)

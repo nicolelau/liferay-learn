@@ -14,7 +14,7 @@ Once users begin submitting form entries, you can access the form entry data thr
 
     ![You can view a single entry right in the Forms application.](./managing-form-entries/images/02.png)
 
-1. The _View Form_ page shows the responses from each form page. Click to advance.
+1. The _View Form_ page shows the responses from each form page. Click *Next* to advance.
 
     ![Viewing individual responses in the Forms application.](./managing-form-entries/images/03.png)
 
@@ -24,18 +24,18 @@ Once users begin submitting form entries, you can access the form entry data thr
 
 To export the form entries:
 
-1. Navigate to the Forms application in for your site's _Content & Data_ section.
+1. Navigate to the Forms application in your site's _Content & Data_ section.
 1. Click the *Actions* (![Actions](../../../images/icon-actions.png)) button next to the form and select *Export*.
 
     ![Exporting the form entries](./managing-form-entries/images/04.png)
 
-1. Choose a File Extension. You can export entries in `CSV`, `JSON`, `XLS`, or `XML` formats by default. For this example, pick CSV.
+1. Choose a File Extension. You can export entries in `CSV`, `JSON`, `XLS`, or `XML`.
 
     ![Select the file type](./managing-form-entries/images/05.png)
 
-1. Click *Okay* then open the file or save it locally.
+1. Click *OK* then open the file or save it locally.
 
-### Enabling or Disabling Exporting of Forms Data
+### Disabling CSV Export
 
 There is a system level setting to determine whether administrators can export entries in CSV format:
 
@@ -46,8 +46,9 @@ There is a system level setting to determine whether administrators can export e
 
     * **Enabled** to enable CSV Export without a warning
     * **Enabled (Show Warning)** to enable CSV Export with the following warning to administrators:
-            This CSV file contains user supplied inputs.
-            Opening a CSV file in a spreadsheet program may be dangerous.
+
+        `This CSV file contains user supplied inputs. Opening a CSV file in a spreadsheet program may be dangerous.`
+
     * **Disabled** to turn off CSV Export.
 
    ![Configuring the export function](./managing-form-entries/images/06.png)
@@ -58,14 +59,16 @@ There is a system level setting to determine whether administrators can export e
 ## Deleting Form Entries
 
 1. Navigate to _Site Adminstration_ &rarr; _Content & Data_ &rarr; _Forms_.
-1. Click the *Actions* (![Actions](../../../images/icon-actions.png)) button next to the selected form and select _View Entries_.
-1. Select all entries by checking the box next to *Filter and Order*. An _X_ appears in the top right corner of the Form Entries screen.
+1. Click the _Actions_ (![Actions](../../../images/icon-actions.png)) button next to the selected form and select _View Entries_.
+1. Select all entries by checking the box next to **Filter and Order**. An _X_ appears in the top right corner of the Form Entries screen.
 
     ![Delete all form entries in one fell swoop.](./managing-form-entries/images/07.png)
 
 1. Click the _X_ button to delete all the entries.
 
 Alternately, users can delete just one entry; check the box next to the chosen entry and then click the _X_ in the upper right corner. Click _OK_ to confirm the command.
+
+<!-- Removed this information because it really doesn't belong in an article titled, "Managing Form Entries". Export/Import does more than just manage entries - it handles Forms and Forms Application Configurations.
 
 ## Additional Information
 
@@ -75,4 +78,4 @@ Alternately, users can delete just one entry; check the box next to the chosen e
 
 ![Exporting Form contents as a LAR](./managing-form-entries/images/08.png)
 
-For more information, see the article on [importing and exporting application content](https://help.liferay.com/hc/articles/360029132551-Importing-Exporting-Sites-and-Content).
+For more information, see the article on [importing and exporting application content](https://help.liferay.com/hc/articles/360029132551-Importing-Exporting-Sites-and-Content). -->
