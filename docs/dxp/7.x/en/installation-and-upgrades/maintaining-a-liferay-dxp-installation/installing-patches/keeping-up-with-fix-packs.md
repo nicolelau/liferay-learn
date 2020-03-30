@@ -13,12 +13,15 @@ Its *Downloads* page provides access to:
 
 There's also a *Subscribe* link to sign up for notifications on Liferay DXP products, patches, and system improvements. 
 
+<!-- TODO mention the Security Advisories page. https://help.liferay.com/hc/en-us/articles/360018875952
+-->
+
 Lastly, the Help Center is a launching point for account support, support FAQs and more. Liferay is here to help!
 
 ## Additional Information
 
-- [Installing the Patching Tool](./01-installing-patches.md)
+* [Installing the Patching Tool](./01-patch-installation-overview.md)
 
-- [The Patching Process](./03-the-patching-process.md)
+* [The Patching Process](./03-the-patching-process.md)
 
-- [Patching a DXP WAR](./04-patching-a-dxp-war.md)
+* [Patching a DXP WAR](./patching-dxp-on-an-application-server.md)
