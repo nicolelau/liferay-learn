@@ -1,12 +1,25 @@
-# Working with Patches
+# Advanced Patching
 
 Here are some things you might need to do with patches:
 
-- [Get Patch Information](#getting-patch-information)
-- [Include support-info in Support Tickets](#including-support-info-in-support-tickets)
-- [Uninstall Patches](#uninstalling-patches)
-- [Handle collisions between patches and deployed plugins](#handling-collisions-between-patches-and-deployed-plugins)
-- [Patch Cleanup](#patch-cleanup)
+* [Get Patch Information](#getting-patch-information)
+* [Include support-info in Support Tickets](#including-support-info-in-support-tickets)
+* [Uninstall Patches](#uninstalling-patches)
+* [Handle collisions between patches and deployed plugins](#handling-collisions-between-patches-and-deployed-plugins)
+* [Patch Cleanup](#patch-cleanup)
+* [Patching Profiles](#patching-profiles)
+
+## Understanding Patch Compatibility 
+
+The Patching Tool applies fixes to Fix Packs automatically. If a new (fixed) version of a Fix Pack is released, install it with the Patching Tool. The Patching Tool uninstalls the old Fix Pack and installs the new version in its place. 
+
+<!-- TODO where to put this next sentence? jhinkey -->
+
+Security Fix Packs do not change your DXP installation's Fix Pack level.
+
+Some Hotfixes depend on Fix Packs. If you attempt to install a Hotfix that depends on a Fix Pack, the Patching Tool notifies you. Go to the [Customer Portal](https://customer.liferay.com/downloads) and obtain the Fix Pack. Once all the necessary patches are downloaded to the `patches` folder, the Patching Tool installs them.
+
+If you already have a Hotfix installed and a Fix Pack that contains that Hotfix is released, the Patching Tool manages this for you. Fix packs always supersede Hotfixes; so when you install a Fix Pack, any Hotfixes it contains are uninstalled and the Fix Pack version of the fix is installed in its place. 
 
 ## Getting Patch Information 
 
@@ -18,10 +31,10 @@ The Patching Tool's `info` command reports the following information:
 - Patches Installed
 - Patches available (in your `patching-tool/patches/` folder)
 
-Here's an example `patching-tool info` execution:
+Here's an example execution:
 
 ``` 
-patching-tool>patching-tool info
+patching-tool>./patching-tool.sh info
 Loading product and patch information...
 Product information:
   * installation type: binary
@@ -48,23 +61,23 @@ Detailed patch list:
 Providing your environment's information (e.g., hardware architecture) and patch level to Liferay Support is critical for reproducing your issues. Write your support information (including your patch level) to a file by executing this command: 
 
 ```bash
-patching-tool support-info
+./patching-tool.sh support-info
 ```
 
 The support information is written to file `patching-tool-support-info-actual-timestamp.txt` in your `patching-tool` folder. Please upload this file to the [Help Center](https://help.liferay.com/hc) ticket.
 
 ## Handling collisions between patches and deployed plugins
 
-Some patches update files you might have customized via a plugin. The `patching-tool list-collisions` command lists  JSP file differences (collisions) in OSGi fragment bundles:
+Some patches update files you might have customized via a plugin. The `list-collisions` command lists  JSP file differences (collisions) in OSGi fragment bundles:
 
 ```bash
-patching-tool list-collisions
+./patching-tool.sh list-collisions
 ```
 
 It is an alias for the following diff command:
 
 ```bash
-patching-tool diff collisions files _base
+./patching-tool.sh diff collisions files _base
 ```
 
 `_base` is the literal patch level name. Collisions are only listed for
@@ -75,7 +88,7 @@ If you removed certain patches or there is a collision of some kind use the"-for
 Example:
 
 ```bash
-patching-tool profile_name install -force
+./patching-tool.sh profile_name install -force
 ```
 
 ## Uninstalling Patches 
@@ -83,7 +96,7 @@ patching-tool profile_name install -force
 The `revert` command removes ALL patches from the DXP installation, bringing it back to the original installed version (e.g., GA1).
 
 ```bash
-patching-tool revert
+./patching-tool.sh revert
 ```
 
 To bring your installation up to a desired patch level, install the applicable fix packs.
@@ -98,15 +111,15 @@ A patched installation is large because the patch files (files used for metadata
 
 Here are the patch cleanup topics:
 
-- [Separating Patch Files from the Installation](#separating-patch-files-from-the-installation)
-- [Restoring Separated Patch Files](#restoring-separated-patch-files)
+* [Separating Patch Files from the Installation](#separating-patch-files-from-the-installation)
+* [Restoring Separated Patch Files](#restoring-separated-patch-files)
 
 ### Separating Patch Files from the Installation
 
 The Patching Tool's `separate` command extracts the patche files from the default location (the web application's `WEB-INF` folder) and packages them in a ZIP file. Here's the command:
 
 ```bash
-patching-tool separate [separation_name] 
+./patching-tool.sh separate [separation_name] 
 ```
 
 The command moves the patch files from the patch file default location into a `liferay-patching-files-[separation-name].zip` file in the Patching Tool's `patches` folder. Store the ZIP file elsewhere to reduce your installation's size. 
@@ -134,19 +147,35 @@ When you need to patch DXP again, you must restore the separated patch files.
 1. Run this command:
 
     ```bash 
-    patching-tool setup
+    ./patching-tool.sh setup
     ```
 
 The patch files are restored to the installations patch file default location. All of the Patching Tool commands are available. 
 
 You now know how to store patch files so that your DXP installation doesn't take up unnecessary space. And you know how to restore the patch files so that you can install new patches. 
 
+## Using Patching Profiles 
+
+You can create profiles for multiple runtimes by running auto-discovery or creating profiles manually. To auto-discover a DXP runtime, run the Patching Tool with parameters like this: 
+
+```bash
+./patching-tool.sh [name of profile] auto-discovery [path/to/Liferay Home]
+```
+
+This runs the same discovery process and writes the profile information to a file called `[name of profile].properties`. Alternatively, you can create and edit profile property files in your `patching-tool/` folder. See [Patching Tool configuration properties](../../14-reference/08-patching-tool-configuration-properties.md) for a complete list of properties. 
+
+Once you've created a profile, you can use it in your Patching Tool commands. For example, this command installs a patch using a profile file called `test-server.properties`:
+
+```bash
+./patching-tool.sh test-server install 
+```
+
 ## Additional Information
 
-- [Comparing Patch Levels](../../14-reference/07-comparing-patch-levels.md) 
+* [Comparing Patch Levels](../../14-reference/07-comparing-patch-levels.md) 
 
-- [Keeping Up With Fix Packs and Service Packs](./08-keeping-up-with-fix-packs.md)
+* [Keeping Up With Fix Packs and Service Packs](./08-keeping-up-with-fix-packs.md)
 
-- [The Patching Process](./03-the-patching-process.md)
+* [The Patching Process](./03-the-patching-process.md)
 
-- [Patching a DXP WAR](./04-patching-a-dxp-war.md)
+* [Patching a DXP WAR](./patching-dxp-on-an-application-server.md)
