@@ -11,7 +11,7 @@ Using the Segment Builder, you can group similar Users by user profile attribute
 See [Creating and Managing a Segment](./segmentation/creating-and-managing-user-segments.md) to get started.
 
 ```note::
-   User Segments can also be used to assign Roles. See `Assigning Roles to User Segments <../../users-and-permissions/user-guide/roles-and-permissions/advanced-roles-and-permissions/assigning-roles-to-user-segments.md>`_ for more information.
+   User Segments can also be used to assign Roles. See `Assigning Roles to User Segments <../../users-and-permissions/roles-and-permissions/advanced-roles-and-permissions/assigning-roles-to-user-segments.md>`_ for more information.
 ```
 
 ### Tracking Behavior of User Segments with Liferay Analytics Cloud
@@ -28,7 +28,7 @@ Once you've [created User Segments](./segmentation/creating-and-managing-user-se
 
 ### Content Pages
 
-Content Page Personalization dynamically changes the page layout and content based on who is viewing the page. You can create *Experiences* for any [Content Page](../../02-creating-pages/building-content-pages.md) which provide different text, images, widgets, and even different layouts based on the User Segment criteria of the User viewing the page. See [Content Page Personalization](./experience-personalization/content-page-personalization.md) for more information.
+Content Page Personalization dynamically changes the page layout and content based on who is viewing the page. You can create *Experiences* for any [Content Page](../creating-pages/building-content-pages.md) which provide different text, images, widgets, and even different layouts based on the User Segment criteria of the User viewing the page. See [Content Page Personalization](./experience-personalization/content-page-personalization.md) for more information.
 
 ![You can create unique experiences for different segments of Users.](./introduction-to-personalizing-site-experience/images/02.png)
 

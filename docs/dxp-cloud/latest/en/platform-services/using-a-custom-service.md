@@ -1,6 +1,6 @@
 # Using a Custom Service
 
-DXP Cloud allows you to run more than just the standard set of services provided out-of-the-box. You can also create and deploy a custom service to run any new processes within the DXP Cloud infrastructure.
+DXP Cloud allows you to run more than just the standard set of services provided out-of-the-box. You can also create and deploy a custom service to run any new processes within the DXP Cloud infrastructure. Customers who wish to enable the use custom services on their DXP Cloud environments must first contact their sales representative in order to enable this functionality and ensure that their environments are provisioned accordingly.
 
 ```note::
    You must have sufficient hardware resources provisioned to be able to add a custom service. You can allocate additional resources for custom services during the provisioning process.
@@ -82,4 +82,4 @@ If you deploy this build to one of your environments (by clicking _Deploy Build 
 
 ## Additional Information
 
-* [Overview of the DXP Cloud Deployment Workflow](./overview-of-the-dxp-cloud-deployment-workflow)
+* [Overview of the DXP Cloud Deployment Workflow](../build-and-deploy/overview-of-the-dxp-cloud-deployment-workflow)

@@ -1,7 +1,7 @@
 Installation and Upgrades
 ==================================
 
--  :doc:`../getting-started/starting-with-the-dxp-docker-image`
+-  :doc:`../getting-started/starting-with-a-dxp-docker-image`
 -  :doc:`/installation-and-upgrades/hosting-liferay-dxp`
 
 Installing Liferay on Premises
@@ -20,7 +20,7 @@ Installing Liferay on Premises
 Installing Liferay on an Application Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  :doc:`/installation-and-upgrades/installing-liferay/installing-liferay-on-an-application-server/installing-liferay-on-tomcat`
+-  :doc:`/installation-and-upgrades/installing-liferay/installing-liferay-on-an-application-server/installing-liferay-dxp-on-tomcat`
 * Installing Liferay on WildFly
 * Installing Liferay on JBoss
 * Installing Liferay on WebLogic
@@ -170,6 +170,7 @@ Reference
 -  :doc:`/installation-and-upgrades/reference/system-properties`
 -  :doc:`/installation-and-upgrades/reference/jvm-configurations`
 -  :doc:`/installation-and-upgrades/reference/database-templates`
+-  :doc:`/installation-and-upgrades/reference/database-configurations`
 -  :doc:`/installation-and-upgrades/reference/liferay-upgrade-planner-steps`
 -  :doc:`/installation-and-upgrades/reference/comparing-patch-levels`
 -  :doc:`/installation-and-upgrades/reference/patching-tool-configuration-properties`
