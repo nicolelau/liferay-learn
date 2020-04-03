@@ -8,7 +8,7 @@ There are several different kinds of patches, and they serve different purposes.
 
 ## The Patching Process 
 
-Once you have a patch you need you can use Liferay's Patching Tool to apply it. [The Patching Process](./patching-process.md) demonstrates the basic patching steps for patching DXP safely and comprehensively.
+Once you have a patch you need you can use Liferay's Patching Tool to apply it. [The Patching Process](./the-patching-process.md) demonstrates the basic patching steps for patching DXP safely and comprehensively.
 
 ## Configuring the Patching Tool 
 
@@ -25,4 +25,4 @@ As you start applying patches regularly, adding new DXP environments, or even wo
 
 Lastly, you'll want to stay updated on the latest DXP patches. [Keeping up with Patches](./keeping-up-with-fix-packs.md) covers this. 
 
-Now that you've digested the patching overview, learn about the [Patch Types](./patch-types.md) available to you. Then you'll be ready to apply patches following [The Patching Process](./patching-process.md)
+Now that you've digested the patching overview, learn about the [Patch Types](./patch-types.md) available to you. Then you'll be ready to apply patches following [The Patching Process](./the-patching-process.md)

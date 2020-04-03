@@ -12,13 +12,13 @@ The following patch types for DXP subscribers are covered first.
 
 A Fix Pack is a bundled collection of the latest fixes for DXP subscribers. They address issues in the DXP core and Marketplace applications that ship with DXP. Fix Packs are cumulative: each one contains all the fixes from previous Fix Pack and the latest Security Fix Packs.
 
-Fix Packs are available on the Help Center's [Downloads](https://customer.liferay.com/downloads) page and are installed using the [Patching Tool](./patching-process.md). Release notes and a changelogs accompany each Fix Pack. Release notes highlight key information, such as important changes and security fixes. Changelogs provide detailed information about each fix.
+Fix Packs are available on the Help Center's [Downloads](https://customer.liferay.com/downloads) page and are installed using the [Patching Tool](./the-patching-process.md). Release notes and a changelogs accompany each Fix Pack. Release notes highlight key information, such as important changes and security fixes. Changelogs provide detailed information about each fix.
 
 ### Security Fix Packs
 
 [DXP Security Fix Packs](https://help.liferay.com/hc/en-us/articles/360035038331) address the latest critical security issues. Each Security Fix Pack depends on a base Fix Pack (typically the latest one). The number following `liferay-security_dxp_` in the Security Fix Pack file name indicates the base Fix Pack. For example, the base Fix Pack for `liferay-security-dxp-1-201902-1-7210.zip` is DXP Fix Pack 1.
 
-Security Fix Packs are available on the Help Center's [Downloads](https://customer.liferay.com/downloads) page and are installed using the [Patching Tool](./patching-process.md).
+Security Fix Packs are available on the Help Center's [Downloads](https://customer.liferay.com/downloads) page and are installed using the [Patching Tool](./the-patching-process.md).
 
 ```note::
    Security Fix Packs do not change your DXP installation's regular Fix Pack level. 
@@ -32,7 +32,7 @@ If you encounter an issue that is not yet addressed in a Fix Pack, you can reque
 
 A Service Pack is built on top of the original DXP GA major release and includes the latest Fix Pack, latest Patching Tool, and latest bundled Marketplace applications. The Fix Pack in a Service Pack can include fixes that require more extensive testing that a regular Fix Pack. 
 
-Service Packs are available on the Help Center's [Downloads](https://customer.liferay.com/downloads) page and are installed using the [Patching Tool](./patching-process.md).
+Service Packs are available on the Help Center's [Downloads](https://customer.liferay.com/downloads) page and are installed using the [Patching Tool](./the-patching-process.md).
 
 It's best to start a new project on the latest Service Pack for DXP, because it includes the latest fixes and versions of Marketplace apps and the Patching Tool. 
 
@@ -55,11 +55,11 @@ The following table describes the testing applied to each patch type.
 
 ## Conclusion 
 
-Now that you know the patch types Liferay provides for delivering fixes, you can [stay updated on relevant patches](./keeping-up-with-fix-packs.md) and [install](./patching-process.md) them.
+Now that you know the patch types Liferay provides for delivering fixes, you can [stay updated on relevant patches](./keeping-up-with-fix-packs.md) and [install](./the-patching-process.md) them.
 
 ## Additional Information 
 
-* [The Patching Process](./patching-process.md)
+* [The Patching Process](./the-patching-process.md)
 
 * [Installing the Patching Tool](./installing-the-patching-tool.md)
 
