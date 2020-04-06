@@ -1,4 +1,4 @@
-# Patch Types 
+# Understanding Patch Types 
 
 The Liferay Support Team creates and releases fixes to issues discovered in DXP. The fixes are packaged in ZIP files referred to generally as _patches_. There are patches for security issues, customer-specific issues, and issues reported by the Liferay community. Here you'll learn about the patch types provided to DXP subscribers, [fix delivery](#ce-ga-releases) for DXP CE users, and the [levels of testing for each patch type](#patch-testing).
 
@@ -14,6 +14,8 @@ A Fix Pack is a bundled collection of the latest fixes for DXP subscribers. They
 
 Fix Packs are available on the Help Center's [Downloads](https://customer.liferay.com/downloads) page and are installed using the [Patching Tool](./the-patching-process.md). Release notes and a changelogs accompany each Fix Pack. Release notes highlight key information, such as important changes and security fixes. Changelogs provide detailed information about each fix.
 
+The Patching Tool applies fixes to Fix Packs automatically. If a new (fixed) version of a Fix Pack is released, install it with the Patching Tool. The Patching Tool uninstalls the old Fix Pack and installs the new version in its place.
+
 ### Security Fix Packs
 
 [DXP Security Fix Packs](https://help.liferay.com/hc/en-us/articles/360035038331) address the latest critical security issues. Each Security Fix Pack depends on a base Fix Pack (typically the latest one). The number following `liferay-security_dxp_` in the Security Fix Pack file name indicates the base Fix Pack. For example, the base Fix Pack for `liferay-security-dxp-1-201902-1-7210.zip` is DXP Fix Pack 1.
@@ -28,6 +30,10 @@ Security Fix Packs are available on the Help Center's [Downloads](https://custom
 
 If you encounter an issue that is not yet addressed in a Fix Pack, you can request at Hotfix via a [Help Center ticket](https://help.liferay.com/hc). The Liferay Support Team works with you to determine if the issue is with the product, and provides a fix for any unintended product behavior.
 
+Some Hotfixes depend on Fix Packs. If you attempt to install a Hotfix that depends on a Fix Pack, the Patching Tool notifies you. Go to the [Customer Portal](https://customer.liferay.com/downloads) and obtain the Fix Pack. Once all the necessary patches are downloaded to the `patches` folder, the Patching Tool installs them.
+
+If you already have a Hotfix installed and a Fix Pack that contains that Hotfix is released, the Patching Tool manages this for you. Fix packs always supersede Hotfixes; so when you install a Fix Pack, any Hotfixes it contains are uninstalled and the Fix Pack version of the fix is installed in its place. 
+
 ## Service Packs
 
 A Service Pack is built on top of the original DXP GA major release and includes the latest Fix Pack, latest Patching Tool, and latest bundled Marketplace applications. The Fix Pack in a Service Pack can include fixes that require more extensive testing that a regular Fix Pack. 
@@ -40,7 +46,7 @@ If you're maintaining an existing DXP installation, it's best to keep it updated
 
 ## Fix Delivery for CE
 
-Liferay DXP CE GA releases are based on DXP Service Packs and are typically available a few weeks after the corresponding Service Pack. They include the same fixes, minus those for EE-only features. See [Updating DXP CE](./updating-community-edition.md) for more information.
+Liferay DXP CE GA releases are based on DXP Service Packs and are typically available a few weeks after the corresponding Service Pack. They include the same fixes, minus those for EE-only features. See [Updating DXP CE](./updating-dxp-ce.md) for more information.
 
 ## Patch Testing
 
@@ -55,7 +61,7 @@ The following table describes the testing applied to each patch type.
 
 ## Conclusion 
 
-Now that you know the patch types Liferay provides for delivering fixes, you can [stay updated on relevant patches](./keeping-up-with-fix-packs.md) and [install](./the-patching-process.md) them.
+Now that you know the patch types Liferay provides for delivering fixes, you can [stay updated on relevant patches](./keeping-up-with-patches.md) and [install](./the-patching-process.md) them.
 
 ## Additional Information 
 
@@ -63,6 +69,6 @@ Now that you know the patch types Liferay provides for delivering fixes, you can
 
 * [Installing the Patching Tool](./installing-the-patching-tool.md)
 
-* [Keeping Up With Fix Packs and Service Packs](./keeping-up-with-fix-packs.md)
+* [Keeping Up With Fix Packs and Service Packs](./keeping-up-with-patches.md)
 
-* [Updating DXP CE](./updating-community-edition.md)
+* [Updating DXP CE](./updating-dxp-ce.md)

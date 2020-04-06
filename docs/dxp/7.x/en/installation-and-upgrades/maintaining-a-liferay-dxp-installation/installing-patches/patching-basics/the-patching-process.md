@@ -6,9 +6,9 @@ The patching steps for DXP bundles and DXP application server installations are 
    **Always** `back up <../../backing-up.md>`_ your database and installation before patching.
 ```
    
-If you're patching a DXP bundle, continue with the basic steps below. If you're patching DXP on an application server, [configure your environment for patching](#configuring-a-dxp-application-server-for-patching) _before_ following the basic steps.
+If you're patching a DXP bundle, continue with the basic patching steps below. If you're patching DXP on an application server, [configure your environment for patching](#configuring-a-dxp-application-server-for-patching) _before_ following the basic patching steps.
 
-## Basic Steps
+## Basic Patching Steps
 
 1.  Download your patch to your `patching-tool/patches` folder---don't unzip the patch.
 
@@ -74,7 +74,7 @@ If you installed DXP on an application server, you must first install and config
 
 1.  [Install the Patching Tool](./installing-the-patching-tool.md) to your [Liferay Home](../../reference/liferay-home.md), if you have not yet installed it.
 
-1.  [Configure the Patching Tool](./configuring-the-patching-tool.md) for your DXP installation by running the `auto-discovery` command.
+1.  [Configure the Patching Tool](./automatic-patching-tool-configuration.md) for your DXP installation by running the `auto-discovery` command.
 
     ```bash
     cd patching-tool 
@@ -93,7 +93,7 @@ If you installed DXP on an application server, you must first install and config
     module.framework.static.path=path/to/modules/static/folder
     ``` 
 
-1. Continue with the [basic patching steps](#common-patching-steps) in the previous section.
+1. Continue with the [basic patching steps](#basic-patching-steps) in the previous section.
 
 Now you know how to patch a DXP Bundle and DXP installed on an application server.
 
@@ -101,10 +101,10 @@ Now you know how to patch a DXP Bundle and DXP installed on an application serve
 
 * [Installing the Patching Tool](./installing-the-patching-tool.md)
 
-* [Configuring the Patching Tool](./configuring-the-patching-tool.md)
+* [Configuring the Patching Tool](./automatic-patching-tool-configuration.md)
 
 * [Working With Patches](./working-with-patches.md)
 
-* [Keeping Up With Fix Packs and Service Packs](./keeping-up-with-fix-packs.md)
+* [Keeping Up With Fix Packs and Service Packs](./keeping-up-with-patches.md)
 
 * Comparing Patch Levels (Coming soon)

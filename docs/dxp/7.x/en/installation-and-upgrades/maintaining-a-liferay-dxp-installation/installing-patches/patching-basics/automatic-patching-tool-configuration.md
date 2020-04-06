@@ -1,22 +1,8 @@
-# Configuring the Patching Tool 
+# Automatic Patching Tool Configuration
 
-Liferay DXP bundles ship with the Patching Tool preconfigured. If any of the following scenarios describes your DXP installation, however, you must configure the Patching Tool:
+The Patching Tool's `auto-discovery` command scans for local DXP files and writes the file locations to a properties file (the default is `patching-tool/default.properties`) for the tool to use.
 
-- Installed DXP manually on an existing application server
-- Customized your DXP folder structure
-- Running in a cluster
-
-The following sections demonstrate how to configure the Patching Tool using auto-discovery (easiest) and using other ways DXP runtime environments may require. 
-
-* [Automatic Configuration Using `auto-discovery`](#automatic-configuration-using-auto-discovery) 
-* [Editing Configurations](#editing-configurations) 
-* [Troubleshooting](#troubleshooting)
-
-## Automatic Configuration Using Auto-Discovery
-
-The Patching Tool is configured using a properties file (the default is `patching-tool/default.properties`). The tool's `auto-discovery` command generates or updates the default properties file based on local DXP files it discovers. 
-
-Run the auto-discovery command in your `patching-tool/` folder: 
+Configure the Patching Tool by running the tool's `auto-discovery` command in your `patching-tool/` folder: 
 
 ```bash
 ./patching-tool.sh auto-discovery
@@ -28,7 +14,7 @@ By default the Patching Tool looks for DXP files in the parent folder. If DXP is
 ./patching-tool.sh auto-discovery /path/to/liferay-dxp
 ```
 
-You can test the configuration by running the `info` command. When the Patching Tool is configured, running the `info` command reports product information and patch information like this: 
+Test the configuration by running the `info` command. When the Patching Tool is configured, running the `info` command reports all product information and patch information like this: 
 
 ``` 
 /patching-tool>./patching-tool.sh info
@@ -61,7 +47,7 @@ global.lib.path=../tomcat-9.0.17/lib/ext/
 liferay.home=../
 ```
 
-The properties above (described fully in [Patching Tool Configuration Properties](../../reference/patching-tool-configuration-properties.md)) specify these things:
+The properties above (described fully in [Patching Tool Configuration Properties](./patching-tool-properties.md)) specify these things:
 
 * Patching mode (binary or source)
 * Path to your DXP WAR file
@@ -109,4 +95,4 @@ Here are ways to resolve the Liferay Home issue:
 
 * [Installing the Patching Tool](./installing-the-patching-tool.md)
 
-* [Keeping Up With Fix Packs and Service Packs](./keeping-up-with-fix-packs.md)
+* [Keeping Up With Fix Packs and Service Packs](./keeping-up-with-patches.md)
