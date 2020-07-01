@@ -1,6 +1,6 @@
 # Updating Liferay Portal CE
 
-Fixes for Liferay Portal CE are delivered as new Portal CE GA releases. For example, CE 7.2 GA2 fixes bugs that exist in CE 7.2 GA1. There is no Patching Tool for Liferay Portal CE. Here are the steps for updating your Portal CE installation to a new GA release:
+Fixes for Liferay Portal CE are delivered as new Portal CE GA releases. For example, CE 7.2 GA2 fixes bugs that exist in CE 7.2 GA1. There is no Patching Tool for Liferay Portal CE. Here are the steps for updating to a new GA release:
 
 1. [Back up your DXP system](./backing-up.md)
 
@@ -34,4 +34,4 @@ Fixes for Liferay Portal CE are delivered as new Portal CE GA releases. For exam
 
 1. Use the [`upgrade:module [module name]`](../upgrade-stability-and-performance/upgrading-modules-using-gogo-shell.md#executing-module-upgrades) Gogo Shell command to upgrade data for these modules.
 
-Congratulations! You've updated your Portal CE installation to the new GA release!
+Congratulations! You've updated to the new Portal CE GA release!
