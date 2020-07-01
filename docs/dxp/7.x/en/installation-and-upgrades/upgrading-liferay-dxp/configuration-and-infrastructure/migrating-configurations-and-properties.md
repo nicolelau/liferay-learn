@@ -8,19 +8,9 @@ Your current DXP installation's OSGi configurations (7.0+) and properties (such 
 * [Updating Settings for the Database Upgrade](#updating-settings-used-by-the-database-upgrade)
 * [Migrating Portal Properties](#migrating-portal-properties)
 
-## Migrating Liferay Home
+## Migrating Liferay Home and Application Server Files
 
-Set up a new [Liferay Home](../../reference/liferay-home.md) folder with the contents of your current Liferay Home, including your `[Liferay Home]/data` folder, portal properties (e.g., `portal-ext.properties`), and OSGi configurations (`.config` files).
-
-```bash
-cp /old-version/liferay-home/ /new-version/liferay-home/
-```
-
-Alternatively if your Liferay Home is in source control, create a new branch for your new DXP instance to use.
-
-```bash
-git checkout -b new-version
-```
+Copy your [Liferay Home files](../../maintaining-a-liferay-dxp-installation/backing-up.md#liferay-home) and [application server files](../../maintaining-a-liferay-dxp-installation/backing-up.md#application-server) from your installation backup to your new DXP installation.
 
 ## Updating Settings For the Database Upgrade
 
@@ -51,6 +41,7 @@ See the [Database Templates](../../reference/database-templates.md) for more dri
 
 The properties discussed here can be updated after database upgrade. Migrating properties involves these things:
 
+* Updating your `liferay.home` property, if you changed it
 * Using [Blade CLI](https://help.liferay.com/hc/en-us/articles/360029147071-Blade-CLI) to report property changes
 * Converting properties to OSGi configurations
 * Special property migration considerations
