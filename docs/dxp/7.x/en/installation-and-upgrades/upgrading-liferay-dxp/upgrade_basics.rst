@@ -8,7 +8,7 @@ Upgrade Basics
    upgrade-basics/upgrading-via-docker.md
    upgrade-basics/using-the-database-upgrade-tool.md
    upgrade-basics/post-upgrade-considerations.md
-   upgrade-basics/updating-liferay-portal-ce.md
+   upgrade-basics/upgrading-to-a-new-liferay-portal-ce-rolling-release.md
 
 .. include:: /installation-and-upgrades/upgrading-liferay-dxp/upgrade-basics/README.rst
    :start-line: 2
