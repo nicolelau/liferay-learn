@@ -16,38 +16,34 @@ The Docker Desktop is available from [here](https://www.docker.com/products/dock
 
 Here are the steps for using the Docker image:
 
-1. Set up a new [Liferay Home](../../reference/liferay-home.md) folder with the contents of your current Liferay Home. You'll bind this new Liferay Home to the Docker image in a later step.
+1. Create an arbitrary folder to use with the Docker image and create a subfolder called `files` to use as a new [Liferay Home](../../reference/liferay-home.md). For example,
 
     ```bash
-    cp -r /old-version/liferay-home/* /new-version/liferay-home/
+    cd ~
+    mkdir -p new-version/files
     ```
 
-    Alternatively if your current Liferay Home is in source control, create a new branch.
-
-    ```bash
-    git checkout -b new-version
-    ```
+1. Copy the [Liferay Home files](../../maintaining-a-liferay-dxp-installation/backing-up.md#liferay-home) and [application server files](../../maintaining-a-liferay-dxp-installation/backing-up.md#application-server) from your installation backup to their corresponding locations in the `files` folder (your new Liferay Home).
 
 1. Make sure you're using the JDBC database driver your database vendor recommends. If you're using MySQL, for example, set `jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver` in [`portal-ext.properties`](../../reference/portal-properties.md) and replace the MySQL JDBC driver JAR your app server uses. See [Database Drivers](../configuration-and-infrastructure/migrating-configurations-and-properties.md#database-drivers) for more details.
 
 1. Disable search indexing during database upgrade by setting `indexReadOnly="true"` in a `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config`file:
 
     ```bash
-    cd /new-version/liferay-home
-    mkdir -p files/osgi/configs
-    echo "indexReadOnly=\"true\"" > files/osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
+    mkdir -p new-version/files/osgi/configs
+    echo "indexReadOnly=\"true\"" > new-version/files/osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
     ```
 
-1. Run the DXP Docker image mounted to your new Liferay Home using the following command, substituting your environment values as needed:
+1. Run the DXP Docker image mounted to your new version folder using the following command, substituting your environment values as needed:
 
     ```bash
     docker run -it -p 8080:8080 \
-     -v /new-version/liferay-home:/mnt/liferay \
+     -v new-version:/mnt/liferay \
      -e LIFERAY_UPGRADE_PERIOD_DATABASE_PERIOD_AUTO_PERIOD_RUN=true \
      liferay/portal:7.3.1-ga2
     ```
 
-    The `-v /new-version/liferay-home:/mnt/liferay` arguments bind mount the `/new-version/liferay-home` folder on the host to `/mnt/liferay` in the container.
+    The `-v new-version:/mnt/liferay` arguments bind mount the `/new-version` folder on the host to `/mnt/liferay` in the container. Please see [Providing Files to the Container](../../installing-liferay/using-liferay-dxp-docker-images/providing-files-to-the-container.md) for more information on the mapping files to Liferay Home in the Docker container.
 
     The parameter `-e LIFERAY_UPGRADE_PERIOD_DATABASE_PERIOD_AUTO_PERIOD_RUN=true` triggers the database upgrade processes to run.
 
@@ -62,7 +58,7 @@ Here are the steps for using the Docker image:
 1. Re-enable search indexing by setting `indexReadOnly="false"` or by deleting the `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file.
 
     ```bash
-    rm files/osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
+    rm new-version/files/osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
     ```
 
 1. Validate your upgraded database.
