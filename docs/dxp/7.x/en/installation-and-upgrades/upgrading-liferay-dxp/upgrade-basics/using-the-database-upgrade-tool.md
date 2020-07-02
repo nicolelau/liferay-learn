@@ -8,10 +8,6 @@ The Liferay Database Upgrade Tool is a client program for upgrading DXP database
 
 The topics mentioned above are especially important for upgrading large, enterprise-level DXP environments safely and as quickly as possible. After you've accounted for tuning and pruning the database and completing relevant tasks described in the [Upgrade Overview](./upgrade-overview.md), you're ready to upgrade the database using the upgrade tool.
 
-```warning::
-   **Always** `back up <../../maintaining-a-liferay-dxp-installation/backing-up.md>`_ your data and installation before upgrading. Testing the upgrade process on backup copies is advised.
-```
-
 ```important::
    If you're upgrading from 6.2 or earlier, update your file store configuration. See the `Updating the File Store <../configuration-and-infrastructure/updating-the-file-store.md>`_ for more information.
 ```
@@ -63,11 +59,17 @@ Here's an example command that specifies JVM options and a log file:
 db_upgrade.sh -j "-Dfile.encoding=UTF-8 -Duser.timezone=GMT -Xmx2048m" -l "output.log"
 ```
 
-## Running the Upgrade Tool
+## Install Liferay
 
-To upgrade the database using the tool:
+```warning::
+   **Always** `back up <../../maintaining-a-liferay-dxp-installation/backing-up.md>`_ your data and installation before upgrading. Testing the upgrade process on backup copies is advised.
+```
 
-1. Merge the [Liferay Home files](../../maintaining-a-liferay-dxp-installation/backing-up.md#liferay-home) and [application server files](../../maintaining-a-liferay-dxp-installation/backing-up.md#application-server) that you have added and edited from your [backup](../../maintaining-a-liferay-dxp-installation/backing-up.md) to your installation. Here are some commonly added/edited files:
+1. Install the new Liferay release.
+
+1. [Install the Upgrade Tool](#installing-and-configuring-the-upgrade-tool) if the Liferay release doesn't include it.
+
+1. Copy the [Liferay Home files](../../maintaining-a-liferay-dxp-installation/backing-up.md#liferay-home) and [application server files](../../maintaining-a-liferay-dxp-installation/backing-up.md#application-server) that you have added and edited from your [backup](../../maintaining-a-liferay-dxp-installation/backing-up.md) to your installation. Here are some commonly added/edited files:
 
     `portal-*.properties`: Portal properties files, such as `portal-ext.properties`.
 
@@ -75,18 +77,31 @@ To upgrade the database using the tool:
 
     `web.xml`: Portal web application descriptor.
 
-    `setenv.sh`: Application server configuration scripts.
+    `setenv.sh`, `startup.sh`, and more: Application server configuration scripts.
 
     `/license/*`: Activation keys.
 
     `/log/*`: Log files.
 
+1. Copy your apps, plugins and modules from your backup to your installation.
+
+1. Replace the installation's `[Liferay Home]/data` folder and with the `[Liferay Home]/data` folder from your backup.
+
 1. Make sure you're using the JDBC database driver your database vendor recommends. If you're using MySQL, for example, set `jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver` in [`portal-ext.properties`](../../reference/portal-properties.md) and replace the MySQL JDBC driver JAR your app server uses. See [Database Drivers](../configuration-and-infrastructure/migrating-configurations-and-properties.md#database-drivers) for more details.
+
+1. Disable search indexing during database upgrade by setting `indexReadOnly="true"` in a `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file:
+
+    ```bash
+    mkdir -p liferay-home/osgi/configs
+    echo "indexReadOnly=\"true\"" > liferay-home/osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
+    ```
+
+## Running the Upgrade Tool
 
 1. Execute the upgrade tool. Here's an example command:
 
     ```bash
-    cd /new-version/liferay-home/tools/portal-tools-db-upgrade-client
+    cd liferay-home/tools/portal-tools-db-upgrade-client
     db_upgrade.sh -j "-Dfile.encoding=UTF-8 -Duser.timezone=GMT -Xmx2048m" -l "output.log"
     ```
 
@@ -119,7 +134,13 @@ To upgrade the database using the tool:
 
 1. After the upgrade completes, check the log for any database upgrade failures or errors. You can use [Gogo Shell commands](../upgrade-stability-and-performance/upgrading-modules-using-gogo-shell.md) to troubleshoot them and finish the upgrades.
 
-1. Prepare for testing DXP by reindexing search indexes, undoing any upgrade-specific tuning, and reviewing the [Post-Upgrade Considerations](./post-upgrade-considerations.md).
+1. After the upgrade completes, re-enable search indexing by setting `indexReadOnly="false"` or by deleting the `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file.
+
+    ```bash
+    rm liferay-home/osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
+    ```
+
+1. Prepare for testing DXP by undoing any upgrade-specific tuning and reviewing the [Post-Upgrade Considerations](./post-upgrade-considerations.md).
 
 1. Start your server and validate DXP with its upgraded database.
 
