@@ -67,17 +67,19 @@ db_upgrade.sh -j "-Dfile.encoding=UTF-8 -Duser.timezone=GMT -Xmx2048m" -l "outpu
 
 To upgrade the database using the tool:
 
-1. Set up a new [Liferay Home](../../reference/liferay-home.md) folder with the contents of your current Liferay Home.
+1. Merge the [Liferay Home files](../../maintaining-a-liferay-dxp-installation/backing-up.md#liferay-home) and [application server files](../../maintaining-a-liferay-dxp-installation/backing-up.md#application-server) that you have added and edited from your [backup](../../maintaining-a-liferay-dxp-installation/backing-up.md) to your installation. Here are some commonly added/edited files:
 
-    ```bash
-    cp /old-version/liferay-home/ /new-version/liferay-home/
-    ```
+    `portal-*.properties`: Portal properties files, such as `portal-ext.properties`.
 
-    If your current Liferay Home is in source control, create a new branch.
+    `/osgi/*.config`: OSGi configuration files.
 
-    ```bash
-    git checkout -b new-version
-    ```
+    `web.xml`: Portal web application descriptor.
+
+    `setenv.sh`: Application server configuration scripts.
+
+    `/license/*`: Activation keys.
+
+    `/log/*`: Log files.
 
 1. Make sure you're using the JDBC database driver your database vendor recommends. If you're using MySQL, for example, set `jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver` in [`portal-ext.properties`](../../reference/portal-properties.md) and replace the MySQL JDBC driver JAR your app server uses. See [Database Drivers](../configuration-and-infrastructure/migrating-configurations-and-properties.md#database-drivers) for more details.
 
@@ -117,7 +119,7 @@ To upgrade the database using the tool:
 
 1. After the upgrade completes, check the log for any database upgrade failures or errors. You can use [Gogo Shell commands](../upgrade-stability-and-performance/upgrading-modules-using-gogo-shell.md) to troubleshoot them and finish the upgrades.
 
-1. Prepare for testing DXP by undoing any upgrade-specific tuning and reviewing the [Post-Upgrade Considerations](./post-upgrade-considerations.md).
+1. Prepare for testing DXP by reindexing search indexes, undoing any upgrade-specific tuning, and reviewing the [Post-Upgrade Considerations](./post-upgrade-considerations.md).
 
 1. Start your server and validate DXP with its upgraded database.
 
