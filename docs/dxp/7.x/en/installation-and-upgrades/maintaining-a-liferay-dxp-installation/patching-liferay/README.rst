@@ -8,7 +8,6 @@ Patching Liferay
 -  :doc:`/installation-and-upgrades/maintaining-a-liferay-dxp-installation/patching-liferay/installing-the-patching-tool`
 -  :doc:`/installation-and-upgrades/maintaining-a-liferay-dxp-installation/patching-liferay/configuring-the-patching-tool`
 -  :doc:`/installation-and-upgrades/maintaining-a-liferay-dxp-installation/patching-liferay/getting-patch-information`
--  :doc:`/installation-and-upgrades/maintaining-a-liferay-dxp-installation/patching-liferay/updating-liferay-portal-ce`
 
 Advanced Patching
 -----------------
