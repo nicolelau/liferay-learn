@@ -59,7 +59,7 @@ If you're maintaining an existing DXP installation, it's best to keep it updated
 
 ## Fix Delivery for Portal CE
 
-Liferay Portal CE GA releases are based on DXP Service Packs and are typically available a few weeks after the corresponding Service Pack. They include the same fixes, minus those for EE-only features. See [Updating Liferay Portal CE](../../upgrading-liferay-dxp/upgrade-basics/updating-liferay-portal-ce.md) for more information.
+Liferay Portal CE GA releases are based on DXP Service Packs and are typically available a few weeks after the corresponding Service Pack. They include the same fixes, minus those for EE-only features. See [Upgrading to a New Liferay Portal CE Rolling Release](../../upgrading-liferay-dxp/upgrade-basics/upgrading-to-a-new-liferay-portal-ce-rolling-release.md) for more information.
 
 ## Patch Testing
 
@@ -101,4 +101,4 @@ Now that you know the patch types Liferay provides for delivering fixes, you can
 
 * [Installing Patches](./installing-patches.md)
 * [Installing the Patching Tool](./installing-the-patching-tool.md)
-* [Updating Liferay Portal CE](../../upgrading-liferay-dxp/upgrade-basics/updating-liferay-portal-ce.md)
+* [Upgrading to a New Liferay Portal CE Rolling Release](../../installation-and-upgrades/upgrading-liferay-dxp/upgrade-basics/upgrading-to-a-new-liferay-portal-ce-rolling-release.md)

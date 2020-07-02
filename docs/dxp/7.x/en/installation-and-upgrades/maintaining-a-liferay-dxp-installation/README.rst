@@ -22,7 +22,7 @@ Advanced Patching
 
 Updating Liferay Portal CE
 --------------------------
--  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/upgrade-basics/updating-liferay-portal-ce`
+-  :doc:`/installation-and-upgrades/upgrading-liferay-dxp/upgrade-basics/upgrading-to-a-new-liferay-portal-ce-rolling-release`
 
 Maintaining Clustered Installations
 -----------------------------------
