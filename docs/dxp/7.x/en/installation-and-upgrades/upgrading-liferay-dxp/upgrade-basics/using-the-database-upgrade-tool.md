@@ -56,7 +56,7 @@ Configure the upgrade tool with the same JVM options that you use for your DXP a
 Here's an example command that specifies JVM options and a log file:
 
 ```bash
-db_upgrade.sh -j "-Dfile.encoding=UTF-8 -Duser.timezone=GMT -Xmx2048m" -l "output.log"
+db_upgrade.sh -j "-Dfile.encoding=UTF-8 -Duser.timezone=GMT -Xmx4096m" -l "output.log"
 ```
 
 ## Install Liferay
