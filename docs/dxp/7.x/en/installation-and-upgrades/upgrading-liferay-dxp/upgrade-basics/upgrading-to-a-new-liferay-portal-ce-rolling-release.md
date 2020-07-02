@@ -1,12 +1,12 @@
 # Upgrading to a New Liferay Portal CE Rolling Release
 
-Fixes and improvements for Liferay Portal CE are delivered in *rolling releases*. That is, fixes and improvements to a Portal CE GA are published in all newer GA releases for that Portal CE version. For example, fixes to CE 7.3 GA1 are included in all newer CE 7.3 GA releases (i.e., GA2+).
+Fixes and improvements for Liferay Portal CE are delivered in *rolling releases*. That is, fixes and improvements to a Portal CE GA are published in all newer GA releases for that Portal CE version. For example, fixes to CE 7.3 GA1 are included in CE 7.3 GA2 (and any newer CE 7.3 GA).
 
 ```note::
    Upgrading from a Liferay Portal CE *version* to a newer version requires doing a full-on upgrade. An example would be upgrading from version 7.2 to 7.3. Please see `Upgrade Overview <./upgrade-overview.md>`_ for more information.
 ```
 
-Here are the steps for upgrading a Portal CE installation to a new rolling release (this only applies when upgrading between GAs in the same Liferay CE version):
+Here are steps for upgrading from a from one GA to another in the same Liferay Portal CE version:
 
 1. Shut down your Liferay Portal CE server.
 
