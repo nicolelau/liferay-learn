@@ -16,6 +16,21 @@ function check_utils {
 	done
 }
 
+function configure_env {
+
+	#
+	# sudo dnf install python3-sphinx
+	#
+
+	python3 -m venv venv
+
+	source venv/bin/activate
+
+	check_utils pip3 zip
+
+	pip_install recommonmark sphinx sphinx-copybutton sphinx-intl sphinx-markdown-tables sphinx-notfound-page
+}
+
 function generate_sphinx_input {
 	rm -fr build
 
@@ -27,48 +42,40 @@ function generate_sphinx_input {
 
 	cd ../site
 
-	for product_name in `find ../docs -maxdepth 1 -mindepth 1 -printf "%f\n" -type d`
+	for docs_dir_name in `find ../docs -maxdepth 4 -mindepth 4 -type f -name "contents.rst" -printf "%h\n"`
 	do
-		if [[ ${product_name} == _* ]]
-		then
-			continue
-		fi
+		local product_version_language_dir_name=`get_product_version_language_dir_name`
 
-		for version_name in `find ../docs/${product_name} -maxdepth 1 -mindepth 1 -printf "%f\n" -type d`
-		do
-			mkdir -p build/input/${product_name}-${version_name}/docs
+		mkdir -p build/input/${product_version_language_dir_name}/docs
 
-			cp -R docs/* build/input/${product_name}-${version_name}
+		cp -R docs/* build/input/${product_version_language_dir_name}
 
-			cp -R ../docs/${product_name}/${version_name}/en/* build/input/${product_name}-${version_name}
-
-			if [ ! -f "build/input/${product_name}-${version_name}/contents.rst" ]
-			then
-				mv build/input/${product_name}-${version_name}/contents.rst build/input/${product_name}-${version_name}
-			fi
-		done
+		cp -R ../docs/${product_version_language_dir_name}/* build/input/${product_version_language_dir_name}
 	done
 
 	rsync -a homepage/* build/input/homepage --exclude={'*.json','node_modules'}
 }
 
 function generate_static_html {
-	for dir_name in `find build/input -maxdepth 1 -mindepth 1 -printf "%f\n" -type d`
+	for docs_dir_name in `find build/input -maxdepth 4 -mindepth 4 -type f -name "contents.rst" -printf "%h\n" `
 	do
+		local product_version_language_dir_name=`get_product_version_language_dir_name`
+
+		echo "Generating static HTML for `get_product_version_language_dir_name`."
 
 		#
-		# Use Sphinx to generate static HTML.
+		# Use Sphinx to generate static HTML for each product, version, and language.
 		#
 
-		sphinx-build -M html build/input/${dir_name} build/output/${dir_name}
+		sphinx-build -M html "build/input/${product_version_language_dir_name}" "build/output/${product_version_language_dir_name}"
 
-		mv build/output/${dir_name}/html/* build/output/${dir_name}
+		mv build/output/${product_version_language_dir_name}/html/* build/output/${product_version_language_dir_name}
 
 		#
 		# Fix broken links.
 		#
 
-		for html_file_name in `find build/output/${dir_name} -name *.html -type f`
+		for html_file_name in `find build/output/${product_version_language_dir_name} -name *.html -type f`
 		do
 			sed -i 's/.md"/.html"/g' ${html_file_name}
 			sed -i 's/.md#/.html#/g' ${html_file_name}
@@ -80,7 +87,7 @@ function generate_static_html {
 		# Rename README.html to index.html.
 		#
 
-		for readme_file_name in `find build/output/${dir_name} -name *README.html -type f`
+		for readme_file_name in `find build/output/${product_version_language_dir_name} -name *README.html -type f`
 		do
 			mv ${readme_file_name} $(dirname ${readme_file_name})/index.html
 		done
@@ -89,13 +96,13 @@ function generate_static_html {
 		# Update search references for README.html to index.html.
 		#
 
-		sed -i 's/README"/index"/g' build/output/${dir_name}/searchindex.js
+		sed -i 's/README"/index"/g' build/output/${product_version_language_dir_name}/searchindex.js
 
 		#
 		# Make ZIP files.
 		#
 
-		for zip_dir_name in `find build/input/${dir_name} -name *.zip -type d`
+		for zip_dir_name in `find build/input/${product_version_language_dir_name} -name *.zip -type d`
 		do
 			pushd ${zip_dir_name}
 
@@ -114,25 +121,29 @@ function generate_static_html {
 		done
 	done
 
-	mv build/output/homepage/* build/output
+	#
+	# Build the Homepage separately.
+	#
 
-	rmdir build/output/homepage
+	sphinx-build -M html build/input/homepage build/output/homepage
+
+	mv build/output/homepage/html/* build/output/
+
+	rm -fr build/output/homepage
+}
+
+function get_product_version_language_dir_name {
+	local language=$(echo "${docs_dir_name}" | cut -f5 -d'/')
+	local product=$(echo "${docs_dir_name}" | cut -f3 -d'/')
+	local version=$(echo "${docs_dir_name}" | cut -f4 -d'/')
+
+	echo ${product}/${version}/${language}
 }
 
 function main {
 	pushd "${CURRENT_DIR_NAME}" || exit 1
 
-	#
-	# sudo dnf install python3-sphinx
-	#
-
-	python3 -m venv venv
-
-	source venv/bin/activate
-
-	check_utils pip3 zip
-
-	pip_install recommonmark sphinx sphinx-copybutton sphinx-intl sphinx-markdown-tables sphinx-notfound-page
+	configure_env
 
 	generate_sphinx_input
 

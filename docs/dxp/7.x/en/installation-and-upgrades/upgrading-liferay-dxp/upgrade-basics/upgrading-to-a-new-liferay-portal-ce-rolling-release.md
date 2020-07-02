@@ -45,7 +45,7 @@ Here are steps for upgrading from a from one GA to another in the same Liferay P
 
     ```bash
     cd liferay-home/tools/portal-tools-db-upgrade-client
-    db_upgrade.sh -j "-Dfile.encoding=UTF-8 -Duser.timezone=GMT -Xmx2048m" -l "output.log"
+    db_upgrade.sh -j "-Dfile.encoding=UTF-8 -Duser.timezone=GMT -Xmx4096m" -l "output.log"
     ```
 
    If you haven't created [upgrade properties files](../reference/database-upgrade-tool-reference.md#manual-configuration), the upgrade tool prompts you for configuration values, and shows default values in parentheses. Here's an example interaction:
