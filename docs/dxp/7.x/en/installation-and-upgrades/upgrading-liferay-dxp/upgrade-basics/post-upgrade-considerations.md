@@ -4,22 +4,16 @@ After upgrading the DXP database, you should configure DXP for production again 
 
 ## Re-enable Production Settings
 
-Now that your done upgrading your DXP database, you should re-enable your production settings.
+Now that you are done upgrading your DXP database, you should re-enable your production settings.
 
 ### Search Indexing
-
-If you disabled indexing to prevent upgrade process performance issues by configuring the `indexReadOnly="true"` property, then re-enable indexing by removing the `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file or setting `indexReadOnly="false"`.
-
-```bash
-rm osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
-```
 
 Reindex your search indexes in the Control Panel by navigating to *Search* &rarr; *Index Actions* and clicking *Execute* for *Reindex All Search Indexes.*
 
 ![You can reindex your search indexes in the Control Panel.](./post-upgrade-considerations/images/01.png)
 
 ```note::
-   If you upgraded from an older version (7.1 and below) consider `installing Elasticsearch <https://help.liferay.com/hc/en-us/articles/360029031631-Elasticsearch>`_ to handle search indexing.
+   If you upgraded from an older version (7.1 and below) consider using the `Elasticsearch <../../../using-search/installing-and-upgrading-a-search-engine/introduction-to-installing-a-search-engine.md>`_ to handle search indexing.
 ```
 
 ### Database Configurations
