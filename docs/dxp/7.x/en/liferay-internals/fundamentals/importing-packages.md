@@ -48,7 +48,7 @@ ng,javax.portlet;version="[2.0,3)",javax.servlet,javax.servlet.http,j avax.sql
 
 Note that your build file need only specify artifact dependencies. Bnd examines your module's class path to determine which packages from those artifacts contain classes your application uses and imports the packages. The examination includes all classes found in the class path--even those from embedded [third party library JARs](./configuring-dependencies/resolving-third-party-library-package-dependencies.md).
 
-Regarding classes used by a plugin WAR, Liferay's [WAB Generator](../reference/deploying-wars-wab-generator.md) detects their use in the WAR's JSPs, descriptor files, and classes (in `WEB-INF/classes` and embedded JARs). The WAB Generator searches the `web.xml`, `liferay-web.xml`, `portlet.xml`, `liferay-portlet.xml`, and `liferay-hook.xml` descriptor files. It adds package imports for classes that are neither found in the plugin's `WEB-INF/classes` folder nor in its embedded JARs.
+Regarding classes used by a plugin WAR, Liferay's [WAB Generator](../../developing-applications/tooling/other-tools/wab-generator.md) detects their use in the WAR's JSPs, descriptor files, and classes (in `WEB-INF/classes` and embedded JARs). The WAB Generator searches the `web.xml`, `liferay-web.xml`, `portlet.xml`, `liferay-portlet.xml`, and `liferay-hook.xml` descriptor files. It adds package imports for classes that are neither found in the plugin's `WEB-INF/classes` folder nor in its embedded JARs.
 
 ### Java API Packages
 
@@ -64,7 +64,7 @@ Packages for Java APIs, such as Java Portlet, aren't [semantically versioned](./
 
     At build time, Bnd adds the contract instructions to your module's manifest. It adds a requirement for the first version of the API found in your classpath and *removes* version range information from ``Import-Package`` entries for corresponding API packages---the package version information isn't needed.
 
-* **Projects that don't use Bnd** must specify contracts in their OSGi bundle manifest. For example, here's the specified contract for `JavaPortlet` 2.0, which goes in your `META-INF/MANIFEST.MF` file:
+* **Projects that don't use Bnd** must specify contracts in their OSGi bundle manifest. For example, here's the specified contract for ``JavaPortlet`` 2.0, which goes in your ``META-INF/MANIFEST.MF`` file:
 
     ```
     Import-Package: javax.portlet Require-Capability: osgi.contract;filter:=(&(osgi.contract=JavaPortlet)(version=2.0))
@@ -74,7 +74,7 @@ For Portable Java Contract details, see [Portable Java Contract Definitions](htt
 
 ## Manually Adding Package Imports
 
-Bnd and the [WAB Generator](../reference/deploying-wars-wab-generator.md) don't add package imports for classes referenced in these places:
+Bnd and the [WAB Generator](../../developing-applications/tooling/other-tools/wab-generator.md) don't add package imports for classes referenced in these places:
 
 * Unrecognized descriptor file
 * Custom or unrecognized descriptor element or attribute
@@ -90,7 +90,7 @@ In such cases, you must manually determine the packages required and add them to
 | Plugin WAR | `WEB-INF/liferay-plugin-package.properties` |
 
 ```note::
-   The WAB Generator refrains from adding WAR project embedded third-party JARs to a WAB if `Liferay already exports the JAR's packages <../../developing-applications/reference/jars-excluded-from-wabs.md>`_.
+   The WAB Generator refrains from adding WAR project embedded third-party JARs to a WAB if `DXP already exports the JAR's packages <./configuring-dependencies/understanding-excluded-jars.md>`_.
 
    If your WAR requires a different version of a third-party package that DXP exports, specify that package in your ``Import-Package:`` list. Then if the package provider is an OSGi module, publish its exported packages by deploying the module. If the package provider is not an OSGi module, follow the instructions for `adding third-party libraries <./configuring-dependencies/resolving-third-party-library-package-dependencies.md>`_.
 ```
@@ -105,6 +105,6 @@ Congratulations! Now you can import all kinds of packages for your modules and p
 
 * [Liferay Developer Studio](../../developing-applications/tooling/developer-studio.md)
 
-* [Deploying WARs \(WAB Generator\)](../reference/deploying-wars-wab-generator.md)
+* [WAB Generator](../../developing-applications/tooling/other-tools/wab-generator.md)
 
 * [Semantic Versioning](./semantic-versioning.md)
