@@ -1,16 +1,22 @@
 # Upgrade Overview
 
-The complexity and scale of a DXP installation correlates directly to the planning and effort that may be required to upgrade it. Customizations and large data sets can lengthen upgrade times. The Liferay DXP upgrade topics fall into these categories:
+Liferay's tools and instructions facilitate upgrading various environments safely and quickly. Non-clustered environments that have small data sets, for example can be upgraded using a [Docker image](./upgrading-via-docker.md). Environments that are complex, have larger data sets, or have many customizations are upgraded using the [Database Upgrade Tool](./using-the-database-upgrade-tool.md).
+
+```warning::
+   **Always** `back up <../../maintaining-a-liferay-dxp-installation/backing-up.md>`_ your database and installation before upgrading. Testing the upgrade process on backup copies is advised.
+```
+
+```note::
+   `Upgrading via Docker <./upgrading-via-docker.md>`_ is the easiest way to upgrade a database.
+```
+
+Before starting your upgrade, consider what may be involved. The upgrade topics fall into these categories:
 
 * [Preparation and Planning](#preparation-and-planning)
 * [Updating Custom Plugin Code](#updating-custom-plugin-code)
 * [Migrating Configurations and Infrastructure](#migrating-and-updating-configurations-and-infrastructure)
 * [Improving Upgrade Performance](#improving-upgrade-performance)
 * [Executing the Database Upgrade](#executing-the-database-upgrade)
-
-```warning::
-   **Always** `back up <../../maintaining-a-liferay-dxp-installation/backing-up.md>`_ your database and installation before upgrading. Testing the upgrade process on backup copies is advised.
-```
 
 ## Preparation and Planning
 
@@ -86,7 +92,7 @@ The search engine typically indexes regularly while Liferay DXP is running. Howe
 
 There are two ways to upgrade your DXP database:
 
-* [Upgrade via Docker](./upgrading-via-docker.md) involves passing an auto upgrade parameter to the command for starting a DXP Docker image. DXP updates the database and then starts up using the upgraded database.
+* [Upgrade via Docker](./upgrading-via-docker.md) involves passing an auto upgrade parameter to the command for starting a Docker image. The image updates the database and then starts up using the upgraded database.
 
 * [Using the Database Upgrade Tool](./using-the-database-upgrade-tool.md). The Upgrade Tool is a client program for updating the DXP database while it's detached from any DXP instance. It facilitates focusing on the upgrade process, [tuning the database](../upgrade-stability-and-performance/database-tuning-for-upgrades.md) for upgrade operations, and [pruning unnecessary data](../upgrade-stability-and-performance/database-pruning-for-faster-upgrades.md) to quicken the database upgrade.
 
