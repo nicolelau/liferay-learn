@@ -34,8 +34,7 @@ Here are the steps for using the Docker image:
 
     `deploy`: Holds artifacts for copying to the image's auto-deploy folder.
 
-1. If you're using an embedded [Elasticsearch](../../../using-search/installing-and-upgrading-a-search-engine/introduction-to-installing-a-search-engine.md) engine or a local [File Store \(Document Library\)](../../../system-administration/file-storage/configuring-file-storage.md), copy the `[Liferay Home]/data` folder
-folder from your backup to the `files` folder (e.g., creating `new-version/files/data`).
+1. If you're using an embedded [Elasticsearch](../../../using-search/installing-and-upgrading-a-search-engine/introduction-to-installing-a-search-engine.md) engine or a local [File Store \(Document Library\)](../../../system-administration/file-storage/configuring-file-storage.md), copy the `[Liferay Home]/data` folder from your backup to the `files` folder (e.g., creating `new-version/files/data`).
 
 1. Copy the [Liferay Home files](../../maintaining-a-liferay-dxp-installation/backing-up.md#liferay-home) and [application server files](../../maintaining-a-liferay-dxp-installation/backing-up.md#application-server) from your installation backup to their corresponding locations in the `files` folder (your new Liferay Home). The files may include but are not limited to these:
 
