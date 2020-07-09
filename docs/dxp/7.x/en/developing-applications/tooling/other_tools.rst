@@ -15,6 +15,7 @@ Other Tools
    other-tools/mobile-sdk.md
    other-tools/push.md
    other-tools/sync.md
+   other-tools/wab-generator.md
 
 .. include:: /developing-applications/tooling/other-tools/README.rst
    :start-line: 2
