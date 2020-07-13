@@ -1,11 +1,11 @@
 package com.liferay.docs.j1h1.greeting.command;
 
-import com.liferay.docs.j1h1.greeting.api.Greeting;
+import com.liferay.docs.j1h1.greeting.Greeting;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-import com.liferay.docs.j1h1.greeting.api.Greeting;
+import com.liferay.docs.j1h1.greeting.Greeting;
 
 @Component(
     immediate = true,
@@ -18,6 +18,7 @@ import com.liferay.docs.j1h1.greeting.api.Greeting;
 public class GreetingCommand {
 
     public void greet(String name) {
+
         Greeting greeting = _greeting;
 
         greeting.greet(name);

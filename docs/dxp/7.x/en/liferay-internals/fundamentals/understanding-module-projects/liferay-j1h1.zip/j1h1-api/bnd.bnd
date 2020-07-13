@@ -1,4 +1,5 @@
 Bundle-Name: j1h1 Greeting API
-Bundle-SymbolicName: com.liferay.docs.j1h1.greeting.api
+Bundle-SymbolicName: com.liferay.docs.j1h1.greeting
 Bundle-Version: 1.0.0
-Export-Package: com.liferay.docs.j1h1.greeting.api
+Export-Package:\
+        com.liferay.docs.j1h1.greeting

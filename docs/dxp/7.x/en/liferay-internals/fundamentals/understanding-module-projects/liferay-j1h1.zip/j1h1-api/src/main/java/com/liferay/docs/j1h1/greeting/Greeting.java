@@ -1,4 +1,4 @@
-package com.liferay.docs.j1h1.greeting.api;
+package com.liferay.docs.j1h1.greeting;
 
 import aQute.bnd.annotation.ProviderType;
 
