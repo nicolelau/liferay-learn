@@ -55,6 +55,13 @@ db_upgrade.sh --help
 
 Here are steps for upgrading your database with the upgrade tool:
 
+1. Disable search indexing during database upgrade by setting `indexReadOnly="true"` in a `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config`file:
+
+    ```bash
+    mkdir -p liferay-home/files/osgi/configs
+    echo "indexReadOnly=\"true\"" > files/osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
+    ```
+
 1. Start the upgrade tool. Here's an example command:
 
     ```bash
@@ -92,6 +99,12 @@ Here are steps for upgrading your database with the upgrade tool:
     After configuration is complete, the upgrade starts. You can monitor the log file. Log messages are reported for the start and completion of each upgrade process.
 
 1. After the upgrade completes, check the log for any database upgrade failures or errors. You can use [Gogo Shell commands](../upgrade-stability-and-performance/upgrading-modules-using-gogo-shell.md) to troubleshoot issues and finish the upgrades.
+
+1. Re-enable search indexing by setting `indexReadOnly="false"` or by deleting the `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file.
+
+    ```bash
+    rm liferay-home/files/osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
+    ```
 
 1. Prepare for testing Liferay by undoing any upgrade-specific tuning and reviewing the [Post-Upgrade Considerations](./post-upgrade-considerations.md).
 

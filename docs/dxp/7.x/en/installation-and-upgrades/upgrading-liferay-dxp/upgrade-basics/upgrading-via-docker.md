@@ -52,6 +52,13 @@ Here are the steps for using the Docker image:
 
 1. Make sure you're using the JDBC database driver your database vendor recommends. If you're using MySQL, for example, set `jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver` in [`portal-ext.properties`](../../reference/portal-properties.md) and replace the MySQL JDBC driver JAR your app server uses. See [Database Drivers](../configuration-and-infrastructure/migrating-configurations-and-properties.md#database-drivers) for more details.
 
+1. Disable search indexing during database upgrade by setting `indexReadOnly="true"` in a `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config`file:
+
+    ```bash
+    mkdir -p new-version/files/osgi/configs
+    echo "indexReadOnly=\"true\"" > files/osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
+    ```
+
 1. Run the Docker image [mounted](./../installing-liferay/using-liferay-dxp-docker-images/providing-files-to-the-container.md) to your new version folder using the following command, substituting your image name, tag, and environment values as needed:
 
     ```bash
@@ -72,6 +79,12 @@ Here are the steps for using the Docker image:
     ```
 
     If there are any upgrade failures or errors, they're printed to the logs. You can use [Gogo Shell commands](../upgrade-stability-and-performance/upgrading-modules-using-gogo-shell.md) to troubleshoot issues and finish the upgrade.
+
+1. Re-enable search indexing by setting `indexReadOnly="false"` or by deleting the `com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config` file.
+
+    ```bash
+    rm new-version/files/osgi/configs/com.liferay.portal.search.configuration.IndexStatusManagerConfiguration.config
+    ```
 
 1. Validate your upgraded database.
 
