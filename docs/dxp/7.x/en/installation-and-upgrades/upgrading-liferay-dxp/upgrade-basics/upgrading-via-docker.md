@@ -1,6 +1,6 @@
 # Upgrading Via Docker
 
-Running a Liferay Docker image with auto-upgrade enabled upgrades your database on Liferay startup. After the upgrade completes, you can continue [using Liferay via that Docker container](../../../installation-and-upgrades/installing-liferay/using-liferay-dxp-docker-images/dxp-docker-container-basics.md) or use the upgraded database from your existing Liferay installation.
+Running a Liferay Docker image with auto-upgrade enabled upgrades your database on Liferay startup. After the upgrade completes, you can continue [using Liferay via that Docker container](../../../installation-and-upgrades/installing-liferay/using-liferay-dxp-docker-images/dxp-docker-container-basics.md) or point your existing Liferay installation to the upgraded database.
 
 ```important::
    Don't have Docker? Go here first: `Linux <https://docs.docker.com/install/linux/docker-ce/ubuntu/>`_ | `Windows <https://docs.docker.com/docker-for-windows/install/>`_ | `OSX <https://docs.docker.com/docker-for-mac/install/>`_
@@ -9,7 +9,7 @@ Running a Liferay Docker image with auto-upgrade enabled upgrades your database 
 | DXP Edition | Image | Tags |
 | :---------- | :---- | :--- |
 | Liferay DXP (Subscription)| [`dxp`](https://hub.docker.com/r/liferay/dxp) | [here](https://hub.docker.com/r/liferay/dxp/tags) |
-| Liferay Portal CE | [`portal`](https://hub.docker.com/r/liferay/portal) | [here](https://hub.docker.com/r/liferay/dxp/tags) |
+| Liferay Portal CE | [`portal`](https://hub.docker.com/r/liferay/portal) | [here](https://hub.docker.com/r/liferay/portal/tags) |
 
 ```important::
    For critical installations and Subscribers, use the Database Upgrade Tool. For more information see `Using the Database Upgrade Tool <./using-the-database-upgrade-tool.md>`_.
@@ -30,13 +30,13 @@ Here are the steps for using the Docker image:
     mkdir -p new-version/deploy
     ```
 
-    `files`: Holds files for copying to the image's [Liferay Home](../../reference/liferay-home.md) folder.
+    `files`: These files are copied to the Docker container's [Liferay Home](../../reference/liferay-home.md) folder.
 
-    `deploy`: Holds artifacts for copying to the image's auto-deploy folder.
+    `deploy`: Artifacts here are copied to the Docker container's auto-deploy folder.
 
-1. If you're using an embedded [Elasticsearch](../../../using-search/installing-and-upgrading-a-search-engine/introduction-to-installing-a-search-engine.md) engine or a local [File Store \(Document Library\)](../../../system-administration/file-storage/configuring-file-storage.md), copy the `[Liferay Home]/data` folder from your backup to the `files` folder (e.g., creating `new-version/files/data`).
+1. If you're using an embedded [Elasticsearch](../../../using-search/installing-and-upgrading-a-search-engine/introduction-to-installing-a-search-engine.md) engine or a local [File Store \(Document Library\)](../../../system-administration/file-storage/configuring-file-storage.md), copy the `[Liferay Home]/data` folder from your installation backup to the `files` folder (e.g., creating `new-version/files/data`).
 
-1. Copy the [Liferay Home files](../../maintaining-a-liferay-dxp-installation/backing-up.md#liferay-home) and [application server files](../../maintaining-a-liferay-dxp-installation/backing-up.md#application-server) from your installation backup to their corresponding locations in the `files` folder (your new Liferay Home). The files may include but are not limited to these:
+1. Copy the [Liferay Home files](../../maintaining-a-liferay-dxp-installation/backing-up.md#liferay-home) and [application server files](../../maintaining-a-liferay-dxp-installation/backing-up.md#application-server) from your installation backup to their corresponding locations in the `files` folder (your new `[Liferay Home]`). The files may include but are not limited to these:
 
     `/license/*`: Activation keys. (Subscription)
 
@@ -63,7 +63,7 @@ Here are the steps for using the Docker image:
 
     The `-v new-version:/mnt/liferay` arguments bind mount the `new-version` folder on the host to `/mnt/liferay` in the container. Please see [Providing Files to the Container](../../installing-liferay/using-liferay-dxp-docker-images/providing-files-to-the-container.md) for more information on the mapping files to Liferay Home in the Docker container.
 
-    The parameter `-e LIFERAY_UPGRADE_PERIOD_DATABASE_PERIOD_AUTO_PERIOD_RUN=true` triggers the database upgrade processes to run.
+    The parameter `-e LIFERAY_UPGRADE_PERIOD_DATABASE_PERIOD_AUTO_PERIOD_RUN=true` triggers the database upgrade process.
 
 1. In the console or log, confirm successful database upgrade and server startup. Upgrade process messages report starting and completing each upgrade process. A message like this one indicates server startup completion:
 

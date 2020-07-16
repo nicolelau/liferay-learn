@@ -1,6 +1,6 @@
 # Using the Database Upgrade Tool
 
-The Liferay Database Upgrade Tool is a client program for upgrading DXP databases offline.
+The Liferay Database Upgrade Tool is a client program for upgrading Liferay Liferay and Liferay Portal CE databases offline.
 
 ```warning::
    **Always** `back up <../../maintaining-a-liferay-dxp-installation/backing-up.md>`_ your data and installation before upgrading. Testing the upgrade process on backup copies is advised.
@@ -10,13 +10,13 @@ The Liferay Database Upgrade Tool is a client program for upgrading DXP database
    If you're upgrading from 6.2 or earlier, update your file store configuration. See the `Updating the File Store <../configuration-and-infrastructure/updating-the-file-store.md>`_ for more information.
 ```
 
-Modifying a database while it's detached from DXP allows you to [tune the database for upgrade operations](../upgrade-stability-and-performance/database-tuning-for-upgrades.md), [prune unnecessary data](../upgrade-stability-and-performance/database-tuning-for-upgrades.md) (e.g., unneeded versions of Web Content, Documents, and more) to improve upgrade performance, and resolve upgrade issues. These activities are especially important for upgrading large, enterprise-level DXP environments safely and as quickly as possible. After you've accounted for tuning and pruning the database and completing relevant tasks described in the [Upgrade Overview](./upgrade-overview.md), you're ready to upgrade the database using the upgrade tool.
+Modifying a database while it's detached from your Liferay instance allows you to [tune the database for upgrade operations](../upgrade-stability-and-performance/database-tuning-for-upgrades.md), [prune unnecessary data](../upgrade-stability-and-performance/database-tuning-for-upgrades.md) (e.g., unneeded versions of Web Content, Documents, and more) to improve upgrade performance, and resolve upgrade issues. These activities are especially important for upgrading DXP and any large, critical Portal CE environments safely and as quickly as possible. After you've accounted for tuning and pruning the database and completing relevant tasks described in the [Upgrade Overview](./upgrade-overview.md), you're ready to upgrade the database using the upgrade tool.
 
-After setting up your new DXP installation, you can upgrade your database using the database upgrade tool.
+After setting up your new Liferay installation, you can upgrade your database using the database upgrade tool.
 
-## Setting Up a New DXP Installation
+## Setting Up a New  Installation
 
-1. Install the new DXP release.
+1. Install the new Liferay release.
 
 1. Replace the new installation's `[Liferay Home]/data` folder with the `[Liferay Home]/data` folder from your backup.
 
@@ -55,14 +55,14 @@ db_upgrade.sh --help
 
 Here are steps for upgrading your database with the upgrade tool:
 
-1. Execute the upgrade tool. Here's an example command:
+1. Start the upgrade tool. Here's an example command:
 
     ```bash
     cd liferay-home/tools/portal-tools-db-upgrade-client
     db_upgrade.sh -j "-Dfile.encoding=UTF-8 -Duser.timezone=GMT -Xmx4096m" -l "output.log"
     ```
 
-    The command above executes the upgrade tool with the same JVM options recommended for a DXP application server. File encoding (`UTF-8`), time zone (`GMT`), country, language, and memory settings (`-Xmx value`) should all match your application server's settings. For databases with >= 10 GB of data, we recommend allocated additional memory over the 4 GB default. The `-l "[file]"` arguments direct upgrade tool log messages to the specified file.
+    The command above executes the upgrade tool with the same JVM options recommended for the application server. File encoding (`UTF-8`), time zone (`GMT`), country, language, and memory settings (`-Xmx value`) should all match your application server's settings. For databases with >= 10 GB of data, we recommend allocated additional memory over the 4 GB default. The `-l "[file]"` arguments direct upgrade tool log messages to the specified file.
 
    If you haven't created [upgrade properties files](../reference/database-upgrade-tool-reference.md#manual-configuration), the upgrade tool prompts you for configuration values, and shows default values in parentheses. Here's an example interaction:
 
@@ -93,13 +93,13 @@ Here are steps for upgrading your database with the upgrade tool:
 
 1. After the upgrade completes, check the log for any database upgrade failures or errors. You can use [Gogo Shell commands](../upgrade-stability-and-performance/upgrading-modules-using-gogo-shell.md) to troubleshoot issues and finish the upgrades.
 
-1. Prepare for testing DXP by undoing any upgrade-specific tuning and reviewing the [Post-Upgrade Considerations](./post-upgrade-considerations.md).
+1. Prepare for testing Liferay by undoing any upgrade-specific tuning and reviewing the [Post-Upgrade Considerations](./post-upgrade-considerations.md).
 
-1. Start your server and validate DXP with its upgraded database.
+1. Start your server and validate Liferay with its upgraded database.
 
     ![Here is the Liferay DXP landing screen.](./using-the-database-upgrade-tool/images/01.png)
 
-You've upgraded your DXP database using the upgrade tool.
+You've upgraded your Liferay database using the upgrade tool.
 
 If this was a trial upgrade and you want to shorten the upgrade time, tune your database for upgrade (if you haven't already) and [review for and remove unnecessary data](../upgrade-stability-and-performance/database-pruning-for-faster-upgrades.md) from the database. Repeat this article as necessary.
 
