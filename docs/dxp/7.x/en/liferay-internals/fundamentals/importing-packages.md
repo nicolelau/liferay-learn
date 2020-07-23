@@ -64,7 +64,7 @@ Packages for Java APIs, such as Java Portlet, aren't [semantically versioned](./
 
     At build time, Bnd adds the contract instructions to your module's manifest. It adds a requirement for the first version of the API found in your classpath and *removes* version range information from ``Import-Package`` entries for corresponding API packages---the package version information isn't needed.
 
-* **Projects that don't use Bnd** must specify contracts in their OSGi bundle manifest. For example, here's the specified contract for ``JavaPortlet`` 2.0, which goes in your ``META-INF/MANIFEST.MF`` file:
+* **Projects that don't use Bnd** must specify contracts in their OSGi bundle manifest. For example, here's the specified contract for `JavaPortlet` 2.0, which goes in your `META-INF/MANIFEST.MF` file:
 
     ```
     Import-Package: javax.portlet Require-Capability: osgi.contract;filter:=(&(osgi.contract=JavaPortlet)(version=2.0))
