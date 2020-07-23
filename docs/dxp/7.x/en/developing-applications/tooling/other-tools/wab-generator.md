@@ -1,3 +1,0 @@
-# WAB Generator
-
-Coming soon!

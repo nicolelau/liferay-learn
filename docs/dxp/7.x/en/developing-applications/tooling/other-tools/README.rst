@@ -11,7 +11,6 @@ Other Tools
 -  :doc:`/developing-applications/tooling/other-tools/mobile-sdk`
 -  :doc:`/developing-applications/tooling/other-tools/push`
 -  :doc:`/developing-applications/tooling/other-tools/sync`
--  :doc:`/developing-applications/tooling/other-tools/wab-generator`
 
 Liferay npm Bundler
 -------------------

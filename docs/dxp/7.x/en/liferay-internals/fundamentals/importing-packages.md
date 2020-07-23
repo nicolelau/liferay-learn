@@ -48,7 +48,7 @@ ng,javax.portlet;version="[2.0,3)",javax.servlet,javax.servlet.http,j avax.sql
 
 Note that your build file need only specify artifact dependencies. Bnd examines your module's class path to determine which packages from those artifacts contain classes your application uses and imports the packages. The examination includes all classes found in the class path--even those from embedded [third party library JARs](./configuring-dependencies/resolving-third-party-library-package-dependencies.md).
 
-Regarding classes used by a plugin WAR, Liferay's [WAB Generator](../../developing-applications/tooling/other-tools/wab-generator.md) detects their use in the WAR's JSPs, descriptor files, and classes (in `WEB-INF/classes` and embedded JARs). The WAB Generator searches the `web.xml`, `liferay-web.xml`, `portlet.xml`, `liferay-portlet.xml`, and `liferay-hook.xml` descriptor files. It adds package imports for classes that are neither found in the plugin's `WEB-INF/classes` folder nor in its embedded JARs.
+Regarding classes used by a plugin WAR, Liferay's [WAB Generator](../reference/deploying-wars-wab-generator.md) detects their use in the WAR's JSPs, descriptor files, and classes (in `WEB-INF/classes` and embedded JARs). The WAB Generator searches the `web.xml`, `liferay-web.xml`, `portlet.xml`, `liferay-portlet.xml`, and `liferay-hook.xml` descriptor files. It adds package imports for classes that are neither found in the plugin's `WEB-INF/classes` folder nor in its embedded JARs.
 
 ### Java API Packages
 
@@ -74,7 +74,7 @@ For Portable Java Contract details, see [Portable Java Contract Definitions](htt
 
 ## Manually Adding Package Imports
 
-Bnd and the [WAB Generator](../../developing-applications/tooling/other-tools/wab-generator.md) don't add package imports for classes referenced in these places:
+Bnd and the [WAB Generator](../reference/deploying-wars-wab-generator.md) don't add package imports for classes referenced in these places:
 
 * Unrecognized descriptor file
 * Custom or unrecognized descriptor element or attribute
@@ -105,6 +105,6 @@ Congratulations! Now you can import all kinds of packages for your modules and p
 
 * [Liferay Developer Studio](../../developing-applications/tooling/developer-studio.md)
 
-* [WAB Generator](../../developing-applications/tooling/other-tools/wab-generator.md)
+* [Deploying WARs \(WAB Generator\)](../reference/deploying-wars-wab-generator.md)
 
 * [Semantic Versioning](./semantic-versioning.md)
