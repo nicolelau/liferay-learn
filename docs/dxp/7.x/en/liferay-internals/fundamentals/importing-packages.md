@@ -90,7 +90,7 @@ In such cases, you must manually determine the packages required and add them to
 | Plugin WAR | `WEB-INF/liferay-plugin-package.properties` |
 
 ```note::
-   The WAB Generator refrains from adding WAR project embedded third-party JARs to a WAB if `DXP already exports the JAR's packages <./configuring-dependencies/understanding-excluded-jars.md>`_.
+   The WAB Generator refrains from adding WAR project embedded third-party JARs to a WAB if `Liferay already exports the JAR's packages <../../developing-applications/reference/jars-excluded-from-wabs.md>`_.
 
    If your WAR requires a different version of a third-party package that DXP exports, specify that package in your ``Import-Package:`` list. Then if the package provider is an OSGi module, publish its exported packages by deploying the module. If the package provider is not an OSGi module, follow the instructions for `adding third-party libraries <./configuring-dependencies/resolving-third-party-library-package-dependencies.md>`_.
 ```
