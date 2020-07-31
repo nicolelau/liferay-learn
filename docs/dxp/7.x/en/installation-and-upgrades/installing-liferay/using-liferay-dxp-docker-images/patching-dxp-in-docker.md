@@ -148,3 +148,4 @@ After the database is upgraded, run your container that uses that database.
 * [Providing Files to the Container](./providing-files-to-the-container.md)
 * [DXP Container Lifecycle and API](./dxp-container-lifecycle-and-api.md)
 * [Using the Database Upgrade Tool](../../upgrading-liferay/upgrade-basics/using-the-database-upgrade-tool.md)
+* [Upgrading to a New Docker Image](./upgrading-to-a-new-docker-image.md)
