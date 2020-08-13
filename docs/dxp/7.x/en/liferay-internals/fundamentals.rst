@@ -10,6 +10,7 @@ Fundamentals
    fundamentals/exporting-packages.md
    fundamentals/semantic-versioning.md
    fundamentals/using-felix-gogo-shell.md
+   fundamentals/apis-as-osgi-services.md
    fundamentals/configuring-dependencies/configuring-dependencies.rst
 
 .. include:: /liferay-internals/fundamentals/README.rst

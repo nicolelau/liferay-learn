@@ -7,6 +7,7 @@ Fundamentals
 -  :doc:`/liferay-internals/fundamentals/exporting-packages`
 -  :doc:`/liferay-internals/fundamentals/semantic-versioning`
 -  :doc:`/liferay-internals/fundamentals/using-felix-gogo-shell`
+-  :doc:`/liferay-internals/fundamentals/apis-as-osgi-services`
 
 Configuring Dependencies
 ------------------------
