@@ -1,8 +1,8 @@
 # Importing Packages
 
-Plugins often must use Java classes from packages outside of themselves. Another OSGi bundle (a module or an OSGi Web Application Bundle) in the OSGi framework must [export](./exporting-packages.md) a package for your plugin to import it.
+Modules often depend on functionality from other modules. Modules in the OSGi framework must [export](./exporting-packages.md) a package for your plugin to import it.
 
-When an OSGi bundle (bundle) is set up to import packages, the OSGi framework finds other registered bundles that export the needed packages and wires them to the importing bundle. At run time, the importing bundle gets the class from the wired bundle that exports the class's package.
+When an OSGi module imports packages, the OSGi framework finds other registered bundles (modules) that export the needed packages and wires them to the importing bundle. At run time, the importing bundle gets the class from the wired bundle that exports the package.
 
 For this to happen, a bundle's `META-INF/MANIFEST.MF` file must specify the `Import-Package` OSGi manifest header with a comma-separated list of the Java packages it needs. For example, if a bundle needs classes from the `javax.portlet` and `com.liferay.portal.kernel.util` packages, it must specify them like so:
 
@@ -16,11 +16,11 @@ Import packages must sometimes be specified manually, but not always. Convenient
 
 * [Manually Adding Package Imports](#manually-adding-package-imports)
 
-Let's explore how package imports are specified in these scenarios.
+Read below to explore how package imports are specified in these scenarios.
 
 ## Automatic Package Import Generation
 
-Gradle projects created using [Blade CLI](../../../developing-applications/tooling/blade-cli/generating-projects-with-blade-cli.md) or [Liferay Developer Studio](../../developing-applications/tooling/developer-studio.md) use [Bnd](http://bnd.bndtools.org/). On building such a project's module JAR, Bnd detects the packages the module uses and generates a `META-INF/MANIFEST.MF` file whose `Import-Package` header specifies the packages.
+Workspace-based projects created using [Blade CLI](../../../developing-applications/tooling/blade-cli/generating-projects-with-blade-cli.md) or [Liferay Developer Studio](../../developing-applications/tooling/developer-studio.md) use [Bnd](http://bnd.bndtools.org/). On building such a project's module JAR, Bnd detects the packages the module uses and generates a `META-INF/MANIFEST.MF` file whose `Import-Package` header specifies the packages.
 
 ```note::
    Liferay's project templates use `a third-party Gradle plugin <https://github.com/TomDmitriev/gradle-bundle-plugin>`_ to invoke Bnd.
@@ -30,7 +30,7 @@ For example, suppose you're developing a Liferay module. In most cases, you spec
 
 Here's an example dependencies section from a module's `build.gradle` file:
 
-```properties
+```groovy
 dependencies {
     compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
     compileOnly group: "javax.portlet", name: "portlet-api", version: "2.0"
