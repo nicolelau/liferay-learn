@@ -28,22 +28,19 @@ Workspace-based projects created using [Blade CLI](../../../developing-applicati
 
 For example, suppose you're developing a Liferay module. In most cases, you specify your module's dependencies in your `build.gradle` file. At build time, the Gradle module plugin reads your `build.gradle` file and Bnd adds the required `Import-Package` headers to your module JAR's `META-INF/MANIFEST.MF`.
 
-Here's an example dependencies section from a module's `build.gradle` file:
+Here's an example dependencies section from the [Gogo Command Sample](https://github.com/liferay/liferay-blade-samples/tree/7.3/liferay-workspace/extensions/gogo)'s `build.gradle` file:
 
 ```groovy
 dependencies {
-    compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
-    compileOnly group: "javax.portlet", name: "portlet-api", version: "2.0"
-    compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations", version: "1.3.0"
+    compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel"
+    compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations"
 }
 ```
 
 And here's the `Import-Package` header that's generated in the module JAR's `META-INF/MANIFEST.MF` file:
 
 ```properties
-Import-Package: com.liferay.portal.kernel.portlet.bridges.mvc;version=
-"[1.0,2)",com.liferay.portal.kernel.util;version="[7.0,8)",javax.nami
-ng,javax.portlet;version="[2.0,3)",javax.servlet,javax.servlet.http,j avax.sql
+Import-Package: com.liferay.portal.kernel.service;version="[4.3,5)"
 ```
 
 Note that your build file need only specify artifact dependencies. Bnd examines your module's class path to determine which packages from those artifacts contain classes your application uses and imports the packages. The examination includes all classes found in the class path--even those from embedded [third party library JARs](./configuring-dependencies/resolving-third-party-library-package-dependencies.md).
