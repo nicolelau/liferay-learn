@@ -20,7 +20,7 @@ Read below to explore how package imports are specified in these scenarios.
 
 ## Automatic Package Import Generation
 
-Workspace-based projects created using [Blade CLI](../../../developing-applications/tooling/blade-cli/generating-projects-with-blade-cli.md) or [Liferay Developer Studio](../../developing-applications/tooling/developer-studio.md) use [Bnd](http://bnd.bndtools.org/). On building such a project's module JAR, Bnd detects the packages the module uses and generates a `META-INF/MANIFEST.MF` file whose `Import-Package` header specifies the packages.
+[Workspace](../../developing-applications/tooling/liferay-workspace.md)-based projects created using [Blade CLI](../../../developing-applications/tooling/blade-cli/generating-projects-with-blade-cli.md) or [Liferay Developer Studio](../../developing-applications/tooling/developer-studio.md) use [Bnd](http://bnd.bndtools.org/). On building such a project's module JAR, Bnd detects the packages the module uses and generates a `META-INF/MANIFEST.MF` file whose `Import-Package` header specifies the packages.
 
 ```note::
    Liferay's project templates use `a third-party Gradle plugin <https://github.com/TomDmitriev/gradle-bundle-plugin>`_ to invoke Bnd.
