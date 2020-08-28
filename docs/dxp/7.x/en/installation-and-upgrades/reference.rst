@@ -9,7 +9,11 @@ Reference
    reference/system-properties.md
    reference/database-templates.md
    reference/database-configurations.md
-   reference/jvm-configurations.md
+   reference/jvm-configuration.md
 
-.. include:: /installation-and-upgrades/reference/README.rst
-   :start-line: 2
+-  :doc:`/installation-and-upgrades/reference/liferay-home`
+-  :doc:`/installation-and-upgrades/reference/portal-properties`
+-  :doc:`/installation-and-upgrades/reference/system-properties`
+-  :doc:`/installation-and-upgrades/reference/database-templates`
+-  :doc:`/installation-and-upgrades/reference/database-configurations`
+-  :doc:`/installation-and-upgrades/reference/jvm-configuration`

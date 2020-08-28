@@ -16,11 +16,12 @@ First, you must create a Collection:
 1. Run the command below to start the Docker container:
 
     ```bash
-    docker run -it -p 8080:8080 liferay/portal:7.3.1-ga2
+    docker run -it -p 8080:8080 liferay/portal:7.3.3-ga4
     ```
 
+1. Access the site at `http://localhost:8080`; user name `test@liferay.com`; password `test`.
 1. Select the Site you wish to build.
-1. Open the Product Menu and go to Site &rarr; *Site Builder* &rarr; *Page Fragments*. From this page you can manage your Page Fragments and Collections. See [Managing Page Fragments](../../using-fragments/managing-page-fragments.md) for more information on the available actions for Page Fragments.
+1. Open the Product Menu and go to Site &rarr; *Site Builder* &rarr; *Page Fragments*. From this page you can manage your Page Fragments and Collections. See [Managing Page Fragments](../../displaying-content/using-fragments/managing-page-fragments.md) for more information on the available actions for Page Fragments.
 1. Click the (![Add Button](../../../images/icon-add-app.png)) and enter a name and optional description for the Collection.
 
 ![Collections help you organize Fragments.](./using-the-fragments-editor/images/01.png)
@@ -76,7 +77,7 @@ Now that the Collection is created, you can add a Fragment:
 
     ![A live preview is displayed as the code is updated.](./using-the-fragments-editor/images/03.png)
 
-1. Click *Publish* to save your work and make it available to add to a [Content Page](../../creating-pages/understanding-pages.md#content-pages).
+1. Click *Publish* to save your work and make it available to add to a [Content Page](../../creating-pages/understanding-pages/understanding-pages.md#content-pages).
 
     ![The Fragment can be used on a Content Page.](./using-the-fragments-editor/images/04.png)
 
@@ -89,4 +90,4 @@ Great! You've successfully created a Fragment Collection and added a new Fragmen
 ## Related Information
 
 * [Developing Page Fragments with the Fragments Toolkit](./using-the-fragments-toolkit.md)
-* [Adding Configuration Options to Fragments](./adding-configuration-options-to-fragments.md) <!-- TODO: Fix link -->
+* [Adding Configuration Options to Fragments](./adding-configuration-options-to-fragments.md)

@@ -2,17 +2,26 @@
 
 Once you've [added a Content Page](../adding-pages/adding-a-page-to-a-site.md), you may begin building your page by adding and configuring the various [Content Page elements](./content-pages-overview.md).
 
+When you enter the Site Builder view, you can add or edit your content using two different editing modes:
+
+* *Page Design*: Using this mode, you can edit the page design and content. This option is only available for users with permission to update the page and the page content.
+* *Content Edition*: Using this mode, you can only edit the content. This option is available for users with permission to update the page, but not the page content.
+
+The editing options available in the Content Page sidebar depend on the editing mode you choose.
+
+![Choose between Page Design or Content Edition editing modes.](building-content-pages/images/18.png)
+
 ## Adding Elements to a Content Page
 
 1. Enter the Site Builder view for your Content Page. Open the Product Menu and go to *Site Builder* &rarr; *Pages* under your Site's Menu.
 
     ![Begin by editing your new Content Page in the Site Builder menu.](building-content-pages/images/01.png)
 
-    ![A Content Page is blank to begin with. You must add Fragments to it to build it.](./building-content-pages/images/02.png)
-
     ```note::
        New Content Pages start empty and in a *Draft* status. The page is not visible until it is published.
     ```
+
+    ![A Content Page is blank to begin with. You must add Fragments to it to build it.](./building-content-pages/images/02.png)
 
 1. Open the Content Page sidebar and begin adding Page Fragment elements.
 
@@ -39,6 +48,16 @@ Once you've [added a Content Page](../adding-pages/adding-a-page-to-a-site.md), 
     ```
 
 1. Click the *Publish* button in the top right to make the updates available to the live page.
+
+### Content Page Editing
+
+> Available: Liferay 7.3+
+
+You can revert any action using the *Undo* (![Preview](../../../images/icon-undo.png)) or *Redo* (![Preview](../../../images/icon-redo.png)) buttons, or you can return to a previous version of your edits using the *History* (![Preview](../../../images/icon-time.png)) button.
+
+![Revert your changes using the Undo, Redo, and History buttons.](./building-content-pages/images/17.png)
+
+To preview your Content Page, click the *Preview* button (![Preview](../../../images/icon-preview.png)).
 
 ## Configuring Elements on a Content Page
 
@@ -167,7 +186,7 @@ The saved Fragment composition can be used immediately in the Fragments sidebar 
 Compositions can be exported/imported between sites just as any other Fragment.
 
 ```note::
-  The latest version of the `Liferay Fragments Toolkit <../developer-guide/developing-fragments/developing-page-fragments/developing-page-fragments-with-the-fragments-toolkit.md>`_ supports creation, export/import, and preview of Fragment compositions.
+  The latest version of the `Liferay Fragments Toolkit <../../developer-guide/developing-page-fragments/using-the-fragments-editor.md>`_ supports creation, export/import, and preview of Fragment compositions.
 ```
 
 ### Configuring Section Width and Padding
@@ -207,7 +226,7 @@ You can also map these elements to content. You can set the *Content* for the el
    Many mapping improvements were released in Liferay DXP 7.2 SP1+ and Liferay Portal 7.2 GA2+. For example, mapping editable elements to text/URL fields of existing content and mapping Fragment background images to image fields of existing content. You can also `map Web Content Templates to Fragments <./mapping-web-content-templates-to-fragments.md>`_.
 ```
 
-When you create Content Pages, you can create different **Experiences** for users based on User Segments. You can create a unique Experience on any Content Page for any existing User Segment. For more information, see the [Content Page Personalization guide](../../personalizing-site-experience/README.md).
+When you create Content Pages, you can create different **Experiences** for users based on User Segments. You can create a unique Experience on any Content Page for any existing User Segment. For more information, see the [Content Page Personalization guide](../../personalizing-site-experience/personalizing-site-experience.md).
 
 ## Related Information
 

@@ -8,8 +8,14 @@ Building and Managing Content Pages
    building-and-managing-content-pages/building-content-pages.md
    building-and-managing-content-pages/using-widgets-on-a-content-page.md
    building-and-managing-content-pages/managing-web-content-on-content-pages.md
+   building-and-managing-content-pages/using-fragments.md
    building-and-managing-content-pages/mapping-web-content-templates-to-fragments.md
    building-and-managing-content-pages/using-fragment-comments.md
 
-.. include:: /site-building/creating-pages/building-and-managing-content-pages/README.rst
-   :start-line: 2
+-  :doc:`/site-building/creating-pages/building-and-managing-content-pages/content-pages-overview`
+-  :doc:`/site-building/creating-pages/building-and-managing-content-pages/building-content-pages`
+-  :doc:`/site-building/creating-pages/building-and-managing-content-pages/using-fragments`
+-  :doc:`/site-building/creating-pages/building-and-managing-content-pages/mapping-web-content-templates-to-fragments`
+-  :doc:`/site-building/creating-pages/building-and-managing-content-pages/using-widgets-on-a-content-page`
+-  :doc:`/site-building/creating-pages/building-and-managing-content-pages/managing-web-content-on-content-pages`
+-  :doc:`/site-building/creating-pages/building-and-managing-content-pages/using-fragment-comments`

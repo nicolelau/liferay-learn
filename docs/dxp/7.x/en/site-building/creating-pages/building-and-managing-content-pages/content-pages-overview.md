@@ -4,6 +4,10 @@ The default type of page used in Liferay DXP is a Content Page. The Content Page
 
 ![Using the Content Page sidebar to add elements to the page.](./content-pages-overview/images/14.png)
 
+The editing options available in the Content Page sidebar depend on the editing mode you choose. For more information, see [Building Content Pages](./building-content-pages.md).
+
+![Choose between Page Design or Content Edition editing modes.](building-content-pages/images/18.png)
+
 The Content Page sidebar contains these elements and tools for Content Pages:
 
 * [Fragments](#fragments)
@@ -13,23 +17,15 @@ The Content Page sidebar contains these elements and tools for Content Pages:
 * [Look and Feel](#look-and-feel)
 * [Comments](#comments)
 
-Liferay Portal ships with several Layouts, Fragments, and Widgets that you can use to build pages. Developers can [create their own Fragments](../developer-guide/developing-page-fragments/developing-fragments-intro.md) to add to these.
+Liferay Portal ships with several Layouts, Fragments, and Widgets that you can use to build pages. Developers can [create their own Fragments](../../developer-guide/developing-page-fragments/developing-fragments-intro.md) to add to these.
 
 ## Fragments
-
-<!-- ```note::
-   Available in Liferay DXP 7.3+. This panel was previously divided between the *Sections* and *Section Builder* panels.
-``` -->
 
 > Available: Liferay 7.3+; previously divided between *Sections* and *Section Builder* panels.
 
 You can drag-and-drop Fragments on a page. Fragments can have editable elements, such as [text](./building-content-pages.md#editing-text), [images](./building-content-pages.md#editing-an-image), or [links](./building-content-pages.md#editing-a-hyperlink), that you can replace with custom content. You can also [map these elements](./building-content-pages.md#mapping-content) to content that is already available on the site itself. For more information on developing these elements, see [Fragment Specific Tags](../../developer-guide/developing-page-fragments/fragment-specific-tags-reference.md).
 
 ### Layout Elements
-
-<!-- ```note::
-  In Liferay Portal CE 7.3 GA2+ this panel is called Layout Elements. Previously this panel was called Layouts and contained layout options with preconfigured panels and rows.
-``` -->
 
 > Available: Liferay Portal CE 7.3 GA2+; previously called Layouts and contained layout options with preconfigured panels and rows.
 
@@ -80,7 +76,7 @@ The *Navigation Bars* panel includes Fragments that you can add as the Header of
 
 > Available: Liferay DXP 7.3+
 
-You can display a single existing web content, blog entry, or document by adding a Content Display Fragment from the *Content Display* panel. See [Using the Content Display Fragment](./README.md#using-fragments) for more information.
+You can display a single existing web content, blog entry, or document by adding a Content Fragment from the *Content Display* panel. See [Using the Content Display Fragment](./using-fragments.md#using-the-content-fragment) for more information.
 
 ## Widgets
 

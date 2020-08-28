@@ -1,10 +1,10 @@
 # Installing on WebLogic
 
-If you are choosing to use Weblogic as your application server, it is *highly recommended* to install DXP to a WebLogic Managed server. A managed server can start or stop DXP quickly and can be converted to a cluster configuration. The instructions below describe installing DXP to a Managed Server.
+If you are choosing to use WebLogic as your application server, it is *highly recommended* to install DXP to a WebLogic Managed server. A managed server can start or stop DXP quickly and can be converted to a cluster configuration. The instructions below describe installing DXP to a Managed Server.
 
 Before installing DXP, configure an Admin Server and a Managed Server following [WebLogic's documentation](http://www.oracle.com/technetwork/middleware/weblogic/documentation/index.html).
 
-Liferay DXP requires Java JDK 8 or 11. See [the compatibility matrix](https://www.liferay.com/documents/10182/246659966/Liferay+DXP+7.2+Compatibility+Matrix.pdf/ed234765-db47-c4ad-7c82-2acb4c73b0f9) to choose a JDK.
+Liferay DXP requires a Java JDK 8 or 11. See [the compatibility matrix](https://www.liferay.com/documents/10182/246659966/Liferay+DXP+7.2+Compatibility+Matrix.pdf/ed234765-db47-c4ad-7c82-2acb4c73b0f9) to choose a JDK. See [JVM Configuration](../../reference/jvm-configuration.md) for recommended settings.
 
 Download these files from the [Help Center](https://customer.liferay.com/downloads) (subscription) or from [Liferay Community Downloads](https://www.liferay.com/downloads-community):
 
@@ -17,6 +17,7 @@ Installing Liferay DXP on WebLogic requires the following steps:
 1. [Configure WebLogic for DXP](#configure-weblogic)
 1. [Declare the Liferay Home folder](#declare-the-liferay-home-folder)
 1. [Install the dependencies](#install-dxp-dependencies)
+1. [Install Elasticsearch archives](#install-elasticsearch-archives)
 1. [Connect to Database](#connect-to-database)
 1. [Connect to Mail Server](#connect-to-mail-server)
 1. [Deploy the WAR](#deploy-the-war)
@@ -120,6 +121,22 @@ DXP depends on libraries (Dependencies ZIP) and OSGi modules (OSGi Dependencies 
 DXP communicates with your database via JDBC. Add your database JDBC driver JAR file to the domain's `lib` folder.
 
 Please see the [compatibility matrix](https://www.liferay.com/documents/10182/246659966/Liferay+DXP+7.2+Compatibility+Matrix.pdf/ed234765-db47-c4ad-7c82-2acb4c73b0f9) for a list of supported databases.
+
+## Install Elasticsearch Archives
+
+When you start Liferay DXP 7.3, it installs and starts a default [sidecar](../../../using-search/installing-and-upgrading-a-search-engine/elasticsearch/using-the-built-in-elasticsearch.md) Elasticsearch server. For the installation to succeed, you must provide some archives:
+
+1. Download the following archives:
+
+    * [Elasticsearch OSS No JDK 7.3](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/release-notes-7.3.2.html) ([available here--7.3.2](https://www.elastic.co/downloads/past-releases/elasticsearch-oss-no-jdk-7-3-2))
+    * [ICU Analysis Plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/7.3/analysis-icu.html) ([download](https://artifacts.elastic.co/downloads/elasticsearch-plugins/analysis-icu/analysis-icu-7.3.2.zip))
+    * [Japanese (kuromoji) Analysis Plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/7.3/analysis-kuromoji.html) ([download](https://artifacts.elastic.co/downloads/elasticsearch-plugins/analysis-kuromoji/analysis-kuromoji-7.3.2.zip))
+    * [Smart Chinese Analysis Plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/7.3/analysis-smartcn.html) ([download](https://artifacts.elastic.co/downloads/elasticsearch-plugins/analysis-smartcn/analysis-smartcn-7.3.2.zip))
+    * [Stempel Polish Analysis Plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/7.3/analysis-stempel.html) ([download](https://artifacts.elastic.co/downloads/elasticsearch-plugins/analysis-stempel/analysis-stempel-7.3.2.zip))
+
+1. Copy the downloaded files into `[Liferay Home]`.
+
+When Liferay DXP is started, the archives are unpackaged and installed, and the sidecar Elasticsearch server is started.
 
 ## Connect to Database
 
