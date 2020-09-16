@@ -17,5 +17,5 @@
 <%@ include file="/init.jsp" %>
 
 <p>
-	<b class="redBackground"><liferay-ui:message key="acme_w3e7_W3E7Portlet.caption"/></b>
+	<b class="redBackground"><liferay-ui:message key="hello-from-w3e7-portlet"/></b>
 </p>
